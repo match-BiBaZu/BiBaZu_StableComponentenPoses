@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "workpieces": [
+    {
+      "status": "pending",
+      "workpiece": "Df1a"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Df2i"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Df4a"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Dk1i"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Dk2a"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Dk4i"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Dl1a"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Dl2i"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Dl4a"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Kf1i"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Kf2a"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Kf4i"
+    },
+    {
+      "length_mm": 500,
+      "poses": 2,
+      "run_id": "497fa5fa9ad5b010b13636360b343f7478bd44239b3c29b0561a28bfeac5c3d9",
+      "settled": 4,
+      "status": "complete",
+      "trials": 10,
+      "workpiece": "Kk1a"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Kk2i"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Kk4a"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Kl1i"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Kl2a"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Kl4i"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Qf1i"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Qf2a"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Qf4i"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Qk1a"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Qk2i"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Qk4a"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Ql1i"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Ql2a"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Ql4i"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Rf1a"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Rf2i"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Rf3a"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Rf4i"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Rk1a"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Rk2i"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Rk3a"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Rk4i"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Rl1a"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Rl2i"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Rl3a"
+    },
+    {
+      "status": "pending",
+      "workpiece": "Rl4i"
+    }
+  ]
+}

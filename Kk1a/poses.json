@@ -1,0 +1,201 @@
+{
+  "completed_trials": 10,
+  "frame": {
+    "X": "along belt",
+    "Y": "away from wall",
+    "Z": "away from belt",
+    "handedness": "right",
+    "length_unit": "mm"
+  },
+  "frequency_denominator": "all completed drop trials, including unsettled outcomes",
+  "geometry": {
+    "center_mass_source_mm": [
+      12.000325882504137,
+      12.000000109054572,
+      15.855189555478727
+    ],
+    "step": "Kk1a.step",
+    "step_sha256": "886ef641e30c29df2dbd7a38dcf65cb3179ba50d7d263e66380c163dc3e36482",
+    "stl": "Kk1a.stl",
+    "stl_sha256": "b8417afd1da3e03481f282abec1b30b43f3d1e7e8f4d93d07a58f8c92ef2669b"
+  },
+  "observation_length_mm": 500,
+  "poses": [
+    {
+      "ci95_percent": [
+        10.7791267406301,
+        60.322185253885465
+      ],
+      "count": 3,
+      "frequency_percent": 30.0,
+      "frequency_settled_percent": 75.0,
+      "id": "Kk1a_0001",
+      "id_assignment": "new",
+      "image": "images/Kk1a_0001.png",
+      "position_com_chute_mm": [
+        482.07533289461014,
+        11.234261324719803,
+        11.21658015147843
+      ],
+      "previous_candidates": [],
+      "quaternion_xyzw": [
+        0.006438031234197948,
+        0.6783056925780336,
+        0.052035430746337194,
+        -0.7329067151535076
+      ],
+      "reference_quaternions_xyzw": [
+        [
+          -0.433551108564841,
+          0.5218225931915457,
+          0.5131848382153645,
+          -0.5257146938434556
+        ],
+        [
+          0.006438031234197948,
+          0.6783056925780336,
+          0.052035430746337194,
+          -0.7329067151535076
+        ],
+        [
+          0.6721050278567351,
+          0.09167495645907259,
+          -0.7177110461531734,
+          -0.15735751687683106
+        ]
+      ],
+      "representative_trial": 0,
+      "roadmap_match_statuses": [
+        "unmatched"
+      ],
+      "roadmap_pose_ids": [],
+      "transform_chute_from_source_mm": [
+        [
+          0.07438740272655447,
+          0.08500813971009494,
+          -0.9935995825777234,
+          495.9162718585611
+        ],
+        [
+          -0.06754032676948835,
+          0.9945017314017413,
+          0.08002881042980452,
+          -1.1581255883753965
+        ],
+        [
+          0.9949396054914429,
+          0.06115490513415771,
+          0.07971987834012312,
+          -2.7208519985304562
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "trial_ids": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "ci95_percent": [
+        1.7876213095072897,
+        40.41500267952385
+      ],
+      "count": 1,
+      "frequency_percent": 10.0,
+      "frequency_settled_percent": 25.0,
+      "id": "Kk1a_0002",
+      "id_assignment": "new",
+      "image": "images/Kk1a_0002.png",
+      "position_com_chute_mm": [
+        481.2725568295585,
+        11.220818763991446,
+        11.223422066981279
+      ],
+      "previous_candidates": [],
+      "quaternion_xyzw": [
+        0.3659513521988385,
+        -0.5711107078804173,
+        0.3454135296989528,
+        -0.6485380950021987
+      ],
+      "reference_quaternions_xyzw": [
+        [
+          0.3659513521988385,
+          -0.5711107078804173,
+          0.3454135296989528,
+          -0.6485380950021987
+        ]
+      ],
+      "representative_trial": 5,
+      "roadmap_match_statuses": [
+        "unmatched"
+      ],
+      "roadmap_pose_ids": [],
+      "transform_chute_from_source_mm": [
+        [
+          0.10904410569047862,
+          0.030030193469739286,
+          0.993583197570457,
+          463.85017976417646
+        ],
+        [
+          -0.8660251366860376,
+          0.4935382026495046,
+          0.08012805472134188,
+          14.420498644728786
+        ],
+        [
+          -0.48796500452603514,
+          -0.8692055165527117,
+          0.07982433433634067,
+          26.24399748193209
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "trial_ids": [
+        5
+      ]
+    }
+  ],
+  "recognition": {
+    "ambiguity_margin_deg": 1.0,
+    "continuous_axis_part": [
+      -2.0778344672276533e-05,
+      3.55041340771578e-09,
+      0.9999999997841302
+    ],
+    "quaternion_order": "xyzw",
+    "rotation": "part_to_chute",
+    "symmetry_available": true,
+    "symmetry_composition": "q_part_to_chute * q_symmetry_part",
+    "symmetry_quaternions_xyzw": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "symmetry_symbol": "Cinf",
+    "tolerance_deg": 5.0
+  },
+  "run_id": "497fa5fa9ad5b010b13636360b343f7478bd44239b3c29b0561a28bfeac5c3d9",
+  "schema_version": 1,
+  "settled_trials": 4,
+  "status_counts": {
+    "settled": 4,
+    "unsettled": 6
+  },
+  "workpiece": "Kk1a"
+}
