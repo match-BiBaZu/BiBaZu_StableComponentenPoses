@@ -17,7 +17,7 @@ Simulationsergebnisse unter den je Werkstück dokumentierten Parametern. Häufig
 | [Kf2a](Kf2a/README.md) | Vollständig | 1000 | 762 | 3 | 500 mm |
 | [Kf4i](Kf4i/README.md) | Vollständig | 1000 | 132 | 26 | 500 mm |
 | [Kk1a](Kk1a/README.md) | Vollständig | 1000 | 267 | 3 | 500 mm |
-| Kk2i | Ausstehend | – | – | – | – |
+| [Kk2i](Kk2i/README.md) | Vollständig | 1000 | 840 | 30 | 500 mm |
 | Kk4a | Ausstehend | – | – | – | – |
 | Kl1i | Ausstehend | – | – | – | – |
 | Kl2a | Ausstehend | – | – | – | – |

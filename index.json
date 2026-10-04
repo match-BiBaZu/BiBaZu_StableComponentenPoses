@@ -119,7 +119,12 @@
       "workpiece": "Kk1a"
     },
     {
-      "status": "pending",
+      "length_mm": 500,
+      "poses": 30,
+      "run_id": "3c39754301ad436bef7785ce40171c498ad079e8f8bbd366af2bd457b91eda48",
+      "settled": 840,
+      "status": "complete",
+      "trials": 1000,
       "workpiece": "Kk2i"
     },
     {
