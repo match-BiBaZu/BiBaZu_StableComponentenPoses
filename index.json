@@ -173,7 +173,12 @@
       "workpiece": "Qf1i"
     },
     {
-      "status": "pending",
+      "length_mm": 500,
+      "poses": 14,
+      "run_id": "2218d52b4382aac2a961361d3da9ec2758b95becef1960a93fe703f6a37ef62f",
+      "settled": 987,
+      "status": "complete",
+      "trials": 1000,
       "workpiece": "Qf2a"
     },
     {
