@@ -290,7 +290,12 @@
       "workpiece": "Rk1a"
     },
     {
-      "status": "pending",
+      "length_mm": 500,
+      "poses": 12,
+      "run_id": "226c393b15abeb870aa6064611a2a7497205ebf581d6993124a7243be9487130",
+      "settled": 1000,
+      "status": "complete",
+      "trials": 1000,
       "workpiece": "Rk2i"
     },
     {
