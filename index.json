@@ -47,7 +47,12 @@
       "workpiece": "Dk2a"
     },
     {
-      "status": "pending",
+      "length_mm": 500,
+      "poses": 24,
+      "run_id": "8ac70c85012feb0d40d050e4d6adcbd47de27d5b786e0a29e4dea58bc1e97bc9",
+      "settled": 1000,
+      "status": "complete",
+      "trials": 1000,
       "workpiece": "Dk4i"
     },
     {
