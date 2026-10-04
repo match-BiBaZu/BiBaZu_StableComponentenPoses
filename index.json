@@ -20,7 +20,12 @@
       "workpiece": "Df2i"
     },
     {
-      "status": "pending",
+      "length_mm": 500,
+      "poses": 17,
+      "run_id": "e25067c89707960ef0fb62e5e051504546a5dc3b1d3ff0bc548da0473dbaa58b",
+      "settled": 1000,
+      "status": "complete",
+      "trials": 1000,
       "workpiece": "Df4a"
     },
     {
