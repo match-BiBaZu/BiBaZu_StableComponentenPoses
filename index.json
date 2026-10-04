@@ -191,7 +191,12 @@
       "workpiece": "Qf4i"
     },
     {
-      "status": "pending",
+      "length_mm": 500,
+      "poses": 12,
+      "run_id": "845207b864a99811b1c19e509912214231533c5261547ad77e159f4c0115cf77",
+      "settled": 991,
+      "status": "complete",
+      "trials": 1000,
       "workpiece": "Qk1a"
     },
     {
