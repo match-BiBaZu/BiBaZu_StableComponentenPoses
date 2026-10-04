@@ -65,7 +65,12 @@
       "workpiece": "Dl1a"
     },
     {
-      "status": "pending",
+      "length_mm": 500,
+      "poses": 13,
+      "run_id": "5646dcb6a0f2382b26054d4f585212738df81c62089a0e8c4225aac76722da1e",
+      "settled": 999,
+      "status": "complete",
+      "trials": 1000,
       "workpiece": "Dl2i"
     },
     {
