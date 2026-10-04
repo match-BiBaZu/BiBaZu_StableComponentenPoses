@@ -344,7 +344,12 @@
       "workpiece": "Rl3a"
     },
     {
-      "status": "pending",
+      "length_mm": 500,
+      "poses": 16,
+      "run_id": "051a3c8e2cc14423de9841e86dc6a8caeb49e3a60d03441a13e8ac5593a22438",
+      "settled": 1000,
+      "status": "complete",
+      "trials": 1000,
       "workpiece": "Rl4i"
     }
   ]

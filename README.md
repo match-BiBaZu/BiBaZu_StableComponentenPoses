@@ -42,4 +42,4 @@ Simulationsergebnisse unter den je Werkstück dokumentierten Parametern. Häufig
 | [Rl1a](Rl1a/README.md) | Vollständig | 1000 | 981 | 15 | 500 mm |
 | [Rl2i](Rl2i/README.md) | Vollständig | 1000 | 1000 | 9 | 500 mm |
 | [Rl3a](Rl3a/README.md) | Vollständig | 1000 | 988 | 14 | 500 mm |
-| Rl4i | Ausstehend | – | – | – | – |
+| [Rl4i](Rl4i/README.md) | Vollständig | 1000 | 1000 | 16 | 500 mm |
