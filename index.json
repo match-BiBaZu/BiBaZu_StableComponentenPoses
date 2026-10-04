@@ -236,7 +236,12 @@
       "workpiece": "Ql2a"
     },
     {
-      "status": "pending",
+      "length_mm": 500,
+      "poses": 22,
+      "run_id": "f6bd73954da027d95cea73a7117b1f4659104c8dcd5287b99e96f53fb2b202ff",
+      "settled": 997,
+      "status": "complete",
+      "trials": 1000,
       "workpiece": "Ql4i"
     },
     {
