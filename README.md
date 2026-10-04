@@ -4,7 +4,7 @@ Simulationsergebnisse unter den je Werkstück dokumentierten Parametern. Häufig
 
 | Werkstück | Status | Versuche | Eingependelt | Posen | Strecke |
 | --- | --- | ---: | ---: | ---: | ---: |
-| Df1a | Ausstehend | – | – | – | – |
+| [Df1a](Df1a/README.md) | Vollständig | 1000 | 999 | 6 | 500 mm |
 | Df2i | Ausstehend | – | – | – | – |
 | Df4a | Ausstehend | – | – | – | – |
 | Dk1i | Ausstehend | – | – | – | – |

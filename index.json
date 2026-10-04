@@ -2,7 +2,12 @@
   "schema_version": 1,
   "workpieces": [
     {
-      "status": "pending",
+      "length_mm": 500,
+      "poses": 6,
+      "run_id": "7b2bf6dc5d4776cb27de58acc87235c14c054c7d227fcffdd99435b3df569eba",
+      "settled": 999,
+      "status": "complete",
+      "trials": 1000,
       "workpiece": "Df1a"
     },
     {
