@@ -317,7 +317,12 @@
       "workpiece": "Rk4i"
     },
     {
-      "status": "pending",
+      "length_mm": 500,
+      "poses": 15,
+      "run_id": "e84ae5f1589ca0fb2129aa080c49150434a18a331a658b372cd17d3491ea3a67",
+      "settled": 981,
+      "status": "complete",
+      "trials": 1000,
       "workpiece": "Rl1a"
     },
     {
