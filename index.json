@@ -83,7 +83,12 @@
       "workpiece": "Dl4a"
     },
     {
-      "status": "pending",
+      "length_mm": 500,
+      "poses": 0,
+      "run_id": "2c4023722a09a0d82a41fef1dfdc7b7307758512ddc0a4e34929d7bc4dea4201",
+      "settled": 0,
+      "status": "complete",
+      "trials": 1000,
       "workpiece": "Kf1i"
     },
     {

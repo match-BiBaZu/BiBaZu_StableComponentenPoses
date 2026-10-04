@@ -1,0 +1,42 @@
+schema_version: 1
+workpiece: Kf1i
+run_id: 2c4023722a09a0d82a41fef1dfdc7b7307758512ddc0a4e34929d7bc4dea4201
+completed_trials: 1000
+settled_trials: 0
+status_counts:
+  unsettled: 1000
+observation_length_mm: 500
+frequency_denominator: all completed drop trials, including unsettled outcomes
+frame:
+  handedness: right
+  X: along belt
+  Y: away from wall
+  Z: away from belt
+  length_unit: mm
+geometry:
+  stl: Kf1i.stl
+  step: Kf1i.step
+  stl_sha256: e87f5f88d802f8a85a2dee6c85f5306b1dd690860ddf9bb587ec1561e0e4097a
+  step_sha256: 051a5db6f7ad5f5682b10b5f25aa59e272f7b26138528cdb694510c01e808729
+  center_mass_source_mm:
+  - 40.00055248762783
+  - 39.9999989145617
+  - 3.8333523463682333
+recognition:
+  ambiguity_margin_deg: 1.0
+  continuous_axis_part:
+  - -1.6066156482937966e-06
+  - 6.935608753977363e-10
+  - 0.9999999999987095
+  quaternion_order: xyzw
+  rotation: part_to_chute
+  symmetry_available: true
+  symmetry_composition: q_part_to_chute * q_symmetry_part
+  symmetry_quaternions_xyzw:
+  - - 0.0
+    - 0.0
+    - 0.0
+    - 1.0
+  symmetry_symbol: Cinf
+  tolerance_deg: 5.0
+poses: []
