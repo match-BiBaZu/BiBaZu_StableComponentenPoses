@@ -7,7 +7,7 @@ Simulationsergebnisse unter den je Werkstück dokumentierten Parametern. Häufig
 | [Df1a](Df1a/README.md) | Vollständig | 1000 | 999 | 6 | 500 mm |
 | [Df2i](Df2i/README.md) | Vollständig | 1000 | 1000 | 8 | 500 mm |
 | [Df4a](Df4a/README.md) | Vollständig | 1000 | 1000 | 17 | 500 mm |
-| Dk1i | Ausstehend | – | – | – | – |
+| [Dk1i](Dk1i/README.md) | Vollständig | 1000 | 1000 | 8 | 500 mm |
 | Dk2a | Ausstehend | – | – | – | – |
 | Dk4i | Ausstehend | – | – | – | – |
 | Dl1a | Ausstehend | – | – | – | – |

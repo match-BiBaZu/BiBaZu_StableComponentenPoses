@@ -29,7 +29,12 @@
       "workpiece": "Df4a"
     },
     {
-      "status": "pending",
+      "length_mm": 500,
+      "poses": 8,
+      "run_id": "35c3f1ca2c21508745ba6c05d2a4ae533ad0c85393b7ba8903f8f0d0aa45f974",
+      "settled": 1000,
+      "status": "complete",
+      "trials": 1000,
       "workpiece": "Dk1i"
     },
     {
