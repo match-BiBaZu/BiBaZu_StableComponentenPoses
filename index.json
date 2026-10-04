@@ -155,7 +155,12 @@
       "workpiece": "Kl2a"
     },
     {
-      "status": "pending",
+      "length_mm": 500,
+      "poses": 38,
+      "run_id": "a806aa14cd265a588bc9d6a5db400d59e45ee27bc117b8932af87f110d9ea16c",
+      "settled": 969,
+      "status": "complete",
+      "trials": 1000,
       "workpiece": "Kl4i"
     },
     {
