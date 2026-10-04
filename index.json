@@ -254,7 +254,12 @@
       "workpiece": "Rf1a"
     },
     {
-      "status": "pending",
+      "length_mm": 500,
+      "poses": 11,
+      "run_id": "3881f564d9b1447a9e8d494cda71b175ab17b68b87a16ea8be8a62d22add2c72",
+      "settled": 983,
+      "status": "complete",
+      "trials": 1000,
       "workpiece": "Rf2i"
     },
     {
