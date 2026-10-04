@@ -101,7 +101,12 @@
       "workpiece": "Kf2a"
     },
     {
-      "status": "pending",
+      "length_mm": 500,
+      "poses": 26,
+      "run_id": "57c484fdd84eedc7ee55cc3c7cfb8f7890d7333a831a94231dc722dd39169517",
+      "settled": 132,
+      "status": "complete",
+      "trials": 1000,
       "workpiece": "Kf4i"
     },
     {
