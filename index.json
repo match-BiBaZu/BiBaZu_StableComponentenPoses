@@ -237,11 +237,11 @@
     },
     {
       "length_mm": 500,
-      "poses": 22,
-      "run_id": "f6bd73954da027d95cea73a7117b1f4659104c8dcd5287b99e96f53fb2b202ff",
-      "settled": 997,
+      "poses": 24,
+      "run_id": "5c00d49fb1068cbca61db9e8f8efaee3fd5d929847f58e7633f2f12362c035e6",
+      "settled": 9979,
       "status": "complete",
-      "trials": 1000,
+      "trials": 10000,
       "workpiece": "Ql4i"
     },
     {
