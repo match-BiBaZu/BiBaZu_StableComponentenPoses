@@ -246,11 +246,11 @@
     },
     {
       "length_mm": 500,
-      "poses": 18,
-      "run_id": "ace89500d5ee30c1d31b6fb655b656b10a2ae16b15fbd1c92bc54582f8f5463d",
-      "settled": 997,
+      "poses": 25,
+      "run_id": "6d9dee037a3739b2e5d6eaa5a44609203edf8efbc176f260645dae607077a4a4",
+      "settled": 9963,
       "status": "complete",
-      "trials": 1000,
+      "trials": 10000,
       "workpiece": "Rf1a"
     },
     {
