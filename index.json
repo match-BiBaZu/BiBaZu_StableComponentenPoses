@@ -3,11 +3,11 @@
   "workpieces": [
     {
       "length_mm": 500,
-      "poses": 6,
-      "run_id": "7b2bf6dc5d4776cb27de58acc87235c14c054c7d227fcffdd99435b3df569eba",
-      "settled": 999,
+      "poses": 7,
+      "run_id": "620496c9bccd8bcf3edcf82b1c7fc318d55bb7879185a8806586468af0504e28",
+      "settled": 9997,
       "status": "complete",
-      "trials": 1000,
+      "trials": 10000,
       "workpiece": "Df1a"
     },
     {
