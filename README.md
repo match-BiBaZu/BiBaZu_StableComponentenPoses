@@ -29,7 +29,7 @@ Simulationsergebnisse unter den je Werkstück dokumentierten Parametern. Häufig
 | [Qk2i](Qk2i/README.md) | Vollständig | 10000 | 10000 | 15 | 500 mm |
 | [Qk4a](Qk4a/README.md) | Vollständig | 10000 | 9997 | 26 | 500 mm |
 | [Ql1i](Ql1i/README.md) | Vollständig | 10000 | 9985 | 6 | 500 mm |
-| [Ql2a](Ql2a/README.md) | Vollständig | 1000 | 996 | 14 | 500 mm |
+| [Ql2a](Ql2a/README.md) | Vollständig | 10000 | 9942 | 19 | 500 mm |
 | [Ql4i](Ql4i/README.md) | Vollständig | 10000 | 9979 | 24 | 500 mm |
 | [Rf1a](Rf1a/README.md) | Vollständig | 1000 | 997 | 18 | 500 mm |
 | [Rf2i](Rf2i/README.md) | Vollständig | 1000 | 983 | 11 | 500 mm |
