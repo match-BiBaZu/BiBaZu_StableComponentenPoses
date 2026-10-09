@@ -156,11 +156,11 @@
     },
     {
       "length_mm": 500,
-      "poses": 38,
-      "run_id": "a806aa14cd265a588bc9d6a5db400d59e45ee27bc117b8932af87f110d9ea16c",
-      "settled": 969,
+      "poses": 41,
+      "run_id": "26200fe6e38c5de275da1f0cf6a572b6e7082ab0a6403db5b89e81cf6c5853b5",
+      "settled": 9620,
       "status": "complete",
-      "trials": 1000,
+      "trials": 10000,
       "workpiece": "Kl4i"
     },
     {
