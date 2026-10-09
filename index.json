@@ -12,11 +12,11 @@
     },
     {
       "length_mm": 500,
-      "poses": 8,
-      "run_id": "49d7c6a5ec4539b329f74f060a5f07b9f0dbc2dafdff6ecac5ecc8ac3dd6ee56",
-      "settled": 1000,
+      "poses": 9,
+      "run_id": "d415481a5005205ff83ca00822f627da934a8c09e101eb22ae873a0dc7317e83",
+      "settled": 9996,
       "status": "complete",
-      "trials": 1000,
+      "trials": 10000,
       "workpiece": "Df2i"
     },
     {

@@ -31,7 +31,7 @@
     "source_hull_volume_mm3": 27712.8143310547,
     "source_volume_mm3": 21082.17191696168
   },
-  "created_utc": "2026-10-04T15:20:22.902499+00:00",
+  "created_utc": "2026-10-09T14:50:19.362408+00:00",
   "inertia_com_kg_m2": [
     [
       7.635049216481534e-06,
@@ -98,7 +98,7 @@
     "scipy": "1.18.1",
     "trimesh": "5.1.0"
   },
-  "software_commit": "d5b177fdc7735e5686a04a8878896839236bde6a",
+  "software_commit": "ebcf9f0f5147537c0cf33940b34fc63271e11a1a",
   "surface_roughness": {
     "additional_friction": "Longitudinal traction impulse from an equivalent friction increment mu * height/ramp; duration ramp/abs(longitudinal slip); capped at slip cancellation",
     "contact_sampling": "normal-load times longitudinal-slip-speed weighted active MuJoCo contact points",
