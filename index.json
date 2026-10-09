@@ -255,11 +255,11 @@
     },
     {
       "length_mm": 500,
-      "poses": 11,
-      "run_id": "3881f564d9b1447a9e8d494cda71b175ab17b68b87a16ea8be8a62d22add2c72",
-      "settled": 983,
+      "poses": 19,
+      "run_id": "973c7e216164529932c24338d9c21a23f7accff279c289fececc8b4258e682ba",
+      "settled": 9839,
       "status": "complete",
-      "trials": 1000,
+      "trials": 10000,
       "workpiece": "Rf2i"
     },
     {
