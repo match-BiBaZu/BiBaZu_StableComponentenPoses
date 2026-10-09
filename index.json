@@ -31,10 +31,10 @@
     {
       "length_mm": 500,
       "poses": 8,
-      "run_id": "35c3f1ca2c21508745ba6c05d2a4ae533ad0c85393b7ba8903f8f0d0aa45f974",
-      "settled": 1000,
+      "run_id": "0562f48cbe7056b59854074e1f8521ef38b7959aa23163b9c4a98aa6963494b6",
+      "settled": 9998,
       "status": "complete",
-      "trials": 1000,
+      "trials": 10000,
       "workpiece": "Dk1i"
     },
     {
