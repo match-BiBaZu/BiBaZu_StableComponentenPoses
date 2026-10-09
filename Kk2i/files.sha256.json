@@ -1,9 +1,9 @@
 {
   "Kk2i.step": "9cf89fdf600918db0cd4d84e8835ff4603932fbfe12ea118e3a4150ba7852dff",
   "Kk2i.stl": "ec6ebb3923fcab8e0a02546aac25cb13f893584b551a81ced4315e1059195ef7",
-  "README.md": "ed0a82ab0ebe7635289407f16da53f5b2e10987e310fe33703f9e89780cc99d5",
-  "config.json": "06dd6bdea11c4ae8f9a223e595f2ca1323202c17cec2a48d785cb891f1e74ef9",
-  "frequencies.csv": "006d2cf542e1b1100eca7c8334d55b1eb2b14d9c47e9c054c345688215e68689",
+  "README.md": "5f113a7bab8884fa233da28436aa34b7205aa3b5c88768313d06eaee3927d38f",
+  "config.json": "dfcbf5af3ccfe69a72dd1df9631ac37a3cd1644f753c550fe4dfd4c07b5877f5",
+  "frequencies.csv": "e897e908ebafe6e68fadabb1139ca8ee458bc2965a59bab623c425511e5796de",
   "images/Kk2i_0001.png": "0de9f2ce66be424f769984edd9d9aaca5dfe08cc48985ed47314b9becfba26a7",
   "images/Kk2i_0002.png": "35865100d7f1cea2e541e498cee5dd3ca93b875b97530da8eab1ff4b702eef4d",
   "images/Kk2i_0003.png": "abfe4dde554d84ee0044237d6a079ad65ff19dfd5ed3f41efcb13b9b667a6072",
@@ -34,9 +34,10 @@
   "images/Kk2i_0028.png": "af8b3d6ffa34c947f4a6e679022905972c4a6b2c571f11831e6d2995296b8239",
   "images/Kk2i_0029.png": "0e9ee9cb76a3bcd914c3c6d04c56ff8c7899db4b46e17a14e5fdb519a4dcea4b",
   "images/Kk2i_0030.png": "efc02f8249d1a94eaace7decb5551fe5d619b6381a1017c394f24fa517191eef",
-  "manifest.json": "05cccc5ff1fce766972cec8e66d37357bd1f44d494c32384d132d3757138046d",
-  "pose_registry.json": "b289894ef0208c78cff4fa3d2344a875eed0dfb7a52bef9ab51f76f32bda4c0a",
-  "poses.json": "8a5ff311bca71997cd9812b5cc62f9a0602db29192da1a47e522b1186a55af59",
-  "poses.yaml": "4a50b4c4c971f8fbfdbcef934339743a75c5b212ef76fefb8ffbed93d857ef98",
-  "trials.csv": "e599cb2944fea1d6e92b3c47ee833d66520deb2ea8d44426a3c7b79c7d78f325"
+  "images/Kk2i_0031.png": "fbb467983d279c5e03d3a777071f6c58c9781fa3d80217b10fe93d12a1f3f94e",
+  "manifest.json": "b773f5476fffa48b9628a6c9b8a645b7693a050803b0f3abcb34dc42e2f7f481",
+  "pose_registry.json": "95488d70a8d616c8dc27b87883193a8f4c2014c97d71f69b828d5597976326ff",
+  "poses.json": "2644024873738e46a1ed59b1261bb1dbd6ead487c9f88858e1a11db584fb7b64",
+  "poses.yaml": "f4348576408b7adde9b6031c35c0d1f840d1e40ee4c480f518768ca1e63953c3",
+  "trials.csv": "e12e2dc26a2a57a66aa10d3b94188cf2c73d5b889bff177bd0669690a5eed3be"
 }

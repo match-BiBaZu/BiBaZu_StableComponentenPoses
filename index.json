@@ -120,11 +120,11 @@
     },
     {
       "length_mm": 500,
-      "poses": 30,
-      "run_id": "3c39754301ad436bef7785ce40171c498ad079e8f8bbd366af2bd457b91eda48",
-      "settled": 840,
+      "poses": 31,
+      "run_id": "8fe6265e5472853aa5ecee69152e6eafb2fda5bad5a93e9581d612a74692b499",
+      "settled": 8448,
       "status": "complete",
-      "trials": 1000,
+      "trials": 10000,
       "workpiece": "Kk2i"
     },
     {
