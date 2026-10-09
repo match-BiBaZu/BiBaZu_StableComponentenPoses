@@ -75,11 +75,11 @@
     },
     {
       "length_mm": 500,
-      "poses": 26,
-      "run_id": "d24152859da1d977c05e57e6d9281ebd585721db1e0c6ea192c96935b85be4a6",
-      "settled": 1000,
+      "poses": 29,
+      "run_id": "0f0572d845480e6a141c1f20db521fb22f76b0b94ed0a9930902dd78dadfb20d",
+      "settled": 9973,
       "status": "complete",
-      "trials": 1000,
+      "trials": 10000,
       "workpiece": "Dl4a"
     },
     {
