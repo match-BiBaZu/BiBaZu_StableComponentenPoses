@@ -31,7 +31,7 @@
     "source_hull_volume_mm3": 14978.141677756823,
     "source_volume_mm3": 12234.425033270469
   },
-  "created_utc": "2026-10-04T16:37:28.840099+00:00",
+  "created_utc": "2026-10-09T20:14:27.879252+00:00",
   "inertia_com_kg_m2": [
     [
       1.539998619944907e-06,
@@ -99,7 +99,7 @@
     ],
     "type": "independent_uniform_center_plus_minus_spread"
   },
-  "roadmap_sha256": "99d1026035ca45b2fc9213db5de79ec13fe448e0aca293e7e61e4a8a9f238ce2",
+  "roadmap_sha256": null,
   "software": {
     "bibazu-chute-pose": "0.1.0",
     "cadquery-ocp": "7.9.3.1.1",
