@@ -11,7 +11,7 @@ Simulationsergebnisse unter den je Werkstück dokumentierten Parametern. Häufig
 | [Dk2a](Dk2a/README.md) | Vollständig | 10000 | 9845 | 17 | 500 mm |
 | [Dk4i](Dk4i/README.md) | Vollständig | 10000 | 9999 | 24 | 500 mm |
 | [Dl1a](Dl1a/README.md) | Vollständig | 10000 | 9983 | 16 | 500 mm |
-| [Dl2i](Dl2i/README.md) | Vollständig | 1000 | 999 | 13 | 500 mm |
+| [Dl2i](Dl2i/README.md) | Vollständig | 10000 | 9965 | 19 | 500 mm |
 | [Dl4a](Dl4a/README.md) | Vollständig | 1000 | 1000 | 26 | 500 mm |
 | [Kf1i](Kf1i/README.md) | Vollständig | 1000 | 0 | 0 | 500 mm |
 | [Kf2a](Kf2a/README.md) | Vollständig | 1000 | 762 | 3 | 500 mm |

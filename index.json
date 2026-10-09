@@ -66,11 +66,11 @@
     },
     {
       "length_mm": 500,
-      "poses": 13,
-      "run_id": "5646dcb6a0f2382b26054d4f585212738df81c62089a0e8c4225aac76722da1e",
-      "settled": 999,
+      "poses": 19,
+      "run_id": "85894899c519464137e30b61f54b8caad2660699050b2937b9e0ee32a131a747",
+      "settled": 9965,
       "status": "complete",
-      "trials": 1000,
+      "trials": 10000,
       "workpiece": "Dl2i"
     },
     {
