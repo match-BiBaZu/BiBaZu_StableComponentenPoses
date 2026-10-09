@@ -165,11 +165,11 @@
     },
     {
       "length_mm": 500,
-      "poses": 7,
-      "run_id": "9a8f9aa70f5df1bd6fb354a7eba239f760bff1f405681e87081ebf4ab443e4ea",
-      "settled": 989,
+      "poses": 13,
+      "run_id": "ab887012b035c3794b5c6fcadf9dd1d24720848a43871fd97656cc3dcac1e3ac",
+      "settled": 9870,
       "status": "complete",
-      "trials": 1000,
+      "trials": 10000,
       "workpiece": "Qf1i"
     },
     {
