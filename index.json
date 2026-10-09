@@ -139,10 +139,10 @@
     {
       "length_mm": 500,
       "poses": 2,
-      "run_id": "98ed8dc5ad8d99db959a2c787ff89dfef23ab397a6033e0d2e93280e5055ca8e",
-      "settled": 926,
+      "run_id": "b573b7d9c398606a77e48d0a70d8f9dd58ee203e3ef6773db48f5b5019aa2719",
+      "settled": 9333,
       "status": "complete",
-      "trials": 1000,
+      "trials": 10000,
       "workpiece": "Kl1i"
     },
     {
