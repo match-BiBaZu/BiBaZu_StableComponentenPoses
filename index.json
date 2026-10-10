@@ -292,10 +292,10 @@
     {
       "length_mm": 500,
       "poses": 12,
-      "run_id": "226c393b15abeb870aa6064611a2a7497205ebf581d6993124a7243be9487130",
-      "settled": 1000,
+      "run_id": "573c9210bccbf51d13361e2f7c502d1a05eed05bbdba53beadb1df407d15bf2e",
+      "settled": 9999,
       "status": "complete",
-      "trials": 1000,
+      "trials": 10000,
       "workpiece": "Rk2i"
     },
     {
