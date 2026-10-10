@@ -1,27 +1,30 @@
 # Rk3a
 
-1000 Fallversuche auf 500 mm Strecke; 1000 eingependelte Endlagen. Prozentangaben beziehen sich auf alle Fallversuche.
+10000 Fallversuche auf 500 mm Strecke; 9995 eingependelte Endlagen. Prozentangaben beziehen sich auf alle Fallversuche.
 
 Dies sind beobachtete Simulationslagen unter den dokumentierten Parametern; Reibung und Unebenheitsmodell sind noch nicht an realen Häufigkeiten kalibriert.
 
 | Pose | Bild | Anzahl | Anteil | 95-%-Intervall | Anteil eingependelt |
 | --- | --- | ---: | ---: | ---: | ---: |
-| Rk3a_0010 | ![Rk3a_0010](images/Rk3a_0010.png) | 130 | 13.00 % | 11.06–15.23 % | 13.00 % |
-| Rk3a_0012 | ![Rk3a_0012](images/Rk3a_0012.png) | 130 | 13.00 % | 11.06–15.23 % | 13.00 % |
-| Rk3a_0009 | ![Rk3a_0009](images/Rk3a_0009.png) | 108 | 10.80 % | 9.02–12.88 % | 10.80 % |
-| Rk3a_0004 | ![Rk3a_0004](images/Rk3a_0004.png) | 106 | 10.60 % | 8.84–12.66 % | 10.60 % |
-| Rk3a_0008 | ![Rk3a_0008](images/Rk3a_0008.png) | 105 | 10.50 % | 8.75–12.55 % | 10.50 % |
-| Rk3a_0014 | ![Rk3a_0014](images/Rk3a_0014.png) | 105 | 10.50 % | 8.75–12.55 % | 10.50 % |
-| Rk3a_0002 | ![Rk3a_0002](images/Rk3a_0002.png) | 94 | 9.40 % | 7.74–11.37 % | 9.40 % |
-| Rk3a_0003 | ![Rk3a_0003](images/Rk3a_0003.png) | 94 | 9.40 % | 7.74–11.37 % | 9.40 % |
-| Rk3a_0011 | ![Rk3a_0011](images/Rk3a_0011.png) | 43 | 4.30 % | 3.21–5.74 % | 4.30 % |
-| Rk3a_0013 | ![Rk3a_0013](images/Rk3a_0013.png) | 30 | 3.00 % | 2.11–4.25 % | 3.00 % |
-| Rk3a_0007 | ![Rk3a_0007](images/Rk3a_0007.png) | 19 | 1.90 % | 1.22–2.95 % | 1.90 % |
-| Rk3a_0001 | ![Rk3a_0001](images/Rk3a_0001.png) | 16 | 1.60 % | 0.99–2.58 % | 1.60 % |
-| Rk3a_0006 | ![Rk3a_0006](images/Rk3a_0006.png) | 15 | 1.50 % | 0.91–2.46 % | 1.50 % |
-| Rk3a_0005 | ![Rk3a_0005](images/Rk3a_0005.png) | 5 | 0.50 % | 0.21–1.17 % | 0.50 % |
+| Rk3a_0014 | ![Rk3a_0014](images/Rk3a_0014.png) | 1349 | 13.49 % | 12.83–14.17 % | 13.50 % |
+| Rk3a_0012 | ![Rk3a_0012](images/Rk3a_0012.png) | 1267 | 12.67 % | 12.03–13.34 % | 12.68 % |
+| Rk3a_0010 | ![Rk3a_0010](images/Rk3a_0010.png) | 1109 | 11.09 % | 10.49–11.72 % | 11.10 % |
+| Rk3a_0004 | ![Rk3a_0004](images/Rk3a_0004.png) | 1053 | 10.53 % | 9.94–11.15 % | 10.54 % |
+| Rk3a_0003 | ![Rk3a_0003](images/Rk3a_0003.png) | 1035 | 10.35 % | 9.77–10.96 % | 10.36 % |
+| Rk3a_0009 | ![Rk3a_0009](images/Rk3a_0009.png) | 1027 | 10.27 % | 9.69–10.88 % | 10.28 % |
+| Rk3a_0002 | ![Rk3a_0002](images/Rk3a_0002.png) | 899 | 8.99 % | 8.45–9.57 % | 8.99 % |
+| Rk3a_0008 | ![Rk3a_0008](images/Rk3a_0008.png) | 849 | 8.49 % | 7.96–9.05 % | 8.49 % |
+| Rk3a_0011 | ![Rk3a_0011](images/Rk3a_0011.png) | 426 | 4.26 % | 3.88–4.67 % | 4.26 % |
+| Rk3a_0013 | ![Rk3a_0013](images/Rk3a_0013.png) | 409 | 4.09 % | 3.72–4.50 % | 4.09 % |
+| Rk3a_0007 | ![Rk3a_0007](images/Rk3a_0007.png) | 201 | 2.01 % | 1.75–2.30 % | 2.01 % |
+| Rk3a_0006 | ![Rk3a_0006](images/Rk3a_0006.png) | 162 | 1.62 % | 1.39–1.89 % | 1.62 % |
+| Rk3a_0001 | ![Rk3a_0001](images/Rk3a_0001.png) | 133 | 1.33 % | 1.12–1.57 % | 1.33 % |
+| Rk3a_0005 | ![Rk3a_0005](images/Rk3a_0005.png) | 61 | 0.61 % | 0.48–0.78 % | 0.61 % |
+| Rk3a_0016 | ![Rk3a_0016](images/Rk3a_0016.png) | 12 | 0.12 % | 0.07–0.21 % | 0.12 % |
+| Rk3a_0017 | ![Rk3a_0017](images/Rk3a_0017.png) | 2 | 0.02 % | 0.01–0.07 % | 0.02 % |
+| Rk3a_0015 | ![Rk3a_0015](images/Rk3a_0015.png) | 1 | 0.01 % | 0.00–0.06 % | 0.01 % |
 
-Ergebnisstatus: settled: 1000
+Ergebnisstatus: settled: 9995, unsettled: 5
 
 Details und Erkennung: [JSON](poses.json), [YAML](poses.yaml). Quaternionen: xyzw, Bauteil → Rutsche. Symmetrieoperationen werden rechts an die Bauteilrotation multipliziert. Die kontinuierliche Symmetrieachse wird gerichtet verglichen. Orientierungsabstand ≤5°; bei konkurrierenden Treffern innerhalb 1° bleibt die Zuordnung mehrdeutig.
 
