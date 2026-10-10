@@ -38,7 +38,7 @@ Simulationsergebnisse unter den je Werkstück dokumentierten Parametern. Häufig
 | [Rk1a](Rk1a/README.md) | Vollständig | 10000 | 9976 | 45 | 500 mm |
 | [Rk2i](Rk2i/README.md) | Vollständig | 10000 | 9999 | 12 | 500 mm |
 | [Rk3a](Rk3a/README.md) | Vollständig | 10000 | 9995 | 17 | 500 mm |
-| [Rk4i](Rk4i/README.md) | Vollständig | 1000 | 1000 | 24 | 500 mm |
+| [Rk4i](Rk4i/README.md) | Vollständig | 10000 | 9999 | 24 | 500 mm |
 | [Rl1a](Rl1a/README.md) | Vollständig | 1000 | 981 | 15 | 500 mm |
 | [Rl2i](Rl2i/README.md) | Vollständig | 1000 | 1000 | 9 | 500 mm |
 | [Rl3a](Rl3a/README.md) | Vollständig | 1000 | 988 | 14 | 500 mm |

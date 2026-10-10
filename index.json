@@ -310,10 +310,10 @@
     {
       "length_mm": 500,
       "poses": 24,
-      "run_id": "493d8a2bcebb3a229e2aad291eb9d44b9efb27744fbc0baea94767c690a1dd95",
-      "settled": 1000,
+      "run_id": "ea0fdfd3b4db1d2418ff6f2048719a13e495c70586ce7608c31da4570a0f6c67",
+      "settled": 9999,
       "status": "complete",
-      "trials": 1000,
+      "trials": 10000,
       "workpiece": "Rk4i"
     },
     {
