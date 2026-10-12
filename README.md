@@ -1,45 +1,56 @@
-# BiBaZu – beobachtete stabile Bauteilposen
+# BiBaZu grouped observed component poses
 
-Simulationsergebnisse unter den je Werkstück dokumentierten Parametern. Häufigkeiten beziehen sich auf alle abgeschlossenen Fallversuche. Die reale Stabilität ist damit noch nicht experimentell bestätigt.
+Representative-only catalogs; original observations and all member images are preserved in companion files.
 
-| Werkstück | Status | Versuche | Eingependelt | Posen | Strecke |
-| --- | --- | ---: | ---: | ---: | ---: |
-| [Df1a](Df1a/README.md) | Vollständig | 10000 | 9997 | 7 | 500 mm |
-| [Df2i](Df2i/README.md) | Vollständig | 10000 | 9996 | 9 | 500 mm |
-| [Df4a](Df4a/README.md) | Vollständig | 10000 | 9999 | 20 | 500 mm |
-| [Dk1i](Dk1i/README.md) | Vollständig | 10000 | 9998 | 8 | 500 mm |
-| [Dk2a](Dk2a/README.md) | Vollständig | 10000 | 9845 | 17 | 500 mm |
-| [Dk4i](Dk4i/README.md) | Vollständig | 10000 | 9999 | 24 | 500 mm |
-| [Dl1a](Dl1a/README.md) | Vollständig | 10000 | 9983 | 16 | 500 mm |
-| [Dl2i](Dl2i/README.md) | Vollständig | 10000 | 9965 | 19 | 500 mm |
-| [Dl4a](Dl4a/README.md) | Vollständig | 10000 | 9973 | 29 | 500 mm |
-| [Kf1i](Kf1i/README.md) | Vollständig | 1000 | 0 | 0 | 500 mm |
-| [Kf2a](Kf2a/README.md) | Vollständig | 1000 | 762 | 3 | 500 mm |
-| [Kf4i](Kf4i/README.md) | Vollständig | 1000 | 132 | 26 | 500 mm |
-| [Kk1a](Kk1a/README.md) | Vollständig | 10000 | 2887 | 3 | 500 mm |
-| [Kk2i](Kk2i/README.md) | Vollständig | 10000 | 8448 | 31 | 500 mm |
-| [Kk4a](Kk4a/README.md) | Vollständig | 10000 | 7726 | 121 | 500 mm |
-| [Kl1i](Kl1i/README.md) | Vollständig | 10000 | 9333 | 2 | 500 mm |
-| [Kl2a](Kl2a/README.md) | Vollständig | 10000 | 9912 | 27 | 500 mm |
-| [Kl4i](Kl4i/README.md) | Vollständig | 10000 | 9620 | 41 | 500 mm |
-| [Qf1i](Qf1i/README.md) | Vollständig | 10000 | 9870 | 13 | 500 mm |
-| [Qf2a](Qf2a/README.md) | Vollständig | 10000 | 9829 | 24 | 500 mm |
-| [Qf4i](Qf4i/README.md) | Vollständig | 10000 | 9835 | 29 | 500 mm |
-| [Qk1a](Qk1a/README.md) | Vollständig | 10000 | 9956 | 13 | 500 mm |
-| [Qk2i](Qk2i/README.md) | Vollständig | 10000 | 10000 | 15 | 500 mm |
-| [Qk4a](Qk4a/README.md) | Vollständig | 10000 | 9997 | 26 | 500 mm |
-| [Ql1i](Ql1i/README.md) | Vollständig | 10000 | 9985 | 6 | 500 mm |
-| [Ql2a](Ql2a/README.md) | Vollständig | 10000 | 9942 | 19 | 500 mm |
-| [Ql4i](Ql4i/README.md) | Vollständig | 10000 | 9979 | 24 | 500 mm |
-| [Rf1a](Rf1a/README.md) | Vollständig | 10000 | 9963 | 25 | 500 mm |
-| [Rf2i](Rf2i/README.md) | Vollständig | 10000 | 9839 | 19 | 500 mm |
-| [Rf3a](Rf3a/README.md) | Vollständig | 10000 | 9965 | 19 | 500 mm |
-| [Rf4i](Rf4i/README.md) | Vollständig | 10000 | 9885 | 27 | 500 mm |
-| [Rk1a](Rk1a/README.md) | Vollständig | 10000 | 9976 | 45 | 500 mm |
-| [Rk2i](Rk2i/README.md) | Vollständig | 10000 | 9999 | 12 | 500 mm |
-| [Rk3a](Rk3a/README.md) | Vollständig | 10000 | 9995 | 17 | 500 mm |
-| [Rk4i](Rk4i/README.md) | Vollständig | 10000 | 9999 | 24 | 500 mm |
-| [Rl1a](Rl1a/README.md) | Vollständig | 10000 | 9830 | 30 | 500 mm |
-| [Rl2i](Rl2i/README.md) | Vollständig | 10000 | 9980 | 9 | 500 mm |
-| [Rl3a](Rl3a/README.md) | Vollständig | 10000 | 9883 | 18 | 500 mm |
-| [Rl4i](Rl4i/README.md) | Vollständig | 10000 | 9992 | 19 | 500 mm |
+<!-- GROUPED STUDY -->
+Completed and validated: **1/39** workpieces. Each completed workpiece has 10,000 drops; member disturbance tests are additional.
+
+All workpieces use identical simulation settings, a 0.5 mm equivalent-lift grouping barrier, a 60° diameter guard, and a 1% cutoff after aggregation. Representatives are selected using complete member group-retention curves.
+
+Qk1a, Dl1a, and Dk1i reuse the previously audited grouped runs. Full raw trial data remains in the simulator's ignored results directories.
+
+| Workpiece | Status | Settled | Source poses | Eligible groups | Disturbance tests | Roadmap connections |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| Df1a | pending | — | — | — | — | — |
+| Df2i | pending | — | — | — | — | — |
+| Df4a | pending | — | — | — | — | — |
+| Dk1i | simulation_complete | — | — | — | — | — |
+| Dk2a | pending | — | — | — | — | — |
+| Dk4i | pending | — | — | — | — | — |
+| Dl1a | simulation_complete | — | — | — | — | — |
+| Dl2i | pending | — | — | — | — | — |
+| Dl4a | pending | — | — | — | — | — |
+| Kf1i | pending | — | — | — | — | — |
+| Kf2a | pending | — | — | — | — | — |
+| Kf4i | pending | — | — | — | — | — |
+| Kk1a | pending | — | — | — | — | — |
+| Kk2i | pending | — | — | — | — | — |
+| Kk4a | pending | — | — | — | — | — |
+| Kl1i | pending | — | — | — | — | — |
+| Kl2a | pending | — | — | — | — | — |
+| Kl4i | pending | — | — | — | — | — |
+| Qf1i | pending | — | — | — | — | — |
+| Qf2a | pending | — | — | — | — | — |
+| Qf4i | pending | — | — | — | — | — |
+| [Qk1a](Qk1a/README.md) | Complete | 9956 | 13 | 6 | 949 | 8 |
+| Qk2i | pending | — | — | — | — | — |
+| Qk4a | pending | — | — | — | — | — |
+| Ql1i | pending | — | — | — | — | — |
+| Ql2a | pending | — | — | — | — | — |
+| Ql4i | pending | — | — | — | — | — |
+| Rf1a | pending | — | — | — | — | — |
+| Rf2i | pending | — | — | — | — | — |
+| Rf3a | pending | — | — | — | — | — |
+| Rf4i | pending | — | — | — | — | — |
+| Rk1a | pending | — | — | — | — | — |
+| Rk2i | pending | — | — | — | — | — |
+| Rk3a | pending | — | — | — | — | — |
+| Rk4i | pending | — | — | — | — | — |
+| Rl1a | pending | — | — | — | — | — |
+| Rl2i | pending | — | — | — | — | — |
+| Rl3a | pending | — | — | — | — | — |
+| Rl4i | pending | — | — | — | — | — |
+
+Each component page links representative images, full membership and barrier evidence, and individual/member stability curves. Percentages use all completed drops. Roadmap connections are computed from representative orientations.
+
+Published comparison baselines: poses `9e00d03389d3b81013700def03fb1b19504144be`, roadmaps `0b3b5c5fe42e787bd47f381b1f1ac57359d5aa55`. Merge repair: `3523350d8e12a1b7e57467044b9cfe25ff49b0bd`.

@@ -2,354 +2,172 @@
   "schema_version": 1,
   "workpieces": [
     {
-      "length_mm": 500,
-      "poses": 7,
-      "run_id": "620496c9bccd8bcf3edcf82b1c7fc318d55bb7879185a8806586468af0504e28",
-      "settled": 9997,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Df1a"
     },
     {
-      "length_mm": 500,
-      "poses": 9,
-      "run_id": "d415481a5005205ff83ca00822f627da934a8c09e101eb22ae873a0dc7317e83",
-      "settled": 9996,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Df2i"
     },
     {
-      "length_mm": 500,
-      "poses": 20,
-      "run_id": "d9de15033e49052e24eb69550c43f17ce74887b3e757fa988494f75355685935",
-      "settled": 9999,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Df4a"
     },
     {
-      "length_mm": 500,
-      "poses": 8,
-      "run_id": "0562f48cbe7056b59854074e1f8521ef38b7959aa23163b9c4a98aa6963494b6",
-      "settled": 9998,
-      "status": "complete",
-      "trials": 10000,
+      "status": "simulation_complete",
       "workpiece": "Dk1i"
     },
     {
-      "length_mm": 500,
-      "poses": 17,
-      "run_id": "608cf8fe9397639b8d67f4fffdfd348f11a547a0acea60a238834de04f69c4e8",
-      "settled": 9845,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Dk2a"
     },
     {
-      "length_mm": 500,
-      "poses": 24,
-      "run_id": "fcfe6a00b6117dd4e363ab0e59e80e73eb3f75764faeb42502e98acbb462cc6d",
-      "settled": 9999,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Dk4i"
     },
     {
-      "length_mm": 500,
-      "poses": 16,
-      "run_id": "48ade29582ea61d1791bc931cef9454f3952ca8529b0afe09db87dbfff9a1398",
-      "settled": 9983,
-      "status": "complete",
-      "trials": 10000,
+      "status": "simulation_complete",
       "workpiece": "Dl1a"
     },
     {
-      "length_mm": 500,
-      "poses": 19,
-      "run_id": "85894899c519464137e30b61f54b8caad2660699050b2937b9e0ee32a131a747",
-      "settled": 9965,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Dl2i"
     },
     {
-      "length_mm": 500,
-      "poses": 29,
-      "run_id": "0f0572d845480e6a141c1f20db521fb22f76b0b94ed0a9930902dd78dadfb20d",
-      "settled": 9973,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Dl4a"
     },
     {
-      "length_mm": 500,
-      "poses": 0,
-      "run_id": "2c4023722a09a0d82a41fef1dfdc7b7307758512ddc0a4e34929d7bc4dea4201",
-      "settled": 0,
-      "status": "complete",
-      "trials": 1000,
+      "status": "pending",
       "workpiece": "Kf1i"
     },
     {
-      "length_mm": 500,
-      "poses": 3,
-      "run_id": "e9aeef0f4b454ccd4db3a3b87525affbf342ac5f7209657cb0a266b8031c32e2",
-      "settled": 762,
-      "status": "complete",
-      "trials": 1000,
+      "status": "pending",
       "workpiece": "Kf2a"
     },
     {
-      "length_mm": 500,
-      "poses": 26,
-      "run_id": "57c484fdd84eedc7ee55cc3c7cfb8f7890d7333a831a94231dc722dd39169517",
-      "settled": 132,
-      "status": "complete",
-      "trials": 1000,
+      "status": "pending",
       "workpiece": "Kf4i"
     },
     {
-      "length_mm": 500,
-      "poses": 3,
-      "run_id": "926c3de3437846597b8e9019c09dda1f42a3144246268624c2f874b053adeca9",
-      "settled": 2887,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Kk1a"
     },
     {
-      "length_mm": 500,
-      "poses": 31,
-      "run_id": "8fe6265e5472853aa5ecee69152e6eafb2fda5bad5a93e9581d612a74692b499",
-      "settled": 8448,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Kk2i"
     },
     {
-      "length_mm": 500,
-      "poses": 121,
-      "run_id": "cebb71ad47141840487afaae49bc38897becaf732109a391c4ad2fa5d45f4053",
-      "settled": 7726,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Kk4a"
     },
     {
-      "length_mm": 500,
-      "poses": 2,
-      "run_id": "b573b7d9c398606a77e48d0a70d8f9dd58ee203e3ef6773db48f5b5019aa2719",
-      "settled": 9333,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Kl1i"
     },
     {
-      "length_mm": 500,
-      "poses": 27,
-      "run_id": "88f4aa8a1b88d57f85eb76b7486843736e1d9e2a5bb78d2d0924138a2ad272ac",
-      "settled": 9912,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Kl2a"
     },
     {
-      "length_mm": 500,
-      "poses": 41,
-      "run_id": "26200fe6e38c5de275da1f0cf6a572b6e7082ab0a6403db5b89e81cf6c5853b5",
-      "settled": 9620,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Kl4i"
     },
     {
-      "length_mm": 500,
-      "poses": 13,
-      "run_id": "ab887012b035c3794b5c6fcadf9dd1d24720848a43871fd97656cc3dcac1e3ac",
-      "settled": 9870,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Qf1i"
     },
     {
-      "length_mm": 500,
-      "poses": 24,
-      "run_id": "f8cd82ac89d4ba597b8205380caff5d0cec54429a847a0dcecaf7788b503b029",
-      "settled": 9829,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Qf2a"
     },
     {
-      "length_mm": 500,
-      "poses": 29,
-      "run_id": "a3414fd9a3d203cd06b9eb73e7e947c1bedfa541aa21f0538b7d46af53e97fe9",
-      "settled": 9835,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Qf4i"
     },
     {
-      "length_mm": 500,
-      "poses": 13,
-      "run_id": "5ac91d243281ec45e548404950dcce2656aafe3c1cd48230b00a490098a8d285",
-      "settled": 9956,
+      "assessed_members": 13,
+      "assessment_complete": true,
+      "completed_trials": 10000,
+      "disturbance_tests": 949,
+      "disturbances_sha256": "15c27dc9b1425c899d57a676dc3de739c0e82d043a735cc790e3a7b91171bc47",
+      "eligible_groups": 6,
+      "group_count": 6,
+      "reused": true,
+      "roadmap_status": "complete",
+      "settled_trials": 9956,
       "status": "complete",
-      "trials": 10000,
+      "transition_count": 8,
+      "trials_sha256": "22f150048a68bcb78c8ca0840e40f97b8768b11cd6d6bea077ff4865bcc3870b",
+      "unassigned_settled_trials": 0,
       "workpiece": "Qk1a"
     },
     {
-      "length_mm": 500,
-      "poses": 15,
-      "run_id": "a71f07565b1f12f135fbd1f01e815ea46ba80415fd0b0a35db2f839a653c3c74",
-      "settled": 10000,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Qk2i"
     },
     {
-      "length_mm": 500,
-      "poses": 26,
-      "run_id": "9a3eaea5f011de71d86af7e379f4616e7734bbfe6face0b038e210c8b279d27c",
-      "settled": 9997,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Qk4a"
     },
     {
-      "length_mm": 500,
-      "poses": 6,
-      "run_id": "479b80b9f18d69e482aa988ba1bec9c3853eb8d5a2ea84caf1cc2643cbc17de1",
-      "settled": 9985,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Ql1i"
     },
     {
-      "length_mm": 500,
-      "poses": 19,
-      "run_id": "0725b6b666e07aaf664d8a01550ce4dad4e4e66028889505201ddb999e207b33",
-      "settled": 9942,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Ql2a"
     },
     {
-      "length_mm": 500,
-      "poses": 24,
-      "run_id": "5c00d49fb1068cbca61db9e8f8efaee3fd5d929847f58e7633f2f12362c035e6",
-      "settled": 9979,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Ql4i"
     },
     {
-      "length_mm": 500,
-      "poses": 25,
-      "run_id": "6d9dee037a3739b2e5d6eaa5a44609203edf8efbc176f260645dae607077a4a4",
-      "settled": 9963,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Rf1a"
     },
     {
-      "length_mm": 500,
-      "poses": 19,
-      "run_id": "973c7e216164529932c24338d9c21a23f7accff279c289fececc8b4258e682ba",
-      "settled": 9839,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Rf2i"
     },
     {
-      "length_mm": 500,
-      "poses": 19,
-      "run_id": "87a370743e16ad12b96c8f37e12a2935c7ae077e3b5e446c30ecabb5837e3d79",
-      "settled": 9965,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Rf3a"
     },
     {
-      "length_mm": 500,
-      "poses": 27,
-      "run_id": "9d1cc79f06c7b6c64ee10b58a3b2caf9f20b54e071c42f101377d21883bddc7b",
-      "settled": 9885,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Rf4i"
     },
     {
-      "length_mm": 500,
-      "poses": 45,
-      "run_id": "332727b0c2a709b679084e6c9ac15b7c77b907ff34d8568b18a54d7e21e12983",
-      "settled": 9976,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Rk1a"
     },
     {
-      "length_mm": 500,
-      "poses": 12,
-      "run_id": "573c9210bccbf51d13361e2f7c502d1a05eed05bbdba53beadb1df407d15bf2e",
-      "settled": 9999,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Rk2i"
     },
     {
-      "length_mm": 500,
-      "poses": 17,
-      "run_id": "28c2d12d5959f49f5d0a87ae13a37b4d6b7fc77ef95daf850081abbc76666d29",
-      "settled": 9995,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Rk3a"
     },
     {
-      "length_mm": 500,
-      "poses": 24,
-      "run_id": "ea0fdfd3b4db1d2418ff6f2048719a13e495c70586ce7608c31da4570a0f6c67",
-      "settled": 9999,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Rk4i"
     },
     {
-      "length_mm": 500,
-      "poses": 30,
-      "run_id": "00d26104a6d503412433ae5031d9e3e8ff6e0fec7c08ed25d9ac01b5a8c95f2a",
-      "settled": 9830,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Rl1a"
     },
     {
-      "length_mm": 500,
-      "poses": 9,
-      "run_id": "431eb678683a10a9203aae75ff450c79f43c92d8afc31af4c16b0ee56ee4aa06",
-      "settled": 9980,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Rl2i"
     },
     {
-      "length_mm": 500,
-      "poses": 18,
-      "run_id": "e455566b6c70c2a2ab826a1e5640498f9988f8012b617a8cd50b9bb97f51e79d",
-      "settled": 9883,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Rl3a"
     },
     {
-      "length_mm": 500,
-      "poses": 19,
-      "run_id": "a409485149301f2bd6e0ce887a9b0460678855a24af97c5849b917e4aac49352",
-      "settled": 9992,
-      "status": "complete",
-      "trials": 10000,
+      "status": "pending",
       "workpiece": "Rl4i"
     }
   ]
