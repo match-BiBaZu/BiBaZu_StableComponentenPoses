@@ -1,17 +1,15 @@
-# Kf2a
+# Kf2a: grouped observed poses
 
-1000 Fallversuche auf 500 mm Strecke; 762 eingependelte Endlagen. Prozentangaben beziehen sich auf alle Fallversuche.
+10,000 completed drops; 7,584 settled. 6 assessed source poses; 3 groups meet the 1% cutoff.
 
-Dies sind beobachtete Simulationslagen unter den dokumentierten Parametern; Reibung und Unebenheitsmodell sind noch nicht an realen Häufigkeiten kalibriert.
+Grouping uses 0.5 mm equivalent lift and a 60° maximum diameter. All members receive the same disturbance protocol.
 
-| Pose | Bild | Anzahl | Anteil | 95-%-Intervall | Anteil eingependelt |
-| --- | --- | ---: | ---: | ---: | ---: |
-| Kf2a_0003 | ![Kf2a_0003](images/Kf2a_0003.png) | 541 | 54.10 % | 51.00–57.17 % | 71.00 % |
-| Kf2a_0001 | ![Kf2a_0001](images/Kf2a_0001.png) | 216 | 21.60 % | 19.16–24.26 % | 28.35 % |
-| Kf2a_0002 | ![Kf2a_0002](images/Kf2a_0002.png) | 5 | 0.50 % | 0.21–1.17 % | 0.66 % |
+| Representative | Image | Members | Combined count | Frequency | Retention AUC |
+| --- | --- | --- | ---: | ---: | ---: |
+| Kf2a_0003 | ![pose](images/Kf2a_0003.png) | Kf2a_0003, Kf2a_0006 | 5378 | 53.78% | 1.0000 |
+| Kf2a_0001 | ![pose](images/Kf2a_0001.png) | Kf2a_0001 | 2097 | 20.97% | 1.0000 |
+| Kf2a_0002 | ![pose](images/Kf2a_0002.png) | Kf2a_0002 | 105 | 1.05% | 0.2552 |
 
-Ergebnisstatus: settled: 762, unsettled: 238
+[All original observations and member images](original_observations.json), [memberships](membership.csv), [barrier evidence](grouping_geometry.json), [member stability curves](group_stability.csv), [individual disturbance curves](stability.csv), [validation](validation.json).
 
-Details und Erkennung: [JSON](poses.json), [YAML](poses.yaml). Quaternionen: xyzw, Bauteil → Rutsche. Symmetrieoperationen werden rechts an die Bauteilrotation multipliziert. Die kontinuierliche Symmetrieachse wird gerichtet verglichen. Orientierungsabstand ≤5°; bei konkurrierenden Treffern innerhalb 1° bleibt die Zuordnung mehrdeutig.
-
-Die Pose-IDs bleiben über Läufe erhalten. Der Registereintrag einer früher beobachteten, aktuell nicht aufgetretenen Pose bleibt zur Wiedererkennung reserviert.
+Frequencies retain the original completed-drop denominator. Stability scores describe the configured virtual chute.
