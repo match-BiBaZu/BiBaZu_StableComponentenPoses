@@ -1,0 +1,19 @@
+pose_id,members,representative_source_pose_id,retention_auc,complete,rank
+group_000,"[""Df4a_0001""]",Df4a_0001,1.0,True,1
+group_001,"[""Df4a_0002""]",Df4a_0002,1.0,True,2
+group_002,"[""Df4a_0003""]",Df4a_0003,1.0,True,3
+group_003,"[""Df4a_0004""]",Df4a_0004,1.0,True,4
+group_004,"[""Df4a_0005""]",Df4a_0005,1.0,True,5
+group_005,"[""Df4a_0006""]",Df4a_0006,1.0,True,6
+group_006,"[""Df4a_0007""]",Df4a_0007,1.0,True,7
+group_008,"[""Df4a_0009"", ""Df4a_0018""]",Df4a_0009,1.0,True,8
+group_009,"[""Df4a_0010"", ""Df4a_0019""]",Df4a_0010,1.0,True,9
+group_010,"[""Df4a_0011""]",Df4a_0011,1.0,True,10
+group_011,"[""Df4a_0012""]",Df4a_0012,1.0,True,11
+group_012,"[""Df4a_0013""]",Df4a_0013,1.0,True,12
+group_014,"[""Df4a_0015""]",Df4a_0015,1.0,True,13
+group_015,"[""Df4a_0016""]",Df4a_0016,1.0,True,14
+group_016,"[""Df4a_0017""]",Df4a_0017,1.0,True,15
+group_007,"[""Df4a_0008""]",Df4a_0008,0.9843750000000001,True,16
+group_013,"[""Df4a_0014""]",Df4a_0014,0.9843750000000001,True,17
+group_017,"[""Df4a_0020""]",Df4a_0020,0.9843750000000001,True,18
