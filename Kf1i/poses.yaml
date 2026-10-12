@@ -1,18 +1,12 @@
 schema_version: 1
 workpiece: Kf1i
-run_id: 2c4023722a09a0d82a41fef1dfdc7b7307758512ddc0a4e34929d7bc4dea4201
-completed_trials: 1000
+run_id: run_20261012T212054_229828Z_42
+completed_trials: 10000
 settled_trials: 0
 status_counts:
-  unsettled: 1000
+  unsettled: 10000
 observation_length_mm: 500
 frequency_denominator: all completed drop trials, including unsettled outcomes
-frame:
-  handedness: right
-  X: along belt
-  Y: away from wall
-  Z: away from belt
-  length_unit: mm
 geometry:
   stl: Kf1i.stl
   step: Kf1i.step
@@ -40,3 +34,15 @@ recognition:
   symmetry_symbol: Cinf
   tolerance_deg: 5.0
 poses: []
+assessment_complete: true
+grouping:
+  enabled: true
+  barrier_mm: 0.5
+  max_angle_deg: 60
+  minimum_frequency_percent: 1
+provenance:
+  pose_revision: 9e00d03389d3b81013700def03fb1b19504144be
+  roadmap_revision: 0b3b5c5fe42e787bd47f381b1f1ac57359d5aa55
+  engine_fingerprint: 7928d319b149a3d4cd6b833e338788a5cb5932f8269228a7f2810ff633355081
+  reused: false
+  baseline_roadmap_ids: {}

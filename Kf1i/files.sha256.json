@@ -1,12 +1,21 @@
 {
   "Kf1i.step": "051a5db6f7ad5f5682b10b5f25aa59e272f7b26138528cdb694510c01e808729",
   "Kf1i.stl": "e87f5f88d802f8a85a2dee6c85f5306b1dd690860ddf9bb587ec1561e0e4097a",
-  "README.md": "6398949e6d69b72a38dd93593b1977e9c95efc6142c75f1ce9e3106cca317cf5",
-  "config.json": "88978e1fd8ae2c6744f0923ea4b87eb223daad82bc3c4b00bd6ea148e081cdc0",
-  "frequencies.csv": "c833c21a4b655ae1b6780ff6f03ef02ba40c51c1afc4af326f464937e122327e",
-  "manifest.json": "98b76280e1c0d4d8666c1d36a133b09c2afac227ff15e1d6236316f240a3548f",
+  "README.md": "3ac1cbe346e112b3206339125b9ceb3289752704e2f0507d5dacb668966a54ce",
+  "config.json": "1fe215dc80629956b3bcd427dd874e8d81cd8ea870e47f347a6fde8aed76609d",
+  "frequencies.csv": "362d4e1f378f7fbfa5ebe7826804eb539114e05f8cb085ec1163392e4f90f3bd",
+  "group_frequencies.csv": "1e720b498c49ebdca1b1611d12533ef4903fd65c68a81ba8e15272ceb94b3cb9",
+  "group_stability.csv": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+  "group_stability_summary.csv": "7e449fe6ffaa39eff973650cfd2633662c1eb853b6ec3d3a5c627909c3d47dd8",
+  "grouping_geometry.json": "14b5aecfaa34da66009987fb59199ecb7ad72844e0b98c67d8fc9802e4832c9d",
+  "groups.json": "300c0b87415b3cc35e1ecc1126515d0a85fad2335dfbab1f6312095bcfa91e37",
+  "manifest.json": "1d5b0dfbd5b504ddcaea3a540cbf8108016c979a578a10bb7068f48c65fd71a0",
+  "membership.csv": "8a65f00f217966d3e63aab6ffe0af61dd5d6f161183c8ad183b17660edc5f048",
+  "original_observations.json": "dd05ad83710f96d8afac8a989e8f87e53322fdacaf5a1868e2a5609fbd79f23f",
+  "original_pose_registry.json": "791664ba730c893583fb881b115de9c017754d1f6a930e38d76dcb44c86e6e05",
   "pose_registry.json": "791664ba730c893583fb881b115de9c017754d1f6a930e38d76dcb44c86e6e05",
-  "poses.json": "11213a3259c5f653ef23abcee60602230e5ddf2f4425dc8c80140a448cc016fe",
-  "poses.yaml": "2e73b08def5960fc929ff6af88e4c611ae6e4a4925d01fa6f0668c15761c070d",
-  "trials.csv": "ddada3a052007ea00281cc34b0ef7a89113960f154b9a0cd0dc9c96bb52e2889"
+  "poses.json": "427f69cd96a95804d375c5ef5d763e7ad86316734e6b87a7e8da63ca5aa3dbf4",
+  "poses.yaml": "b0a38ce00b2f7ea596fccdebb8fc126968670d9894c83fa0b4f92f2d4f28807d",
+  "stability.csv": "4b271ad64ff60cde26df46fcf9349513a0e2410cc7a5569f004a585b0fa326ce",
+  "validation.json": "5873d17c41db58ca69a5c266b0044a84090c081fc80b13b8f89032eed438af49"
 }

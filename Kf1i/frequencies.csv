@@ -1,1 +1,2 @@
-id,count,frequency_percent,frequency_settled_percent,ci95_percent
+pose_id,category,count,probability,ci_low,ci_high,members,representative_quat_xyzw,representative_pos_chute_mm,representative_source
+unsettled,unassigned,10000,1.0,0.9996160016293234,1.0,[],,,

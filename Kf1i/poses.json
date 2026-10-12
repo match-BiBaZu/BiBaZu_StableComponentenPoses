@@ -1,12 +1,6 @@
 {
-  "completed_trials": 1000,
-  "frame": {
-    "X": "along belt",
-    "Y": "away from wall",
-    "Z": "away from belt",
-    "handedness": "right",
-    "length_unit": "mm"
-  },
+  "assessment_complete": true,
+  "completed_trials": 10000,
   "frequency_denominator": "all completed drop trials, including unsettled outcomes",
   "geometry": {
     "center_mass_source_mm": [
@@ -19,8 +13,21 @@
     "stl": "Kf1i.stl",
     "stl_sha256": "e87f5f88d802f8a85a2dee6c85f5306b1dd690860ddf9bb587ec1561e0e4097a"
   },
+  "grouping": {
+    "barrier_mm": 0.5,
+    "enabled": true,
+    "max_angle_deg": 60,
+    "minimum_frequency_percent": 1
+  },
   "observation_length_mm": 500,
   "poses": [],
+  "provenance": {
+    "baseline_roadmap_ids": {},
+    "engine_fingerprint": "7928d319b149a3d4cd6b833e338788a5cb5932f8269228a7f2810ff633355081",
+    "pose_revision": "9e00d03389d3b81013700def03fb1b19504144be",
+    "reused": false,
+    "roadmap_revision": "0b3b5c5fe42e787bd47f381b1f1ac57359d5aa55"
+  },
   "recognition": {
     "ambiguity_margin_deg": 1.0,
     "continuous_axis_part": [
@@ -43,11 +50,11 @@
     "symmetry_symbol": "Cinf",
     "tolerance_deg": 5.0
   },
-  "run_id": "2c4023722a09a0d82a41fef1dfdc7b7307758512ddc0a4e34929d7bc4dea4201",
+  "run_id": "run_20261012T212054_229828Z_42",
   "schema_version": 1,
   "settled_trials": 0,
   "status_counts": {
-    "unsettled": 1000
+    "unsettled": 10000
   },
   "workpiece": "Kf1i"
 }
