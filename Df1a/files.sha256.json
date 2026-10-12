@@ -18,11 +18,11 @@
   "images/Df1a_0007.png": "0a09354f8c0b4574ad9d0c8d7bb2103f33d9105305f54b67e5aa5660f492ff91",
   "manifest.json": "ead55c808160eacb39323fcf5d4843bef2c04531a60928248ab00a02dbac294b",
   "membership.csv": "beed7c94c3e64f90b246f2f9ccde410c9e8c2aaa6ddfa33306d5731531230dd5",
-  "original_observations.json": "4d86945fc0ea557237ceaec4310a1879b24da82f59882892677b63a8b081bf5f",
+  "original_observations.json": "1fe9aee99a3a8ea1aa8ee9f09bc7eb7e8b4c0d10f847447671ad03d953e7934c",
   "original_pose_registry.json": "0b6f80dde1ed404d137c1b030b68364a9c6fad12b2105a2216c831165e790da9",
   "pose_registry.json": "cedca02ae3d1a5f193f6fab9ace2771eed234a39d79b38670772395fc2530ed4",
-  "poses.json": "1816c440dcd66233fca4bc87d23d3f3d87b58bcf2956a28158e740ee3f7bd1bd",
-  "poses.yaml": "4211af6bb5d8d2dbe03e114b41c12959e94efcc316747b398f5187a8ea7bb789",
+  "poses.json": "0de095cba35eef79d0c4454bac0241529d1e2110d874eaba70f4130a3f3ed049",
+  "poses.yaml": "8338e681a971743ccdfc1d85c72ee275e7b63fbdda25497dab77a13e5a241551",
   "stability.csv": "26e94c5298f632e0c437c13d1f4d3a097da95b1a7f8eb8362dad53d6bca1c37a",
   "validation.json": "91870746f02c8ad574e9616fe843fdae78bdcca8fe45ba802b1d52c0a9fd48a8"
 }
