@@ -1,0 +1,7 @@
+pose_id,members,representative_source_pose_id,retention_auc,complete,rank
+group_000,"[""Qf1i_0001"", ""Qf1i_0008""]",Qf1i_0001,1.0,True,1
+group_001,"[""Qf1i_0002""]",Qf1i_0002,1.0,True,2
+group_003,"[""Qf1i_0005"", ""Qf1i_0012""]",Qf1i_0005,1.0,True,3
+group_004,"[""Qf1i_0006""]",Qf1i_0006,1.0,True,4
+group_002,"[""Qf1i_0003"", ""Qf1i_0009"", ""Qf1i_0010"", ""Qf1i_0011""]",Qf1i_0010,0.9192708333333334,True,5
+group_005,"[""Qf1i_0013"", ""Qf1i_0014"", ""Qf1i_0015""]",Qf1i_0013,0.0,True,6
