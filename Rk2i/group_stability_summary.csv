@@ -1,0 +1,13 @@
+pose_id,members,representative_source_pose_id,retention_auc,complete,rank
+group_000,"[""Rk2i_0001""]",Rk2i_0001,1.0,True,1
+group_001,"[""Rk2i_0002""]",Rk2i_0002,1.0,True,2
+group_002,"[""Rk2i_0003""]",Rk2i_0003,1.0,True,3
+group_004,"[""Rk2i_0005""]",Rk2i_0005,1.0,True,4
+group_005,"[""Rk2i_0006""]",Rk2i_0006,1.0,True,5
+group_006,"[""Rk2i_0007""]",Rk2i_0007,1.0,True,6
+group_007,"[""Rk2i_0008""]",Rk2i_0008,1.0,True,7
+group_008,"[""Rk2i_0009""]",Rk2i_0009,1.0,True,8
+group_009,"[""Rk2i_0010""]",Rk2i_0010,1.0,True,9
+group_010,"[""Rk2i_0011""]",Rk2i_0011,1.0,True,10
+group_011,"[""Rk2i_0012""]",Rk2i_0012,1.0,True,11
+group_003,"[""Rk2i_0004""]",Rk2i_0004,0.9921874999999999,True,12
