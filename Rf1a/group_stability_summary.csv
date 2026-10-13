@@ -1,0 +1,18 @@
+pose_id,members,representative_source_pose_id,retention_auc,complete,rank
+group_000,"[""Rf1a_0001"", ""Rf1a_0002""]",Rf1a_0001,1.0,True,1
+group_001,"[""Rf1a_0003""]",Rf1a_0003,1.0,True,2
+group_002,"[""Rf1a_0004"", ""Rf1a_0019""]",Rf1a_0004,1.0,True,3
+group_003,"[""Rf1a_0005""]",Rf1a_0005,1.0,True,4
+group_004,"[""Rf1a_0006""]",Rf1a_0006,1.0,True,5
+group_005,"[""Rf1a_0007""]",Rf1a_0007,1.0,True,6
+group_006,"[""Rf1a_0008"", ""Rf1a_0011""]",Rf1a_0011,1.0,True,7
+group_008,"[""Rf1a_0010"", ""Rf1a_0014"", ""Rf1a_0021"", ""Rf1a_0024""]",Rf1a_0014,1.0,True,8
+group_009,"[""Rf1a_0012"", ""Rf1a_0022""]",Rf1a_0012,1.0,True,9
+group_010,"[""Rf1a_0013"", ""Rf1a_0023""]",Rf1a_0013,1.0,True,10
+group_011,"[""Rf1a_0015""]",Rf1a_0015,1.0,True,11
+group_012,"[""Rf1a_0016""]",Rf1a_0016,1.0,True,12
+group_013,"[""Rf1a_0017""]",Rf1a_0017,1.0,True,13
+group_014,"[""Rf1a_0018""]",Rf1a_0018,1.0,True,14
+group_007,"[""Rf1a_0009""]",Rf1a_0009,0.8958333333333335,True,15
+group_015,"[""Rf1a_0020""]",Rf1a_0020,0.14843749999999997,True,16
+group_016,"[""Rf1a_0025""]",Rf1a_0025,0.0,True,17
