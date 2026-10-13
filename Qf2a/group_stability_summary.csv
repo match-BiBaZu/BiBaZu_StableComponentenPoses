@@ -1,0 +1,17 @@
+pose_id,members,representative_source_pose_id,retention_auc,complete,rank
+group_000,"[""Qf2a_0001"", ""Qf2a_0015""]",Qf2a_0001,1.0,True,1
+group_001,"[""Qf2a_0002""]",Qf2a_0002,1.0,True,2
+group_002,"[""Qf2a_0003"", ""Qf2a_0005"", ""Qf2a_0022""]",Qf2a_0005,1.0,True,3
+group_003,"[""Qf2a_0006""]",Qf2a_0006,1.0,True,4
+group_004,"[""Qf2a_0007""]",Qf2a_0007,1.0,True,5
+group_006,"[""Qf2a_0009""]",Qf2a_0009,1.0,True,6
+group_007,"[""Qf2a_0011""]",Qf2a_0011,1.0,True,7
+group_008,"[""Qf2a_0012""]",Qf2a_0012,1.0,True,8
+group_009,"[""Qf2a_0013"", ""Qf2a_0023"", ""Qf2a_0024""]",Qf2a_0013,1.0,True,9
+group_005,"[""Qf2a_0008"", ""Qf2a_0010""]",Qf2a_0008,0.9791666666666666,True,10
+group_011,"[""Qf2a_0017"", ""Qf2a_0018""]",Qf2a_0018,0.9479166666666667,True,11
+group_010,"[""Qf2a_0014"", ""Qf2a_0016""]",Qf2a_0014,0.03125,True,12
+group_012,"[""Qf2a_0019""]",Qf2a_0019,0.0,True,13
+group_013,"[""Qf2a_0020""]",Qf2a_0020,0.0,True,14
+group_014,"[""Qf2a_0021""]",Qf2a_0021,0.0,True,15
+group_015,"[""Qf2a_0025""]",Qf2a_0025,0.0,True,16
