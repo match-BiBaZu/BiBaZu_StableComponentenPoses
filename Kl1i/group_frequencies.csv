@@ -1,0 +1,3 @@
+pose_id,members,representative_source_pose_id,count,probability,ci_low,ci_high,retained_by_frequency
+group_000,"[""Kl1i_0001""]",Kl1i_0001,4757,0.4757,0.4659229665370244,0.4854956957837904,True
+group_001,"[""Kl1i_0002""]",Kl1i_0002,4576,0.4576,0.44785362201383166,0.46737894104800165,True
