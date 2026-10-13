@@ -1,4 +1,16 @@
 {
+  "audit": {
+    "assessed_members": 24,
+    "assessment_complete": true,
+    "completed_trials": 10000,
+    "disturbance_tests": 1752,
+    "disturbances_sha256": "d8f5a421db76a655ff7cd729e2d3814d0cb8e79a87386e41d45bfff4ff373a25",
+    "eligible_groups": 12,
+    "group_count": 24,
+    "settled_trials": 9979,
+    "trials_sha256": "5a8a11c15ac06257efd05b31d490116b68ba84b27a005a51ee8a464841d9c08a",
+    "unassigned_settled_trials": 0
+  },
   "belt_speed_variation": {
     "control_point_clock": "elapsed time from start of observation (after reseating for stability trials)",
     "control_point_interval_s": 0.2,
@@ -10,6 +22,7 @@
       103
     ]
   },
+  "catalog_mesh_path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\Dashas_drop_sim\\src\\dashas_drop_sim\\assets\\catalog\\Ql4i.STL",
   "catalog_symmetry": "C1",
   "catalogue_cache_hit": false,
   "center_mass_source_mm": [
@@ -31,7 +44,8 @@
     "source_hull_volume_mm3": 32000.0,
     "source_volume_mm3": 28000.0
   },
-  "created_utc": "2026-10-05T18:28:23.441947+00:00",
+  "created_utc": "2026-10-13T08:55:04.530714+00:00",
+  "grouped_export": true,
   "inertia_com_kg_m2": [
     [
       1.8427380952380967e-05,
@@ -52,6 +66,27 @@
   "mass_kg": 0.03219999999999999,
   "mesh_source_sha256": "56d6ffc478806601b41f53c949e98b922b4b0e8bcadb1e8b6b62deeeea417ae5",
   "mesh_triangles_sha256": "75daf7a1ca11b7c23484747a33066725e13a310b44720df7e193312efcf2196d",
+  "observed_catalog_sha256": "1d256573d543fb6367ab289f518d1ebf5e52328645c49b1bef1a56e8b42b81dc",
+  "provenance": {
+    "baseline_roadmap_ids": {
+      "Ql4i_0002": 6,
+      "Ql4i_0003": 4,
+      "Ql4i_0006": 7,
+      "Ql4i_0008": 5,
+      "Ql4i_0011": 10,
+      "Ql4i_0012": 0,
+      "Ql4i_0013": 3,
+      "Ql4i_0017": 9,
+      "Ql4i_0018": 2,
+      "Ql4i_0019": 1,
+      "Ql4i_0020": 11,
+      "Ql4i_0022": 8
+    },
+    "engine_fingerprint": "7928d319b149a3d4cd6b833e338788a5cb5932f8269228a7f2810ff633355081",
+    "pose_revision": "9e00d03389d3b81013700def03fb1b19504144be",
+    "reused": false,
+    "roadmap_revision": "0b3b5c5fe42e787bd47f381b1f1ac57359d5aa55"
+  },
   "recognition": {
     "ambiguity_margin_deg": 1.0,
     "continuous_axis_part": null,
@@ -92,7 +127,7 @@
     "scipy": "1.18.1",
     "trimesh": "5.1.0"
   },
-  "software_commit": "ebcf9f0f5147537c0cf33940b34fc63271e11a1a",
+  "software_commit": "02845275f7034c3a402ec54511c21ce1c1eeed39",
   "surface_roughness": {
     "additional_friction": "Longitudinal traction impulse from an equivalent friction increment mu * height/ramp; duration ramp/abs(longitudinal slip); capped at slip cancellation",
     "contact_sampling": "normal-load times longitudinal-slip-speed weighted active MuJoCo contact points",
