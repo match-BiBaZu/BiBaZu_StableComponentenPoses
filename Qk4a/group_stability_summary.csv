@@ -1,0 +1,26 @@
+pose_id,members,representative_source_pose_id,retention_auc,complete,rank
+group_000,"[""Qk4a_0001""]",Qk4a_0001,1.0,True,1
+group_001,"[""Qk4a_0002""]",Qk4a_0002,1.0,True,2
+group_002,"[""Qk4a_0003""]",Qk4a_0003,1.0,True,3
+group_003,"[""Qk4a_0004""]",Qk4a_0004,1.0,True,4
+group_004,"[""Qk4a_0005""]",Qk4a_0005,1.0,True,5
+group_005,"[""Qk4a_0006""]",Qk4a_0006,1.0,True,6
+group_006,"[""Qk4a_0007"", ""Qk4a_0008""]",Qk4a_0007,1.0,True,7
+group_007,"[""Qk4a_0009""]",Qk4a_0009,1.0,True,8
+group_008,"[""Qk4a_0010""]",Qk4a_0010,1.0,True,9
+group_009,"[""Qk4a_0011""]",Qk4a_0011,1.0,True,10
+group_010,"[""Qk4a_0012""]",Qk4a_0012,1.0,True,11
+group_011,"[""Qk4a_0013""]",Qk4a_0013,1.0,True,12
+group_012,"[""Qk4a_0014""]",Qk4a_0014,1.0,True,13
+group_013,"[""Qk4a_0015""]",Qk4a_0015,1.0,True,14
+group_014,"[""Qk4a_0016""]",Qk4a_0016,1.0,True,15
+group_015,"[""Qk4a_0017""]",Qk4a_0017,1.0,True,16
+group_016,"[""Qk4a_0018""]",Qk4a_0018,1.0,True,17
+group_017,"[""Qk4a_0019""]",Qk4a_0019,1.0,True,18
+group_018,"[""Qk4a_0020""]",Qk4a_0020,1.0,True,19
+group_019,"[""Qk4a_0021""]",Qk4a_0021,1.0,True,20
+group_020,"[""Qk4a_0022""]",Qk4a_0022,1.0,True,21
+group_021,"[""Qk4a_0023""]",Qk4a_0023,1.0,True,22
+group_022,"[""Qk4a_0024""]",Qk4a_0024,1.0,True,23
+group_023,"[""Qk4a_0025""]",Qk4a_0025,1.0,True,24
+group_024,"[""Qk4a_0026""]",Qk4a_0026,0.265625,True,25
