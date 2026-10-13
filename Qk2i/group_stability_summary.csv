@@ -1,0 +1,16 @@
+pose_id,members,representative_source_pose_id,retention_auc,complete,rank
+group_000,"[""Qk2i_0001""]",Qk2i_0001,1.0,True,1
+group_001,"[""Qk2i_0002""]",Qk2i_0002,1.0,True,2
+group_002,"[""Qk2i_0003""]",Qk2i_0003,1.0,True,3
+group_003,"[""Qk2i_0004""]",Qk2i_0004,1.0,True,4
+group_004,"[""Qk2i_0005""]",Qk2i_0005,1.0,True,5
+group_005,"[""Qk2i_0006""]",Qk2i_0006,1.0,True,6
+group_008,"[""Qk2i_0009""]",Qk2i_0009,1.0,True,7
+group_009,"[""Qk2i_0010""]",Qk2i_0010,1.0,True,8
+group_010,"[""Qk2i_0011""]",Qk2i_0011,1.0,True,9
+group_011,"[""Qk2i_0012""]",Qk2i_0012,1.0,True,10
+group_012,"[""Qk2i_0013""]",Qk2i_0013,1.0,True,11
+group_013,"[""Qk2i_0014""]",Qk2i_0014,1.0,True,12
+group_014,"[""Qk2i_0015""]",Qk2i_0015,1.0,True,13
+group_006,"[""Qk2i_0007""]",Qk2i_0007,0.8802083333333333,True,14
+group_007,"[""Qk2i_0008""]",Qk2i_0008,0.8489583333333334,True,15
