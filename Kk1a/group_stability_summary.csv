@@ -1,0 +1,4 @@
+pose_id,members,representative_source_pose_id,retention_auc,complete,rank
+group_000,"[""Kk1a_0001""]",Kk1a_0001,0.546875,True,1
+group_001,"[""Kk1a_0002""]",Kk1a_0002,0.4427083333333334,True,2
+group_002,"[""Kk1a_0003""]",Kk1a_0003,0.06770833333333333,True,3

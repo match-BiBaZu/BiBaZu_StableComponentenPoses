@@ -1,0 +1,4 @@
+pose_id,members,representative_source_pose_id,count,probability,ci_low,ci_high,retained_by_frequency
+group_000,"[""Kk1a_0001""]",Kk1a_0001,1585,0.1585,0.15147334002955845,0.16578893085761368,True
+group_001,"[""Kk1a_0002""]",Kk1a_0002,1294,0.1294,0.12296356870948937,0.1361210508828561,True
+group_002,"[""Kk1a_0003""]",Kk1a_0003,8,0.0008,0.0004054337198968799,0.0015779502533866333,False
