@@ -6,12 +6,21 @@
     "interpretation": "Uniform random speed targets joined by smooth cosine transitions; forces arise from MuJoCo contact friction, not direct body kicks.",
     "model": "cosine_interpolated_uniform_speed_v1",
     "speed_range_mm_s": [
-      97,
-      103
+      97.0,
+      103.0
     ]
   },
+  "belt_stop_observation": {
+    "braking": "half-cosine belt surface speed to zero; no body velocity reset; speed variation and roughness disabled",
+    "enabled": true,
+    "interpretation": "Separate stationary observation; transport pose frequencies and stability rankings are unchanged. Contact planes extend beyond the virtual exit.",
+    "observation_s_after_stop": 2.0,
+    "ramp_s": 0.2,
+    "rest_criterion": "existing 0.5 s contact/orientation window with full XYZ position range <= 1 mm and filtered speed <= 1 mm/s",
+    "trigger": "after transport measurement at the virtual exit; drop trials only"
+  },
   "catalog_symmetry": "Cinf",
-  "catalogue_cache_hit": false,
+  "catalogue_cache_hit": true,
   "center_mass_source_mm": [
     40.00055248762783,
     39.9999989145617,
@@ -31,7 +40,15 @@
     "source_hull_volume_mm3": 50222.17441580301,
     "source_volume_mm3": 28250.174529472035
   },
-  "created_utc": "2026-10-04T15:48:56.367476+00:00",
+  "contact_response": {
+    "damping_ratio": 0.19,
+    "interpretation": "Solver contact parameters, not a directly specified restitution coefficient. Uncalibrated material response.",
+    "model": "mujoco_positive_solref_time_constant_damping_ratio",
+    "rolling_friction_mm": 0.1,
+    "time_constant_s": 0.005,
+    "torsional_friction_mm": 5.0
+  },
+  "created_utc": "2026-10-15T20:21:56.895372+00:00",
   "inertia_com_kg_m2": [
     [
       1.420736768419526e-05,
@@ -76,12 +93,12 @@
   },
   "release_distribution": {
     "drop_height_range_mm": [
-      100,
-      100
+      100.0,
+      100.0
     ],
     "lateral_range_mm": [
-      0,
-      0
+      0.0,
+      0.0
     ],
     "type": "independent_uniform_center_plus_minus_spread"
   },
@@ -96,16 +113,35 @@
     "scipy": "1.18.1",
     "trimesh": "5.1.0"
   },
-  "software_commit": "ebcf9f0f5147537c0cf33940b34fc63271e11a1a",
+  "software_commit": "82f8bd43c70a0eb160d27dc0f7232849842efe9c",
   "surface_roughness": {
-    "additional_friction": "Longitudinal traction impulse from an equivalent friction increment mu * height/ramp; duration ramp/abs(longitudinal slip); capped at slip cancellation",
-    "contact_sampling": "normal-load times longitudinal-slip-speed weighted active MuJoCo contact points",
+    "active_window": {
+      "clock": "elapsed observation time; includes release for drops, starts after reseating for stability trials",
+      "cutoff": "only full physics steps within the window; no restart on recontact; active force pulses end with window_end",
+      "duration_s": 1.0,
+      "zero_means": "entire observation"
+    },
+    "additional_friction": null,
+    "contact_sampling": "uniform random geometrically touching loaded contact on belt or wall at impulse time",
     "enabled": true,
-    "interpretation": "Uncalibrated stochastic contact impulses per relative sliding distance; not a fixed surface map or resolved scratch geometry. Traction strength is an equivalent friction assumption, not inferred from scratch depth alone.",
-    "minimum_sliding_speed_mm_s": 0.1,
-    "model": "longitudinal_contact_traction_v1",
+    "instantaneous_impulse": {
+      "delta_v_free_mm_s": 49.05,
+      "direction_chute": [
+        1,
+        0,
+        0
+      ],
+      "energy_policy": "External impulse changes generalized velocity through point Jacobian and mass matrix; normal contact dynamics follow",
+      "impulse_ns": 0.0015935217197711935,
+      "mean_interval_s": 0.2,
+      "timing": "exponential waits; at most one complete impulse per integration step; contactless events skipped; times rounded up to a step boundary"
+    },
+    "interpretation": "Uncalibrated complete point impulse J = mass * free velocity change. No finite force duration or shortening at later contact loss. Geometry and inertia determine rotation; no pose forced.",
+    "minimum_sliding_speed_mm_s": null,
+    "model": "mass_scaled_contact_impulse_v1",
     "restitution": null,
-    "sampling_interval_s": 0.005
+    "sampling_interval_s": 0.001,
+    "weight_force": null
   },
   "symmetry_available": true,
   "unknown_cluster_tolerance_deg": 5.0

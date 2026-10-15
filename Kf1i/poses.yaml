@@ -1,11 +1,21 @@
 schema_version: 1
 workpiece: Kf1i
-run_id: 2c4023722a09a0d82a41fef1dfdc7b7307758512ddc0a4e34929d7bc4dea4201
-completed_trials: 1000
+run_id: 93f6f7c703aec73d37c7ce3a84b5b41b324d5dc25572c5511ec956f6bca8d222
+completed_trials: 10000
 settled_trials: 0
 status_counts:
-  unsettled: 1000
-observation_length_mm: 500
+  unsettled: 9529
+  stalled: 456
+  timeout: 15
+belt_stop_observation:
+  enabled: true
+  observed_trials: 9529
+  settled_transport_then_unsettled: 0
+  status_counts:
+    settled: 9445
+    unsettled: 84
+  unsettled_transport_then_settled: 9445
+observation_length_mm: 500.0
 frequency_denominator: all completed drop trials, including unsettled outcomes
 frame:
   handedness: right
