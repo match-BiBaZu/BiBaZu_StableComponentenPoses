@@ -43,3 +43,5 @@ Simulationsergebnisse unter den je Werkstück dokumentierten Parametern. Häufig
 | [Rl2i](Rl2i/README.md) | Vollständig | 10000 | 9980 | 9 | 500 mm |
 | [Rl3a](Rl3a/README.md) | Vollständig | 10000 | 9883 | 18 | 500 mm |
 | [Rl4i](Rl4i/README.md) | Vollständig | 10000 | 9992 | 19 | 500 mm |
+
+Kf1i: Zusätzlich zur Fahrstatistik wurden 9445 von 9529 Teilen nach Bandstopp als ruhig bewertet. [Getrennte Ruheprüfung und vollständige Laufdaten](Kf1i/README.md#10000-fallversuche-mit-anschließender-ruheprüfung).

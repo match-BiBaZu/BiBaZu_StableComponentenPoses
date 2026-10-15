@@ -1,0 +1,9 @@
+{
+  "source_commit": "82f8bd43c70a0eb160d27dc0f7232849842efe9c",
+  "simulation_repository": "https://github.com/match-BiBaZu/Dashas_drop_sim",
+  "started_at_utc": "2026-10-15T20:21:56.590379+00:00",
+  "completed_at_utc": "2026-10-15T20:54:20.793192+00:00",
+  "wall_time_s": 1944.202756600018,
+  "workers": 16,
+  "chutes_per_worker": 1
+}

@@ -89,7 +89,17 @@
       "settled": 0,
       "status": "complete",
       "trials": 10000,
-      "workpiece": "Kf1i"
+      "workpiece": "Kf1i",
+      "belt_stop_observation": {
+        "enabled": true,
+        "observed_trials": 9529,
+        "settled_transport_then_unsettled": 0,
+        "status_counts": {
+          "settled": 9445,
+          "unsettled": 84
+        },
+        "unsettled_transport_then_settled": 9445
+      }
     },
     {
       "length_mm": 500,

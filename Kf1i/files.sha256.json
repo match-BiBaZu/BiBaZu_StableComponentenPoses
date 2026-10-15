@@ -1,12 +1,17 @@
 {
   "Kf1i.step": "051a5db6f7ad5f5682b10b5f25aa59e272f7b26138528cdb694510c01e808729",
   "Kf1i.stl": "e87f5f88d802f8a85a2dee6c85f5306b1dd690860ddf9bb587ec1561e0e4097a",
-  "README.md": "625f9f307e1868801a1be218db8f1df8ccba35c196d0891f84dbaf6aea8cad75",
+  "README.md": "fef6f4453bf6233bcbdf0ada5a2aaf8adb53c8b711bd5914d604fbf539e65f79",
   "config.json": "a7af95e43c060fc6f8a2b5a3b85036ab52663d7527fd34fb4534c43b31a44ee3",
+  "execution.json": "02e88ebfd9b717cfb3c6d931f8a6d75a3f687ebfd03bbd43e46e0e497279b869",
   "frequencies.csv": "c833c21a4b655ae1b6780ff6f03ef02ba40c51c1afc4af326f464937e122327e",
   "manifest.json": "1c6b8e19983940e710f950da9f5f43a7286f61e9b20df95631c017aeee652c39",
   "pose_registry.json": "791664ba730c893583fb881b115de9c017754d1f6a930e38d76dcb44c86e6e05",
   "poses.json": "a6aa1ae4a0ef51cb383ad61e566837d7faa1a990b29e161110eaec9fd6b809dc",
   "poses.yaml": "2f2ab59e641d4a100273c1be35da39bd1df3932afa5913a34aa2b9aa801e295c",
-  "trials.csv": "16f292e19136579ce1b4f3655ee00a3062e4c8be8b7cfdc5d459a40e8ae44bc1"
+  "simulation_results.zip": "2aa77e73d5b1db65f42201e68e65e135c8e1e8944abbdcf75fc58d1c65885599",
+  "stop_observations.csv": "ddc3c06017c888872fa64bc31ecc624678993819e8532d34fccef3d066d809ca",
+  "summary.json": "38ec868f57b4be41119663d9eca5f44240fa35931b94dfe90be60a4cf0421e25",
+  "trials.csv": "16f292e19136579ce1b4f3655ee00a3062e4c8be8b7cfdc5d459a40e8ae44bc1",
+  "validation.json": "589ddb8c887744a301d099f5e3533af1002ef86a45c6dc585e3b89f4c4355f6c"
 }

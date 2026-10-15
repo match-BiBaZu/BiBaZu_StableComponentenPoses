@@ -1,0 +1,23 @@
+{
+  "run_dir": "C:\\Users\\admin\\Documents\\Codex\\2026-10-14\\hi\\Dashas_drop_sim\\results\\run_20261015T202156_591293Z_42",
+  "trials": 10000,
+  "workers": 16,
+  "transport_status_counts": {
+    "stalled": 456,
+    "timeout": 15,
+    "unsettled": 9529
+  },
+  "belt_stop_observation": {
+    "enabled": true,
+    "observed_trials": 9529,
+    "settled_transport_then_unsettled": 0,
+    "status_counts": {
+      "settled": 9445,
+      "unsettled": 84
+    },
+    "unsettled_transport_then_settled": 9445
+  },
+  "wall_time_s": 1944.202756600018,
+  "first_100_trials_replay_exactly": true,
+  "source_commit": "82f8bd43c70a0eb160d27dc0f7232849842efe9c"
+}
