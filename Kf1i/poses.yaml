@@ -1,12 +1,3 @@
-schema_version: 1
-workpiece: Kf1i
-run_id: 93f6f7c703aec73d37c7ce3a84b5b41b324d5dc25572c5511ec956f6bca8d222
-completed_trials: 10000
-settled_trials: 0
-status_counts:
-  unsettled: 9529
-  stalled: 456
-  timeout: 15
 belt_stop_observation:
   enabled: true
   observed_trials: 9529
@@ -15,23 +6,25 @@ belt_stop_observation:
     settled: 9445
     unsettled: 84
   unsettled_transport_then_settled: 9445
-observation_length_mm: 500.0
-frequency_denominator: all completed drop trials, including unsettled outcomes
+completed_trials: 10000
 frame:
-  handedness: right
   X: along belt
   Y: away from wall
   Z: away from belt
+  handedness: right
   length_unit: mm
+frequency_denominator: all completed drop trials, including unsettled outcomes
 geometry:
-  stl: Kf1i.stl
-  step: Kf1i.step
-  stl_sha256: e87f5f88d802f8a85a2dee6c85f5306b1dd690860ddf9bb587ec1561e0e4097a
-  step_sha256: 051a5db6f7ad5f5682b10b5f25aa59e272f7b26138528cdb694510c01e808729
   center_mass_source_mm:
   - 40.00055248762783
   - 39.9999989145617
   - 3.8333523463682333
+  step: Kf1i.step
+  step_sha256: 051a5db6f7ad5f5682b10b5f25aa59e272f7b26138528cdb694510c01e808729
+  stl: Kf1i.stl
+  stl_sha256: e87f5f88d802f8a85a2dee6c85f5306b1dd690860ddf9bb587ec1561e0e4097a
+observation_length_mm: 500.0
+poses: []
 recognition:
   ambiguity_margin_deg: 1.0
   continuous_axis_part:
@@ -49,4 +42,12 @@ recognition:
     - 1.0
   symmetry_symbol: Cinf
   tolerance_deg: 5.0
-poses: []
+run_id: 93f6f7c703aec73d37c7ce3a84b5b41b324d5dc25572c5511ec956f6bca8d222
+schema_version: 1
+settled_trials: 0
+status_counts:
+  stalled: 456
+  timeout: 15
+  unsettled: 9529
+workpiece: Kf1i
+after_stop_catalogue: poses_after_stop.json

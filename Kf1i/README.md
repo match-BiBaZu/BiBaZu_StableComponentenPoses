@@ -1,5 +1,7 @@
 # Kf1i
 
+**Nach Bandstopp: 9445 ruhige Endlagen in [4 bebilderten Pose-Klassen](#ruheposen-nach-bandstopp).**
+
 10000 Fallversuche auf 500 mm Strecke; 0 eingependelte Endlagen. Prozentangaben beziehen sich auf alle Fallversuche.
 
 Dies sind beobachtete Simulationslagen unter den dokumentierten Parametern; Reibung und Unebenheitsmodell sind noch nicht an realen Häufigkeiten kalibriert.
@@ -33,3 +35,18 @@ Das Band bremst nach der Fahrmessung in 0,2 s auf null; anschließend folgen 2 s
 - [Ausführungsnachweis](execution.json) und [Datenprüfung](validation.json)
 
 Die 10.000 Versuchsnummern und Seeds wurden geprüft. Die ersten 100 Versuche einschließlich der Ruheprüfung reproduzieren den vorherigen Kontrolllauf exakt.
+
+## Ruheposen nach Bandstopp
+
+**9445 ruhige Endlagen, 4 Pose-Klassen.** Diese Bilder zeigen die gemessenen Orientierungen nach der Ruheprüfung.
+
+Die Hauptanteile beziehen sich auf alle 10000 Abwürfe; die letzte Spalte auf die 9445 ruhigen Endlagen. Drehungen um eine kontinuierliche Bauteilsymmetrieachse gelten als dieselbe Pose. Die Achsenrichtung bleibt berücksichtigt; entgegengesetzte Bauteilseiten werden getrennt.
+
+| Ruhepose | Bild | Anzahl | Anteil aller Abwürfe | 95-%-Intervall | Anteil ruhiger Endlagen |
+| --- | --- | ---: | ---: | ---: | ---: |
+| Kf1i_stop_0001 | ![Kf1i_stop_0001](images/Kf1i_stop_0001.png) | 2925 | 29.25 % | 28.37–30.15 % | 30.97 % |
+| Kf1i_stop_0004 | ![Kf1i_stop_0004](images/Kf1i_stop_0004.png) | 2694 | 26.94 % | 26.08–27.82 % | 28.52 % |
+| Kf1i_stop_0002 | ![Kf1i_stop_0002](images/Kf1i_stop_0002.png) | 1920 | 19.20 % | 18.44–19.98 % | 20.33 % |
+| Kf1i_stop_0003 | ![Kf1i_stop_0003](images/Kf1i_stop_0003.png) | 1906 | 19.06 % | 18.30–19.84 % | 20.18 % |
+
+Ruheposen und Erkennung: [JSON](poses_after_stop.json), [YAML](poses_after_stop.yaml). Häufigkeiten: [CSV](frequencies_after_stop.csv). Zuordnung aller Versuche: [CSV](trials_after_stop.csv). Fahrmessung und Fahrposen bleiben separat in poses.json und trials.csv.

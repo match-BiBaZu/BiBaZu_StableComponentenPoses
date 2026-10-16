@@ -88,18 +88,12 @@
       "run_id": "93f6f7c703aec73d37c7ce3a84b5b41b324d5dc25572c5511ec956f6bca8d222",
       "settled": 0,
       "status": "complete",
+      "stop_catalogue": "Kf1i/poses_after_stop.json",
+      "stop_observed": 9529,
+      "stop_poses": 4,
+      "stop_settled": 9445,
       "trials": 10000,
-      "workpiece": "Kf1i",
-      "belt_stop_observation": {
-        "enabled": true,
-        "observed_trials": 9529,
-        "settled_transport_then_unsettled": 0,
-        "status_counts": {
-          "settled": 9445,
-          "unsettled": 84
-        },
-        "unsettled_transport_then_settled": 9445
-      }
+      "workpiece": "Kf1i"
     },
     {
       "length_mm": 500,
