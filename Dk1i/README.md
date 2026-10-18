@@ -1,5 +1,23 @@
 # Dk1i
 
+## 1.000 Fallversuche mit 16 Prozessen
+
+Dies ist der am 18.10.2026 angeforderte Lauf. Während der Fahrt waren
+998 Teile ruhig und 2 noch unsettled; nach dem Bandstopp waren 999 ruhig
+und 1 weiterhin unsettled. Es wurden acht Ruhepose-Klassen beobachtet.
+Die folgenden fünf häufigsten Klassen entsprechen genau den im Chat gezeigten Bildern.
+Ihre Anteile beziehen sich auf alle 1.000 Abwürfe.
+
+![Die fünf häufigsten Dk1i-Ruheposen](Top5-Ruheposen.png)
+
+- [Alle acht Ruheposen mit Bildern und Häufigkeiten](#ruheposen-nach-bandstopp)
+- [Zusammenfassung des Laufs](summary.json)
+- [Zuordnung aller 1.000 Ruheprüfungen zu Pose-IDs](trials_after_stop.csv)
+- [Einzelne Ruheprüfungen](stop_observations.csv)
+- [Vollständige Laufdaten und Impulsprotokolle als ZIP](simulation_results.zip)
+- [Ausführungsnachweis](execution.json) und [Datenprüfung](validation.json)
+
+
 1000 Fallversuche auf 500 mm Strecke; 998 eingependelte Endlagen. Prozentangaben beziehen sich auf alle Fallversuche.
 
 Dies sind beobachtete Simulationslagen unter den dokumentierten Parametern; Reibung und Unebenheitsmodell sind noch nicht an realen Häufigkeiten kalibriert.

@@ -1,0 +1,25 @@
+{
+  "trials": 1000,
+  "workers": 16,
+  "run_directory": "run_20261018T204602_527463Z_42",
+  "transport_status_counts": {
+    "settled": 998,
+    "unsettled": 2
+  },
+  "stop_status_counts": {
+    "settled": 999,
+    "unsettled": 1
+  },
+  "rest_classes": 8,
+  "top5_counts": [
+    188,
+    180,
+    159,
+    151,
+    113
+  ],
+  "same_pose_images_as_displayed_in_chat": true,
+  "previous_catalogue_commit": "0006791c9f77c2359f04abf01035d9d78e18d456",
+  "trial_numbers_and_seeds_verified": true,
+  "impulse_cutoff_verified_s": 1.0
+}

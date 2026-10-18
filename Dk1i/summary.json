@@ -1,0 +1,200 @@
+{
+  "belt_stop_observation": {
+    "enabled": true,
+    "observed_trials": 1000,
+    "settled_transport_then_unsettled": 1,
+    "status_counts": {
+      "settled": 999,
+      "unsettled": 1
+    },
+    "unsettled_transport_then_settled": 2
+  },
+  "cancelled": false,
+  "completed_trials": 1000,
+  "compute_stability": false,
+  "disturbance_trials": 0,
+  "interpretation": "Fractions are conditional on the configured release and virtual 0.5 m chute; friction values are uncalibrated assumptions.",
+  "pose_frequencies": [
+    {
+      "category": "pose",
+      "ci_high": 0.21339318741121788,
+      "ci_low": 0.16499470988376858,
+      "count": 188,
+      "pose_id": "unknown_003",
+      "probability": 0.188,
+      "representative_pos_chute_mm": [
+        479.6375651773673,
+        10.007450394177695,
+        5.77973998855968
+      ],
+      "representative_quat_xyzw": [
+        0.5003017823752166,
+        0.5000133129312827,
+        0.49986633591139484,
+        0.499818426697317
+      ],
+      "representative_source": "observed"
+    },
+    {
+      "category": "pose",
+      "ci_high": 0.20502223290201207,
+      "ci_low": 0.15742689252874323,
+      "count": 180,
+      "pose_id": "unknown_004",
+      "probability": 0.18,
+      "representative_pos_chute_mm": [
+        479.5144867897392,
+        5.775837719965803,
+        10.006523179163114
+      ],
+      "representative_quat_xyzw": [
+        -0.6122438455929516,
+        0.3536723249235664,
+        -0.6123413928261638,
+        0.35371086885820596
+      ],
+      "representative_source": "observed"
+    },
+    {
+      "category": "pose",
+      "ci_high": 0.1840169336866874,
+      "ci_low": 0.13858526208349012,
+      "count": 160,
+      "pose_id": "unknown_002",
+      "probability": 0.16,
+      "representative_pos_chute_mm": [
+        479.71202501831965,
+        10.001506363550114,
+        5.782636086238879
+      ],
+      "representative_quat_xyzw": [
+        -0.6830835451244781,
+        -0.18288916611419095,
+        0.6829293445363863,
+        0.18318278759024492
+      ],
+      "representative_source": "observed"
+    },
+    {
+      "category": "pose",
+      "ci_high": 0.17346865842680032,
+      "ci_low": 0.1292100725130883,
+      "count": 150,
+      "pose_id": "unknown_005",
+      "probability": 0.15,
+      "representative_pos_chute_mm": [
+        479.3647783683943,
+        5.771055736434736,
+        10.007066610517834
+      ],
+      "representative_quat_xyzw": [
+        -0.6127893537154439,
+        -0.3532398514871782,
+        0.6123288864059375,
+        0.3532196910807629
+      ],
+      "representative_source": "observed"
+    },
+    {
+      "category": "pose",
+      "ci_high": 0.13412155275138501,
+      "ci_low": 0.09484035831643467,
+      "count": 113,
+      "pose_id": "unknown_007",
+      "probability": 0.113,
+      "representative_pos_chute_mm": [
+        480.0449688740728,
+        5.770568317011357,
+        12.834015859745941
+      ],
+      "representative_quat_xyzw": [
+        -0.00037382694549709106,
+        2.7371442651547797e-05,
+        7.928495554769561e-05,
+        -0.9999999266090548
+      ],
+      "representative_source": "observed"
+    },
+    {
+      "category": "pose",
+      "ci_high": 0.09846643902950242,
+      "ci_low": 0.06474803809836388,
+      "count": 80,
+      "pose_id": "unknown_006",
+      "probability": 0.08,
+      "representative_pos_chute_mm": [
+        479.84927063076606,
+        12.846801942532203,
+        5.7736405204051024
+      ],
+      "representative_quat_xyzw": [
+        0.6124488998323959,
+        0.35337160063183004,
+        0.35371470641631775,
+        -0.6123077358859713
+      ],
+      "representative_source": "observed"
+    },
+    {
+      "category": "pose",
+      "ci_high": 0.0940956431240484,
+      "ci_low": 0.06114944807170235,
+      "count": 76,
+      "pose_id": "unknown_001",
+      "probability": 0.076,
+      "representative_pos_chute_mm": [
+        479.8319018019011,
+        5.777069665266552,
+        17.161468801202258
+      ],
+      "representative_quat_xyzw": [
+        0.8663207623338965,
+        -0.4994879618684128,
+        -9.563685358690566e-05,
+        0.0003217939522284774
+      ],
+      "representative_source": "observed"
+    },
+    {
+      "category": "pose",
+      "ci_high": 0.06643548634476165,
+      "ci_low": 0.03900094277526684,
+      "count": 51,
+      "pose_id": "unknown_008",
+      "probability": 0.051,
+      "representative_pos_chute_mm": [
+        480.12323450223175,
+        17.15971528402064,
+        5.773320918154689
+      ],
+      "representative_quat_xyzw": [
+        0.3537401747342093,
+        0.6123109934469032,
+        -0.6123528797701158,
+        0.3535068411223805
+      ],
+      "representative_source": "observed"
+    },
+    {
+      "category": "unassigned",
+      "ci_high": 0.007262807863492177,
+      "ci_low": 0.000548643588120728,
+      "count": 2,
+      "pose_id": "unsettled",
+      "probability": 0.002
+    }
+  ],
+  "requested_trials": 1000,
+  "roughness_impulse_count": 2602,
+  "roughness_surface_counts": {
+    "belt": 1395,
+    "wall": 1207
+  },
+  "settled_trials": 998,
+  "stability_curves": [],
+  "stability_ranking": [],
+  "status_counts": {
+    "settled": 998,
+    "unsettled": 2
+  }
+}

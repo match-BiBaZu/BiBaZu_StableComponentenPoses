@@ -2,8 +2,10 @@
   ".gitattributes": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992",
   "Dk1i.step": "9fe378a2d894eb4a3f09e37ffec357d9f0acfe3fcd3b91ebc5967894eb252342",
   "Dk1i.stl": "3da2610e5110cf3be1897606d191a245f3ffab9e33fad9130fea6cab1fc17c48",
-  "README.md": "0278c6cf55ff43d4a223da968210e2acf87e579daa3ebd1f7ff9cd6000cdf412",
+  "README.md": "c932bfa1d8f859cc58cc385de4d75c5d47bad796f979d346d557eb6f5fed5752",
+  "Top5-Ruheposen.png": "664141bce6d6000d8ac3b2a4beac8c226ecc43d7568b6c3255ea78b49e2c7666",
   "config.json": "37b10cf55a1d0d60f47ac51624f4b723ae2ce100eaf48f0de69f29ba1044158d",
+  "execution.json": "560c8a0dd3b57c67ddf4f88014a3ddf7189c7f5f19573791de51d63c13b8b3b1",
   "frequencies.csv": "0077bd55e2c2011f5caf0cdabccb7bc8a81c258fd9d6e0ed9338110c639954a9",
   "frequencies_after_stop.csv": "61f6810bac47ae57b3a5694f20146888992513f9dfae3dab4c5103e95668af7d",
   "images/Dk1i_0001.png": "048ab634929e7930d840d7e68bba064e0dd6c0b59bfc49016cbdeb124ac7c519",
@@ -29,6 +31,11 @@
   "poses.yaml": "c2f247f552124a00dd4f5da6f9e1518603f06418a80cc6c70f70e39c367382de",
   "poses_after_stop.json": "dfd19053e7a9db325329d5d92e93bf2b51dad0b40ef4336d539f988282b430c2",
   "poses_after_stop.yaml": "97787438bfed543cf52c6209e3bcc89e675c3da37643d0113c8089eb9a34a4ce",
+  "simulation_results.zip": "ea48a0bbff0f3e2a69a7366e6d63be62da5f4fca7c54b7bc25e3fc0d286293a4",
+  "stop_observations.csv": "7bf9e512152dd4e9f55ee6adbee29b08c1e449b0091d07286fa9fbb7c1e3f088",
+  "summary.json": "2cb016d3ef46634292bc34ada96d74d51904c3bca47214cc211cdbc4c4b37e7f",
+  "top5.json": "690026038deae39578914bc0007a97e800330d085f025ba4f9b0529e8db32ca4",
   "trials.csv": "9e65e32aadba6b1c2f745048be3f9ae7b169959ff4c02f3787e977c130c3f9b3",
-  "trials_after_stop.csv": "1a618d46f9f022319fae1b98224f896b353e82cc27c68efa2d0649774574e236"
+  "trials_after_stop.csv": "1a618d46f9f022319fae1b98224f896b353e82cc27c68efa2d0649774574e236",
+  "validation.json": "e2c79078e883828f0d06a39ba1c602c16b7cc3df6537e209586c3e45a8ff78a4"
 }

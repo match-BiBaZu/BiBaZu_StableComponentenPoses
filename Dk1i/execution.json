@@ -1,0 +1,56 @@
+{
+  "state": "complete",
+  "part": "Dk1i",
+  "run_dir": "C:\\Users\\admin\\Documents\\Codex\\2026-10-14\\hi\\Dashas_drop_sim\\results\\run_20261018T204602_527463Z_42",
+  "output_dir": "C:\\Users\\admin\\Documents\\Codex\\2026-10-14\\hi\\outputs\\Dk1i-1000-20261018T204820Z",
+  "wall_time_s": 138.36059059994295,
+  "workers": 16,
+  "engine_fingerprint": "d03fedb202765844c1167e5eb2de2b4867e350ee8f2a5ce3e261d16588d59946",
+  "classifier_sha256": "b2ecc768c2f6a292cee1f6fcfb01d9bb7dec71fdd462c0e8c5a6c47b47591016",
+  "transport_status_counts": {
+    "settled": 998,
+    "unsettled": 2
+  },
+  "stop_status_counts": {
+    "settled": 999,
+    "unsettled": 1
+  },
+  "classes": 8,
+  "top5": [
+    {
+      "id": "Dk1i_stop_0003",
+      "count": 188,
+      "frequency_percent": 18.8,
+      "image": "images/Dk1i_stop_0003.png",
+      "representative_trial": 0
+    },
+    {
+      "id": "Dk1i_stop_0004",
+      "count": 180,
+      "frequency_percent": 18.0,
+      "image": "images/Dk1i_stop_0004.png",
+      "representative_trial": 1
+    },
+    {
+      "id": "Dk1i_stop_0002",
+      "count": 159,
+      "frequency_percent": 15.9,
+      "image": "images/Dk1i_stop_0002.png",
+      "representative_trial": 2
+    },
+    {
+      "id": "Dk1i_stop_0005",
+      "count": 151,
+      "frequency_percent": 15.1,
+      "image": "images/Dk1i_stop_0005.png",
+      "representative_trial": 4
+    },
+    {
+      "id": "Dk1i_stop_0007",
+      "count": 113,
+      "frequency_percent": 11.3,
+      "image": "images/Dk1i_stop_0007.png",
+      "representative_trial": 5
+    }
+  ]
+}
