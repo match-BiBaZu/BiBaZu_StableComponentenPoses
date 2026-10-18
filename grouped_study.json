@@ -1801,29 +1801,30 @@
       "unassigned_settled_trials": 0
     },
     "Dk1i": {
-      "assessed_members": 8,
-      "assessment_complete": true,
       "completed_trials": 10000,
+      "settled_trials": 9998,
+      "unassigned_settled_trials": 0,
+      "assessed_members": 8,
       "disturbance_tests": 584,
-      "disturbances_sha256": "cd6e3912ee3776967138d5cd1a95834e305b6739ab041de66b2678e6c556714e",
-      "eligible_groups": 6,
+      "assessment_complete": true,
       "group_count": 6,
+      "eligible_groups": 6,
+      "trials_sha256": "977b63fd521a058ea4830de96cb20f6ddac3cc6f31760eafcbb7ffc8084e7303",
+      "disturbances_sha256": "61eb4e57d980f2ecba24473101a3620c17855932eb098c112b689db03292d19c",
+      "status": "complete",
+      "reused": false,
       "groups": [
         {
-          "baseline_representative_pose": 6,
-          "baseline_roadmap_members": [
-            6
-          ],
           "category": "pose",
-          "ci_high": 0.07991465859108934,
-          "ci_low": 0.0696120472226823,
+          "ci_high": 0.0798115257627828,
+          "ci_low": 0.06951525685066298,
           "complete": true,
-          "count": 746,
+          "count": 745,
           "members": [
             "Dk1i_0001"
           ],
           "pose_id": "group_000",
-          "probability": 0.0746,
+          "probability": 0.0745,
           "rank": 1,
           "representative_pos_chute_mm": [
             480.01901362548773,
@@ -1838,25 +1839,24 @@
           ],
           "representative_source_pose_id": "Dk1i_0001",
           "retained_by_frequency": true,
-          "retention_auc": 1.0
+          "retention_auc": 1.0,
+          "baseline_roadmap_members": [
+            6
+          ],
+          "baseline_representative_pose": 6
         },
         {
-          "baseline_representative_pose": 1,
-          "baseline_roadmap_members": [
-            1,
-            5
-          ],
           "category": "pose",
-          "ci_high": 0.27787973270817373,
-          "ci_low": 0.2604975977394047,
+          "ci_high": 0.27899049415192173,
+          "ci_low": 0.26158599149924117,
           "complete": true,
-          "count": 2691,
+          "count": 2702,
           "members": [
             "Dk1i_0002",
             "Dk1i_0004"
           ],
           "pose_id": "group_001",
-          "probability": 0.2691,
+          "probability": 0.2702,
           "rank": 2,
           "representative_pos_chute_mm": [
             479.6207948900969,
@@ -1871,25 +1871,25 @@
           ],
           "representative_source_pose_id": "Dk1i_0002",
           "retained_by_frequency": true,
-          "retention_auc": 1.0
+          "retention_auc": 1.0,
+          "baseline_roadmap_members": [
+            1,
+            5
+          ],
+          "baseline_representative_pose": 1
         },
         {
-          "baseline_representative_pose": 2,
-          "baseline_roadmap_members": [
-            2,
-            4
-          ],
           "category": "pose",
-          "ci_high": 0.285653650932453,
-          "ci_low": 0.26811776594021697,
+          "ci_high": 0.28656207752155255,
+          "ci_low": 0.2690086481540502,
           "complete": true,
-          "count": 2768,
+          "count": 2777,
           "members": [
             "Dk1i_0003",
             "Dk1i_0005"
           ],
           "pose_id": "group_002",
-          "probability": 0.2768,
+          "probability": 0.2777,
           "rank": 3,
           "representative_pos_chute_mm": [
             479.4024929683439,
@@ -1904,23 +1904,24 @@
           ],
           "representative_source_pose_id": "Dk1i_0005",
           "retained_by_frequency": true,
-          "retention_auc": 1.0
+          "retention_auc": 1.0,
+          "baseline_roadmap_members": [
+            2,
+            4
+          ],
+          "baseline_representative_pose": 2
         },
         {
-          "baseline_representative_pose": 3,
-          "baseline_roadmap_members": [
-            3
-          ],
           "category": "pose",
-          "ci_high": 0.15091602441061985,
-          "ci_low": 0.137157459228976,
+          "ci_high": 0.14979452143636765,
+          "ci_low": 0.1360798069996437,
           "complete": true,
-          "count": 1439,
+          "count": 1428,
           "members": [
             "Dk1i_0006"
           ],
           "pose_id": "group_003",
-          "probability": 0.1439,
+          "probability": 0.1428,
           "rank": 4,
           "representative_pos_chute_mm": [
             479.6233706074376,
@@ -1935,23 +1936,23 @@
           ],
           "representative_source_pose_id": "Dk1i_0006",
           "retained_by_frequency": true,
-          "retention_auc": 1.0
+          "retention_auc": 1.0,
+          "baseline_roadmap_members": [
+            3
+          ],
+          "baseline_representative_pose": 3
         },
         {
-          "baseline_representative_pose": 0,
-          "baseline_roadmap_members": [
-            0
-          ],
           "category": "pose",
-          "ci_high": 0.17179299246880833,
-          "ci_low": 0.1572647472375898,
+          "ci_high": 0.1716912570096451,
+          "ci_low": 0.15716655949642716,
           "complete": true,
-          "count": 1644,
+          "count": 1643,
           "members": [
             "Dk1i_0007"
           ],
           "pose_id": "group_004",
-          "probability": 0.1644,
+          "probability": 0.1643,
           "rank": 5,
           "representative_pos_chute_mm": [
             479.60739763870146,
@@ -1966,23 +1967,23 @@
           ],
           "representative_source_pose_id": "Dk1i_0007",
           "retained_by_frequency": true,
-          "retention_auc": 1.0
+          "retention_auc": 1.0,
+          "baseline_roadmap_members": [
+            0
+          ],
+          "baseline_representative_pose": 0
         },
         {
-          "baseline_representative_pose": 7,
-          "baseline_roadmap_members": [
-            7
-          ],
           "category": "pose",
-          "ci_high": 0.07620013858684155,
-          "ci_low": 0.06612933201519897,
+          "ci_high": 0.07547744435426727,
+          "ci_low": 0.06545256384549218,
           "complete": true,
-          "count": 710,
+          "count": 703,
           "members": [
             "Dk1i_0008"
           ],
           "pose_id": "group_005",
-          "probability": 0.071,
+          "probability": 0.0703,
           "rank": 6,
           "representative_pos_chute_mm": [
             479.9788934245541,
@@ -1997,16 +1998,43 @@
           ],
           "representative_source_pose_id": "Dk1i_0008",
           "retained_by_frequency": true,
-          "retention_auc": 1.0
+          "retention_auc": 1.0,
+          "baseline_roadmap_members": [
+            7
+          ],
+          "baseline_representative_pose": 7
         }
       ],
-      "reused": true,
-      "roadmap_status": "complete",
-      "settled_trials": 9998,
-      "status": "complete",
-      "transition_count": 16,
-      "trials_sha256": "237957ebed37896cfe13a9529386b4b6707e75a5f18d8804b52dcd0e3c7d91f4",
-      "unassigned_settled_trials": 0
+      "roadmap_status": "not_regenerated_after_main_parameter_rerun",
+      "transition_count": null,
+      "protocol": "main_gui_defaults_20261018",
+      "main_revision": "82f8bd43c70a0eb160d27dc0f7232849842efe9c",
+      "execution_revision": "e6845146859bbd72661166bd70ba7616356507c5",
+      "belt_stop_observation": {
+        "enabled": true,
+        "observed_trials": 10000,
+        "settled_transport_then_unsettled": 0,
+        "status_counts": {
+          "settled": 10000
+        },
+        "unsettled_transport_then_settled": 2
+      },
+      "previous_published_audit": {
+        "assessed_members": 8,
+        "assessment_complete": true,
+        "completed_trials": 10000,
+        "disturbance_tests": 584,
+        "disturbances_sha256": "cd6e3912ee3776967138d5cd1a95834e305b6739ab041de66b2678e6c556714e",
+        "eligible_groups": 6,
+        "group_count": 6,
+        "reused": true,
+        "roadmap_status": "complete",
+        "settled_trials": 9998,
+        "status": "complete",
+        "transition_count": 16,
+        "trials_sha256": "237957ebed37896cfe13a9529386b4b6707e75a5f18d8804b52dcd0e3c7d91f4",
+        "unassigned_settled_trials": 0
+      }
     },
     "Dk2a": {
       "assessed_members": 17,
@@ -22123,6 +22151,13 @@
       "transition_count": 28,
       "trials_sha256": "74e2e1ce5f6565439ed79c26e8c69471e863dd4a4c56a5dac039ad98c9d1fe9f",
       "unassigned_settled_trials": 0
+    }
+  },
+  "protocol_overrides": {
+    "Dk1i": {
+      "main_revision": "82f8bd43c70a0eb160d27dc0f7232849842efe9c",
+      "provenance": "Dk1i/simulation_provenance.json",
+      "reason": "Explicitly requested new 10,000-drop run with main-branch GUI parameters"
     }
   }
 }

@@ -4,23 +4,32 @@
     "assessment_complete": true,
     "completed_trials": 10000,
     "disturbance_tests": 584,
-    "disturbances_sha256": "cd6e3912ee3776967138d5cd1a95834e305b6739ab041de66b2678e6c556714e",
+    "disturbances_sha256": "61eb4e57d980f2ecba24473101a3620c17855932eb098c112b689db03292d19c",
     "eligible_groups": 6,
     "group_count": 6,
     "settled_trials": 9998,
-    "trials_sha256": "237957ebed37896cfe13a9529386b4b6707e75a5f18d8804b52dcd0e3c7d91f4",
+    "trials_sha256": "977b63fd521a058ea4830de96cb20f6ddac3cc6f31760eafcbb7ffc8084e7303",
     "unassigned_settled_trials": 0
   },
   "belt_speed_variation": {
     "control_point_clock": "elapsed time from start of observation (after reseating for stability trials)",
     "control_point_interval_s": 0.2,
-    "enabled": true,
+    "enabled": false,
     "interpretation": "Uniform random speed targets joined by smooth cosine transitions; forces arise from MuJoCo contact friction, not direct body kicks.",
     "model": "cosine_interpolated_uniform_speed_v1",
     "speed_range_mm_s": [
-      97,
-      103
+      100.0,
+      100.0
     ]
+  },
+  "belt_stop_observation": {
+    "braking": "half-cosine belt surface speed to zero; no body velocity reset; speed variation and roughness disabled",
+    "enabled": true,
+    "interpretation": "Separate stationary observation; transport pose frequencies and stability rankings are unchanged. Contact planes extend beyond the virtual exit.",
+    "observation_s_after_stop": 2.0,
+    "ramp_s": 0.2,
+    "rest_criterion": "existing 0.5 s contact/orientation window with full XYZ position range <= 1 mm and filtered speed <= 1 mm/s",
+    "trigger": "after transport measurement at the virtual exit; drop trials only"
   },
   "catalog_mesh_path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\Dashas_drop_sim\\src\\dashas_drop_sim\\assets\\catalog\\Dk1i.STL",
   "catalog_symmetry": "C3",
@@ -44,7 +53,15 @@
     "source_hull_volume_mm3": 5196.1526870727575,
     "source_volume_mm3": 3626.721512902179
   },
-  "created_utc": "2026-10-12T17:10:21.768261+00:00",
+  "contact_response": {
+    "damping_ratio": 1.2,
+    "interpretation": "Solver contact parameters, not a directly specified restitution coefficient. Uncalibrated material response.",
+    "model": "mujoco_positive_solref_time_constant_damping_ratio",
+    "rolling_friction_mm": 0.1,
+    "time_constant_s": 0.005,
+    "torsional_friction_mm": 5.0
+  },
+  "created_utc": "2026-10-18T12:50:32.427039+00:00",
   "grouped_export": true,
   "inertia_com_kg_m2": [
     [
@@ -66,22 +83,50 @@
   "mass_kg": 0.004170729739837504,
   "mesh_source_sha256": "3da2610e5110cf3be1897606d191a245f3ffab9e33fad9130fea6cab1fc17c48",
   "mesh_triangles_sha256": "c69bbf61dc904460a5d63dd143859c90ea90609612e2363dd3fdb8a56fc21139",
-  "observed_catalog_sha256": "c24da7418bcc50d82d3dd55a8fa76b97aef115e001e726fd6c2285dc7c4a6a75",
+  "observed_catalog_sha256": "a31fb41a1e4f9a07ba04c3b42b69ef1859e152a90cd84bf289455cce28f0cfcb",
   "provenance": {
-    "baseline_roadmap_ids": {
-      "Dk1i_0001": 6,
-      "Dk1i_0002": 1,
-      "Dk1i_0003": 4,
-      "Dk1i_0004": 5,
-      "Dk1i_0005": 2,
-      "Dk1i_0006": 3,
-      "Dk1i_0007": 0,
-      "Dk1i_0008": 7
+    "execution_revision": "e6845146859bbd72661166bd70ba7616356507c5",
+    "extra_group_assessment_level_mm": 0.5,
+    "gui_initial_parameters": {
+      "belt_stop_enabled": true,
+      "roughness_active_duration_s": 1.0,
+      "roughness_enabled": true,
+      "roughness_force_interval_s": 0.2,
+      "roughness_impulse_delta_v_mm_s": 49.05,
+      "roughness_model": "weight_impulse"
     },
-    "engine_fingerprint": "7928d319b149a3d4cd6b833e338788a5cb5932f8269228a7f2810ff633355081",
-    "pose_revision": "9e00d03389d3b81013700def03fb1b19504144be",
-    "reused": true,
-    "roadmap_revision": "0b3b5c5fe42e787bd47f381b1f1ac57359d5aa55"
+    "main_revision": "82f8bd43c70a0eb160d27dc0f7232849842efe9c",
+    "matching_main_physics_sha256": {
+      "belt": "539aa29d992071e6c5cd59b8e4ccfd701599ccad82f511799651017f3a85acf1",
+      "geometry": "3655f909f74aece4b6c965f32d9528396046bedb1e04186a0a02f75b2e7403ab",
+      "parallel": "d9dd1946a591495b7d23f2d6b784ccf788876a4adde3aa8d39e0fffbe383a69b",
+      "physics": "e63b4ddee4574dda6dec7d5e6a9e0f0333b86e1578484c81cb15897cda3c4c3e",
+      "release": "6dd82cd5fcb91553f75761b252b726962442294d9a4185683458472ccbe0cd06",
+      "roughness": "40026a7827950962be0fdc1fc35a161b2f8afe71323dc518f14d63b3db33c14b"
+    },
+    "note": "24 independent workers change throughput only. Grouping/export extension uses the feature branch; physics modules exactly match main. Existing observations anchor historical source IDs without importing old counts.",
+    "overrides": {
+      "catalog_push": false,
+      "catalog_repo": null,
+      "grouping_barrier_mm": 0.5,
+      "grouping_enabled": true,
+      "grouping_max_angle_deg": 60.0,
+      "grouping_minimum_frequency_percent": 1.0,
+      "observed_catalog_path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\.task_artifacts\\dk1i_main_20261018\\baseline\\original_observations.json",
+      "output_dir": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\.task_artifacts\\dk1i_main_20261018\\results",
+      "trials": 10000,
+      "workers": 24
+    },
+    "parameter_source": "origin/main RunConfig defaults plus GUI_INITIAL_PARAMETERS",
+    "pose_baseline_revision": "d3a5c11b60c333d98137ca4ecbbaec6b108af961",
+    "software_versions": {
+      "bibazu-chute-pose": "0.1.0",
+      "coacd": "1.0.14",
+      "mujoco": "3.14.0",
+      "numpy": "2.5.3",
+      "scipy": "1.18.1",
+      "trimesh": "5.1.0"
+    }
   },
   "recognition": {
     "ambiguity_margin_deg": 1.0,
@@ -115,16 +160,15 @@
   },
   "release_distribution": {
     "drop_height_range_mm": [
-      100,
-      100
+      100.0,
+      100.0
     ],
     "lateral_range_mm": [
-      0,
-      0
+      0.0,
+      0.0
     ],
     "type": "independent_uniform_center_plus_minus_spread"
   },
-  "roadmap_sha256": null,
   "software": {
     "bibazu-chute-pose": "0.1.0",
     "cadquery-ocp": "7.9.3.1.1",
@@ -135,16 +179,35 @@
     "scipy": "1.18.1",
     "trimesh": "5.1.0"
   },
-  "software_commit": "477ee154af6b14b17245a5e53109f02e679d1432",
+  "software_commit": "e6845146859bbd72661166bd70ba7616356507c5",
   "surface_roughness": {
-    "additional_friction": "Longitudinal traction impulse from an equivalent friction increment mu * height/ramp; duration ramp/abs(longitudinal slip); capped at slip cancellation",
-    "contact_sampling": "normal-load times longitudinal-slip-speed weighted active MuJoCo contact points",
+    "active_window": {
+      "clock": "elapsed observation time; includes release for drops, starts after reseating for stability trials",
+      "cutoff": "only full physics steps within the window; no restart on recontact; active force pulses end with window_end",
+      "duration_s": 1.0,
+      "zero_means": "entire observation"
+    },
+    "additional_friction": null,
+    "contact_sampling": "uniform random geometrically touching loaded contact on belt or wall at impulse time",
     "enabled": true,
-    "interpretation": "Uncalibrated stochastic contact impulses per relative sliding distance; not a fixed surface map or resolved scratch geometry. Traction strength is an equivalent friction assumption, not inferred from scratch depth alone.",
-    "minimum_sliding_speed_mm_s": 0.1,
-    "model": "longitudinal_contact_traction_v1",
+    "instantaneous_impulse": {
+      "delta_v_free_mm_s": 49.05,
+      "direction_chute": [
+        1,
+        0,
+        0
+      ],
+      "energy_policy": "External impulse changes generalized velocity through point Jacobian and mass matrix; normal contact dynamics follow",
+      "impulse_ns": 0.00020457429373902958,
+      "mean_interval_s": 0.2,
+      "timing": "exponential waits; at most one complete impulse per integration step; contactless events skipped; times rounded up to a step boundary"
+    },
+    "interpretation": "Uncalibrated complete point impulse J = mass * free velocity change. No finite force duration or shortening at later contact loss. Geometry and inertia determine rotation; no pose forced.",
+    "minimum_sliding_speed_mm_s": null,
+    "model": "mass_scaled_contact_impulse_v1",
     "restitution": null,
-    "sampling_interval_s": 0.005
+    "sampling_interval_s": 0.001,
+    "weight_force": null
   },
   "symmetry_available": true,
   "unknown_cluster_tolerance_deg": 5.0
