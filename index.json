@@ -29,11 +29,15 @@
       "workpiece": "Df4a"
     },
     {
-      "length_mm": 300.0,
+      "length_mm": 500.0,
       "poses": 8,
-      "run_id": "849dfcbcd5a67f6f19c86b310d8c1721729d3e249dafafed6152059d4b2b5ddb",
+      "run_id": "3ffd71e16cc8d1a02d46484ed06d15e8345497e4e847ba4b42886f13204685a6",
       "settled": 998,
       "status": "complete",
+      "stop_catalogue": "Dk1i/poses_after_stop.json",
+      "stop_observed": 1000,
+      "stop_poses": 8,
+      "stop_settled": 999,
       "trials": 1000,
       "workpiece": "Dk1i"
     },
@@ -88,6 +92,10 @@
       "run_id": "93f6f7c703aec73d37c7ce3a84b5b41b324d5dc25572c5511ec956f6bca8d222",
       "settled": 0,
       "status": "complete",
+      "stop_catalogue": "Kf1i/poses_after_stop.json",
+      "stop_observed": 9529,
+      "stop_poses": 4,
+      "stop_settled": 9445,
       "trials": 10000,
       "workpiece": "Kf1i"
     },

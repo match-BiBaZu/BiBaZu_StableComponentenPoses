@@ -1,21 +1,41 @@
 # Dk1i
 
-1000 Fallversuche auf 300 mm Strecke; 998 eingependelte Endlagen. Prozentangaben beziehen sich auf alle Fallversuche.
+1000 Fallversuche auf 500 mm Strecke; 998 eingependelte Endlagen. Prozentangaben beziehen sich auf alle Fallversuche.
 
 Dies sind beobachtete Simulationslagen unter den dokumentierten Parametern; Reibung und Unebenheitsmodell sind noch nicht an realen Häufigkeiten kalibriert.
 
 | Pose | Bild | Anzahl | Anteil | 95-%-Intervall | Anteil eingependelt |
 | --- | --- | ---: | ---: | ---: | ---: |
-| Dk1i_0007 | ![Dk1i_0007](images/Dk1i_0007.png) | 168 | 16.80 % | 14.61–19.24 % | 16.83 % |
-| Dk1i_0005 | ![Dk1i_0005](images/Dk1i_0005.png) | 148 | 14.80 % | 12.73–17.14 % | 14.83 % |
-| Dk1i_0006 | ![Dk1i_0006](images/Dk1i_0006.png) | 141 | 14.10 % | 12.08–16.39 % | 14.13 % |
-| Dk1i_0002 | ![Dk1i_0002](images/Dk1i_0002.png) | 135 | 13.50 % | 11.52–15.76 % | 13.53 % |
-| Dk1i_0003 | ![Dk1i_0003](images/Dk1i_0003.png) | 132 | 13.20 % | 11.24–15.44 % | 13.23 % |
-| Dk1i_0004 | ![Dk1i_0004](images/Dk1i_0004.png) | 118 | 11.80 % | 9.95–13.95 % | 11.82 % |
-| Dk1i_0001 | ![Dk1i_0001](images/Dk1i_0001.png) | 79 | 7.90 % | 6.38–9.74 % | 7.92 % |
-| Dk1i_0008 | ![Dk1i_0008](images/Dk1i_0008.png) | 77 | 7.70 % | 6.20–9.52 % | 7.72 % |
+| Dk1i_0002 | ![Dk1i_0002](images/Dk1i_0002.png) | 188 | 18.80 % | 16.50–21.34 % | 18.84 % |
+| Dk1i_0004 | ![Dk1i_0004](images/Dk1i_0004.png) | 180 | 18.00 % | 15.74–20.50 % | 18.04 % |
+| Dk1i_0003 | ![Dk1i_0003](images/Dk1i_0003.png) | 160 | 16.00 % | 13.86–18.40 % | 16.03 % |
+| Dk1i_0005 | ![Dk1i_0005](images/Dk1i_0005.png) | 150 | 15.00 % | 12.92–17.35 % | 15.03 % |
+| Dk1i_0007 | ![Dk1i_0007](images/Dk1i_0007.png) | 113 | 11.30 % | 9.48–13.41 % | 11.32 % |
+| Dk1i_0006 | ![Dk1i_0006](images/Dk1i_0006.png) | 80 | 8.00 % | 6.47–9.85 % | 8.02 % |
+| Dk1i_0001 | ![Dk1i_0001](images/Dk1i_0001.png) | 76 | 7.60 % | 6.11–9.41 % | 7.62 % |
+| Dk1i_0008 | ![Dk1i_0008](images/Dk1i_0008.png) | 51 | 5.10 % | 3.90–6.64 % | 5.11 % |
 
-Zusätzliche Ruheprüfung nach Bandstopp: 1000 von 1000 beobachteten Teilen ruhig. Fahrhäufigkeiten oben bleiben davon getrennt. Ruheposen stehen als stop_observation in trials.csv.
+Zusätzliche Ruheprüfung nach Bandstopp: 999 von 1000 beobachteten Teilen ruhig. Fahrhäufigkeiten oben bleiben davon getrennt. Ruheposen stehen als stop_observation in trials.csv.
+
+## Ruheposen nach Bandstopp
+
+**999 ruhige Endlagen, 8 Pose-Klassen.** Diese Bilder zeigen die gemessenen Orientierungen nach der Ruheprüfung.
+
+Die Hauptanteile beziehen sich auf alle 1000 Abwürfe; die letzte Spalte auf die 999 ruhigen Endlagen. Drehungen um eine kontinuierliche Bauteilsymmetrieachse gelten als dieselbe Pose. Die Achsenrichtung bleibt berücksichtigt; entgegengesetzte Bauteilseiten werden getrennt.
+
+| Ruhepose | Bild | Anzahl | Anteil aller Abwürfe | 95-%-Intervall | Anteil ruhiger Endlagen |
+| --- | --- | ---: | ---: | ---: | ---: |
+| Dk1i_stop_0003 | ![Dk1i_stop_0003](images/Dk1i_stop_0003.png) | 188 | 18.80 % | 16.50–21.34 % | 18.82 % |
+| Dk1i_stop_0004 | ![Dk1i_stop_0004](images/Dk1i_stop_0004.png) | 180 | 18.00 % | 15.74–20.50 % | 18.02 % |
+| Dk1i_stop_0002 | ![Dk1i_stop_0002](images/Dk1i_stop_0002.png) | 159 | 15.90 % | 13.76–18.30 % | 15.92 % |
+| Dk1i_stop_0005 | ![Dk1i_stop_0005](images/Dk1i_stop_0005.png) | 151 | 15.10 % | 13.01–17.45 % | 15.12 % |
+| Dk1i_stop_0007 | ![Dk1i_stop_0007](images/Dk1i_stop_0007.png) | 113 | 11.30 % | 9.48–13.41 % | 11.31 % |
+| Dk1i_stop_0006 | ![Dk1i_stop_0006](images/Dk1i_stop_0006.png) | 81 | 8.10 % | 6.56–9.96 % | 8.11 % |
+| Dk1i_stop_0001 | ![Dk1i_stop_0001](images/Dk1i_stop_0001.png) | 76 | 7.60 % | 6.11–9.41 % | 7.61 % |
+| Dk1i_stop_0008 | ![Dk1i_stop_0008](images/Dk1i_stop_0008.png) | 51 | 5.10 % | 3.90–6.64 % | 5.11 % |
+
+Ruheposen und Erkennung: [JSON](poses_after_stop.json), [YAML](poses_after_stop.yaml). Häufigkeiten: [CSV](frequencies_after_stop.csv). Zuordnung aller Versuche: [CSV](trials_after_stop.csv). Fahrmessung und Fahrposen bleiben separat in poses.json und trials.csv.
+
 
 Ergebnisstatus: settled: 998, unsettled: 2
 

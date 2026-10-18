@@ -20,7 +20,7 @@
     "trigger": "after transport measurement at the virtual exit; drop trials only"
   },
   "catalog_symmetry": "C3",
-  "catalogue_cache_hit": false,
+  "catalogue_cache_hit": true,
   "center_mass_source_mm": [
     9.999999988423113,
     5.773503115788499,
@@ -41,14 +41,14 @@
     "source_volume_mm3": 3626.721512902179
   },
   "contact_response": {
-    "damping_ratio": 1.2,
+    "damping_ratio": 0.19,
     "interpretation": "Solver contact parameters, not a directly specified restitution coefficient. Uncalibrated material response.",
     "model": "mujoco_positive_solref_time_constant_damping_ratio",
     "rolling_friction_mm": 0.1,
     "time_constant_s": 0.005,
     "torsional_friction_mm": 5.0
   },
-  "created_utc": "2026-10-18T17:36:38.433652+00:00",
+  "created_utc": "2026-10-18T20:46:04.563770+00:00",
   "inertia_com_kg_m2": [
     [
       4.116821755995805e-07,
@@ -69,7 +69,6 @@
   "mass_kg": 0.004170729739837504,
   "mesh_source_sha256": "3da2610e5110cf3be1897606d191a245f3ffab9e33fad9130fea6cab1fc17c48",
   "mesh_triangles_sha256": "c69bbf61dc904460a5d63dd143859c90ea90609612e2363dd3fdb8a56fc21139",
-  "observed_catalog_sha256": null,
   "recognition": {
     "ambiguity_margin_deg": 1.0,
     "continuous_axis_part": null,
@@ -111,6 +110,7 @@
     ],
     "type": "independent_uniform_center_plus_minus_spread"
   },
+  "roadmap_sha256": null,
   "software": {
     "bibazu-chute-pose": "0.1.0",
     "cadquery-ocp": "7.9.3.1.1",
@@ -121,7 +121,7 @@
     "scipy": "1.18.1",
     "trimesh": "5.1.0"
   },
-  "software_commit": "e6845146859bbd72661166bd70ba7616356507c5",
+  "software_commit": "82f8bd43c70a0eb160d27dc0f7232849842efe9c",
   "surface_roughness": {
     "active_window": {
       "clock": "elapsed observation time; includes release for drops, starts after reseating for stability trials",
@@ -129,15 +129,26 @@
       "duration_s": 1.0,
       "zero_means": "entire observation"
     },
-    "additional_friction": "Longitudinal traction impulse from an equivalent friction increment mu * height/ramp; duration ramp/abs(longitudinal slip); capped at slip cancellation",
-    "contact_sampling": "normal-load times longitudinal-slip-speed weighted active MuJoCo contact points",
+    "additional_friction": null,
+    "contact_sampling": "uniform random geometrically touching loaded contact on belt or wall at impulse time",
     "enabled": true,
-    "instantaneous_impulse": null,
-    "interpretation": "Uncalibrated stochastic contact impulses per relative sliding distance; not a fixed surface map or resolved scratch geometry. Traction strength is an equivalent friction assumption, not inferred from scratch depth alone.",
-    "minimum_sliding_speed_mm_s": 0.1,
-    "model": "longitudinal_contact_traction_v1",
+    "instantaneous_impulse": {
+      "delta_v_free_mm_s": 49.05,
+      "direction_chute": [
+        1,
+        0,
+        0
+      ],
+      "energy_policy": "External impulse changes generalized velocity through point Jacobian and mass matrix; normal contact dynamics follow",
+      "impulse_ns": 0.00020457429373902958,
+      "mean_interval_s": 0.2,
+      "timing": "exponential waits; at most one complete impulse per integration step; contactless events skipped; times rounded up to a step boundary"
+    },
+    "interpretation": "Uncalibrated complete point impulse J = mass * free velocity change. No finite force duration or shortening at later contact loss. Geometry and inertia determine rotation; no pose forced.",
+    "minimum_sliding_speed_mm_s": null,
+    "model": "mass_scaled_contact_impulse_v1",
     "restitution": null,
-    "sampling_interval_s": 0.005,
+    "sampling_interval_s": 0.001,
     "weight_force": null
   },
   "symmetry_available": true,
