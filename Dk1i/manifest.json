@@ -2,24 +2,24 @@
   "audit": {
     "assessed_members": 8,
     "assessment_complete": true,
-    "completed_trials": 10000,
+    "completed_trials": 1000,
     "disturbance_tests": 584,
-    "disturbances_sha256": "61eb4e57d980f2ecba24473101a3620c17855932eb098c112b689db03292d19c",
+    "disturbances_sha256": "613656553809f6a6f97f2409f6828bc01cf488f21be095fe48561c2ba1ce9832",
     "eligible_groups": 6,
     "group_count": 6,
-    "settled_trials": 9998,
-    "trials_sha256": "977b63fd521a058ea4830de96cb20f6ddac3cc6f31760eafcbb7ffc8084e7303",
+    "settled_trials": 998,
+    "trials_sha256": "cc87f87e59b27191f189aaaa97f04732f3bc7e22e139fea1adbee8c8b473f0bd",
     "unassigned_settled_trials": 0
   },
   "belt_speed_variation": {
     "control_point_clock": "elapsed time from start of observation (after reseating for stability trials)",
     "control_point_interval_s": 0.2,
-    "enabled": false,
+    "enabled": true,
     "interpretation": "Uniform random speed targets joined by smooth cosine transitions; forces arise from MuJoCo contact friction, not direct body kicks.",
     "model": "cosine_interpolated_uniform_speed_v1",
     "speed_range_mm_s": [
-      100.0,
-      100.0
+      97.0,
+      103.0
     ]
   },
   "belt_stop_observation": {
@@ -54,14 +54,14 @@
     "source_volume_mm3": 3626.721512902179
   },
   "contact_response": {
-    "damping_ratio": 1.2,
+    "damping_ratio": 0.19,
     "interpretation": "Solver contact parameters, not a directly specified restitution coefficient. Uncalibrated material response.",
     "model": "mujoco_positive_solref_time_constant_damping_ratio",
     "rolling_friction_mm": 0.1,
     "time_constant_s": 0.005,
     "torsional_friction_mm": 5.0
   },
-  "created_utc": "2026-10-18T12:50:32.427039+00:00",
+  "created_utc": "2026-10-19T13:18:17.459883+00:00",
   "grouped_export": true,
   "inertia_com_kg_m2": [
     [
@@ -83,19 +83,12 @@
   "mass_kg": 0.004170729739837504,
   "mesh_source_sha256": "3da2610e5110cf3be1897606d191a245f3ffab9e33fad9130fea6cab1fc17c48",
   "mesh_triangles_sha256": "c69bbf61dc904460a5d63dd143859c90ea90609612e2363dd3fdb8a56fc21139",
-  "observed_catalog_sha256": "a31fb41a1e4f9a07ba04c3b42b69ef1859e152a90cd84bf289455cce28f0cfcb",
+  "observed_catalog_sha256": "c7c0436d8570cc5daaf6e08188acb900801360c50dce7d89c2a9f66ed2ca18db",
   "provenance": {
-    "execution_revision": "e6845146859bbd72661166bd70ba7616356507c5",
+    "execution_revision": "f76ee590edda0b818f6923279440b6877ff1305c",
     "extra_group_assessment_level_mm": 0.5,
-    "gui_initial_parameters": {
-      "belt_stop_enabled": true,
-      "roughness_active_duration_s": 1.0,
-      "roughness_enabled": true,
-      "roughness_force_interval_s": 0.2,
-      "roughness_impulse_delta_v_mm_s": 49.05,
-      "roughness_model": "weight_impulse"
-    },
-    "main_revision": "82f8bd43c70a0eb160d27dc0f7232849842efe9c",
+    "main_profile_sha256": "33965ef056bd19809cf5e5c46192fb10877c9c0acd61e7121f30f45a05316184",
+    "main_revision": "2a0c74f5e3eb921cf6e6b5a54102203d01c34ae7",
     "matching_main_physics_sha256": {
       "belt": "539aa29d992071e6c5cd59b8e4ccfd701599ccad82f511799651017f3a85acf1",
       "geometry": "3655f909f74aece4b6c965f32d9528396046bedb1e04186a0a02f75b2e7403ab",
@@ -104,29 +97,22 @@
       "release": "6dd82cd5fcb91553f75761b252b726962442294d9a4185683458472ccbe0cd06",
       "roughness": "40026a7827950962be0fdc1fc35a161b2f8afe71323dc518f14d63b3db33c14b"
     },
-    "note": "24 independent workers change throughput only. Grouping/export extension uses the feature branch; physics modules exactly match main. Existing observations anchor historical source IDs without importing old counts.",
+    "note": "All drop physics and parameters match the latest main Dk1i 1000-trial profile. Grouping enables additional member disturbance assessments at 0.5 mm; observations from latest pose main anchor identities and orientations, without reusing counts.",
     "overrides": {
       "catalog_push": false,
       "catalog_repo": null,
+      "compute_stability": true,
       "grouping_barrier_mm": 0.5,
       "grouping_enabled": true,
       "grouping_max_angle_deg": 60.0,
       "grouping_minimum_frequency_percent": 1.0,
-      "observed_catalog_path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\.task_artifacts\\dk1i_main_20261018\\baseline\\original_observations.json",
-      "output_dir": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\.task_artifacts\\dk1i_main_20261018\\results",
-      "trials": 10000,
-      "workers": 24
+      "mesh_path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\Dashas_drop_sim\\src\\dashas_drop_sim\\assets\\catalog\\Dk1i.STL",
+      "observed_catalog_path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\.task_artifacts\\dk1i_grouped_20261019\\baseline\\poses.json",
+      "output_dir": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\.task_artifacts\\dk1i_grouped_20261019\\results"
     },
-    "parameter_source": "origin/main RunConfig defaults plus GUI_INITIAL_PARAMETERS",
-    "pose_baseline_revision": "d3a5c11b60c333d98137ca4ecbbaec6b108af961",
-    "software_versions": {
-      "bibazu-chute-pose": "0.1.0",
-      "coacd": "1.0.14",
-      "mujoco": "3.14.0",
-      "numpy": "2.5.3",
-      "scipy": "1.18.1",
-      "trimesh": "5.1.0"
-    }
+    "parameter_source": "origin/main configs/dk1i-1000.json",
+    "pose_baseline_revision": "fb055c61c79e789570712f13151aede036c14c51",
+    "previous_grouped_revision": "0a4d04a528277c30e036bde72b78c7063ba0dc33"
   },
   "recognition": {
     "ambiguity_margin_deg": 1.0,
@@ -179,7 +165,7 @@
     "scipy": "1.18.1",
     "trimesh": "5.1.0"
   },
-  "software_commit": "e6845146859bbd72661166bd70ba7616356507c5",
+  "software_commit": "f76ee590edda0b818f6923279440b6877ff1305c",
   "surface_roughness": {
     "active_window": {
       "clock": "elapsed observation time; includes release for drops, starts after reseating for stability trials",

@@ -3,18 +3,18 @@
 Representative-only catalogs; original observations and all member images are preserved in companion files.
 
 <!-- GROUPED STUDY -->
-Completed and validated: **39/39** workpieces. Each completed workpiece has 10,000 drops; member disturbance tests are additional.
+Completed and validated: **39/39** workpieces. Dk1i has a fresh 1,000-drop run; other completed workpieces retain 10,000 drops. Member disturbance tests are additional.
 
-The original study used identical simulation settings; Dk1i was rerun on 2026-10-18 with the current main-branch GUI defaults. All entries retain a 0.5 mm equivalent-lift grouping barrier, a 60° diameter guard, and a 1% cutoff after aggregation. Representatives are selected using complete member group-retention curves.
+The original study used identical simulation settings; Dk1i was rerun on 2026-10-19 with the latest main-branch 1,000-drop profile and observation anchors. All entries retain a 0.5 mm equivalent-lift grouping barrier, a 60° diameter guard, and a 1% cutoff after aggregation. Representatives are selected using complete member group-retention curves.
 
-Qk1a and Dl1a reuse the previously audited grouped runs. Dk1i now contains a fresh 10,000-drop main-parameter run with compressed raw trials in `Dk1i/run_data/`; other raw study data remains in the simulator results directories.
+Qk1a and Dl1a reuse the previously audited grouped runs. Dk1i now contains a fresh 1,000-drop main-parameter run with compressed raw trials in `Dk1i/run_data/`; other raw study data remains in the simulator results directories.
 
 | Workpiece | Status | Settled | Source poses | Eligible groups | Disturbance tests | Roadmap connections |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | [Df1a](Df1a/README.md) | Complete | 9997 | 7 | 4 | 511 | 6 |
 | [Df2i](Df2i/README.md) | Complete | 9996 | 9 | 6 | 657 | 22 |
 | [Df4a](Df4a/README.md) | Complete | 9999 | 20 | 12 | 1460 | 42 |
-| [Dk1i](Dk1i/README.md) | Complete (main rerun) | 9998 | 8 | 6 | 584 | Not regenerated |
+| [Dk1i](Dk1i/README.md) | Complete (1,000-drop main rerun) | 998 | 8 | 6 | 584 | 28 |
 | [Dk2a](Dk2a/README.md) | Complete | 9845 | 17 | 12 | 1241 | 56 |
 | [Dk4i](Dk4i/README.md) | Complete | 9999 | 24 | 18 | 1752 | 80 |
 | [Dl1a](Dl1a/README.md) | Complete | 9983 | 16 | 5 | 1168 | 2 |
@@ -55,4 +55,4 @@ Each component page links representative images, full membership and barrier evi
 
 Published comparison baselines: poses `9e00d03389d3b81013700def03fb1b19504144be`, roadmaps `0b3b5c5fe42e787bd47f381b1f1ac57359d5aa55`. Merge repair: `3523350d8e12a1b7e57467044b9cfe25ff49b0bd`.
 
-Dk1i protocol: 1,300 mm chute, constant 100 mm/s belt, 100 mm release, first-second weight impulses (Δv 49.05 mm/s), then a 0.2 s belt stop and 2 s observation. See [parameter provenance](Dk1i/simulation_provenance.json). Its separate roadmap remains unchanged.
+Dk1i protocol: 1,000 drops, 500 mm observation length, belt 100 ± 3 mm/s, contact damping ratio 0.19, 100 mm release, first-second weight impulses (Δv 49.05 mm/s), then a 0.2 s belt stop and 2 s observation. See [parameter provenance](Dk1i/simulation_provenance.json). Its grouped roadmap was regenerated from this run.
