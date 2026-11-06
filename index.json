@@ -369,6 +369,38 @@
       "settled": 9870,
       "status": "complete",
       "trials": 10000,
+      "ungrouped_simulations": {
+        "100mm_s": {
+          "belt_mode": "running",
+          "belt_speed_mm_s": 100.0,
+          "belt_speed_variation_mm_s": 3.0,
+          "group_poses": false,
+          "path": "Qf1i/simulations/100mm_s",
+          "settled": 990,
+          "signature": "95e56c99500a443cd765e5046746e19869819de534b53f42196de5b9b9e2c29c",
+          "simulator_commit": "643b0e1ac5020602a4846eba96baaacef255a332",
+          "status_counts": {
+            "settled": 990,
+            "unsettled": 10
+          },
+          "trials": 1000
+        },
+        "static": {
+          "belt_mode": "stopped",
+          "belt_speed_mm_s": 0.0,
+          "belt_speed_variation_mm_s": 0.0,
+          "group_poses": false,
+          "path": "Qf1i/simulations/static",
+          "settled": 941,
+          "signature": "b6a6df91ea51b44786cb11d16dd5a555fe5e4b137af488860be41c366074677e",
+          "simulator_commit": "643b0e1ac5020602a4846eba96baaacef255a332",
+          "status_counts": {
+            "settled_stationary": 941,
+            "unsettled_stationary": 59
+          },
+          "trials": 1000
+        }
+      },
       "workpiece": "Qf1i"
     },
     {
