@@ -428,6 +428,38 @@
       "settled": 9956,
       "status": "complete",
       "trials": 10000,
+      "ungrouped_simulations": {
+        "100mm_s": {
+          "belt_mode": "running",
+          "belt_speed_mm_s": 100.0,
+          "belt_speed_variation_mm_s": 3.0,
+          "group_poses": false,
+          "path": "Qk1a/simulations/100mm_s",
+          "settled": 953,
+          "signature": "535076804eaf97bc06698683a46ba9dfa54ef3581c40c446991c4c4101d001a5",
+          "simulator_commit": "643b0e1ac5020602a4846eba96baaacef255a332",
+          "status_counts": {
+            "settled": 953,
+            "unsettled": 47
+          },
+          "trials": 1000
+        },
+        "static": {
+          "belt_mode": "stopped",
+          "belt_speed_mm_s": 0.0,
+          "belt_speed_variation_mm_s": 0.0,
+          "group_poses": false,
+          "path": "Qk1a/simulations/static",
+          "settled": 903,
+          "signature": "92cf34b48c7d12ee8d7949be7b47b7b304fc79984e5e5f32cb843206d3e60e0e",
+          "simulator_commit": "643b0e1ac5020602a4846eba96baaacef255a332",
+          "status_counts": {
+            "settled_stationary": 903,
+            "unsettled_stationary": 97
+          },
+          "trials": 1000
+        }
+      },
       "workpiece": "Qk1a"
     },
     {
