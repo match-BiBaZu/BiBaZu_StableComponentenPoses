@@ -47,9 +47,9 @@ Simulationsergebnisse unter den je Werkstück dokumentierten Parametern. Häufig
 <!-- ungrouped-one-parts:start -->
 ## Ungruppierte Vergleichsläufe: Werkstücke mit 1 im Namen
 
-Je Werkstück 1.000 Abwürfe bei statischem Band (0 mm/s) und 1.000 Abwürfe bei 100 mm/s. Die Gruppierung ist deaktiviert; jede eingependelte Orientierung bleibt einem einzelnen Abwurf zugeordnet. Vollständige Rohdaten, Parameter, Softwarestand und Prüfungen stehen in den verlinkten Ordnern.
+Je Werkstück 1.000 Abwürfe bei statischem Band (0 mm/s) und 1.000 Abwürfe bei 100 ±3 mm/s. Die Gruppierung ist deaktiviert; jede eingependelte Orientierung bleibt einem einzelnen Abwurf zugeordnet. Vollständige Rohdaten, Parameter, Softwarestand und Prüfungen stehen in den verlinkten Ordnern.
 
-| Werkstück | Statisch: eingependelt / 1000 | 100 mm/s: eingependelt / 1000 | Ergebnisse |
+| Werkstück | Statisch: eingependelt / 1000 | 100 ±3 mm/s: eingependelt / 1000 | Ergebnisse |
 | --- | ---: | ---: | --- |
-| Df1a | 984 | 999 | [Simulationen](Df1a/simulations/README.md) |
+| Df1a | 984 | 1000 | [Simulationen](Df1a/simulations/README.md) |
 <!-- ungrouped-one-parts:end -->

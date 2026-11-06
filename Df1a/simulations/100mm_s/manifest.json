@@ -3,12 +3,12 @@
   "belt_speed_variation": {
     "control_point_clock": "elapsed time from start of observation (after reseating for stability trials)",
     "control_point_interval_s": 0.2,
-    "enabled": false,
+    "enabled": true,
     "interpretation": "Uniform random speed targets joined by smooth cosine transitions; forces arise from MuJoCo contact friction, not direct body kicks.",
     "model": "cosine_interpolated_uniform_speed_v1",
     "speed_range_mm_s": [
-      100.0,
-      100.0
+      97.0,
+      103.0
     ]
   },
   "belt_stop_observation": {
@@ -50,7 +50,7 @@
     "time_constant_s": 0.005,
     "torsional_friction_mm": 5.0
   },
-  "created_utc": "2026-11-06T10:28:32.755440+00:00",
+  "created_utc": "2026-11-06T10:37:18.703509+00:00",
   "effective_belt_speed_mm_s": 100.0,
   "group_poses": false,
   "inertia_com_kg_m2": [

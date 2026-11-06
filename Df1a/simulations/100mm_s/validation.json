@@ -10,14 +10,13 @@
     "belt mode and speed"
   ],
   "group_poses": false,
-  "individual_settled_orientations": 999,
+  "individual_settled_orientations": 1000,
   "passed": true,
   "status_counts": {
-    "settled": 999,
-    "unsettled": 1
+    "settled": 1000
   },
   "stop_observations": 1000,
   "trials": 1000,
   "unique_trial_seeds": 1000,
-  "validated_utc": "2026-11-06T10:30:37.165851+00:00"
+  "validated_utc": "2026-11-06T10:39:30.696483+00:00"
 }

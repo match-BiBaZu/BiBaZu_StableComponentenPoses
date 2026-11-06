@@ -2,7 +2,7 @@
   "alpha_deg": 45.0,
   "belt_mode": "running",
   "belt_speed_mm_s": 100.0,
-  "belt_speed_variation_mm_s": 0.0,
+  "belt_speed_variation_mm_s": 3.0,
   "belt_stop_enabled": true,
   "belt_stop_observation_s": 2.0,
   "belt_stop_ramp_s": 0.2,

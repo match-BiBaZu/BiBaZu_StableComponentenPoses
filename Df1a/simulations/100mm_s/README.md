@@ -1,6 +1,6 @@
-# Df1a: 1.000 ungruppierte Fallversuche bei 100 mm/s (Geschwindigkeitsstreuung: ±0 mm/s)
+# Df1a: 1.000 ungruppierte Fallversuche bei 100 mm/s (Geschwindigkeitsstreuung: ±3 mm/s)
 
-Simulator-Commit: `643b0e1ac5020602a4846eba96baaacef255a332`; Seed: 42; Gruppierung: aus. 999 von 1.000 Abwürfen erfüllen das jeweilige Ruhekriterium.
+Simulator-Commit: `643b0e1ac5020602a4846eba96baaacef255a332`; Seed: 42; Gruppierung: aus. 1000 von 1.000 Abwürfen erfüllen das jeweilige Ruhekriterium.
 
 Jeder eingependelte Abwurf besitzt seine eigene Orientierung und Versuch-ID. Die Einträge in frequencies.csv sind deshalb einzelne Versuche, keine gruppierten Pose-Klassen.
 

@@ -12,15 +12,14 @@
         "100mm_s": {
           "belt_mode": "running",
           "belt_speed_mm_s": 100.0,
-          "belt_speed_variation_mm_s": 0.0,
+          "belt_speed_variation_mm_s": 3.0,
           "group_poses": false,
           "path": "Df1a/simulations/100mm_s",
-          "settled": 999,
-          "signature": "40f851a19bd890b1fd1ef34312a4bb5de4a297ad312530c5b536413faae60fd2",
+          "settled": 1000,
+          "signature": "75c2abf66e133e401b5135e15d6a86707e2133a6bf1fdaada95b6f41441c9a5f",
           "simulator_commit": "643b0e1ac5020602a4846eba96baaacef255a332",
           "status_counts": {
-            "settled": 999,
-            "unsettled": 1
+            "settled": 1000
           },
           "trials": 1000
         },
