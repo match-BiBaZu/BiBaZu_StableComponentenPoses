@@ -530,3 +530,52 @@
 {"time_utc": "2026-11-06T11:43:14.349669+00:00", "event": "part_pushed", "part": "Rf1a", "commit": "3e0ad466a7774ffe37767ed56203858ae9b7d2ee"}
 {"time_utc": "2026-11-06T11:43:14.420506+00:00", "event": "case_started", "part": "Rk1a", "case": "static", "trials": 1000, "workers": 24, "signature": "e0b0c3b828cc4af958870a023737b8e960982e5978b5755f1bd383f07e08de29"}
 {"time_utc": "2026-11-06T11:43:14.609637+00:00", "event": "run_directory", "part": "Rk1a", "case": "static", "run_dir": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\Dashas_drop_sim\\results\\catalog39\\run_20261106T114314_421506Z_42"}
+{"time_utc": "2026-11-06T11:43:28.491570+00:00", "event": "progress", "part": "Rk1a", "case": "static", "completed": 50, "total": 1000, "elapsed_s": 14.1}
+{"time_utc": "2026-11-06T11:43:36.639199+00:00", "event": "progress", "part": "Rk1a", "case": "static", "completed": 100, "total": 1000, "elapsed_s": 22.2}
+{"time_utc": "2026-11-06T11:43:44.177924+00:00", "event": "progress", "part": "Rk1a", "case": "static", "completed": 150, "total": 1000, "elapsed_s": 29.8}
+{"time_utc": "2026-11-06T11:43:53.359634+00:00", "event": "progress", "part": "Rk1a", "case": "static", "completed": 200, "total": 1000, "elapsed_s": 38.9}
+{"time_utc": "2026-11-06T11:44:01.306621+00:00", "event": "progress", "part": "Rk1a", "case": "static", "completed": 250, "total": 1000, "elapsed_s": 46.9}
+{"time_utc": "2026-11-06T11:44:09.248005+00:00", "event": "progress", "part": "Rk1a", "case": "static", "completed": 300, "total": 1000, "elapsed_s": 54.8}
+{"time_utc": "2026-11-06T11:44:16.886499+00:00", "event": "progress", "part": "Rk1a", "case": "static", "completed": 350, "total": 1000, "elapsed_s": 62.5}
+{"time_utc": "2026-11-06T11:44:24.534423+00:00", "event": "progress", "part": "Rk1a", "case": "static", "completed": 400, "total": 1000, "elapsed_s": 70.1}
+{"time_utc": "2026-11-06T11:44:32.201271+00:00", "event": "progress", "part": "Rk1a", "case": "static", "completed": 450, "total": 1000, "elapsed_s": 77.8}
+{"time_utc": "2026-11-06T11:44:39.923658+00:00", "event": "progress", "part": "Rk1a", "case": "static", "completed": 500, "total": 1000, "elapsed_s": 85.5}
+{"time_utc": "2026-11-06T11:44:47.598726+00:00", "event": "progress", "part": "Rk1a", "case": "static", "completed": 550, "total": 1000, "elapsed_s": 93.2}
+{"time_utc": "2026-11-06T11:44:55.033071+00:00", "event": "progress", "part": "Rk1a", "case": "static", "completed": 600, "total": 1000, "elapsed_s": 100.6}
+{"time_utc": "2026-11-06T11:45:02.606621+00:00", "event": "progress", "part": "Rk1a", "case": "static", "completed": 650, "total": 1000, "elapsed_s": 108.2}
+{"time_utc": "2026-11-06T11:45:10.556005+00:00", "event": "progress", "part": "Rk1a", "case": "static", "completed": 700, "total": 1000, "elapsed_s": 116.1}
+{"time_utc": "2026-11-06T11:45:18.601716+00:00", "event": "progress", "part": "Rk1a", "case": "static", "completed": 750, "total": 1000, "elapsed_s": 124.2}
+{"time_utc": "2026-11-06T11:45:26.032907+00:00", "event": "progress", "part": "Rk1a", "case": "static", "completed": 800, "total": 1000, "elapsed_s": 131.6}
+{"time_utc": "2026-11-06T11:45:34.480967+00:00", "event": "progress", "part": "Rk1a", "case": "static", "completed": 850, "total": 1000, "elapsed_s": 140.1}
+{"time_utc": "2026-11-06T11:45:42.313539+00:00", "event": "progress", "part": "Rk1a", "case": "static", "completed": 900, "total": 1000, "elapsed_s": 147.9}
+{"time_utc": "2026-11-06T11:45:50.024713+00:00", "event": "progress", "part": "Rk1a", "case": "static", "completed": 950, "total": 1000, "elapsed_s": 155.6}
+{"time_utc": "2026-11-06T11:45:55.637765+00:00", "event": "progress", "part": "Rk1a", "case": "static", "completed": 1000, "total": 1000, "elapsed_s": 161.2}
+{"time_utc": "2026-11-06T11:45:57.579416+00:00", "event": "case_complete", "part": "Rk1a", "case": "static", "settled": 1000, "elapsed_s": 162.2, "archive_bytes": 1775126}
+{"time_utc": "2026-11-06T11:45:57.649381+00:00", "event": "case_started", "part": "Rk1a", "case": "100mm_s", "trials": 1000, "workers": 24, "signature": "6eadf02b5ab1dfe641eff246d7575d7b9bc0a691c366f5b428226b4fa21c6bba"}
+{"time_utc": "2026-11-06T11:45:57.737362+00:00", "event": "run_directory", "part": "Rk1a", "case": "100mm_s", "run_dir": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\Dashas_drop_sim\\results\\catalog39\\run_20261106T114557_651374Z_42"}
+{"time_utc": "2026-11-06T11:46:09.822624+00:00", "event": "progress", "part": "Rk1a", "case": "100mm_s", "completed": 50, "total": 1000, "elapsed_s": 12.2}
+{"time_utc": "2026-11-06T11:46:15.827429+00:00", "event": "progress", "part": "Rk1a", "case": "100mm_s", "completed": 100, "total": 1000, "elapsed_s": 18.2}
+{"time_utc": "2026-11-06T11:46:21.760256+00:00", "event": "progress", "part": "Rk1a", "case": "100mm_s", "completed": 150, "total": 1000, "elapsed_s": 24.1}
+{"time_utc": "2026-11-06T11:46:27.925029+00:00", "event": "progress", "part": "Rk1a", "case": "100mm_s", "completed": 200, "total": 1000, "elapsed_s": 30.3}
+{"time_utc": "2026-11-06T11:46:33.765943+00:00", "event": "progress", "part": "Rk1a", "case": "100mm_s", "completed": 250, "total": 1000, "elapsed_s": 36.1}
+{"time_utc": "2026-11-06T11:46:39.737168+00:00", "event": "progress", "part": "Rk1a", "case": "100mm_s", "completed": 300, "total": 1000, "elapsed_s": 42.1}
+{"time_utc": "2026-11-06T11:46:46.053355+00:00", "event": "progress", "part": "Rk1a", "case": "100mm_s", "completed": 350, "total": 1000, "elapsed_s": 48.4}
+{"time_utc": "2026-11-06T11:46:52.405205+00:00", "event": "progress", "part": "Rk1a", "case": "100mm_s", "completed": 400, "total": 1000, "elapsed_s": 54.8}
+{"time_utc": "2026-11-06T11:46:58.516070+00:00", "event": "progress", "part": "Rk1a", "case": "100mm_s", "completed": 450, "total": 1000, "elapsed_s": 60.9}
+{"time_utc": "2026-11-06T11:47:04.619668+00:00", "event": "progress", "part": "Rk1a", "case": "100mm_s", "completed": 500, "total": 1000, "elapsed_s": 67.0}
+{"time_utc": "2026-11-06T11:47:10.477509+00:00", "event": "progress", "part": "Rk1a", "case": "100mm_s", "completed": 550, "total": 1000, "elapsed_s": 72.8}
+{"time_utc": "2026-11-06T11:47:16.755004+00:00", "event": "progress", "part": "Rk1a", "case": "100mm_s", "completed": 600, "total": 1000, "elapsed_s": 79.1}
+{"time_utc": "2026-11-06T11:47:22.963703+00:00", "event": "progress", "part": "Rk1a", "case": "100mm_s", "completed": 650, "total": 1000, "elapsed_s": 85.3}
+{"time_utc": "2026-11-06T11:47:29.015104+00:00", "event": "progress", "part": "Rk1a", "case": "100mm_s", "completed": 700, "total": 1000, "elapsed_s": 91.4}
+{"time_utc": "2026-11-06T11:47:35.057258+00:00", "event": "progress", "part": "Rk1a", "case": "100mm_s", "completed": 750, "total": 1000, "elapsed_s": 97.4}
+{"time_utc": "2026-11-06T11:47:40.715813+00:00", "event": "progress", "part": "Rk1a", "case": "100mm_s", "completed": 800, "total": 1000, "elapsed_s": 103.1}
+{"time_utc": "2026-11-06T11:47:46.813109+00:00", "event": "progress", "part": "Rk1a", "case": "100mm_s", "completed": 850, "total": 1000, "elapsed_s": 109.2}
+{"time_utc": "2026-11-06T11:47:52.701006+00:00", "event": "progress", "part": "Rk1a", "case": "100mm_s", "completed": 900, "total": 1000, "elapsed_s": 115.0}
+{"time_utc": "2026-11-06T11:47:58.410460+00:00", "event": "progress", "part": "Rk1a", "case": "100mm_s", "completed": 950, "total": 1000, "elapsed_s": 120.8}
+{"time_utc": "2026-11-06T11:48:03.138042+00:00", "event": "progress", "part": "Rk1a", "case": "100mm_s", "completed": 1000, "total": 1000, "elapsed_s": 125.5}
+{"time_utc": "2026-11-06T11:48:05.931236+00:00", "event": "case_complete", "part": "Rk1a", "case": "100mm_s", "settled": 987, "elapsed_s": 126.7, "archive_bytes": 3109736}
+{"time_utc": "2026-11-06T11:48:06.617070+00:00", "event": "part_committed", "part": "Rk1a", "commit": "0d6f7508ef9349d73ca5389efc06ed1aef4820e8"}
+{"time_utc": "2026-11-06T11:48:06.618066+00:00", "event": "push_started", "part": "Rk1a", "commit": "0d6f7508ef9349d73ca5389efc06ed1aef4820e8"}
+{"time_utc": "2026-11-06T11:48:11.451664+00:00", "event": "part_pushed", "part": "Rk1a", "commit": "0d6f7508ef9349d73ca5389efc06ed1aef4820e8"}
+{"time_utc": "2026-11-06T11:48:11.520508+00:00", "event": "case_started", "part": "Rl1a", "case": "static", "trials": 1000, "workers": 24, "signature": "752a47e191a2b1158aa9bb3c004ca4a618850407c45b61079e0521ba90bb9e7f"}
+{"time_utc": "2026-11-06T11:48:11.716063+00:00", "event": "run_directory", "part": "Rl1a", "case": "static", "run_dir": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\Dashas_drop_sim\\results\\catalog39\\run_20261106T114811_522502Z_42"}
