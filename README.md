@@ -54,4 +54,5 @@ Je Werkstück 1.000 Abwürfe bei statischem Band (0 mm/s) und 1.000 Abwürfe bei
 | Df1a | 984 | 1000 | [Simulationen](Df1a/simulations/README.md) |
 | Dk1i | 991 | 998 | [Simulationen](Dk1i/simulations/README.md) |
 | Dl1a | 999 | 999 | [Simulationen](Dl1a/simulations/README.md) |
+| Kf1i | 999 | 0 | [Simulationen](Kf1i/simulations/README.md) |
 <!-- ungrouped-one-parts:end -->

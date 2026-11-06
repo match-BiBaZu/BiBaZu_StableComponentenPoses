@@ -192,6 +192,39 @@
       "stop_poses": 4,
       "stop_settled": 9445,
       "trials": 10000,
+      "ungrouped_simulations": {
+        "100mm_s": {
+          "belt_mode": "running",
+          "belt_speed_mm_s": 100.0,
+          "belt_speed_variation_mm_s": 3.0,
+          "group_poses": false,
+          "path": "Kf1i/simulations/100mm_s",
+          "settled": 0,
+          "signature": "c0fc7cbb2997f95e02ab4334e4d40b9f085a0cd5bda76de4fc1030f172315a70",
+          "simulator_commit": "643b0e1ac5020602a4846eba96baaacef255a332",
+          "status_counts": {
+            "stalled": 38,
+            "timeout": 1,
+            "unsettled": 961
+          },
+          "trials": 1000
+        },
+        "static": {
+          "belt_mode": "stopped",
+          "belt_speed_mm_s": 0.0,
+          "belt_speed_variation_mm_s": 0.0,
+          "group_poses": false,
+          "path": "Kf1i/simulations/static",
+          "settled": 999,
+          "signature": "85243607cde7641b8ae620cfb6de3e46496dba5df67cedd2a6707abc3bd398c0",
+          "simulator_commit": "643b0e1ac5020602a4846eba96baaacef255a332",
+          "status_counts": {
+            "settled_stationary": 999,
+            "unsettled_stationary": 1
+          },
+          "trials": 1000
+        }
+      },
       "workpiece": "Kf1i"
     },
     {

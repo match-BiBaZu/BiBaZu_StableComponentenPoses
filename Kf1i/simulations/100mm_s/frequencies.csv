@@ -1,0 +1,4 @@
+pose_id,category,count,probability,ci_low,ci_high,representative_quat_xyzw,representative_pos_chute_mm,representative_source,roadmap_pose_id,match_status
+unsettled,unassigned,961,0.961,0.9471306895804986,0.9713410390958196,,,,,
+stalled,unassigned,38,0.038,0.02780900450930263,0.05172692033135032,,,,,
+timeout,unassigned,1,0.001,0.00017654637062607809,0.0056425585979579355,,,,,
