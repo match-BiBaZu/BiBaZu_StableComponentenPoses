@@ -1,2 +1,3 @@
 # Preserve exact exported bytes for files.sha256.json across platforms.
 Kf1i/** -text
+*/simulations/** -text

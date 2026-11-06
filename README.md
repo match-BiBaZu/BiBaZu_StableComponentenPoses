@@ -43,3 +43,13 @@ Simulationsergebnisse unter den je Werkstück dokumentierten Parametern. Häufig
 | [Rl2i](Rl2i/README.md) | Vollständig | 10000 | 9980 | 9 | – | – | 500 mm |
 | [Rl3a](Rl3a/README.md) | Vollständig | 10000 | 9883 | 18 | – | – | 500 mm |
 | [Rl4i](Rl4i/README.md) | Vollständig | 10000 | 9992 | 19 | – | – | 500 mm |
+
+<!-- ungrouped-one-parts:start -->
+## Ungruppierte Vergleichsläufe: Werkstücke mit 1 im Namen
+
+Je Werkstück 1.000 Abwürfe bei statischem Band (0 mm/s) und 1.000 Abwürfe bei 100 mm/s. Die Gruppierung ist deaktiviert; jede eingependelte Orientierung bleibt einem einzelnen Abwurf zugeordnet. Vollständige Rohdaten, Parameter, Softwarestand und Prüfungen stehen in den verlinkten Ordnern.
+
+| Werkstück | Statisch: eingependelt / 1000 | 100 mm/s: eingependelt / 1000 | Ergebnisse |
+| --- | ---: | ---: | --- |
+| Df1a | 984 | 999 | [Simulationen](Df1a/simulations/README.md) |
+<!-- ungrouped-one-parts:end -->
