@@ -28,3 +28,22 @@ The CSV and JSON include individual start times, measured durations, throughput,
 - [Timestamped run and publication events](event_log.jsonl)
 
 README link: `[Simulation timing log](timing/run_timings.md)`.
+
+## Separate geometry preparation
+
+The following meshes and symmetry data were prepared before their simulation calls. Up to four preparation processes ran concurrently, with one native thread each. These durations are outside the simulation-call timings above and can overlap other work; they must not be added to derive end-to-end elapsed time. Concurrent preparation may also affect simulation throughput.
+
+| Part | Preparation wall time (s) | Collision components |
+| --- | ---: | ---: |
+| Kk1a | 13.154 | 3 |
+| Kl1i | 46.599 | 12 |
+| Qf1i | 126.460 | 38 |
+| Qk1a | 60.545 | 9 |
+| Ql1i | 412.587 | 107 |
+| Rf1a | 12.443 | 3 |
+| Rk1a | 27.537 | 5 |
+| Rl1a | 11.180 | 4 |
+
+[Preparation start/end times and mesh checksums](geometry_preparation.json).
+
+End-to-end batch elapsed time: **5216.984 s (86.95 min)**. This includes preparation, validation, compression, publishing, the settings change, and superseded/interrupted attempts.

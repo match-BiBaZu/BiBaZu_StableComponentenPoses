@@ -1,0 +1,166 @@
+{
+  "passed": true,
+  "validated_utc": "2026-11-06T11:53:35.720469+00:00",
+  "verified_results_commit": "085a9d7593b37e300782e6c57c8ab602f0b5ee3f",
+  "parts": 12,
+  "cases": 24,
+  "trials": 24000,
+  "simulator_commit": "643b0e1ac5020602a4846eba96baaacef255a332",
+  "checks": [
+    "each case has 1000 unique seeded trials",
+    "grouping disabled",
+    "static and 100 +/-3 mm/s settings",
+    "mesh checksums",
+    "all archive and file checksums",
+    "committed Git bytes equal checked bytes",
+    "CSV/JSONL trial consistency",
+    "finite normalized orientations",
+    "complete timing records"
+  ],
+  "runs": [
+    {
+      "part": "Df1a",
+      "case": "static",
+      "trials": 1000,
+      "passed": true
+    },
+    {
+      "part": "Df1a",
+      "case": "100mm_s",
+      "trials": 1000,
+      "passed": true
+    },
+    {
+      "part": "Dk1i",
+      "case": "static",
+      "trials": 1000,
+      "passed": true
+    },
+    {
+      "part": "Dk1i",
+      "case": "100mm_s",
+      "trials": 1000,
+      "passed": true
+    },
+    {
+      "part": "Dl1a",
+      "case": "static",
+      "trials": 1000,
+      "passed": true
+    },
+    {
+      "part": "Dl1a",
+      "case": "100mm_s",
+      "trials": 1000,
+      "passed": true
+    },
+    {
+      "part": "Kf1i",
+      "case": "static",
+      "trials": 1000,
+      "passed": true
+    },
+    {
+      "part": "Kf1i",
+      "case": "100mm_s",
+      "trials": 1000,
+      "passed": true
+    },
+    {
+      "part": "Kk1a",
+      "case": "static",
+      "trials": 1000,
+      "passed": true
+    },
+    {
+      "part": "Kk1a",
+      "case": "100mm_s",
+      "trials": 1000,
+      "passed": true
+    },
+    {
+      "part": "Kl1i",
+      "case": "static",
+      "trials": 1000,
+      "passed": true
+    },
+    {
+      "part": "Kl1i",
+      "case": "100mm_s",
+      "trials": 1000,
+      "passed": true
+    },
+    {
+      "part": "Qf1i",
+      "case": "static",
+      "trials": 1000,
+      "passed": true
+    },
+    {
+      "part": "Qf1i",
+      "case": "100mm_s",
+      "trials": 1000,
+      "passed": true
+    },
+    {
+      "part": "Qk1a",
+      "case": "static",
+      "trials": 1000,
+      "passed": true
+    },
+    {
+      "part": "Qk1a",
+      "case": "100mm_s",
+      "trials": 1000,
+      "passed": true
+    },
+    {
+      "part": "Ql1i",
+      "case": "static",
+      "trials": 1000,
+      "passed": true
+    },
+    {
+      "part": "Ql1i",
+      "case": "100mm_s",
+      "trials": 1000,
+      "passed": true
+    },
+    {
+      "part": "Rf1a",
+      "case": "static",
+      "trials": 1000,
+      "passed": true
+    },
+    {
+      "part": "Rf1a",
+      "case": "100mm_s",
+      "trials": 1000,
+      "passed": true
+    },
+    {
+      "part": "Rk1a",
+      "case": "static",
+      "trials": 1000,
+      "passed": true
+    },
+    {
+      "part": "Rk1a",
+      "case": "100mm_s",
+      "trials": 1000,
+      "passed": true
+    },
+    {
+      "part": "Rl1a",
+      "case": "static",
+      "trials": 1000,
+      "passed": true
+    },
+    {
+      "part": "Rl1a",
+      "case": "100mm_s",
+      "trials": 1000,
+      "passed": true
+    }
+  ]
+}

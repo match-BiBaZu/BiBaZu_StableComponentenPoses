@@ -1,0 +1,85 @@
+{
+  "parallel_preparation_processes": 4,
+  "runs": [
+    {
+      "part": "Kk1a",
+      "started_utc": "2026-11-06T10:53:01.857152+00:00",
+      "completed_utc": "2026-11-06T10:53:15.011279+00:00",
+      "wall_time_s": 13.154,
+      "collision_parts": 3,
+      "mesh_sha256": "b8417afd1da3e03481f282abec1b30b43f3d1e7e8f4d93d07a58f8c92ef2669b",
+      "processes": 1,
+      "native_threads": 1
+    },
+    {
+      "part": "Kl1i",
+      "started_utc": "2026-11-06T10:53:01.871109+00:00",
+      "completed_utc": "2026-11-06T10:53:48.470595+00:00",
+      "wall_time_s": 46.599,
+      "collision_parts": 12,
+      "mesh_sha256": "920ebed11289ff32d7dc0bab88a34e01e0fe5a57dd1fd4abc89360b83f595037",
+      "processes": 1,
+      "native_threads": 1
+    },
+    {
+      "part": "Qf1i",
+      "started_utc": "2026-11-06T10:53:01.873101+00:00",
+      "completed_utc": "2026-11-06T10:55:08.333547+00:00",
+      "wall_time_s": 126.46,
+      "collision_parts": 38,
+      "mesh_sha256": "6c91ddc3f0da826cbbce9e657ee3fcc39f394adf7eaabd5bcde3419747008266",
+      "processes": 1,
+      "native_threads": 1
+    },
+    {
+      "part": "Qk1a",
+      "started_utc": "2026-11-06T10:53:01.875639+00:00",
+      "completed_utc": "2026-11-06T10:54:02.421034+00:00",
+      "wall_time_s": 60.545,
+      "collision_parts": 9,
+      "mesh_sha256": "d9ecf28b323ede64356d933d0f7b91f69848c4f6ba34b742888bbbc1c90461f0",
+      "processes": 1,
+      "native_threads": 1
+    },
+    {
+      "part": "Ql1i",
+      "started_utc": "2026-11-06T10:53:15.011279+00:00",
+      "completed_utc": "2026-11-06T11:00:07.598647+00:00",
+      "wall_time_s": 412.587,
+      "collision_parts": 107,
+      "mesh_sha256": "987c1187181172a4bd0b02265dd90c29c95f9ec8839a0515d2fbd5cc2245544c",
+      "processes": 1,
+      "native_threads": 1
+    },
+    {
+      "part": "Rf1a",
+      "started_utc": "2026-11-06T10:53:48.470595+00:00",
+      "completed_utc": "2026-11-06T10:54:00.913803+00:00",
+      "wall_time_s": 12.443,
+      "collision_parts": 3,
+      "mesh_sha256": "130bda10a9a24b2a8f263fb49c875733e7d544ed293922498c5c415fd3dfea39",
+      "processes": 1,
+      "native_threads": 1
+    },
+    {
+      "part": "Rk1a",
+      "started_utc": "2026-11-06T10:54:00.913803+00:00",
+      "completed_utc": "2026-11-06T10:54:28.450911+00:00",
+      "wall_time_s": 27.537,
+      "collision_parts": 5,
+      "mesh_sha256": "f707cddf3a9c7e90a1dd8751982a4add17d0be28b4cdc8bab7eba04d9544ad0e",
+      "processes": 1,
+      "native_threads": 1
+    },
+    {
+      "part": "Rl1a",
+      "started_utc": "2026-11-06T10:54:02.421034+00:00",
+      "completed_utc": "2026-11-06T10:54:13.601869+00:00",
+      "wall_time_s": 11.18,
+      "collision_parts": 4,
+      "mesh_sha256": "c1c451567811fd06e5ff20ff1d1636c5c9e6edf195ed7188dfda97a20023b99b",
+      "processes": 1,
+      "native_threads": 1
+    }
+  ]
+}
