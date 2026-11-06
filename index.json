@@ -70,6 +70,38 @@
       "stop_poses": 8,
       "stop_settled": 999,
       "trials": 1000,
+      "ungrouped_simulations": {
+        "100mm_s": {
+          "belt_mode": "running",
+          "belt_speed_mm_s": 100.0,
+          "belt_speed_variation_mm_s": 3.0,
+          "group_poses": false,
+          "path": "Dk1i/simulations/100mm_s",
+          "settled": 998,
+          "signature": "1ec0c5e30b237e129265d85ff831b08371fe218f0a992eba6cf8f9811ab25121",
+          "simulator_commit": "643b0e1ac5020602a4846eba96baaacef255a332",
+          "status_counts": {
+            "settled": 998,
+            "unsettled": 2
+          },
+          "trials": 1000
+        },
+        "static": {
+          "belt_mode": "stopped",
+          "belt_speed_mm_s": 0.0,
+          "belt_speed_variation_mm_s": 0.0,
+          "group_poses": false,
+          "path": "Dk1i/simulations/static",
+          "settled": 991,
+          "signature": "32c66a510061b8dd1dd6b25c6d13227ce0442196a23a398e15af081c97254848",
+          "simulator_commit": "643b0e1ac5020602a4846eba96baaacef255a332",
+          "status_counts": {
+            "settled_stationary": 991,
+            "unsettled_stationary": 9
+          },
+          "trials": 1000
+        }
+      },
       "workpiece": "Dk1i"
     },
     {
