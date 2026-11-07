@@ -64,3 +64,13 @@ Je Werkstück 1.000 Abwürfe bei statischem Band (0 mm/s) und 1.000 Abwürfe bei
 | Rk1a | 1000 | 987 | [Simulationen](Rk1a/simulations/README.md) |
 | Rl1a | 1000 | 992 | [Simulationen](Rl1a/simulations/README.md) |
 <!-- ungrouped-one-parts:end -->
+
+<!-- ungrouped-one-parts-20261107_10000:start -->
+## Ungruppierte Vergleichsläufe: Werkstücke mit 1 im Namen
+
+Je Werkstück 10.000 Abwürfe bei statischem Band (0 mm/s) und 10.000 Abwürfe bei 100 ±3 mm/s. Die Gruppierung ist deaktiviert; jede eingependelte Orientierung bleibt einem einzelnen Abwurf zugeordnet. Vollständige Rohdaten, Parameter, Softwarestand und Prüfungen stehen in den verlinkten Ordnern.
+
+| Werkstück | Statisch: eingependelt / 10000 | 100 ±3 mm/s: eingependelt / 10000 | Ergebnisse |
+| --- | ---: | ---: | --- |
+| Df1a | 9975 | 9999 | [Simulationen](Df1a/simulations/20261107_10000/README.md) |
+<!-- ungrouped-one-parts-20261107_10000:end -->

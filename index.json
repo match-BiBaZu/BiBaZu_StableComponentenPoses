@@ -8,6 +8,38 @@
       "settled": 9997,
       "status": "complete",
       "trials": 10000,
+      "ungrouped_10000_simulations": {
+        "100mm_s": {
+          "belt_mode": "running",
+          "belt_speed_mm_s": 100.0,
+          "belt_speed_variation_mm_s": 3.0,
+          "group_poses": false,
+          "path": "Df1a/simulations/20261107_10000/100mm_s",
+          "settled": 9999,
+          "signature": "93dcf93eb45cf6078755fd9d43145b87a5c0ceaebfd57ffbb74001fc93221eba",
+          "simulator_commit": "72b1ba08aa9b317804cd60e1e2ae6e636910f3fd",
+          "status_counts": {
+            "settled": 9999,
+            "unsettled": 1
+          },
+          "trials": 10000
+        },
+        "static": {
+          "belt_mode": "stopped",
+          "belt_speed_mm_s": 0.0,
+          "belt_speed_variation_mm_s": 0.0,
+          "group_poses": false,
+          "path": "Df1a/simulations/20261107_10000/static",
+          "settled": 9975,
+          "signature": "08ce9d7d6205c1ad118ef9b957a1c9a6a7a0583d61533dc2aa8165ffe9e4796c",
+          "simulator_commit": "72b1ba08aa9b317804cd60e1e2ae6e636910f3fd",
+          "status_counts": {
+            "settled_stationary": 9975,
+            "unsettled_stationary": 25
+          },
+          "trials": 10000
+        }
+      },
       "ungrouped_simulations": {
         "100mm_s": {
           "belt_mode": "running",
