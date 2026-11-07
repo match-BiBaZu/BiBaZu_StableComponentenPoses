@@ -73,4 +73,5 @@ Je Werkstück 10.000 Abwürfe bei statischem Band (0 mm/s) und 10.000 Abwürfe b
 | Werkstück | Statisch: eingependelt / 10000 | 100 ±3 mm/s: eingependelt / 10000 | Ergebnisse |
 | --- | ---: | ---: | --- |
 | Df1a | 9975 | 9999 | [Simulationen](Df1a/simulations/20261107_10000/README.md) |
+| Dk1i | 10000 | 9950 | [Simulationen](Dk1i/simulations/20261107_10000/README.md) |
 <!-- ungrouped-one-parts-20261107_10000:end -->
