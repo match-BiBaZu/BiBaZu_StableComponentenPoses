@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-11-08T03:36:02.206327+00:00",
+  "generated_utc": "2026-11-08T11:10:39.635530+00:00",
   "batch_status": "running",
-  "published_parts": 9,
+  "published_parts": 10,
   "requested_parts": 12,
-  "completed_trials": 180000,
+  "completed_trials": 200000,
   "requested_trials": 240000,
   "logical_cpus": 24,
   "python": "3.12.13",
@@ -23,6 +23,18 @@
   "simulation_finished_utc": "Derived from case-start UTC plus the measured monotonic wall duration; use wall_time_s for elapsed-time calculations.",
   "history": "event_log.jsonl records this 10000-trial study; the timing table contains its published static and 100 +/-3 mm/s runs.",
   "batch_started_utc": "2026-11-07T16:25:01.806221+00:00",
+  "recovery_events": [
+    {
+      "time_utc": "2026-11-08T03:36:06.440054+00:00",
+      "event": "batch_error",
+      "error": "[WinError 5] Access is denied: 'C:\\\\Users\\\\Administrator\\\\Documents\\\\Dashas_ws\\\\.task_artifacts\\\\ungrouped_one_parts_20261107_10000\\\\status.json.tmp' -> 'C:\\\\Users\\\\Administrator\\\\Documents\\\\Dashas_ws\\\\.task_artifacts\\\\ungrouped_one_parts_20261107_10000\\\\status.json'"
+    },
+    {
+      "time_utc": "2026-11-08T10:25:03.558737+00:00",
+      "event": "batch_resumed",
+      "previous_error": "[WinError 5] Access is denied: 'C:\\\\Users\\\\Administrator\\\\Documents\\\\Dashas_ws\\\\.task_artifacts\\\\ungrouped_one_parts_20261107_10000\\\\status.json.tmp' -> 'C:\\\\Users\\\\Administrator\\\\Documents\\\\Dashas_ws\\\\.task_artifacts\\\\ungrouped_one_parts_20261107_10000\\\\status.json'"
+    }
+  ],
   "batch_completed_utc": null,
   "batch_elapsed_wall_s": null,
   "separate_geometry_preparation": null,
@@ -386,6 +398,46 @@
       "simulator_commit": "72b1ba08aa9b317804cd60e1e2ae6e636910f3fd",
       "results_commit": "1d3d22598b10dd214ac152fcd4f0b1a932d7d995",
       "signature": "aa611a9e42e07da40f8adb4f33fa1cd2e0fdcbc9201c1fb58864f4ea5fe8b71d"
+    },
+    {
+      "part": "Rf1a",
+      "case": "static",
+      "trials": 10000,
+      "workers": 24,
+      "wall_time_s": 1393.668,
+      "trials_per_wall_s": 7.17531,
+      "wall_s_per_trial": 0.139367,
+      "started_utc": "2026-11-08T10:25:37.251971+00:00",
+      "simulation_finished_utc": "2026-11-08T10:48:50.919971+00:00",
+      "results_saved_utc": "2026-11-08T10:48:52.664377+00:00",
+      "part_pushed_utc": "2026-11-08T11:10:39.569730+00:00",
+      "settled_trials": 9988,
+      "group_poses": false,
+      "belt_speed_mm_s": 0.0,
+      "belt_speed_variation_mm_s": 0.0,
+      "simulator_commit": "72b1ba08aa9b317804cd60e1e2ae6e636910f3fd",
+      "results_commit": "9886a40f6584f2ca1e6f608b14bcbc9644b890ca",
+      "signature": "733fc91bc07438f486842ee13860b0ccd8e94f0f8cf73f9b27c165b3041ba4be"
+    },
+    {
+      "part": "Rf1a",
+      "case": "100mm_s",
+      "trials": 10000,
+      "workers": 24,
+      "wall_time_s": 1074.998,
+      "trials_per_wall_s": 9.302343,
+      "wall_s_per_trial": 0.1075,
+      "started_utc": "2026-11-08T10:50:04.392064+00:00",
+      "simulation_finished_utc": "2026-11-08T11:07:59.390064+00:00",
+      "results_saved_utc": "2026-11-08T11:08:02.197643+00:00",
+      "part_pushed_utc": "2026-11-08T11:10:39.569730+00:00",
+      "settled_trials": 10000,
+      "group_poses": false,
+      "belt_speed_mm_s": 100.0,
+      "belt_speed_variation_mm_s": 3.0,
+      "simulator_commit": "72b1ba08aa9b317804cd60e1e2ae6e636910f3fd",
+      "results_commit": "9886a40f6584f2ca1e6f608b14bcbc9644b890ca",
+      "signature": "468a335834510b3a041342d962774da95c9a486f8f078fee19d98a1e7e656b98"
     }
   ]
 }
