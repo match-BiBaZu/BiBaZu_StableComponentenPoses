@@ -28,3 +28,5 @@ The CSV and JSON include individual start times, measured durations, throughput,
 - [Timestamped run and publication events](event_log.jsonl)
 
 README link: `[Simulation timing log](timing/20261107_10000/run_timings.md)`.
+
+End-to-end batch elapsed time: **73412.413 s (1223.54 min)**. This includes preparation, validation, compression, publishing, and any interruption or recovery time.

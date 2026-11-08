@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-11-08T12:48:30.462883+00:00",
-  "batch_status": "running",
+  "generated_utc": "2026-11-08T12:48:34.274585+00:00",
+  "batch_status": "complete",
   "published_parts": 12,
   "requested_parts": 12,
   "completed_trials": 240000,
@@ -35,8 +35,8 @@
       "previous_error": "[WinError 5] Access is denied: 'C:\\\\Users\\\\Administrator\\\\Documents\\\\Dashas_ws\\\\.task_artifacts\\\\ungrouped_one_parts_20261107_10000\\\\status.json.tmp' -> 'C:\\\\Users\\\\Administrator\\\\Documents\\\\Dashas_ws\\\\.task_artifacts\\\\ungrouped_one_parts_20261107_10000\\\\status.json'"
     }
   ],
-  "batch_completed_utc": null,
-  "batch_elapsed_wall_s": null,
+  "batch_completed_utc": "2026-11-08T12:48:34.218753+00:00",
+  "batch_elapsed_wall_s": 73412.412532,
   "separate_geometry_preparation": null,
   "runs": [
     {
