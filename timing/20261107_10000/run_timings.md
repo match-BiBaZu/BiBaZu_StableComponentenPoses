@@ -1,6 +1,6 @@
 # Simulation timing log
 
-Published results: **11/12 parts**, **220,000/240,000 trials**. Each part has 10,000 static trials and 10,000 trials at 100 ±3 mm/s, with grouping off.
+Published results: **12/12 parts**, **240,000/240,000 trials**. Each part has 10,000 static trials and 10,000 trials at 100 ±3 mm/s, with grouping off.
 
 Measured wall time uses `time.perf_counter()` around the simulation call. It includes geometry and symmetry preparation, process startup, physics, and writing raw results. Validation, archive compression, commits, and pushes take additional time. Each run uses 24 worker processes on a machine with 24 logical CPUs. Cached geometry can affect preparation time.
 
@@ -17,8 +17,9 @@ Measured wall time uses `time.perf_counter()` around the simulation call. It inc
 | Ql1i | 3674.549 | 2511.958 | 6186.507 |
 | Rf1a | 1393.668 | 1074.998 | 2468.666 |
 | Rk1a | 1723.776 | 1322.373 | 3046.149 |
+| Rl1a | 1331.317 | 1012.431 | 2343.748 |
 
-Sum of measured simulation durations: **43658.668 s (727.64 min)**.
+Sum of measured simulation durations: **46002.416 s (766.71 min)**.
 
 The CSV and JSON include individual start times, measured durations, throughput, result-save times, push times, settings signatures, and result commits. UTC times are explicitly labelled.
 
