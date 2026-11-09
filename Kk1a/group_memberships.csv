@@ -1,4 +1,4 @@
-phase,pose_id,group_id,basin_id,pose_count,group_count,completed_trials,group_incidence_percent,meets_one_percent
-transport,Kk1a_0001,0,group_000,1585,1585,10000,15.85,True
-transport,Kk1a_0002,1,group_001,1294,1294,10000,12.94,True
-transport,Kk1a_0003,2,group_002,8,8,10000,0.08,False
+phase,pose_id,group_id,basin_id,pose_count,group_count,completed_trials,group_incidence_percent,meets_one_percent,display_pose_id
+transport,Kk1a_0001,0,group_000,1585,1585,10000,15.85,True,0
+transport,Kk1a_0002,1,group_001,1294,1294,10000,12.94,True,1
+transport,Kk1a_0003,2,group_002,8,8,10000,0.08,False,2

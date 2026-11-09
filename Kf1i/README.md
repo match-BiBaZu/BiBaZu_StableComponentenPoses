@@ -10,7 +10,7 @@ The stationary series recorded **10,000** settled outcomes. The moving series re
 
 ## Historical pose catalogue
 
-Group numbers rank the saved pose basins by their combined incidence within each observation phase. The percentages in the table describe each individual pose. Groups below 1% remain visible.
+Group numbers rank the saved pose basins by their combined incidence within each observation phase. Pose 0 is the most frequent individual pose in its observation phase. The membership CSV links the displayed numbers to the saved pose IDs. Groups below 1% remain visible.
 
 [Group membership CSV](group_memberships.csv) · [Grouping method](../README.md#catalogue-grouping)
 
@@ -34,10 +34,10 @@ The rest check followed the transport outcome and covered 9,529 trials.
 
 | Pose | Group | Image | Count | Incidence | 95% interval | Share of settled outcomes |
 | --- | --- | --- | ---: | ---: | ---: | ---: |
-| Kf1i_stop_0001 | Group 0 | ![Kf1i_stop_0001](images/Kf1i_stop_0001.png) | 2925 | 29.25 % | 28.37–30.15 % | 30.97 % |
-| Kf1i_stop_0004 | Group 1 | ![Kf1i_stop_0004](images/Kf1i_stop_0004.png) | 2694 | 26.94 % | 26.08–27.82 % | 28.52 % |
-| Kf1i_stop_0002 | Group 2 | ![Kf1i_stop_0002](images/Kf1i_stop_0002.png) | 1920 | 19.20 % | 18.44–19.98 % | 20.33 % |
-| Kf1i_stop_0003 | Group 3 | ![Kf1i_stop_0003](images/Kf1i_stop_0003.png) | 1906 | 19.06 % | 18.30–19.84 % | 20.18 % |
+| Pose 0 | Group 0 | ![Kf1i_stop_0001](images/Kf1i_stop_0001.png) | 2925 | 29.25 % | 28.37–30.15 % | 30.97 % |
+| Pose 1 | Group 1 | ![Kf1i_stop_0004](images/Kf1i_stop_0004.png) | 2694 | 26.94 % | 26.08–27.82 % | 28.52 % |
+| Pose 2 | Group 2 | ![Kf1i_stop_0002](images/Kf1i_stop_0002.png) | 1920 | 19.20 % | 18.44–19.98 % | 20.33 % |
+| Pose 3 | Group 3 | ![Kf1i_stop_0003](images/Kf1i_stop_0003.png) | 1906 | 19.06 % | 18.30–19.84 % | 20.18 % |
 
 [Pose catalogue JSON](poses_after_stop.json) · [Pose catalogue YAML](poses_after_stop.yaml) · [Frequencies](frequencies_after_stop.csv) · [Trial records](trials_after_stop.csv)
 

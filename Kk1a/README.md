@@ -10,7 +10,7 @@ The stationary series recorded **9,676** settled outcomes. The moving series rec
 
 ## Historical pose catalogue
 
-Group numbers rank the saved pose basins by their combined incidence within each observation phase. The percentages in the table describe each individual pose. Groups below 1% remain visible.
+Group numbers rank the saved pose basins by their combined incidence within each observation phase. Pose 0 is the most frequent individual pose in its observation phase. The membership CSV links the displayed numbers to the saved pose IDs. Groups below 1% remain visible.
 
 [Group membership CSV](group_memberships.csv) · [Grouping method](../README.md#catalogue-grouping)
 
@@ -22,9 +22,9 @@ Outcome counts: settled: 2,887, unsettled: 7,113.
 
 | Pose | Group | Image | Count | Incidence | 95% interval | Share of settled outcomes |
 | --- | --- | --- | ---: | ---: | ---: | ---: |
-| Kk1a_0001 | Group 0 | ![Kk1a_0001](images/Kk1a_0001.png) | 1585 | 15.85 % | 15.15–16.58 % | 54.90 % |
-| Kk1a_0002 | Group 1 | ![Kk1a_0002](images/Kk1a_0002.png) | 1294 | 12.94 % | 12.30–13.61 % | 44.82 % |
-| Kk1a_0003 | Group 2 | ![Kk1a_0003](images/Kk1a_0003.png) | 8 | 0.08 % | 0.04–0.16 % | 0.28 % |
+| Pose 0 | Group 0 | ![Kk1a_0001](images/Kk1a_0001.png) | 1585 | 15.85 % | 15.15–16.58 % | 54.90 % |
+| Pose 1 | Group 1 | ![Kk1a_0002](images/Kk1a_0002.png) | 1294 | 12.94 % | 12.30–13.61 % | 44.82 % |
+| Pose 2 | Group 2 | ![Kk1a_0003](images/Kk1a_0003.png) | 8 | 0.08 % | 0.04–0.16 % | 0.28 % |
 
 [Pose catalogue JSON](poses.json) · [Pose catalogue YAML](poses.yaml) · [Frequencies](frequencies.csv) · [Trial records](trials.csv)
 

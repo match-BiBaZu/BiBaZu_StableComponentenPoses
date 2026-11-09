@@ -4,7 +4,7 @@
 
 ## Historical pose catalogue
 
-Group numbers rank the saved pose basins by their combined incidence within each observation phase. The percentages in the table describe each individual pose. Groups below 1% remain visible.
+Group numbers rank the saved pose basins by their combined incidence within each observation phase. Pose 0 is the most frequent individual pose in its observation phase. The membership CSV links the displayed numbers to the saved pose IDs. Groups below 1% remain visible.
 
 [Group membership CSV](group_memberships.csv) · [Grouping method](../README.md#catalogue-grouping)
 
@@ -16,9 +16,9 @@ Outcome counts: settled: 762, unsettled: 238.
 
 | Pose | Group | Image | Count | Incidence | 95% interval | Share of settled outcomes |
 | --- | --- | --- | ---: | ---: | ---: | ---: |
-| Kf2a_0003 | Group 0 | ![Kf2a_0003](images/Kf2a_0003.png) | 541 | 54.10 % | 51.00–57.17 % | 71.00 % |
-| Kf2a_0001 | Group 1 | ![Kf2a_0001](images/Kf2a_0001.png) | 216 | 21.60 % | 19.16–24.26 % | 28.35 % |
-| Kf2a_0002 | Group 2 | ![Kf2a_0002](images/Kf2a_0002.png) | 5 | 0.50 % | 0.21–1.17 % | 0.66 % |
+| Pose 0 | Group 0 | ![Kf2a_0003](images/Kf2a_0003.png) | 541 | 54.10 % | 51.00–57.17 % | 71.00 % |
+| Pose 1 | Group 1 | ![Kf2a_0001](images/Kf2a_0001.png) | 216 | 21.60 % | 19.16–24.26 % | 28.35 % |
+| Pose 2 | Group 2 | ![Kf2a_0002](images/Kf2a_0002.png) | 5 | 0.50 % | 0.21–1.17 % | 0.66 % |
 
 [Pose catalogue JSON](poses.json) · [Pose catalogue YAML](poses.yaml) · [Frequencies](frequencies.csv) · [Trial records](trials.csv)
 

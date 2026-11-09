@@ -1,7 +1,7 @@
-phase,pose_id,group_id,basin_id,pose_count,group_count,completed_trials,group_incidence_percent,meets_one_percent
-transport,Ql1i_0002,0,group_001,4544,4544,10000,45.44,True
-transport,Ql1i_0003,1,group_002,4376,4376,10000,43.76,True
-transport,Ql1i_0004,2,group_003,532,532,10000,5.32,True
-transport,Ql1i_0005,3,group_004,266,266,10000,2.66,True
-transport,Ql1i_0006,4,group_005,228,228,10000,2.28,True
-transport,Ql1i_0001,5,group_000,39,39,10000,0.39,False
+phase,pose_id,group_id,basin_id,pose_count,group_count,completed_trials,group_incidence_percent,meets_one_percent,display_pose_id
+transport,Ql1i_0002,0,group_001,4544,4544,10000,45.44,True,0
+transport,Ql1i_0003,1,group_002,4376,4376,10000,43.76,True,1
+transport,Ql1i_0004,2,group_003,532,532,10000,5.32,True,2
+transport,Ql1i_0005,3,group_004,266,266,10000,2.66,True,3
+transport,Ql1i_0006,4,group_005,228,228,10000,2.28,True,4
+transport,Ql1i_0001,5,group_000,39,39,10000,0.39,False,5

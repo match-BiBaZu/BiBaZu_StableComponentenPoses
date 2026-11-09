@@ -1,8 +1,8 @@
-phase,pose_id,group_id,basin_id,pose_count,group_count,completed_trials,group_incidence_percent,meets_one_percent
-transport,Df1a_0004,0,group_003,2638,2638,10000,26.38,True
-transport,Df1a_0005,1,group_004,2586,2586,10000,25.86,True
-transport,Df1a_0006,2,group_005,2386,2386,10000,23.86,True
-transport,Df1a_0001,3,group_000,2354,2354,10000,23.54,True
-transport,Df1a_0002,4,group_001,18,18,10000,0.18,False
-transport,Df1a_0003,5,group_002,12,12,10000,0.12,False
-transport,Df1a_0007,6,group_006,3,3,10000,0.03,False
+phase,pose_id,group_id,basin_id,pose_count,group_count,completed_trials,group_incidence_percent,meets_one_percent,display_pose_id
+transport,Df1a_0004,0,group_003,2638,2638,10000,26.38,True,0
+transport,Df1a_0005,1,group_004,2586,2586,10000,25.86,True,1
+transport,Df1a_0006,2,group_005,2386,2386,10000,23.86,True,2
+transport,Df1a_0001,3,group_000,2354,2354,10000,23.54,True,3
+transport,Df1a_0002,4,group_001,18,18,10000,0.18,False,4
+transport,Df1a_0003,5,group_002,12,12,10000,0.12,False,5
+transport,Df1a_0007,6,group_006,3,3,10000,0.03,False,6
