@@ -1,0 +1,10 @@
+phase,pose_id,group_id,basin_id,pose_count,group_count,completed_trials,group_incidence_percent,meets_one_percent
+transport,Df2i_0001,0,group_000,1833,1833,10000,18.33,True
+transport,Df2i_0004,1,group_003,1794,1794,10000,17.94,True
+transport,Df2i_0005,2,group_004,1785,1785,10000,17.85,True
+transport,Df2i_0002,3,group_001,1717,1717,10000,17.17,True
+transport,Df2i_0007,4,group_006,1445,1445,10000,14.45,True
+transport,Df2i_0006,5,group_005,1400,1400,10000,14,True
+transport,Df2i_0003,6,group_002,13,13,10000,0.13,False
+transport,Df2i_0008,7,group_007,8,8,10000,0.08,False
+transport,Df2i_0009,8,group_008,1,1,10000,0.01,False

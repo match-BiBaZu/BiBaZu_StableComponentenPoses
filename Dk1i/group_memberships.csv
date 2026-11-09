@@ -1,0 +1,17 @@
+phase,pose_id,group_id,basin_id,pose_count,group_count,completed_trials,group_incidence_percent,meets_one_percent
+transport,Dk1i_0002,0,group_001,188,368,1000,36.8,True
+transport,Dk1i_0004,0,group_001,180,368,1000,36.8,True
+transport,Dk1i_0003,1,group_002,160,310,1000,31,True
+transport,Dk1i_0005,1,group_002,150,310,1000,31,True
+transport,Dk1i_0007,2,group_004,113,113,1000,11.3,True
+transport,Dk1i_0006,3,group_003,80,80,1000,8,True
+transport,Dk1i_0001,4,group_000,76,76,1000,7.6,True
+transport,Dk1i_0008,5,group_005,51,51,1000,5.1,True
+post_braking,Dk1i_stop_0003,0,group_002,188,368,1000,36.8,True
+post_braking,Dk1i_stop_0004,0,group_002,180,368,1000,36.8,True
+post_braking,Dk1i_stop_0002,1,group_001,159,310,1000,31,True
+post_braking,Dk1i_stop_0005,1,group_001,151,310,1000,31,True
+post_braking,Dk1i_stop_0007,2,group_004,113,113,1000,11.3,True
+post_braking,Dk1i_stop_0006,3,group_003,81,81,1000,8.1,True
+post_braking,Dk1i_stop_0001,4,group_000,76,76,1000,7.6,True
+post_braking,Dk1i_stop_0008,5,group_005,51,51,1000,5.1,True

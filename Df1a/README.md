@@ -1,21 +1,41 @@
 # Df1a
 
-10000 Fallversuche auf 500 mm Strecke; 9997 eingependelte Endlagen. Prozentangaben beziehen sich auf alle Fallversuche.
+[Workpiece index](../README.md#workpieces)
 
-Dies sind beobachtete Simulationslagen unter den dokumentierten Parametern; Reibung und Unebenheitsmodell sind noch nicht an realen Häufigkeiten kalibriert.
+## 10,000-drop paper study
 
-| Pose | Bild | Anzahl | Anteil | 95-%-Intervall | Anteil eingependelt |
-| --- | --- | ---: | ---: | ---: | ---: |
-| Df1a_0004 | ![Df1a_0004](images/Df1a_0004.png) | 2638 | 26.38 % | 25.53–27.25 % | 26.39 % |
-| Df1a_0005 | ![Df1a_0005](images/Df1a_0005.png) | 2586 | 25.86 % | 25.01–26.73 % | 25.87 % |
-| Df1a_0006 | ![Df1a_0006](images/Df1a_0006.png) | 2386 | 23.86 % | 23.03–24.71 % | 23.87 % |
-| Df1a_0001 | ![Df1a_0001](images/Df1a_0001.png) | 2354 | 23.54 % | 22.72–24.38 % | 23.55 % |
-| Df1a_0002 | ![Df1a_0002](images/Df1a_0002.png) | 18 | 0.18 % | 0.11–0.28 % | 0.18 % |
-| Df1a_0003 | ![Df1a_0003](images/Df1a_0003.png) | 12 | 0.12 % | 0.07–0.21 % | 0.12 % |
-| Df1a_0007 | ![Df1a_0007](images/Df1a_0007.png) | 3 | 0.03 % | 0.01–0.09 % | 0.03 % |
+The stationary series recorded **9,975** settled outcomes. The moving series recorded **9,999** settled outcomes at the virtual exit. Each series contains 10,000 drops.
 
-Ergebnisstatus: settled: 9997, unsettled: 3
+[Study overview](simulations/20261107_10000/README.md) · [Stationary results](simulations/20261107_10000/static/README.md) · [Moving results](simulations/20261107_10000/100mm_s/README.md)
 
-Details und Erkennung: [JSON](poses.json), [YAML](poses.yaml). Quaternionen: xyzw, Bauteil → Rutsche. Symmetrieoperationen werden rechts an die Bauteilrotation multipliziert. Die kontinuierliche Symmetrieachse wird gerichtet verglichen. Orientierungsabstand ≤5°; bei konkurrierenden Treffern innerhalb 1° bleibt die Zuordnung mehrdeutig.
+## Historical pose catalogue
 
-Die Pose-IDs bleiben über Läufe erhalten. Der Registereintrag einer früher beobachteten, aktuell nicht aufgetretenen Pose bleibt zur Wiedererkennung reserviert.
+Group numbers rank the saved pose basins by their combined incidence within each observation phase. The percentages in the table describe each individual pose. Groups below 1% remain visible.
+
+[Group membership CSV](group_memberships.csv) · [Grouping method](../README.md#catalogue-grouping)
+
+### Transport poses
+
+9,997 settled outcomes across 10,000 historical drops on a 500 mm chute. Incidence uses all completed drops as the denominator.
+
+Outcome counts: settled: 9,997, unsettled: 3.
+
+| Pose | Group | Image | Count | Incidence | 95% interval | Share of settled outcomes |
+| --- | --- | --- | ---: | ---: | ---: | ---: |
+| Df1a_0004 | Group 0 | ![Df1a_0004](images/Df1a_0004.png) | 2638 | 26.38 % | 25.53–27.25 % | 26.39 % |
+| Df1a_0005 | Group 1 | ![Df1a_0005](images/Df1a_0005.png) | 2586 | 25.86 % | 25.01–26.73 % | 25.87 % |
+| Df1a_0006 | Group 2 | ![Df1a_0006](images/Df1a_0006.png) | 2386 | 23.86 % | 23.03–24.71 % | 23.87 % |
+| Df1a_0001 | Group 3 | ![Df1a_0001](images/Df1a_0001.png) | 2354 | 23.54 % | 22.72–24.38 % | 23.55 % |
+| Df1a_0002 | Group 4 | ![Df1a_0002](images/Df1a_0002.png) | 18 | 0.18 % | 0.11–0.28 % | 0.18 % |
+| Df1a_0003 | Group 5 | ![Df1a_0003](images/Df1a_0003.png) | 12 | 0.12 % | 0.07–0.21 % | 0.12 % |
+| Df1a_0007 | Group 6 | ![Df1a_0007](images/Df1a_0007.png) | 3 | 0.03 % | 0.01–0.09 % | 0.03 % |
+
+[Pose catalogue JSON](poses.json) · [Pose catalogue YAML](poses.yaml) · [Frequencies](frequencies.csv) · [Trial records](trials.csv)
+
+Pose orientations use `xyzw` quaternions from the workpiece frame to the chute frame. Recognition uses the recorded symmetry, a 5° tolerance, and a 1° ambiguity margin. The pose registry reserves previously observed IDs for later recognition.
+
+### Historical run files
+
+- [Configuration](config.json)
+- [Manifest](manifest.json)
+- [Earlier 1,000-drop comparisons](simulations/README.md)

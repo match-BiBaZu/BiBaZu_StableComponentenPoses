@@ -1,8 +1,10 @@
-# Ungruppierte Vergleichsläufe
+# Rf1a: Historical 1,000-drop comparison
 
-Je Fall 1.000 Abwürfe, Gruppierung aus.
+[Workpiece catalogue](../README.md) · [10,000-drop paper study](20261107_10000/README.md)
 
-| Fall | Versuche | Eingependelt | Ergebnisse |
-| --- | ---: | ---: | --- |
-| Statisch, 0 mm/s | 1000 | 940 | [static](static/README.md) |
-| 100 ±3 mm/s | 1000 | 995 | [100mm_s](100mm_s/README.md) |
+Each condition has a separate ungrouped simulation run. The settled counts use each condition’s primary observation.
+
+| Condition | Belt speed | Trials | Settled | Files |
+| --- | --- | --- | --- | --- |
+| Stationary from release | 0 mm/s | 1,000 | 940 | [Results](static/README.md) |
+| Moving belt | 100 ± 3 mm/s | 1,000 | 995 | [Results](100mm_s/README.md) |

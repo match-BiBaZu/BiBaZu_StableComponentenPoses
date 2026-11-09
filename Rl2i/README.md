@@ -1,23 +1,36 @@
 # Rl2i
 
-10000 Fallversuche auf 500 mm Strecke; 9980 eingependelte Endlagen. Prozentangaben beziehen sich auf alle Fallversuche.
+[Workpiece index](../README.md#workpieces)
 
-Dies sind beobachtete Simulationslagen unter den dokumentierten Parametern; Reibung und Unebenheitsmodell sind noch nicht an realen Häufigkeiten kalibriert.
+## Historical pose catalogue
 
-| Pose | Bild | Anzahl | Anteil | 95-%-Intervall | Anteil eingependelt |
-| --- | --- | ---: | ---: | ---: | ---: |
-| Rl2i_0007 | ![Rl2i_0007](images/Rl2i_0007.png) | 2718 | 27.18 % | 26.32–28.06 % | 27.23 % |
-| Rl2i_0001 | ![Rl2i_0001](images/Rl2i_0001.png) | 2450 | 24.50 % | 23.67–25.35 % | 24.55 % |
-| Rl2i_0006 | ![Rl2i_0006](images/Rl2i_0006.png) | 2265 | 22.65 % | 21.84–23.48 % | 22.70 % |
-| Rl2i_0002 | ![Rl2i_0002](images/Rl2i_0002.png) | 2157 | 21.57 % | 20.77–22.39 % | 21.61 % |
-| Rl2i_0005 | ![Rl2i_0005](images/Rl2i_0005.png) | 171 | 1.71 % | 1.47–1.98 % | 1.71 % |
-| Rl2i_0008 | ![Rl2i_0008](images/Rl2i_0008.png) | 162 | 1.62 % | 1.39–1.89 % | 1.62 % |
-| Rl2i_0004 | ![Rl2i_0004](images/Rl2i_0004.png) | 32 | 0.32 % | 0.23–0.45 % | 0.32 % |
-| Rl2i_0003 | ![Rl2i_0003](images/Rl2i_0003.png) | 19 | 0.19 % | 0.12–0.30 % | 0.19 % |
-| Rl2i_0009 | ![Rl2i_0009](images/Rl2i_0009.png) | 6 | 0.06 % | 0.03–0.13 % | 0.06 % |
+Group numbers rank the saved pose basins by their combined incidence within each observation phase. The percentages in the table describe each individual pose. Groups below 1% remain visible.
 
-Ergebnisstatus: settled: 9980, unsettled: 20
+[Group membership CSV](group_memberships.csv) · [Grouping method](../README.md#catalogue-grouping)
 
-Details und Erkennung: [JSON](poses.json), [YAML](poses.yaml). Quaternionen: xyzw, Bauteil → Rutsche. Symmetrieoperationen werden rechts an die Bauteilrotation multipliziert. Die kontinuierliche Symmetrieachse wird gerichtet verglichen. Orientierungsabstand ≤5°; bei konkurrierenden Treffern innerhalb 1° bleibt die Zuordnung mehrdeutig.
+### Transport poses
 
-Die Pose-IDs bleiben über Läufe erhalten. Der Registereintrag einer früher beobachteten, aktuell nicht aufgetretenen Pose bleibt zur Wiedererkennung reserviert.
+9,980 settled outcomes across 10,000 historical drops on a 500 mm chute. Incidence uses all completed drops as the denominator.
+
+Outcome counts: settled: 9,980, unsettled: 20.
+
+| Pose | Group | Image | Count | Incidence | 95% interval | Share of settled outcomes |
+| --- | --- | --- | ---: | ---: | ---: | ---: |
+| Rl2i_0007 | Group 0 | ![Rl2i_0007](images/Rl2i_0007.png) | 2718 | 27.18 % | 26.32–28.06 % | 27.23 % |
+| Rl2i_0001 | Group 1 | ![Rl2i_0001](images/Rl2i_0001.png) | 2450 | 24.50 % | 23.67–25.35 % | 24.55 % |
+| Rl2i_0006 | Group 2 | ![Rl2i_0006](images/Rl2i_0006.png) | 2265 | 22.65 % | 21.84–23.48 % | 22.70 % |
+| Rl2i_0002 | Group 3 | ![Rl2i_0002](images/Rl2i_0002.png) | 2157 | 21.57 % | 20.77–22.39 % | 21.61 % |
+| Rl2i_0005 | Group 4 | ![Rl2i_0005](images/Rl2i_0005.png) | 171 | 1.71 % | 1.47–1.98 % | 1.71 % |
+| Rl2i_0008 | Group 5 | ![Rl2i_0008](images/Rl2i_0008.png) | 162 | 1.62 % | 1.39–1.89 % | 1.62 % |
+| Rl2i_0004 | Group 6 | ![Rl2i_0004](images/Rl2i_0004.png) | 32 | 0.32 % | 0.23–0.45 % | 0.32 % |
+| Rl2i_0003 | Group 7 | ![Rl2i_0003](images/Rl2i_0003.png) | 19 | 0.19 % | 0.12–0.30 % | 0.19 % |
+| Rl2i_0009 | Group 8 | ![Rl2i_0009](images/Rl2i_0009.png) | 6 | 0.06 % | 0.03–0.13 % | 0.06 % |
+
+[Pose catalogue JSON](poses.json) · [Pose catalogue YAML](poses.yaml) · [Frequencies](frequencies.csv) · [Trial records](trials.csv)
+
+Pose orientations use `xyzw` quaternions from the workpiece frame to the chute frame. Recognition uses the recorded symmetry, a 5° tolerance, and a 1° ambiguity margin. The pose registry reserves previously observed IDs for later recognition.
+
+### Historical run files
+
+- [Configuration](config.json)
+- [Manifest](manifest.json)

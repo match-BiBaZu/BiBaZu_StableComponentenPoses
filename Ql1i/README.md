@@ -1,20 +1,40 @@
 # Ql1i
 
-10000 Fallversuche auf 500 mm Strecke; 9985 eingependelte Endlagen. Prozentangaben beziehen sich auf alle Fallversuche.
+[Workpiece index](../README.md#workpieces)
 
-Dies sind beobachtete Simulationslagen unter den dokumentierten Parametern; Reibung und Unebenheitsmodell sind noch nicht an realen Häufigkeiten kalibriert.
+## 10,000-drop paper study
 
-| Pose | Bild | Anzahl | Anteil | 95-%-Intervall | Anteil eingependelt |
-| --- | --- | ---: | ---: | ---: | ---: |
-| Ql1i_0002 | ![Ql1i_0002](images/Ql1i_0002.png) | 4544 | 45.44 % | 44.47–46.42 % | 45.51 % |
-| Ql1i_0003 | ![Ql1i_0003](images/Ql1i_0003.png) | 4376 | 43.76 % | 42.79–44.73 % | 43.83 % |
-| Ql1i_0004 | ![Ql1i_0004](images/Ql1i_0004.png) | 532 | 5.32 % | 4.90–5.78 % | 5.33 % |
-| Ql1i_0005 | ![Ql1i_0005](images/Ql1i_0005.png) | 266 | 2.66 % | 2.36–2.99 % | 2.66 % |
-| Ql1i_0006 | ![Ql1i_0006](images/Ql1i_0006.png) | 228 | 2.28 % | 2.01–2.59 % | 2.28 % |
-| Ql1i_0001 | ![Ql1i_0001](images/Ql1i_0001.png) | 39 | 0.39 % | 0.29–0.53 % | 0.39 % |
+The stationary series recorded **9,995** settled outcomes. The moving series recorded **9,992** settled outcomes at the virtual exit. Each series contains 10,000 drops.
 
-Ergebnisstatus: settled: 9985, unsettled: 15
+[Study overview](simulations/20261107_10000/README.md) · [Stationary results](simulations/20261107_10000/static/README.md) · [Moving results](simulations/20261107_10000/100mm_s/README.md)
 
-Details und Erkennung: [JSON](poses.json), [YAML](poses.yaml). Quaternionen: xyzw, Bauteil → Rutsche. Symmetrieoperationen werden rechts an die Bauteilrotation multipliziert. Die kontinuierliche Symmetrieachse wird gerichtet verglichen. Orientierungsabstand ≤5°; bei konkurrierenden Treffern innerhalb 1° bleibt die Zuordnung mehrdeutig.
+## Historical pose catalogue
 
-Die Pose-IDs bleiben über Läufe erhalten. Der Registereintrag einer früher beobachteten, aktuell nicht aufgetretenen Pose bleibt zur Wiedererkennung reserviert.
+Group numbers rank the saved pose basins by their combined incidence within each observation phase. The percentages in the table describe each individual pose. Groups below 1% remain visible.
+
+[Group membership CSV](group_memberships.csv) · [Grouping method](../README.md#catalogue-grouping)
+
+### Transport poses
+
+9,985 settled outcomes across 10,000 historical drops on a 500 mm chute. Incidence uses all completed drops as the denominator.
+
+Outcome counts: settled: 9,985, unsettled: 15.
+
+| Pose | Group | Image | Count | Incidence | 95% interval | Share of settled outcomes |
+| --- | --- | --- | ---: | ---: | ---: | ---: |
+| Ql1i_0002 | Group 0 | ![Ql1i_0002](images/Ql1i_0002.png) | 4544 | 45.44 % | 44.47–46.42 % | 45.51 % |
+| Ql1i_0003 | Group 1 | ![Ql1i_0003](images/Ql1i_0003.png) | 4376 | 43.76 % | 42.79–44.73 % | 43.83 % |
+| Ql1i_0004 | Group 2 | ![Ql1i_0004](images/Ql1i_0004.png) | 532 | 5.32 % | 4.90–5.78 % | 5.33 % |
+| Ql1i_0005 | Group 3 | ![Ql1i_0005](images/Ql1i_0005.png) | 266 | 2.66 % | 2.36–2.99 % | 2.66 % |
+| Ql1i_0006 | Group 4 | ![Ql1i_0006](images/Ql1i_0006.png) | 228 | 2.28 % | 2.01–2.59 % | 2.28 % |
+| Ql1i_0001 | Group 5 | ![Ql1i_0001](images/Ql1i_0001.png) | 39 | 0.39 % | 0.29–0.53 % | 0.39 % |
+
+[Pose catalogue JSON](poses.json) · [Pose catalogue YAML](poses.yaml) · [Frequencies](frequencies.csv) · [Trial records](trials.csv)
+
+Pose orientations use `xyzw` quaternions from the workpiece frame to the chute frame. Recognition uses the recorded symmetry, a 5° tolerance, and a 1° ambiguity margin. The pose registry reserves previously observed IDs for later recognition.
+
+### Historical run files
+
+- [Configuration](config.json)
+- [Manifest](manifest.json)
+- [Earlier 1,000-drop comparisons](simulations/README.md)

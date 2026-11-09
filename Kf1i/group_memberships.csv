@@ -1,0 +1,5 @@
+phase,pose_id,group_id,basin_id,pose_count,group_count,completed_trials,group_incidence_percent,meets_one_percent
+post_braking,Kf1i_stop_0001,0,group_000,2925,2925,10000,29.25,True
+post_braking,Kf1i_stop_0004,1,group_003,2694,2694,10000,26.94,True
+post_braking,Kf1i_stop_0002,2,group_001,1920,1920,10000,19.2,True
+post_braking,Kf1i_stop_0003,3,group_002,1906,1906,10000,19.06,True

@@ -1,52 +1,58 @@
 # Kf1i
 
-**Nach Bandstopp: 9445 ruhige Endlagen in [4 bebilderten Pose-Klassen](#ruheposen-nach-bandstopp).**
+[Workpiece index](../README.md#workpieces)
 
-10000 Fallversuche auf 500 mm Strecke; 0 eingependelte Endlagen. Prozentangaben beziehen sich auf alle Fallversuche.
+## 10,000-drop paper study
 
-Dies sind beobachtete Simulationslagen unter den dokumentierten Parametern; Reibung und Unebenheitsmodell sind noch nicht an realen Häufigkeiten kalibriert.
+The stationary series recorded **10,000** settled outcomes. The moving series recorded **9** settled outcomes at the virtual exit. Each series contains 10,000 drops.
 
-| Pose | Bild | Anzahl | Anteil | 95-%-Intervall | Anteil eingependelt |
-| --- | --- | ---: | ---: | ---: | ---: |
+[Study overview](simulations/20261107_10000/README.md) · [Stationary results](simulations/20261107_10000/static/README.md) · [Moving results](simulations/20261107_10000/100mm_s/README.md)
 
-Zusätzliche Ruheprüfung nach Bandstopp: 9445 von 9529 beobachteten Teilen ruhig. Fahrhäufigkeiten oben bleiben davon getrennt. Ruheposen stehen als stop_observation in trials.csv.
+## Historical pose catalogue
 
-Ergebnisstatus: unsettled: 9529, stalled: 456, timeout: 15
+Group numbers rank the saved pose basins by their combined incidence within each observation phase. The percentages in the table describe each individual pose. Groups below 1% remain visible.
 
-Details und Erkennung: [JSON](poses.json), [YAML](poses.yaml). Quaternionen: xyzw, Bauteil → Rutsche. Symmetrieoperationen werden rechts an die Bauteilrotation multipliziert. Die kontinuierliche Symmetrieachse wird gerichtet verglichen. Orientierungsabstand ≤5°; bei konkurrierenden Treffern innerhalb 1° bleibt die Zuordnung mehrdeutig.
+[Group membership CSV](group_memberships.csv) · [Grouping method](../README.md#catalogue-grouping)
 
-Die Pose-IDs bleiben über Läufe erhalten. Der Registereintrag einer früher beobachteten, aktuell nicht aufgetretenen Pose bleibt zur Wiedererkennung reserviert.
+### Transport poses
 
+0 settled outcomes across 10,000 historical drops on a 500 mm chute. Incidence uses all completed drops as the denominator.
 
-## 10.000 Fallversuche mit anschließender Ruheprüfung
+Outcome counts: stalled: 456, timeout: 15, unsettled: 9,529.
 
-Berechnet mit 16 parallelen Prozessen und je einer Rutsche; Simulationscode: [82f8bd4](https://github.com/match-BiBaZu/Dashas_drop_sim/commit/82f8bd43c70a0eb160d27dc0f7232849842efe9c).
+This historical transport run recorded zero settled poses.
 
-Während der Fahrt: 456 stalled, 15 timeout, 9529 unsettled.
+[Pose catalogue JSON](poses.json) · [Pose catalogue YAML](poses.yaml) · [Frequencies](frequencies.csv) · [Trial records](trials.csv)
 
-Nach Bandstopp: **9445 von 9529 beobachteten Teilen ruhig** (99.12 %). Die übrigen Fallversuche ohne Erreichen der virtuellen Messlinie werden in der Fahrstatistik separat gezählt.
+### Post-braking poses
 
-Das Band bremst nach der Fahrmessung in 0,2 s auf null; anschließend folgen 2 s Beobachtung ohne Störimpulse. Die Anfangsanregung ist auf 1 s begrenzt. Fahrhäufigkeiten und Ruheprüfung sind getrennte Ergebnisse.
+9,445 settled outcomes across 10,000 historical drops on a 500 mm chute. Incidence uses all completed drops as the denominator.
 
-- [Zusammenfassung aller Ergebnisse](summary.json)
-- [Einzelergebnisse nach Bandstopp](stop_observations.csv)
-- [Versuche einschließlich Fahr- und Ruhepose](trials.csv)
-- [Vollständige Laufdaten als ZIP](simulation_results.zip) (CSV, JSONL, Impulsprotokolle und Originalkonfiguration)
-- [Ausführungsnachweis](execution.json) und [Datenprüfung](validation.json)
+Outcome counts: not_observed: 471, settled: 9,445, unsettled: 84.
 
-Die 10.000 Versuchsnummern und Seeds wurden geprüft. Die ersten 100 Versuche einschließlich der Ruheprüfung reproduzieren den vorherigen Kontrolllauf exakt.
+The rest check followed the transport outcome and covered 9,529 trials.
 
-## Ruheposen nach Bandstopp
+| Pose | Group | Image | Count | Incidence | 95% interval | Share of settled outcomes |
+| --- | --- | --- | ---: | ---: | ---: | ---: |
+| Kf1i_stop_0001 | Group 0 | ![Kf1i_stop_0001](images/Kf1i_stop_0001.png) | 2925 | 29.25 % | 28.37–30.15 % | 30.97 % |
+| Kf1i_stop_0004 | Group 1 | ![Kf1i_stop_0004](images/Kf1i_stop_0004.png) | 2694 | 26.94 % | 26.08–27.82 % | 28.52 % |
+| Kf1i_stop_0002 | Group 2 | ![Kf1i_stop_0002](images/Kf1i_stop_0002.png) | 1920 | 19.20 % | 18.44–19.98 % | 20.33 % |
+| Kf1i_stop_0003 | Group 3 | ![Kf1i_stop_0003](images/Kf1i_stop_0003.png) | 1906 | 19.06 % | 18.30–19.84 % | 20.18 % |
 
-**9445 ruhige Endlagen, 4 Pose-Klassen.** Diese Bilder zeigen die gemessenen Orientierungen nach der Ruheprüfung.
+[Pose catalogue JSON](poses_after_stop.json) · [Pose catalogue YAML](poses_after_stop.yaml) · [Frequencies](frequencies_after_stop.csv) · [Trial records](trials_after_stop.csv)
 
-Die Hauptanteile beziehen sich auf alle 10000 Abwürfe; die letzte Spalte auf die 9445 ruhigen Endlagen. Drehungen um eine kontinuierliche Bauteilsymmetrieachse gelten als dieselbe Pose. Die Achsenrichtung bleibt berücksichtigt; entgegengesetzte Bauteilseiten werden getrennt.
+Pose orientations use `xyzw` quaternions from the workpiece frame to the chute frame. Recognition uses the recorded symmetry, a 5° tolerance, and a 1° ambiguity margin. The pose registry reserves previously observed IDs for later recognition.
 
-| Ruhepose | Bild | Anzahl | Anteil aller Abwürfe | 95-%-Intervall | Anteil ruhiger Endlagen |
-| --- | --- | ---: | ---: | ---: | ---: |
-| Kf1i_stop_0001 | ![Kf1i_stop_0001](images/Kf1i_stop_0001.png) | 2925 | 29.25 % | 28.37–30.15 % | 30.97 % |
-| Kf1i_stop_0004 | ![Kf1i_stop_0004](images/Kf1i_stop_0004.png) | 2694 | 26.94 % | 26.08–27.82 % | 28.52 % |
-| Kf1i_stop_0002 | ![Kf1i_stop_0002](images/Kf1i_stop_0002.png) | 1920 | 19.20 % | 18.44–19.98 % | 20.33 % |
-| Kf1i_stop_0003 | ![Kf1i_stop_0003](images/Kf1i_stop_0003.png) | 1906 | 19.06 % | 18.30–19.84 % | 20.18 % |
+### Historical run files
 
-Ruheposen und Erkennung: [JSON](poses_after_stop.json), [YAML](poses_after_stop.yaml). Häufigkeiten: [CSV](frequencies_after_stop.csv). Zuordnung aller Versuche: [CSV](trials_after_stop.csv). Fahrmessung und Fahrposen bleiben separat in poses.json und trials.csv.
+- [Configuration](config.json)
+- [Manifest](manifest.json)
+- [Summary](summary.json)
+- [Post-braking observations](stop_observations.csv)
+- [Complete historical run archive](simulation_results.zip)
+- [Execution record](execution.json)
+- [Data validation](validation.json)
+- [Earlier 1,000-drop comparisons](simulations/README.md)
+
+The historical run used 16 worker processes.
+[Historical simulator revision](https://github.com/match-BiBaZu/BiBaZu_PoseFindingDropSim/commit/82f8bd43c70a0eb160d27dc0f7232849842efe9c). The first 100 trials, including the post-braking observation, matched the earlier control run.

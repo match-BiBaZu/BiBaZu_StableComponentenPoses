@@ -1,0 +1,13 @@
+phase,pose_id,group_id,basin_id,pose_count,group_count,completed_trials,group_incidence_percent,meets_one_percent
+transport,Rk2i_0009,0,group_008,1342,1342,10000,13.42,True
+transport,Rk2i_0010,1,group_009,1298,1298,10000,12.98,True
+transport,Rk2i_0003,2,group_002,1297,1297,10000,12.97,True
+transport,Rk2i_0006,3,group_005,1255,1255,10000,12.55,True
+transport,Rk2i_0002,4,group_001,818,818,10000,8.18,True
+transport,Rk2i_0008,5,group_007,751,751,10000,7.51,True
+transport,Rk2i_0005,6,group_004,708,708,10000,7.08,True
+transport,Rk2i_0007,7,group_006,707,707,10000,7.07,True
+transport,Rk2i_0001,8,group_000,474,474,10000,4.74,True
+transport,Rk2i_0012,9,group_011,472,472,10000,4.72,True
+transport,Rk2i_0004,10,group_003,452,452,10000,4.52,True
+transport,Rk2i_0011,11,group_010,425,425,10000,4.25,True

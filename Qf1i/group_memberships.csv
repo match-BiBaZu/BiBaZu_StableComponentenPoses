@@ -1,0 +1,14 @@
+phase,pose_id,group_id,basin_id,pose_count,group_count,completed_trials,group_incidence_percent,meets_one_percent
+transport,Qf1i_0005,0,group_003,2546,2552,10000,25.52,True
+transport,Qf1i_0012,0,group_003,6,2552,10000,25.52,True
+transport,Qf1i_0002,1,group_001,2524,2524,10000,25.24,True
+transport,Qf1i_0006,2,group_004,2410,2410,10000,24.1,True
+transport,Qf1i_0001,3,group_000,2311,2314,10000,23.14,True
+transport,Qf1i_0008,3,group_000,3,2314,10000,23.14,True
+transport,Qf1i_0003,4,group_002,11,42,10000,0.42,False
+transport,Qf1i_0009,4,group_002,19,42,10000,0.42,False
+transport,Qf1i_0010,4,group_002,9,42,10000,0.42,False
+transport,Qf1i_0011,4,group_002,3,42,10000,0.42,False
+transport,Qf1i_0013,5,group_005,18,28,10000,0.28,False
+transport,Qf1i_0014,5,group_005,7,28,10000,0.28,False
+transport,Qf1i_0015,5,group_005,3,28,10000,0.28,False
