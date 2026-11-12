@@ -1,12 +1,14 @@
 # BiBaZu Stable Component Poses
 
-The paper dataset contains **240,000 simulated drops**. Each of 12 workpieces has **10,000 trials with the belt stationary from release** and **10,000 trials on the moving belt**. The linked runs contain the saved orientations, trial outcomes, configuration, and validation records. The workpiece pages also present earlier pose catalogues for all 39 components.
+The completed ungrouped 10,000-drop dataset contains **780,000 simulated drops across all 39 workpieces**. Each workpiece has **10,000 trials with the belt stationary from release** and **10,000 trials on the moving belt**. The original twelve-workpiece paper study contributes 240,000 drops; the same-settings extension adds 540,000 drops for the remaining 27 workpieces. All 78 runs are complete and validated.
+
+The linked runs preserve individual orientations, trial outcomes, configurations, execution timings, and validation records. Earlier pose catalogues and 1,000-drop comparisons remain separate historical datasets.
 
 The moving series records the outcome at the virtual exit while the belt runs. The post-exit braking and rest check produces a separate result. The reported moving incidence uses the exit outcomes, and moving-series wall times include the follow-up observation.
 
 ## Simulator settings
 
-| Parameter | Recorded paper benchmark setting |
+| Parameter | Shared 10,000-drop benchmark setting |
 | --- | --- |
 | Trials per workpiece and condition | 10,000 |
 | Random seed | 42 |
@@ -31,98 +33,92 @@ The moving series records the outcome at the virtual exit while the belt runs. T
 | Surface excitation | `weight_impulse` for the first 1 s |
 | Impulse magnitude | 49.05 mm/s equivalent free-body velocity change |
 | Mean impulse interval | 0.2 s |
-| Trial grouping and additional stability tests | Disabled in the saved benchmark runs |
+| Trial grouping and additional stability tests | Disabled in all 78 saved benchmark runs |
 
-The belt and wall coefficients describe effective contact in the simulation. The PE/plastic example in the Habasit guide supports 0.10 as a nominal starting value for the belt. The archived configurations identify the geometry and full parameter set for each run. [Habasit engineering guide, p. 94](https://rodavigo.net/catalogos/HABASIT/Bandas%20modulares%20HABASITLINK/HABASIT%2004%20Gu%C3%ADa%20Ingenier%C3%ADa%20HabasitLINK.pdf#page=94) · [Archived run plan](timing/20261107_10000/run_plan.json)
+The belt and wall coefficients describe effective contact in the simulation. The PE/plastic example in the Habasit guide supports 0.10 as a nominal starting value for the belt. The archived configurations identify the geometry and full parameter set for each run. [Habasit engineering guide, p. 94](https://rodavigo.net/catalogos/HABASIT/Bandas%20modulares%20HABASITLINK/HABASIT%2004%20Gu%C3%ADa%20Ingenier%C3%ADa%20HabasitLINK.pdf#page=94) · [Original run plan](timing/20261107_10000/run_plan.json) · [Extension run plan](timing/20261110_10000/run_plan.json)
 
-The runs used a Beckhoff C6043 with an Intel Core i9-13900E, 32 GB RAM, and Windows 11 IoT Enterprise LTSC 24H2. The timing log records 24 logical CPUs, Python 3.12.13, MuJoCo 3.14.0, CoACD 1.0.14, NumPy 2.5.3, SciPy 1.18.1, trimesh 5.1.0, and `bibazu-chute-pose` 0.1.0. [Simulator repository](https://github.com/match-BiBaZu/BiBaZu_PoseFindingDropSim) · [Simulator revision](https://github.com/match-BiBaZu/BiBaZu_PoseFindingDropSim/commit/72b1ba08aa9b317804cd60e1e2ae6e636910f3fd)
+The original benchmark used a Beckhoff C6043 with an Intel Core i9-13900E, 32 GB RAM, and Windows 11 IoT Enterprise LTSC 24H2. The timing log records 24 logical CPUs, Python 3.12.13, MuJoCo 3.14.0, CoACD 1.0.14, NumPy 2.5.3, SciPy 1.18.1, trimesh 5.1.0, and `bibazu-chute-pose` 0.1.0. [Simulator repository](https://github.com/match-BiBaZu/BiBaZu_PoseFindingDropSim) · [Simulator revision](https://github.com/match-BiBaZu/BiBaZu_PoseFindingDropSim/commit/72b1ba08aa9b317804cd60e1e2ae6e636910f3fd)
 
-The 24 simulation calls took **12 h 46 min 42 s** in total. They include geometry and symmetry preparation, worker startup, physics, and raw result writing. The full workflow took **20 h 23 min 32 s**, including validation, compression, publishing, and interruption and recovery. [Timing records](timing/20261107_10000/run_timings.md) · [Batch validation](timing/20261107_10000/batch_validation.json)
+## Completed batches and timings
+
+Both batches used the same archived simulator settings, revision, and dependency fingerprint. Times below are the sums of the measured simulation-call wall times, rounded to the nearest second. They include geometry and symmetry preparation, worker startup, physics, and raw result writing; validation, compression, and publishing are excluded.
+
+| Batch | Workpieces | Runs | Drops | Simulation wall time | Records |
+| --- | ---: | ---: | ---: | --- | --- |
+| Original paper study (`20261107_10000`) | 12 | 24 | 240,000 | 12 h 46 min 42 s | [Plan](timing/20261107_10000/run_plan.json) · [Timings](timing/20261107_10000/run_timings.md) · [Validation](timing/20261107_10000/batch_validation.json) |
+| Remaining-workpiece extension (`20261110_10000`) | 27 | 54 | 540,000 | 42 h 30 min 01 s | [Plan](timing/20261110_10000/run_plan.json) · [Timings](timing/20261110_10000/status.json) · [Validation](timing/20261110_10000/batch_validation.json) |
+| **Total** | **39** | **78** | **780,000** | **55 h 16 min 43 s** | Both batches |
 
 ## Workpieces
 
-The paper columns report settled outcomes out of 10,000 trials per condition. A dash indicates a workpiece outside the paper series.
+Each count below is the number of settled outcomes out of **10,000 trials** in that condition. Moving counts use the virtual-exit outcome, separately from the post-braking observation. Catalogue pages describe the earlier saved pose catalogues; run links open the completed ungrouped 10,000-drop datasets.
 
-| Workpiece catalogue | Stationary settled | Moving settled | Paper run records |
-| --- | --- | --- | --- |
+| Workpiece catalogue | Stationary settled / 10,000 | Moving settled / 10,000 | Run records |
+| --- | ---: | ---: | --- |
 | [Df1a](Df1a/README.md) | 9,975 | 9,999 | [Moving and stationary runs](Df1a/simulations/20261107_10000/README.md) |
-| [Df2i](Df2i/README.md) | — | — | — |
-| [Df4a](Df4a/README.md) | — | — | — |
+| [Df2i](Df2i/README.md) | 9,998 | 9,999 | [Moving and stationary runs](Df2i/simulations/20261110_10000/README.md) |
+| [Df4a](Df4a/README.md) | 9,998 | 10,000 | [Moving and stationary runs](Df4a/simulations/20261110_10000/README.md) |
 | [Dk1i](Dk1i/README.md) | 10,000 | 9,950 | [Moving and stationary runs](Dk1i/simulations/20261107_10000/README.md) |
-| [Dk2a](Dk2a/README.md) | — | — | — |
-| [Dk4i](Dk4i/README.md) | — | — | — |
+| [Dk2a](Dk2a/README.md) | 9,962 | 9,998 | [Moving and stationary runs](Dk2a/simulations/20261110_10000/README.md) |
+| [Dk4i](Dk4i/README.md) | 9,995 | 9,906 | [Moving and stationary runs](Dk4i/simulations/20261110_10000/README.md) |
 | [Dl1a](Dl1a/README.md) | 9,992 | 10,000 | [Moving and stationary runs](Dl1a/simulations/20261107_10000/README.md) |
-| [Dl2i](Dl2i/README.md) | — | — | — |
-| [Dl4a](Dl4a/README.md) | — | — | — |
+| [Dl2i](Dl2i/README.md) | 10,000 | 9,999 | [Moving and stationary runs](Dl2i/simulations/20261110_10000/README.md) |
+| [Dl4a](Dl4a/README.md) | 9,999 | 9,999 | [Moving and stationary runs](Dl4a/simulations/20261110_10000/README.md) |
 | [Kf1i](Kf1i/README.md) | 10,000 | 9 | [Moving and stationary runs](Kf1i/simulations/20261107_10000/README.md) |
-| [Kf2a](Kf2a/README.md) | — | — | — |
-| [Kf4i](Kf4i/README.md) | — | — | — |
+| [Kf2a](Kf2a/README.md) | 9,936 | 8,763 | [Moving and stationary runs](Kf2a/simulations/20261110_10000/README.md) |
+| [Kf4i](Kf4i/README.md) | 8,982 | 8,997 | [Moving and stationary runs](Kf4i/simulations/20261110_10000/README.md) |
 | [Kk1a](Kk1a/README.md) | 9,676 | 8,201 | [Moving and stationary runs](Kk1a/simulations/20261107_10000/README.md) |
-| [Kk2i](Kk2i/README.md) | — | — | — |
-| [Kk4a](Kk4a/README.md) | — | — | — |
+| [Kk2i](Kk2i/README.md) | 9,978 | 9,385 | [Moving and stationary runs](Kk2i/simulations/20261110_10000/README.md) |
+| [Kk4a](Kk4a/README.md) | 9,995 | 9,988 | [Moving and stationary runs](Kk4a/simulations/20261110_10000/README.md) |
 | [Kl1i](Kl1i/README.md) | 9,997 | 9,999 | [Moving and stationary runs](Kl1i/simulations/20261107_10000/README.md) |
-| [Kl2a](Kl2a/README.md) | — | — | — |
-| [Kl4i](Kl4i/README.md) | — | — | — |
+| [Kl2a](Kl2a/README.md) | 9,989 | 9,994 | [Moving and stationary runs](Kl2a/simulations/20261110_10000/README.md) |
+| [Kl4i](Kl4i/README.md) | 9,995 | 9,939 | [Moving and stationary runs](Kl4i/simulations/20261110_10000/README.md) |
 | [Qf1i](Qf1i/README.md) | 9,943 | 9,991 | [Moving and stationary runs](Qf1i/simulations/20261107_10000/README.md) |
-| [Qf2a](Qf2a/README.md) | — | — | — |
-| [Qf4i](Qf4i/README.md) | — | — | — |
+| [Qf2a](Qf2a/README.md) | 9,971 | 9,997 | [Moving and stationary runs](Qf2a/simulations/20261110_10000/README.md) |
+| [Qf4i](Qf4i/README.md) | 9,994 | 9,997 | [Moving and stationary runs](Qf4i/simulations/20261110_10000/README.md) |
 | [Qk1a](Qk1a/README.md) | 9,899 | 9,953 | [Moving and stationary runs](Qk1a/simulations/20261107_10000/README.md) |
-| [Qk2i](Qk2i/README.md) | — | — | — |
-| [Qk4a](Qk4a/README.md) | — | — | — |
+| [Qk2i](Qk2i/README.md) | 9,977 | 9,998 | [Moving and stationary runs](Qk2i/simulations/20261110_10000/README.md) |
+| [Qk4a](Qk4a/README.md) | 9,984 | 9,993 | [Moving and stationary runs](Qk4a/simulations/20261110_10000/README.md) |
 | [Ql1i](Ql1i/README.md) | 9,995 | 9,992 | [Moving and stationary runs](Ql1i/simulations/20261107_10000/README.md) |
-| [Ql2a](Ql2a/README.md) | — | — | — |
-| [Ql4i](Ql4i/README.md) | — | — | — |
+| [Ql2a](Ql2a/README.md) | 9,997 | 9,997 | [Moving and stationary runs](Ql2a/simulations/20261110_10000/README.md) |
+| [Ql4i](Ql4i/README.md) | 9,997 | 10,000 | [Moving and stationary runs](Ql4i/simulations/20261110_10000/README.md) |
 | [Rf1a](Rf1a/README.md) | 9,988 | 10,000 | [Moving and stationary runs](Rf1a/simulations/20261107_10000/README.md) |
-| [Rf2i](Rf2i/README.md) | — | — | — |
-| [Rf3a](Rf3a/README.md) | — | — | — |
-| [Rf4i](Rf4i/README.md) | — | — | — |
+| [Rf2i](Rf2i/README.md) | 9,989 | 9,999 | [Moving and stationary runs](Rf2i/simulations/20261110_10000/README.md) |
+| [Rf3a](Rf3a/README.md) | 9,993 | 10,000 | [Moving and stationary runs](Rf3a/simulations/20261110_10000/README.md) |
+| [Rf4i](Rf4i/README.md) | 9,995 | 10,000 | [Moving and stationary runs](Rf4i/simulations/20261110_10000/README.md) |
 | [Rk1a](Rk1a/README.md) | 9,970 | 9,998 | [Moving and stationary runs](Rk1a/simulations/20261107_10000/README.md) |
-| [Rk2i](Rk2i/README.md) | — | — | — |
-| [Rk3a](Rk3a/README.md) | — | — | — |
-| [Rk4i](Rk4i/README.md) | — | — | — |
+| [Rk2i](Rk2i/README.md) | 9,985 | 9,997 | [Moving and stationary runs](Rk2i/simulations/20261110_10000/README.md) |
+| [Rk3a](Rk3a/README.md) | 9,975 | 9,995 | [Moving and stationary runs](Rk3a/simulations/20261110_10000/README.md) |
+| [Rk4i](Rk4i/README.md) | 9,965 | 9,996 | [Moving and stationary runs](Rk4i/simulations/20261110_10000/README.md) |
 | [Rl1a](Rl1a/README.md) | 9,994 | 9,996 | [Moving and stationary runs](Rl1a/simulations/20261107_10000/README.md) |
-| [Rl2i](Rl2i/README.md) | — | — | — |
-| [Rl3a](Rl3a/README.md) | — | — | — |
-| [Rl4i](Rl4i/README.md) | — | — | — |
+| [Rl2i](Rl2i/README.md) | 9,995 | 9,985 | [Moving and stationary runs](Rl2i/simulations/20261110_10000/README.md) |
+| [Rl3a](Rl3a/README.md) | 9,997 | 10,000 | [Moving and stationary runs](Rl3a/simulations/20261110_10000/README.md) |
+| [Rl4i](Rl4i/README.md) | 9,999 | 10,000 | [Moving and stationary runs](Rl4i/simulations/20261110_10000/README.md) |
+
+## Run files
+
+Each condition folder contains a lossless `simulation_results.tar.xz` archive and the following records:
+
+| File | Contents |
+| --- | --- |
+| `summary.json` | Compact outcome counts; the full per-trial frequency summary is inside the archive. |
+| `config.json` | Run settings with a relative path to the workpiece STL. |
+| `manifest.json` | Simulator revision, dependency versions, geometry hashes, and model details. |
+| `execution.json` | Original configuration, settings signature, simulation wall time, and reference comparison. |
+| `validation.json` | Checks of trial counts and IDs, deterministic seeds, outcomes, and finite normalized orientations. |
+| `archive_contents.sha256.json` | SHA-256 checksums of every original file inside the archive. |
+| `files.sha256.json` | SHA-256 checksums of the published files, including the archive and README. |
+
+The archive preserves the CSV/JSONL trial records, individual settled orientations, roughness events, original configuration, full summary, and post-braking observations where recorded. With grouping disabled, each settled trial keeps its own orientation and trial ID; frequency rows represent individual trials rather than grouped pose classes. Incidence uses all completed trials as the denominator, including unsettled outcomes.
+
+Extract an archive with:
+
+```powershell
+python -m tarfile -e simulation_results.tar.xz extracted
+```
 
 ## Catalogue grouping
 
 Each historical catalogue displays its saved individual poses and the basin assigned by the local plotter’s simulator grouping method. The algorithm uses the recorded orientations, workpiece symmetry, and chute angles. It applies directed absorption with a 0.5 mm equivalent lift barrier, a 60° whole-group diameter limit, and 0.1° angular path sampling. Group 0 has the highest combined incidence in its catalogue. Ties follow the sorted member pose IDs, and groups below 1% stay visible.
 
-Transport and post-braking catalogues have separate group and pose numbering. Pose 0 is the most frequent individual pose in its catalogue. Ties follow the saved pose IDs. The membership CSV links each displayed pose number and group to the original pose ID, basin ID, and counts. The table grouping was computed from saved catalogue poses. The paper archives retain their original ungrouped trial records. [Grouping engine](https://github.com/match-BiBaZu/BiBaZu_PoseFindingDropSim/blob/b872011538ae74d2c2a4570a32457cb79054a598/src/dashas_drop_sim/grouping.py) · [Historical grouped snapshot](https://github.com/match-BiBaZu/BiBaZu_Stable_ComponentPoses/tree/632b830bd890498e1b07b14d44d97b25f5bba7bb)
-
-<!-- remaining-workpieces-20261110_10000:start -->
-## Remaining-workpiece 10,000-drop study
-
-27 additional workpieces, each with 10,000 stationary and 10,000 moving-belt drops. The configuration and simulator revision match the earlier twelve-workpiece study. Grouping is disabled.
-
-| Workpiece | Stationary settled / 10000 | Moving settled / 10000 | Results |
-| --- | ---: | ---: | --- |
-| Df2i | 9998 | 9999 | [Runs](Df2i/simulations/20261110_10000/README.md) |
-| Df4a | 9998 | 10000 | [Runs](Df4a/simulations/20261110_10000/README.md) |
-| Dk2a | 9962 | 9998 | [Runs](Dk2a/simulations/20261110_10000/README.md) |
-| Dk4i | 9995 | 9906 | [Runs](Dk4i/simulations/20261110_10000/README.md) |
-| Dl2i | 10000 | 9999 | [Runs](Dl2i/simulations/20261110_10000/README.md) |
-| Dl4a | 9999 | 9999 | [Runs](Dl4a/simulations/20261110_10000/README.md) |
-| Kf2a | 9936 | 8763 | [Runs](Kf2a/simulations/20261110_10000/README.md) |
-| Kf4i | 8982 | 8997 | [Runs](Kf4i/simulations/20261110_10000/README.md) |
-| Kk2i | 9978 | 9385 | [Runs](Kk2i/simulations/20261110_10000/README.md) |
-| Kk4a | 9995 | 9988 | [Runs](Kk4a/simulations/20261110_10000/README.md) |
-| Kl2a | 9989 | 9994 | [Runs](Kl2a/simulations/20261110_10000/README.md) |
-| Kl4i | 9995 | 9939 | [Runs](Kl4i/simulations/20261110_10000/README.md) |
-| Qf2a | 9971 | 9997 | [Runs](Qf2a/simulations/20261110_10000/README.md) |
-| Qf4i | 9994 | 9997 | [Runs](Qf4i/simulations/20261110_10000/README.md) |
-| Qk2i | 9977 | 9998 | [Runs](Qk2i/simulations/20261110_10000/README.md) |
-| Qk4a | 9984 | 9993 | [Runs](Qk4a/simulations/20261110_10000/README.md) |
-| Ql2a | 9997 | 9997 | [Runs](Ql2a/simulations/20261110_10000/README.md) |
-| Ql4i | 9997 | 10000 | [Runs](Ql4i/simulations/20261110_10000/README.md) |
-| Rf2i | 9989 | 9999 | [Runs](Rf2i/simulations/20261110_10000/README.md) |
-| Rf3a | 9993 | 10000 | [Runs](Rf3a/simulations/20261110_10000/README.md) |
-| Rf4i | 9995 | 10000 | [Runs](Rf4i/simulations/20261110_10000/README.md) |
-| Rk2i | 9985 | 9997 | [Runs](Rk2i/simulations/20261110_10000/README.md) |
-| Rk3a | 9975 | 9995 | [Runs](Rk3a/simulations/20261110_10000/README.md) |
-| Rk4i | 9965 | 9996 | [Runs](Rk4i/simulations/20261110_10000/README.md) |
-| Rl2i | 9995 | 9985 | [Runs](Rl2i/simulations/20261110_10000/README.md) |
-| Rl3a | 9997 | 10000 | [Runs](Rl3a/simulations/20261110_10000/README.md) |
-| Rl4i | 9999 | 10000 | [Runs](Rl4i/simulations/20261110_10000/README.md) |
-<!-- remaining-workpieces-20261110_10000:end -->
+Transport and post-braking catalogues have separate group and pose numbering. Pose 0 is the most frequent individual pose in its catalogue. Ties follow the saved pose IDs. The membership CSV links each displayed pose number and group to the original pose ID, basin ID, and counts. The table grouping was computed from saved catalogue poses. All 10,000-drop archives retain their original ungrouped trial records; the historical catalogue grouping does not change those results. [Grouping engine](https://github.com/match-BiBaZu/BiBaZu_PoseFindingDropSim/blob/b872011538ae74d2c2a4570a32457cb79054a598/src/dashas_drop_sim/grouping.py) · [Historical grouped snapshot](https://github.com/match-BiBaZu/BiBaZu_Stable_ComponentPoses/tree/632b830bd890498e1b07b14d44d97b25f5bba7bb)
