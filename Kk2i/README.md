@@ -56,3 +56,11 @@ Pose orientations use `xyzw` quaternions from the workpiece frame to the chute f
 
 - [Configuration](config.json)
 - [Manifest](manifest.json)
+
+<!-- remaining-workpieces-20261110_10000:start -->
+## Additional 10,000-drop runs
+
+10,000 stationary and 10,000 moving-belt drops with the archived reference settings.
+
+[Results and validation](simulations/20261110_10000/README.md).
+<!-- remaining-workpieces-20261110_10000:end -->

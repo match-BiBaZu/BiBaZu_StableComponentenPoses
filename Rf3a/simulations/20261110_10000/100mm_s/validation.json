@@ -1,0 +1,22 @@
+{
+  "checks": [
+    "CSV/JSONL trial counts and IDs",
+    "unique deterministic seeds",
+    "configuration and simulator commit",
+    "mesh SHA-256",
+    "status totals",
+    "finite normalized orientations",
+    "one pose entry per settled trial",
+    "belt mode and speed"
+  ],
+  "group_poses": false,
+  "individual_settled_orientations": 10000,
+  "passed": true,
+  "status_counts": {
+    "settled": 10000
+  },
+  "stop_observations": 10000,
+  "trials": 10000,
+  "unique_trial_seeds": 10000,
+  "validated_utc": "2026-11-11T18:42:38.877730+00:00"
+}

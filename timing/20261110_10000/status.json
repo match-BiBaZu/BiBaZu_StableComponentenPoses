@@ -1,0 +1,509 @@
+{
+  "completed_in_case": 10000,
+  "completed_trials": 540000,
+  "completed_utc": "2026-11-12T02:28:50.778754+00:00",
+  "current_case": "100mm_s",
+  "current_part": "Rl4i",
+  "current_run_dir": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\.task_artifacts\\ungrouped_remaining_parts_20261110_10000\\scratch\\run_20261112T014735_096885Z_42",
+  "elapsed_in_case_s": 1963.5,
+  "engine_fingerprint": "96102de9bd969ac553f1e0c8e2939d3c222173a0efc9496ff7cefa0e3cf1b891",
+  "error": null,
+  "finished_cases": 54,
+  "finished_parts": 27,
+  "parts": {
+    "Df2i": {
+      "cases": {
+        "100mm_s": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Df2i\\simulations\\20261110_10000\\100mm_s",
+          "settled": 9999,
+          "signature": "2d04d6d148ae0c4d28c162ed6416b7ab21b3ccd2ab9610bd69bd07d79981f219",
+          "status": "complete",
+          "wall_time_s": 1702.632
+        },
+        "static": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Df2i\\simulations\\20261110_10000\\static",
+          "settled": 9998,
+          "signature": "057522936ed830b682bd512817a19b99b0c0ca42476a1f54b7d7ee85fb3807e0",
+          "status": "complete",
+          "wall_time_s": 2209.89
+        }
+      }
+    },
+    "Df4a": {
+      "cases": {
+        "100mm_s": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Df4a\\simulations\\20261110_10000\\100mm_s",
+          "settled": 10000,
+          "signature": "2acba897df6e213d6cd2ab93e973767a523a9b0324bec51d98c7baa17c850bf7",
+          "status": "complete",
+          "wall_time_s": 1186.951
+        },
+        "static": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Df4a\\simulations\\20261110_10000\\static",
+          "settled": 9998,
+          "signature": "f5d4d8428b5c0a50a2f12392e60ed4c9aa84e4f831c819042b774d1afc9079b0",
+          "status": "complete",
+          "wall_time_s": 1571.196
+        }
+      }
+    },
+    "Dk2a": {
+      "cases": {
+        "100mm_s": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Dk2a\\simulations\\20261110_10000\\100mm_s",
+          "settled": 9998,
+          "signature": "93aaa822fe4c0dbde78edf8c69945da208956b6b02fb32d45aec254fec264920",
+          "status": "complete",
+          "wall_time_s": 1200.495
+        },
+        "static": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Dk2a\\simulations\\20261110_10000\\static",
+          "settled": 9962,
+          "signature": "b410cbe7f05444ba5c9140cff44a868b864c87cd8be9279ad697d405134d0233",
+          "status": "complete",
+          "wall_time_s": 1504.835
+        }
+      }
+    },
+    "Dk4i": {
+      "cases": {
+        "100mm_s": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Dk4i\\simulations\\20261110_10000\\100mm_s",
+          "settled": 9906,
+          "signature": "2b7e36af6d4ae686e8176a6dbd0e735b0890997546d08c4046c53351bb67a513",
+          "status": "complete",
+          "wall_time_s": 1714.594
+        },
+        "static": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Dk4i\\simulations\\20261110_10000\\static",
+          "settled": 9995,
+          "signature": "fd32af5a8e6abb2d6200a843ebeae4ff180229cd38b0ce90ffc78e00066603ab",
+          "status": "complete",
+          "wall_time_s": 3441.236
+        }
+      }
+    },
+    "Dl2i": {
+      "cases": {
+        "100mm_s": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Dl2i\\simulations\\20261110_10000\\100mm_s",
+          "settled": 9999,
+          "signature": "0ec0239af09edcc04e12a868a6c617c2453bad32838fc6a726e2b4274136bfd4",
+          "status": "complete",
+          "wall_time_s": 1124.862
+        },
+        "static": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Dl2i\\simulations\\20261110_10000\\static",
+          "settled": 10000,
+          "signature": "39a6f67eb43f78904cf1f73c40436c572a43787d0ef6c326e914b0f4c98c1915",
+          "status": "complete",
+          "wall_time_s": 1459.114
+        }
+      }
+    },
+    "Dl4a": {
+      "cases": {
+        "100mm_s": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Dl4a\\simulations\\20261110_10000\\100mm_s",
+          "settled": 9999,
+          "signature": "8118917c1891c3e1131c20571e51990ecb7e63436110e0d0f0f3707bcdd04bc9",
+          "status": "complete",
+          "wall_time_s": 1180.818
+        },
+        "static": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Dl4a\\simulations\\20261110_10000\\static",
+          "settled": 9999,
+          "signature": "d802044c6bc179d244ec121054aa624a9a7822a9e732432caf3d49a668d68a27",
+          "status": "complete",
+          "wall_time_s": 1477.414
+        }
+      }
+    },
+    "Kf2a": {
+      "cases": {
+        "100mm_s": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Kf2a\\simulations\\20261110_10000\\100mm_s",
+          "settled": 8763,
+          "signature": "def1822bf1921b83dd27e9a7871abd71b83fab5d121dc21be8eff11b9ca6380e",
+          "status": "complete",
+          "wall_time_s": 3212.465
+        },
+        "static": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Kf2a\\simulations\\20261110_10000\\static",
+          "settled": 9936,
+          "signature": "33d7b7566f3dbbf5436706912389257392cf42c7ee1e587b29ab05a1a51b41a0",
+          "status": "complete",
+          "wall_time_s": 6784.285
+        }
+      }
+    },
+    "Kf4i": {
+      "cases": {
+        "100mm_s": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Kf4i\\simulations\\20261110_10000\\100mm_s",
+          "settled": 8997,
+          "signature": "a36b698e39eb3463836842d654f79c44aa1bbffe4aa499745969e3de39743868",
+          "status": "complete",
+          "wall_time_s": 5088.068
+        },
+        "static": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Kf4i\\simulations\\20261110_10000\\static",
+          "settled": 8982,
+          "signature": "cf37d6525316f3e273ac564be361474a9989c8c4545570e89e6cab866f64d8cd",
+          "status": "complete",
+          "wall_time_s": 4434.891
+        }
+      }
+    },
+    "Kk2i": {
+      "cases": {
+        "100mm_s": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Kk2i\\simulations\\20261110_10000\\100mm_s",
+          "settled": 9385,
+          "signature": "bfe1e1b3b0738e036f265992abb2cfbab538a55f3a790b3b0e99d483de2d892f",
+          "status": "complete",
+          "wall_time_s": 10062.813
+        },
+        "static": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Kk2i\\simulations\\20261110_10000\\static",
+          "settled": 9978,
+          "signature": "d73b559f23ee19a8b2b9f2bc57063e39c66ca8016afbb60a4dfd9c69d85f64c8",
+          "status": "complete",
+          "wall_time_s": 13175.415
+        }
+      }
+    },
+    "Kk4a": {
+      "cases": {
+        "100mm_s": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Kk4a\\simulations\\20261110_10000\\100mm_s",
+          "settled": 9988,
+          "signature": "10719b26df41958e09f3d27682bb8743ac016b1738f06539c051d9dd436a27b6",
+          "status": "complete",
+          "wall_time_s": 9177.704
+        },
+        "static": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Kk4a\\simulations\\20261110_10000\\static",
+          "settled": 9995,
+          "signature": "99b9e2af1af56686e71ef9ce46e34eb4de839b30e03863c87db7c8b04fa9ce3f",
+          "status": "complete",
+          "wall_time_s": 10553.662
+        }
+      }
+    },
+    "Kl2a": {
+      "cases": {
+        "100mm_s": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Kl2a\\simulations\\20261110_10000\\100mm_s",
+          "settled": 9994,
+          "signature": "e16586de4963efdf016093dc6edfdb163f0e73f4097dd85759c8ff39520551ce",
+          "status": "complete",
+          "wall_time_s": 1161.922
+        },
+        "static": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Kl2a\\simulations\\20261110_10000\\static",
+          "settled": 9989,
+          "signature": "3b1c33d828af013f44efe33763920f04cfe19f548a0e5ee8dc23b646aad2a9a5",
+          "status": "complete",
+          "wall_time_s": 3320.747
+        }
+      }
+    },
+    "Kl4i": {
+      "cases": {
+        "100mm_s": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Kl4i\\simulations\\20261110_10000\\100mm_s",
+          "settled": 9939,
+          "signature": "f4fb12fcf8c39353354f94e63f06f61c3e3c3c8db05ab28d7905c1554844f3b2",
+          "status": "complete",
+          "wall_time_s": 1175.06
+        },
+        "static": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Kl4i\\simulations\\20261110_10000\\static",
+          "settled": 9995,
+          "signature": "d7d282400a518ec17131f7a6bf46691c610207214e7a90c5dc993cdd128d164e",
+          "status": "complete",
+          "wall_time_s": 1594.181
+        }
+      }
+    },
+    "Qf2a": {
+      "cases": {
+        "100mm_s": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Qf2a\\simulations\\20261110_10000\\100mm_s",
+          "settled": 9997,
+          "signature": "4b004bd182c5dae78a99f15d9a7da949ee24677487fdce96c5afd12e4d67993e",
+          "status": "complete",
+          "wall_time_s": 1315.761
+        },
+        "static": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Qf2a\\simulations\\20261110_10000\\static",
+          "settled": 9971,
+          "signature": "203a796d930868cbb2332c3b1bd524df061d7842f844579f2a3d0d8a4d2db1d4",
+          "status": "complete",
+          "wall_time_s": 1834.633
+        }
+      }
+    },
+    "Qf4i": {
+      "cases": {
+        "100mm_s": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Qf4i\\simulations\\20261110_10000\\100mm_s",
+          "settled": 9997,
+          "signature": "c5a8b6a9fad1853598f07597699e06d461de44d29d76acb44c9b65f314ad95ac",
+          "status": "complete",
+          "wall_time_s": 4416.466
+        },
+        "static": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Qf4i\\simulations\\20261110_10000\\static",
+          "settled": 9994,
+          "signature": "4265ff14ecc738076abe76214fd80b07d3b039b8a600756649df0bdaa7da9210",
+          "status": "complete",
+          "wall_time_s": 7771.857
+        }
+      }
+    },
+    "Qk2i": {
+      "cases": {
+        "100mm_s": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Qk2i\\simulations\\20261110_10000\\100mm_s",
+          "settled": 9998,
+          "signature": "526bfd0f69c8ecd5ef011da88f170eece36fde1bc14c0b06cffc8275aa270129",
+          "status": "complete",
+          "wall_time_s": 1294.456
+        },
+        "static": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Qk2i\\simulations\\20261110_10000\\static",
+          "settled": 9977,
+          "signature": "b4baf47a211bf296136e8a2d49b5ddc35151e7bca7eaeea1722ca0aa232e76b2",
+          "status": "complete",
+          "wall_time_s": 2159.922
+        }
+      }
+    },
+    "Qk4a": {
+      "cases": {
+        "100mm_s": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Qk4a\\simulations\\20261110_10000\\100mm_s",
+          "settled": 9993,
+          "signature": "37678027c643942f4dba111f451dce8678b7110ce5219efc9c1277fd8fface93",
+          "status": "complete",
+          "wall_time_s": 2552.064
+        },
+        "static": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Qk4a\\simulations\\20261110_10000\\static",
+          "settled": 9984,
+          "signature": "6f37c17ba99684711872f7a5660ad27fae8cb24cb7863fd51bdbf3e6c63020c7",
+          "status": "complete",
+          "wall_time_s": 1752.956
+        }
+      }
+    },
+    "Ql2a": {
+      "cases": {
+        "100mm_s": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Ql2a\\simulations\\20261110_10000\\100mm_s",
+          "settled": 9997,
+          "signature": "b1a9b7034a077fdc41d2730ca3eff39eb93684d60d3db73a27b3215557875f95",
+          "status": "complete",
+          "wall_time_s": 1598.729
+        },
+        "static": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Ql2a\\simulations\\20261110_10000\\static",
+          "settled": 9997,
+          "signature": "7f59e8b3ca29f1803ed7e9f8111bd70179ba948c2d7a1d9bb964851fdd352c9a",
+          "status": "complete",
+          "wall_time_s": 2358.692
+        }
+      }
+    },
+    "Ql4i": {
+      "cases": {
+        "100mm_s": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Ql4i\\simulations\\20261110_10000\\100mm_s",
+          "settled": 10000,
+          "signature": "72c881e25da41aa74e242fd0e7b0e1922cc81eb266df056fd2bc5efc56cc7b0f",
+          "status": "complete",
+          "wall_time_s": 1350.232
+        },
+        "static": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Ql4i\\simulations\\20261110_10000\\static",
+          "settled": 9997,
+          "signature": "02c8aa56db068e19981527e5d336e24d0f3da68a8c58a5f79c2e2153d6344e95",
+          "status": "complete",
+          "wall_time_s": 1892.347
+        }
+      }
+    },
+    "Rf2i": {
+      "cases": {
+        "100mm_s": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Rf2i\\simulations\\20261110_10000\\100mm_s",
+          "settled": 9999,
+          "signature": "ec0235260bd1f363c70fad07ff757fad046e71c364bf9f7fcc35a567eb765f5a",
+          "status": "complete",
+          "wall_time_s": 1701.341
+        },
+        "static": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Rf2i\\simulations\\20261110_10000\\static",
+          "settled": 9989,
+          "signature": "bae5325f1aa3d1d179b575f4a6c3517635ac8eece1d2b81bd770b6df3cea6604",
+          "status": "complete",
+          "wall_time_s": 2463.412
+        }
+      }
+    },
+    "Rf3a": {
+      "cases": {
+        "100mm_s": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Rf3a\\simulations\\20261110_10000\\100mm_s",
+          "settled": 10000,
+          "signature": "7f0a8e75a82cd37fba58444859833a40e431db9308824d3658810e13ac493b14",
+          "status": "complete",
+          "wall_time_s": 1312.232
+        },
+        "static": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Rf3a\\simulations\\20261110_10000\\static",
+          "settled": 9993,
+          "signature": "19c9df85f82382fd449a22e480b1898604272cfb79e6c5d89e043252ff8425f6",
+          "status": "complete",
+          "wall_time_s": 1815.275
+        }
+      }
+    },
+    "Rf4i": {
+      "cases": {
+        "100mm_s": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Rf4i\\simulations\\20261110_10000\\100mm_s",
+          "settled": 10000,
+          "signature": "f22508cbe46b294bb8bc1a26373b5a55c8f61da99cea2714bfd74eea1ac419df",
+          "status": "complete",
+          "wall_time_s": 1735.164
+        },
+        "static": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Rf4i\\simulations\\20261110_10000\\static",
+          "settled": 9995,
+          "signature": "8a352d8860c668c3dc35702eecc451cd56f7edd23a3c9f37fbc60db4dda8aeac",
+          "status": "complete",
+          "wall_time_s": 2578.698
+        }
+      }
+    },
+    "Rk2i": {
+      "cases": {
+        "100mm_s": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Rk2i\\simulations\\20261110_10000\\100mm_s",
+          "settled": 9997,
+          "signature": "0660e46e4539070e1b48745d2e723984798dedaad64421785e37e4b7ad7309a5",
+          "status": "complete",
+          "wall_time_s": 1501.096
+        },
+        "static": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Rk2i\\simulations\\20261110_10000\\static",
+          "settled": 9985,
+          "signature": "3be0f10f7d3c8c6a2350a1c0ed9f274d354f9c7ec428026c5effb8fe2d622bd1",
+          "status": "complete",
+          "wall_time_s": 1965.96
+        }
+      }
+    },
+    "Rk3a": {
+      "cases": {
+        "100mm_s": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Rk3a\\simulations\\20261110_10000\\100mm_s",
+          "settled": 9995,
+          "signature": "d377bc4025749f7cbcf03bf1f4ef5169f1377acb7d9b919c3aafb8861d77cf0c",
+          "status": "complete",
+          "wall_time_s": 1097.173
+        },
+        "static": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Rk3a\\simulations\\20261110_10000\\static",
+          "settled": 9975,
+          "signature": "2b0967294d7073b9f2a03b0c3ea286f44c66230f2e272f252d464660dd8d691e",
+          "status": "complete",
+          "wall_time_s": 1386.56
+        }
+      }
+    },
+    "Rk4i": {
+      "cases": {
+        "100mm_s": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Rk4i\\simulations\\20261110_10000\\100mm_s",
+          "settled": 9996,
+          "signature": "b99292010b12a2e606204c3b646cabc167f794357168ec6d415ce9fef28b32cd",
+          "status": "complete",
+          "wall_time_s": 1671.764
+        },
+        "static": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Rk4i\\simulations\\20261110_10000\\static",
+          "settled": 9965,
+          "signature": "82f632be8047721904837a12e00ff170c09feac56fbddd5a3cb00a8942b3d390",
+          "status": "complete",
+          "wall_time_s": 2298.189
+        }
+      }
+    },
+    "Rl2i": {
+      "cases": {
+        "100mm_s": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Rl2i\\simulations\\20261110_10000\\100mm_s",
+          "settled": 9985,
+          "signature": "aea27081bb0d80389fd55300c62c805565d4a50d4c73a2ca8a182b4c6a4079fb",
+          "status": "complete",
+          "wall_time_s": 1597.99
+        },
+        "static": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Rl2i\\simulations\\20261110_10000\\static",
+          "settled": 9995,
+          "signature": "57b7eb7dd8da6b9f860c3d85769dab301d39cf4984997c91a7f3a5750d8d829c",
+          "status": "complete",
+          "wall_time_s": 2198.286
+        }
+      }
+    },
+    "Rl3a": {
+      "cases": {
+        "100mm_s": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Rl3a\\simulations\\20261110_10000\\100mm_s",
+          "settled": 10000,
+          "signature": "79527ab3f5d13c4cde9611114c98f97c35556642cd3281396019775fd3f54d58",
+          "status": "complete",
+          "wall_time_s": 1234.616
+        },
+        "static": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Rl3a\\simulations\\20261110_10000\\static",
+          "settled": 9997,
+          "signature": "0825b42ac3b53be228428399845393939aed87e4a45b2a5644bb07ac95d5e6a3",
+          "status": "complete",
+          "wall_time_s": 1596.737
+        }
+      }
+    },
+    "Rl4i": {
+      "cases": {
+        "100mm_s": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Rl4i\\simulations\\20261110_10000\\100mm_s",
+          "settled": 10000,
+          "signature": "d36f3dab533425b72befd91af6676d1e411e3c5f0a0a6228b2eb7dea55537da7",
+          "status": "complete",
+          "wall_time_s": 1972.753
+        },
+        "static": {
+          "path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Rl4i\\simulations\\20261110_10000\\static",
+          "settled": 9999,
+          "signature": "ed8ad4c305ed406d26815d44366ec9b0074154efd13bd9d6a7d3186e2d7a644b",
+          "status": "complete",
+          "wall_time_s": 3060.227
+        }
+      }
+    }
+  },
+  "phase": "complete",
+  "started_utc": "2026-11-10T06:01:59.401531+00:00",
+  "status": "complete",
+  "total_cases": 54,
+  "total_parts": 27,
+  "total_requested_trials": 540000,
+  "updated_utc": "2026-11-12T02:28:50.778754+00:00",
+  "worker_pid": 21276
+}

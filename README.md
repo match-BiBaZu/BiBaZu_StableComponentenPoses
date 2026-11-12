@@ -90,3 +90,39 @@ The paper columns report settled outcomes out of 10,000 trials per condition. A 
 Each historical catalogue displays its saved individual poses and the basin assigned by the local plotter’s simulator grouping method. The algorithm uses the recorded orientations, workpiece symmetry, and chute angles. It applies directed absorption with a 0.5 mm equivalent lift barrier, a 60° whole-group diameter limit, and 0.1° angular path sampling. Group 0 has the highest combined incidence in its catalogue. Ties follow the sorted member pose IDs, and groups below 1% stay visible.
 
 Transport and post-braking catalogues have separate group and pose numbering. Pose 0 is the most frequent individual pose in its catalogue. Ties follow the saved pose IDs. The membership CSV links each displayed pose number and group to the original pose ID, basin ID, and counts. The table grouping was computed from saved catalogue poses. The paper archives retain their original ungrouped trial records. [Grouping engine](https://github.com/match-BiBaZu/BiBaZu_PoseFindingDropSim/blob/b872011538ae74d2c2a4570a32457cb79054a598/src/dashas_drop_sim/grouping.py) · [Historical grouped snapshot](https://github.com/match-BiBaZu/BiBaZu_Stable_ComponentPoses/tree/632b830bd890498e1b07b14d44d97b25f5bba7bb)
+
+<!-- remaining-workpieces-20261110_10000:start -->
+## Remaining-workpiece 10,000-drop study
+
+27 additional workpieces, each with 10,000 stationary and 10,000 moving-belt drops. The configuration and simulator revision match the earlier twelve-workpiece study. Grouping is disabled.
+
+| Workpiece | Stationary settled / 10000 | Moving settled / 10000 | Results |
+| --- | ---: | ---: | --- |
+| Df2i | 9998 | 9999 | [Runs](Df2i/simulations/20261110_10000/README.md) |
+| Df4a | 9998 | 10000 | [Runs](Df4a/simulations/20261110_10000/README.md) |
+| Dk2a | 9962 | 9998 | [Runs](Dk2a/simulations/20261110_10000/README.md) |
+| Dk4i | 9995 | 9906 | [Runs](Dk4i/simulations/20261110_10000/README.md) |
+| Dl2i | 10000 | 9999 | [Runs](Dl2i/simulations/20261110_10000/README.md) |
+| Dl4a | 9999 | 9999 | [Runs](Dl4a/simulations/20261110_10000/README.md) |
+| Kf2a | 9936 | 8763 | [Runs](Kf2a/simulations/20261110_10000/README.md) |
+| Kf4i | 8982 | 8997 | [Runs](Kf4i/simulations/20261110_10000/README.md) |
+| Kk2i | 9978 | 9385 | [Runs](Kk2i/simulations/20261110_10000/README.md) |
+| Kk4a | 9995 | 9988 | [Runs](Kk4a/simulations/20261110_10000/README.md) |
+| Kl2a | 9989 | 9994 | [Runs](Kl2a/simulations/20261110_10000/README.md) |
+| Kl4i | 9995 | 9939 | [Runs](Kl4i/simulations/20261110_10000/README.md) |
+| Qf2a | 9971 | 9997 | [Runs](Qf2a/simulations/20261110_10000/README.md) |
+| Qf4i | 9994 | 9997 | [Runs](Qf4i/simulations/20261110_10000/README.md) |
+| Qk2i | 9977 | 9998 | [Runs](Qk2i/simulations/20261110_10000/README.md) |
+| Qk4a | 9984 | 9993 | [Runs](Qk4a/simulations/20261110_10000/README.md) |
+| Ql2a | 9997 | 9997 | [Runs](Ql2a/simulations/20261110_10000/README.md) |
+| Ql4i | 9997 | 10000 | [Runs](Ql4i/simulations/20261110_10000/README.md) |
+| Rf2i | 9989 | 9999 | [Runs](Rf2i/simulations/20261110_10000/README.md) |
+| Rf3a | 9993 | 10000 | [Runs](Rf3a/simulations/20261110_10000/README.md) |
+| Rf4i | 9995 | 10000 | [Runs](Rf4i/simulations/20261110_10000/README.md) |
+| Rk2i | 9985 | 9997 | [Runs](Rk2i/simulations/20261110_10000/README.md) |
+| Rk3a | 9975 | 9995 | [Runs](Rk3a/simulations/20261110_10000/README.md) |
+| Rk4i | 9965 | 9996 | [Runs](Rk4i/simulations/20261110_10000/README.md) |
+| Rl2i | 9995 | 9985 | [Runs](Rl2i/simulations/20261110_10000/README.md) |
+| Rl3a | 9997 | 10000 | [Runs](Rl3a/simulations/20261110_10000/README.md) |
+| Rl4i | 9999 | 10000 | [Runs](Rl4i/simulations/20261110_10000/README.md) |
+<!-- remaining-workpieces-20261110_10000:end -->
