@@ -50759,365 +50759,101 @@ poses:
   - unmatched
   image: images/Kl2a_0023.png
 grouping:
-  model: scoped-persistent-seated-energy-basins-v2
+  model: scoped-rounded-support-families-v3
   groups:
-  - basin_id: group_006
+  - basin_id: group_001
     members:
-    - Kl2a_0007
-    count: 1780
+    - Kl2a_0002
+    - Kl2a_0003
+    - Kl2a_0004
+    - Kl2a_0006
+    - Kl2a_0009
+    - Kl2a_0010
+    - Kl2a_0011
+    - Kl2a_0012
+    - Kl2a_0013
+    - Kl2a_0014
+    - Kl2a_0017
+    - Kl2a_0020
+    - Kl2a_0022
+    count: 4729
     requires_review: false
     representative_source_pose_id: null
     representative_assessment: not performed; individual source poses retained
     group_id: 0
-    incidence_percent: 17.8
-  - basin_id: group_014
+    incidence_percent: 47.29
+  - basin_id: group_003
     members:
-    - Kl2a_0015
+    - Kl2a_0007
     - Kl2a_0018
-    count: 1474
+    count: 2647
     requires_review: false
     representative_source_pose_id: null
     representative_assessment: not performed; individual source poses retained
     group_id: 1
-    incidence_percent: 14.74
-  - basin_id: group_007
+    incidence_percent: 26.47
+  - basin_id: group_004
     members:
     - Kl2a_0008
-    count: 1195
+    - Kl2a_0015
+    count: 1802
     requires_review: false
     representative_source_pose_id: null
     representative_assessment: not performed; individual source poses retained
     group_id: 2
-    incidence_percent: 11.95
-  - basin_id: group_008
+    incidence_percent: 18.02
+  - basin_id: group_005
     members:
-    - Kl2a_0009
-    count: 628
-    requires_review: true
+    - Kl2a_0019
+    - Kl2a_0024
+    - Kl2a_0026
+    count: 438
+    requires_review: false
     representative_source_pose_id: null
     representative_assessment: not performed; individual source poses retained
     group_id: 3
-    incidence_percent: 6.28
-  - basin_id: group_005
-    members:
-    - Kl2a_0006
-    count: 518
-    requires_review: true
-    representative_source_pose_id: null
-    representative_assessment: not performed; individual source poses retained
-    group_id: 4
-    incidence_percent: 5.18
-  - basin_id: group_010
-    members:
-    - Kl2a_0011
-    count: 482
-    requires_review: true
-    representative_source_pose_id: null
-    representative_assessment: not performed; individual source poses retained
-    group_id: 5
-    incidence_percent: 4.82
-  - basin_id: group_017
-    members:
-    - Kl2a_0019
-    count: 425
-    requires_review: false
-    representative_source_pose_id: null
-    representative_assessment: not performed; individual source poses retained
-    group_id: 6
-    incidence_percent: 4.25
-  - basin_id: group_016
-    members:
-    - Kl2a_0017
-    count: 408
-    requires_review: true
-    representative_source_pose_id: null
-    representative_assessment: not performed; individual source poses retained
-    group_id: 7
-    incidence_percent: 4.08
-  - basin_id: group_002
-    members:
-    - Kl2a_0003
-    count: 395
-    requires_review: true
-    representative_source_pose_id: null
-    representative_assessment: not performed; individual source poses retained
-    group_id: 8
-    incidence_percent: 3.95
-  - basin_id: group_013
-    members:
-    - Kl2a_0014
-    count: 387
-    requires_review: true
-    representative_source_pose_id: null
-    representative_assessment: not performed; individual source poses retained
-    group_id: 9
-    incidence_percent: 3.87
-  - basin_id: group_012
-    members:
-    - Kl2a_0013
-    count: 380
-    requires_review: true
-    representative_source_pose_id: null
-    representative_assessment: not performed; individual source poses retained
-    group_id: 10
-    incidence_percent: 3.8
-  - basin_id: group_018
-    members:
-    - Kl2a_0020
-    count: 374
-    requires_review: true
-    representative_source_pose_id: null
-    representative_assessment: not performed; individual source poses retained
-    group_id: 11
-    incidence_percent: 3.74
-  - basin_id: group_019
-    members:
-    - Kl2a_0022
-    count: 364
-    requires_review: true
-    representative_source_pose_id: null
-    representative_assessment: not performed; individual source poses retained
-    group_id: 12
-    incidence_percent: 3.64
-  - basin_id: group_001
-    members:
-    - Kl2a_0002
-    count: 354
-    requires_review: true
-    representative_source_pose_id: null
-    representative_assessment: not performed; individual source poses retained
-    group_id: 13
-    incidence_percent: 3.54
-  - basin_id: group_011
-    members:
-    - Kl2a_0012
-    count: 338
-    requires_review: true
-    representative_source_pose_id: null
-    representative_assessment: not performed; individual source poses retained
-    group_id: 14
-    incidence_percent: 3.38
+    incidence_percent: 4.38
   - basin_id: group_000
     members:
     - Kl2a_0001
-    count: 187
-    requires_review: false
-    representative_source_pose_id: null
-    representative_assessment: not performed; individual source poses retained
-    group_id: 15
-    incidence_percent: 1.87
-  - basin_id: group_015
-    members:
     - Kl2a_0016
     - Kl2a_0021
     - Kl2a_0027
-    count: 76
+    count: 263
     requires_review: false
     representative_source_pose_id: null
     representative_assessment: not performed; individual source poses retained
-    group_id: 16
-    incidence_percent: 0.76
-  - basin_id: group_003
-    members:
-    - Kl2a_0004
-    count: 68
-    requires_review: true
-    representative_source_pose_id: null
-    representative_assessment: not performed; individual source poses retained
-    group_id: 17
-    incidence_percent: 0.68
-  - basin_id: group_004
+    group_id: 4
+    incidence_percent: 2.63
+  - basin_id: group_002
     members:
     - Kl2a_0005
     - Kl2a_0023
-    - Kl2a_0024
-    count: 41
+    count: 30
     requires_review: false
     representative_source_pose_id: null
     representative_assessment: not performed; individual source poses retained
-    group_id: 18
-    incidence_percent: 0.41
-  - basin_id: group_009
-    members:
-    - Kl2a_0010
-    count: 33
-    requires_review: true
-    representative_source_pose_id: null
-    representative_assessment: not performed; individual source poses retained
-    group_id: 19
-    incidence_percent: 0.33
-  - basin_id: group_020
+    group_id: 5
+    incidence_percent: 0.3
+  - basin_id: group_006
     members:
     - Kl2a_0025
     count: 3
-    requires_review: false
-    representative_source_pose_id: null
-    representative_assessment: not performed; individual source poses retained
-    group_id: 20
-    incidence_percent: 0.03
-  - basin_id: group_021
-    members:
-    - Kl2a_0026
-    count: 2
     requires_review: true
     representative_source_pose_id: null
     representative_assessment: not performed; individual source poses retained
-    group_id: 21
-    incidence_percent: 0.02
+    group_id: 6
+    incidence_percent: 0.03
   review:
-  - destinations:
-    - minimax_height_mm: 16.70135491942268
-      minimum_node: 7
-      required_lift_mm: 0.25644867303402563
-    - minimax_height_mm: 16.70135491942268
-      minimum_node: 4445
-      required_lift_mm: 0.25644867303402563
-    - minimax_height_mm: 16.508822566090032
-      minimum_node: 11205
-      required_lift_mm: 0.06391631970137723
+  - axis_alignment_deg: 28.47904215846041
     members:
-    - Kl2a_0002
-    reason: ambiguous_energy_destination
-  - destinations:
-    - minimax_height_mm: 14.878196651094177
-      minimum_node: 7
-      required_lift_mm: 0.32007299041687354
-    - minimax_height_mm: 14.578473046009698
-      minimum_node: 4445
-      required_lift_mm: 0.02034938533239483
-    members:
-    - Kl2a_0003
-    reason: ambiguous_energy_destination
-  - destinations:
-    - minimax_height_mm: 16.70135491942268
-      minimum_node: 7
-      required_lift_mm: 0.059117358454873425
-    - minimax_height_mm: 16.70135491942268
-      minimum_node: 4445
-      required_lift_mm: 0.059117358454873425
-    - minimax_height_mm: 16.650686148535563
-      minimum_node: 11205
-      required_lift_mm: 0.008448587567755794
-    members:
-    - Kl2a_0004
-    reason: ambiguous_energy_destination
-  - destinations:
-    - minimax_height_mm: 14.878196651094177
-      minimum_node: 7
-      required_lift_mm: 0.49902180913322525
-    - minimax_height_mm: 14.394904264714532
-      minimum_node: 4445
-      required_lift_mm: 0.015729422753580025
-    members:
-    - Kl2a_0006
-    reason: ambiguous_energy_destination
-  - destinations:
-    - minimax_height_mm: 14.398099758702276
-      minimum_node: 7
-      required_lift_mm: 0.015182588452347545
-    - minimax_height_mm: 14.878196651094177
-      minimum_node: 4445
-      required_lift_mm: 0.495279480844248
-    members:
-    - Kl2a_0009
-    reason: ambiguous_energy_destination
-  - destinations:
-    - minimax_height_mm: 16.70135491942268
-      minimum_node: 7
-      required_lift_mm: 0.04959148178606654
-    - minimax_height_mm: 16.70135491942268
-      minimum_node: 4445
-      required_lift_mm: 0.04959148178606654
-    - minimax_height_mm: 16.657301175028405
-      minimum_node: 11205
-      required_lift_mm: 0.0055377373917906425
-    members:
-    - Kl2a_0010
-    reason: ambiguous_energy_destination
-  - destinations:
-    - minimax_height_mm: 14.57804841987519
-      minimum_node: 7
-      required_lift_mm: 0.021139086911748706
-    - minimax_height_mm: 14.878196651094177
-      minimum_node: 4445
-      required_lift_mm: 0.32128731813073585
-    members:
-    - Kl2a_0011
-    reason: ambiguous_energy_destination
-  - destinations:
-    - minimax_height_mm: 16.70135491942268
-      minimum_node: 7
-      required_lift_mm: 0.2691109737681039
-    - minimax_height_mm: 16.70135491942268
-      minimum_node: 4445
-      required_lift_mm: 0.2691109737681039
-    - minimax_height_mm: 16.507079788667657
-      minimum_node: 11205
-      required_lift_mm: 0.07483584301308
-    members:
-    - Kl2a_0012
-    reason: ambiguous_energy_destination
-  - destinations:
-    - minimax_height_mm: 14.721226344788294
-      minimum_node: 7
-      required_lift_mm: 0.028351485453761427
-    - minimax_height_mm: 14.878196651094177
-      minimum_node: 4445
-      required_lift_mm: 0.18532179175964458
-    members:
-    - Kl2a_0013
-    reason: ambiguous_energy_destination
-  - destinations:
-    - minimax_height_mm: 14.825007845026404
-      minimum_node: 7
-      required_lift_mm: 0.04288702535580491
-    - minimax_height_mm: 14.878196651094177
-      minimum_node: 4445
-      required_lift_mm: 0.0960758314235779
-    members:
-    - Kl2a_0014
-    reason: ambiguous_energy_destination
-  - destinations:
-    - minimax_height_mm: 14.87731088690956
-      minimum_node: 7
-      required_lift_mm: 0.058128321819783224
-    - minimax_height_mm: 14.878196651094177
-      minimum_node: 4445
-      required_lift_mm: 0.0590140860043995
-    members:
-    - Kl2a_0017
-    reason: ambiguous_energy_destination
-  - destinations:
-    - minimax_height_mm: 14.878196651094177
-      minimum_node: 7
-      required_lift_mm: 0.08084419977629409
-    - minimax_height_mm: 14.835023570595697
-      minimum_node: 4445
-      required_lift_mm: 0.03767111927781386
-    members:
-    - Kl2a_0020
-    reason: ambiguous_energy_destination
-  - destinations:
-    - minimax_height_mm: 14.878196651094177
-      minimum_node: 7
-      required_lift_mm: 0.1905863172805411
-    - minimax_height_mm: 14.71839137810018
-      minimum_node: 4445
-      required_lift_mm: 0.03078104428654349
-    members:
-    - Kl2a_0022
-    reason: ambiguous_energy_destination
-  - destinations:
-    - minimax_height_mm: 35.708156646107795
-      minimum_node: 14658
-      required_lift_mm: 0.0
-    - minimax_height_mm: 35.708156646107795
-      minimum_node: 15910
-      required_lift_mm: 0.0
-    members:
-    - Kl2a_0026
-    reason: ambiguous_energy_destination
-  barrier_mm: 0.5
-  local_path_limit_deg: 60
-  sampling_step_deg: 0.1
-  evidence: grouping/20261113/energy_paths.json.gz
+    - Kl2a_0025
+    reason: axis_outside_contact_family
+  profile:
+    broad_cut_support: true
+    directed_axis: false
+    merge_belt_end_azimuth: true
+  axis_tolerance_deg: 10
+  support_normal_tolerance_deg: 5
+  energy_barrier_applied: false
+  evidence: grouping/20261113_contact/grouping_evidence.json.gz

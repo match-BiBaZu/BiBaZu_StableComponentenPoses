@@ -1,0 +1,22 @@
+{
+  "comparison_source_commit": "f9a4f6ee53025b9542e8b47e4278924526e76455",
+  "disturbance_trials": 0,
+  "individual_poses_and_recognition_preserved": true,
+  "local_only_trials": 7200,
+  "model": "scoped-rounded-support-families-v3",
+  "original_archives_preserved": true,
+  "published_trials": 600,
+  "saved_and_new_observations_identical_outside_scope": true,
+  "scope_meshes": {
+    "Kk2i": "ec6ebb3923fcab8e0a02546aac25cb13f893584b551a81ced4315e1059195ef7",
+    "Kk4a": "8b9e742443c8153aca1f5afd3e68562d5cecd7ac9af010f2ede3b0162fa200c1",
+    "Kl2a": "f874e82aea3486c1887ad267db840f2cd2899527241407e5f142bc8bcf70a5fe"
+  },
+  "simulator_base_commit": "d426e783832fd89e70f97419a19d7288e1aa5bda",
+  "source_commit": "e890ae90998c17bac7e3a67b6dfaf2deea8047b9",
+  "source_patch_sha256": "6a32d4a4504a8a9e94214f22c7e50179bdb0edfb057b3ca0b0f6aa6424318845",
+  "study": "20261113_contact_100",
+  "tests": "208 passed in 331.88s (0:05:31)",
+  "unchanged_workpieces": 36,
+  "validated_trials": 7800
+}

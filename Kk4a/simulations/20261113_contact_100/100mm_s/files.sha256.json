@@ -1,0 +1,13 @@
+{
+  "README.md": "b2970157ad5e92fec125fa8e2153eb666c5f6468823329748c1111bd29725eb2",
+  "config.json": "473c8540ed3f65f96dd403d5e23e6b06adb7496b687d6b5b5e54435fcec08a9c",
+  "energy_basins.png": "97c91b3c7e1ca6aca3d88c67351a49df21712e36ce28f4cd490d878e021d698c",
+  "execution.json": "ad110ab4961cb0006b394ee3b8ac92bdaca6c82624a14460b1f4a4744ee5d12a",
+  "grouping_evidence.json.gz": "e2170777ef1ef92db89dda99992ece0c91ba7fdc7f86450b023b3e1dfc7aba81",
+  "groups.json": "59573cfd822e56a347ede734339b9dd9d72d8f04b4ffb38f2e2c7c9a333fbea5",
+  "manifest.json": "560f094f8bf123530ec22d18add59fcd130da143f5456c730de5ec490bec50b3",
+  "observations.json": "0901d55e4ce4d720c1e3a22e2660dc214f94018665f864e9a5ae9e0e396c7afe",
+  "simulation_results.tar.xz": "3b64bad4ee5a1876baa973cff196d34ada37b6ddef3c1cc6fb0e652e544166cd",
+  "summary.json": "55b14fe552d4cd5ce96b963c4c4467e1dbb9a76c9bfbe128dd6dd78217d2142c",
+  "validation.json": "5931be362774a575b34ae4bb6906d7d02825e22a24e3533a2c19b97bd70fad24"
+}

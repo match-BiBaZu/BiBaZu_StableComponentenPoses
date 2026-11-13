@@ -123,9 +123,9 @@ Except for the six scoped rolling-surface catalogues described below, each histo
 
 Transport and post-braking catalogues have separate group and pose numbering. Pose 0 is the most frequent individual pose in its catalogue. Ties follow the saved pose IDs. The membership CSV links each displayed pose number and group to the original pose ID, basin ID, and counts. The table grouping was computed from saved catalogue poses. All 10,000-drop archives retain their original ungrouped trial records; the historical catalogue grouping does not change those results. [Grouping engine](https://github.com/match-BiBaZu/BiBaZu_PoseFindingDropSim/blob/b872011538ae74d2c2a4570a32457cb79054a598/src/dashas_drop_sim/grouping.py) · [Historical grouped snapshot](https://github.com/match-BiBaZu/BiBaZu_Stable_ComponentPoses/tree/632b830bd890498e1b07b14d44d97b25f5bba7bb)
 
-## Scoped rolling-surface validation (13 November 2026)
+## Initial rolling-surface validation (13 November 2026)
 
-Kk2i, Kk4a, Kl4i, Kl2a, Kf2a and Kf4i use persistent seated-energy minima and minimax-height assignments. The 60° limit is local to each path; sampling remains 0.1° and the escape-barrier threshold remains 0.5 mm. A pose reaching multiple minima stays separate for review. Individual poses, counts, feature directions and recognition tolerances are preserved. The saved Kl4i catalogue yields four groups. Original simulation archives remain unchanged.
+The initial six-model update used persistent seated-energy minima and minimax-height assignments. The 60° limit is local to each path; sampling remains 0.1° and the escape-barrier threshold remains 0.5 mm. A pose reaching multiple minima stays separate for review. Individual poses, counts, feature directions and recognition tolerances are preserved. The saved Kl4i catalogue yields four groups. Original simulation archives remain unchanged.
 
 Each of these six workpieces adds 100 stationary and 100 moving-belt drops (1,200 published drops), using the archived physical settings. No disturbance sweeps were added. The other 33 workpieces also passed paired 100-drop checks and exact legacy-grouping comparisons; their validation data remains local and their catalogue directories are byte-for-byte unchanged.
 
@@ -137,3 +137,15 @@ Each of these six workpieces adds 100 stationary and 100 moving-belt drops (1,20
 | Kl2a | [Groups](Kl2a/grouping/20261113/README.md) | [200 drops](Kl2a/simulations/20261113_rolling_100/README.md) |
 | Kf2a | [Groups](Kf2a/grouping/20261113/README.md) | [200 drops](Kf2a/simulations/20261113_rolling_100/README.md) |
 | Kf4i | [Groups](Kf4i/grouping/20261113/README.md) | [200 drops](Kf4i/simulations/20261113_rolling_100/README.md) |
+
+## Current rounded support-family refinement
+
+A rounded support family ignores circumferential roll while retaining the extrusion-axis direction and broad cut-feature supports. The pinned meshes use source Z as their extrusion axis. Axis alignment uses 10°, and broad-support normals use 5°. A side hull facet is broad when its area is at least twice the median side-strip area. Kk2i retains broad wall/belt support distinctions. Kl2a also merges end-on-belt azimuths. Kk4a retains the signed axis direction; tilted observations stay separate for review. This simple geometric classification does not claim a 0.5 mm energy barrier or add rotational recognition symmetry.
+
+Only Kk2i, Kl2a and Kk4a were regrouped. Kf4i, Kl4i, Kf2a and all other workpieces retain exactly the previous grouping, numbering and representative behavior. All 39 workpieces passed fresh 100 stationary and 100 moving-drop checks (7,800 drops). Only the three revised workpieces' 600 drops are published; the other 7,200 remain local. The other 36 directories are byte-for-byte unchanged.
+
+| Workpiece | Current groups and evidence | New validation |
+| --- | --- | --- |
+| Kk2i | [Groups](Kk2i/grouping/20261113_contact/README.md) | [200 drops](Kk2i/simulations/20261113_contact_100/README.md) |
+| Kk4a | [Groups](Kk4a/grouping/20261113_contact/README.md) | [200 drops](Kk4a/simulations/20261113_contact_100/README.md) |
+| Kl2a | [Groups](Kl2a/grouping/20261113_contact/README.md) | [200 drops](Kl2a/simulations/20261113_contact_100/README.md) |

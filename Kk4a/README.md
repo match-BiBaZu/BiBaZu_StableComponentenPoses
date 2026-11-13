@@ -4,7 +4,7 @@
 
 ## Historical pose catalogue
 
-Group numbers rank the updated seated-energy basins by their combined incidence within each observation phase. Pose 0 is the most frequent individual pose in its observation phase. The membership CSV links the displayed numbers to the saved pose IDs. Groups below 1% remain visible.
+Group numbers rank the current support families by their combined incidence within each observation phase. Pose 0 is the most frequent individual pose in its observation phase. The membership CSV links the displayed numbers to the saved pose IDs. Groups below 1% remain visible.
 
 [Group membership CSV](group_memberships.csv) · [Grouping method](../README.md#catalogue-grouping)
 
@@ -136,7 +136,7 @@ Outcome counts: settled: 7,726, unsettled: 2,274.
 | Pose 117 | Group 1 | ![Kk4a_0075](images/Kk4a_0075.png) | 32 | 0.32 % | 0.23–0.45 % | 0.41 % |
 | Pose 118 | Group 1 | ![Kk4a_0032](images/Kk4a_0032.png) | 29 | 0.29 % | 0.20–0.42 % | 0.38 % |
 | Pose 119 | Group 1 | ![Kk4a_0063](images/Kk4a_0063.png) | 24 | 0.24 % | 0.16–0.36 % | 0.31 % |
-| Pose 120 | Group 0 | ![Kk4a_0121](images/Kk4a_0121.png) | 1 | 0.01 % | 0.00–0.06 % | 0.01 % |
+| Pose 120 | Review 2 | ![Kk4a_0121](images/Kk4a_0121.png) | 1 | 0.01 % | 0.00–0.06 % | 0.01 % |
 
 [Pose catalogue JSON](poses.json) · [Pose catalogue YAML](poses.yaml) · [Frequencies](frequencies.csv) · [Trial records](trials.csv)
 
@@ -155,10 +155,12 @@ Pose orientations use `xyzw` quaternions from the workpiece frame to the chute f
 [Results and validation](simulations/20261110_10000/README.md).
 <!-- remaining-workpieces-20261110_10000:end -->
 
-## Scoped rolling-surface update (13 November 2026)
+## Rounded support-family refinement (13 November 2026)
 
-The saved individual poses, IDs, counts, symmetry and recognition tolerances are unchanged. The new local-path energy rule produces 2 assigned groups and 0 separate review poses. Review poses can reach multiple persistent minima and do not connect those minima. Rows labelled Review are unassigned review cases, not confirmed physical basins. No disturbance assessments or stability representatives were inferred.
+A rounded support family ignores circumferential roll while retaining the extrusion-axis direction and broad cut-feature supports. The pinned meshes use source Z as their extrusion axis. Axis alignment uses 10°, and broad-support normals use 5°. A side hull facet is broad when its area is at least twice the median side-strip area. Kk2i retains broad wall/belt support distinctions. Kl2a also merges end-on-belt azimuths. Kk4a retains the signed axis direction; tilted observations stay separate for review. This simple geometric classification does not claim a 0.5 mm energy barrier or add rotational recognition symmetry.
 
-[Energy evidence and group report](grouping/20261113/README.md) · [New paired 100-drop validation](simulations/20261113_rolling_100/README.md)
+2 assigned groups and 1 separate review poses. Individual poses, displayed pose numbers, IDs, counts, feature directions and recognition tolerances are unchanged. No disturbance sweeps or stability representatives were inferred.
 
-The root checksum manifest covers exact committed Git bytes. Git may convert historical text line endings in Windows checkouts.
+[Current grouping evidence](grouping/20261113_contact/README.md) · [Paired validation](simulations/20261113_contact_100/README.md) · [Previous energy grouping](grouping/20261113/README.md)
+
+The root checksum manifest covers exact committed Git bytes; Windows checkout line endings may differ.

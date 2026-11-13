@@ -1,0 +1,3013 @@
+diff --git a/README.md b/README.md
+index a45a290..bc29b0f 100644
+--- a/README.md
++++ b/README.md
+@@ -4,6 +4,10 @@
+ 
+ The simulator uses MuJoCo to simulate individual workpieces landing against a conveyor belt and side wall. It estimates pose incidence, distinguishes settled and unsettled outcomes, and assesses how observed poses respond to disturbances. A PyQt6 GUI supports parameter studies and visible trials; the command line supports repeatable batches and assessment of saved results.
+ 
++For the verified Kl4i, Kf2a and Kf4i catalogue meshes, grouping retains persistent seated-energy minima and minimax-height paths: 60° local paths, 0.1° sampling and 0.5 mm escape barriers. Other unlisted meshes retain the legacy whole-group diameter guard and representative behavior.
++
++Kk2i, Kl2a and Kk4a use simpler rounded support families. Circumferential roll is ignored within the same extrusion-axis/support family; wide cut-feature supports remain distinct from the cylindrical tessellation strips. Axis alignment uses 10°, support-normal matching uses 5°, and a broad side facet has at least twice the median side-strip area. Kl2a's end-on-belt azimuths also merge. Kk4a retains signed axis directions, with tilted observations left separate for review. This rule does not claim that all merged orientations have a 0.5 mm energy barrier. Dispatch requires both the catalogue filename identity and its pinned STL SHA-256. Individual orientations, pose IDs, counts, recognition symmetry and tolerances remain unchanged, and incomplete disturbance assessments do not produce stability representatives.
++
+ The Beckhoff benchmark ran on 7–8 November 2026 and covered **240,000 drops** across 12 workpieces, with 10,000 trials per workpiece in each belt mode.
+ 
+ [User guide](USER_GUIDE.md) · [Windows launchers](WindowsLaunchers/README.md) · [Current GUI profile](configs/gui-current.json) · [Benchmark timing records](https://github.com/match-BiBaZu/BiBaZu_StableComponentenPoses/tree/4df4f1b27f928adca5e5d74377f8212c8f1ae0c9/timing/20261107_10000)
+diff --git a/src/dashas_drop_sim/contact_families.py b/src/dashas_drop_sim/contact_families.py
+new file mode 100644
+index 0000000..9df485f
+--- /dev/null
++++ b/src/dashas_drop_sim/contact_families.py
+@@ -0,0 +1,87 @@
++"""Simple support families for three pinned extruded, rounded catalogue solids.
++
++This is a geometric contact classification, not an assertion of zero energy
++barrier or additional rotational symmetry. Recognition remains untouched.
++"""
++from __future__ import annotations
++
++import math
++import numpy as np
++import trimesh
++from scipy.spatial.transform import Rotation
++
++from .physics import _chute_rotation
++from .rolling_basins import SCOPED_MESHES
++
++CONTACT_MODEL_VERSION = "scoped-rounded-support-families-v3"
++CONTACT_MESHES = {key: SCOPED_MESHES[key] for key in ("Kk2i", "Kk4a", "Kl2a")}
++PROFILES = {
++    "Kk2i": {"directed_axis": False, "broad_cut_support": True, "merge_belt_end_azimuth": False},
++    "Kl2a": {"directed_axis": False, "broad_cut_support": True, "merge_belt_end_azimuth": True},
++    "Kk4a": {"directed_axis": True, "broad_cut_support": False, "merge_belt_end_azimuth": True},
++}
++AXIS_TOLERANCE_DEG = 10.
++SUPPORT_NORMAL_TOLERANCE_DEG = 5.
++WIDE_FACET_AREA_RATIO = 2.
++
++
++def analyze_contact_families(mesh_path, members, descriptor, *, identity, alpha_deg=45,
++                             beta_deg=0, barrier_mm=.5, max_angle_deg=60, step_deg=.1):
++    mesh = trimesh.load_mesh(mesh_path, process=True)
++    if not mesh.is_watertight or not mesh.is_volume:
++        raise ValueError("Grouping requires a closed solid mesh in mm.")
++    profile = PROFILES[identity]
++    hull = mesh.convex_hull
++    vertices = np.asarray(hull.vertices) - np.asarray(mesh.center_mass)
++    normals = np.asarray(hull.facets_normal)
++    areas = np.asarray([hull.area_faces[facet].sum() for facet in hull.facets])
++    # All three pinned catalogue meshes are extruded along source Z. Hull
++    # planes spanning a cut are wider than the cylindrical tessellation strips.
++    side = np.abs(normals[:, 2]) < 1e-6
++    typical_strip_area = float(np.median(areas[side])) if side.any() else 0.
++    broad = side & (areas >= WIDE_FACET_AREA_RATIO * typical_strip_area) if typical_strip_area else np.zeros(len(areas), dtype=bool)
++    broad_normals = normals[broad] if profile["broad_cut_support"] else np.empty((0, 3))
++    gravity = _chute_rotation(alpha_deg, beta_deg).inv().apply([0, 0, -9.81])
++    buckets, evidence, review, heights = {}, {}, [], {}
++    for member in sorted(members, key=lambda m: m["id"]):
++        key = member["id"]
++        rotation = Rotation.from_quat(member["quaternion_xyzw"]).as_matrix()
++        axis = rotation[:, 2]
++        dominant = int(np.argmax(np.abs(axis)))
++        angle = math.degrees(math.acos(float(np.clip(abs(axis[dominant]), -1, 1))))
++        supports = []
++        support_details = []
++        for chute_normal in ([0, -1, 0], [0, 0, -1]):
++            normal_part = rotation.T @ np.asarray(chute_normal)
++            dots = broad_normals @ normal_part
++            best = float(dots.max()) if len(dots) else -1.
++            is_broad = best >= math.cos(math.radians(SUPPORT_NORMAL_TOLERANCE_DEG))
++            supports.append("cut" if is_broad else "rounded")
++            support_details.append({"outward_normal_part": normal_part.tolist(), "broad_cut_support": is_broad,
++                                    "closest_broad_normal_angle_deg": math.degrees(math.acos(float(np.clip(best, -1, 1)))) if len(dots) else None})
++        axis_name = "XYZ"[dominant]
++        sign = ("+" if axis[dominant] >= 0 else "-") if profile["directed_axis"] else "unsigned"
++        if angle > AXIS_TOLERANCE_DEG + 1e-9:
++            signature = ("oblique", key)
++            review.append({"members": [key], "reason": "axis_outside_contact_family", "axis_alignment_deg": angle})
++        elif dominant == 0:
++            signature = (axis_name, sign, *supports)
++        elif dominant == 2:
++            signature = (axis_name, sign, "end_on_belt", "any_azimuth" if profile["merge_belt_end_azimuth"] else supports[0])
++        else:
++            signature = (axis_name, sign, "end_on_wall", supports[1])
++        buckets.setdefault(signature, []).append(key)
++        points = vertices @ rotation.T
++        heights[key] = float((gravity[1] * points[:, 1].min() + gravity[2] * points[:, 2].min()) / np.linalg.norm(gravity))
++        evidence[key] = {"extrusion_axis_chute": axis.tolist(), "axis_alignment_deg": angle,
++                         "signature": list(signature), "wall_and_belt_support": support_details}
++    groups = sorted(buckets.values(), key=tuple)
++    return {"model": CONTACT_MODEL_VERSION, "catalogue_identity": identity, "mesh_sha256": CONTACT_MESHES[identity],
++            "groups": groups, "review": review, "paths": [], "observed_heights_mm": heights,
++            "contact_evidence": evidence, "profile": profile, "axis_part": [0, 0, 1],
++            "axis_tolerance_deg": AXIS_TOLERANCE_DEG, "support_normal_tolerance_deg": SUPPORT_NORMAL_TOLERANCE_DEG,
++            "wide_facet_area_ratio": WIDE_FACET_AREA_RATIO, "typical_strip_area_mm2": typical_strip_area,
++            "broad_support_normals_part": broad_normals.tolist(), "broad_support_areas_mm2": areas[broad].tolist() if profile["broad_cut_support"] else [],
++            "barrier_mm": barrier_mm, "max_angle_deg": max_angle_deg, "sampling_step_deg": step_deg,
++            "energy_barrier_applied": False,
++            "interpretation": "Rounded-side roll phase is ignored within a support family; broad cut support and end direction distinguish families. This classification does not prove an energy barrier or change recognition symmetry."}
+diff --git a/src/dashas_drop_sim/grouping.py b/src/dashas_drop_sim/grouping.py
+index bdf3b86..bd09beb 100644
+--- a/src/dashas_drop_sim/grouping.py
++++ b/src/dashas_drop_sim/grouping.py
+@@ -88,6 +88,17 @@ def analyze_groups(mesh_path, members: list[dict], descriptor: dict, *, alpha_de
+                    beta_deg=0, barrier_mm=.5, max_angle_deg=60, step_deg=.1):
+     if not all(math.isfinite(x) for x in (barrier_mm, max_angle_deg, step_deg)) or barrier_mm < 0 or not 0 < max_angle_deg <= 180 or step_deg <= 0:
+         raise ValueError("Invalid grouping thresholds or angular sampling step.")
++    from .rolling_basins import scoped_model, analyze_rolling
++    identity = scoped_model(mesh_path)
++    if identity is not None:
++        from .contact_families import CONTACT_MESHES, analyze_contact_families
++        if identity in CONTACT_MESHES:
++            return analyze_contact_families(mesh_path, members, descriptor, identity=identity,
++                                            alpha_deg=alpha_deg, beta_deg=beta_deg,
++                                            barrier_mm=barrier_mm, max_angle_deg=max_angle_deg, step_deg=step_deg)
++        return analyze_rolling(mesh_path, members, descriptor, identity=identity,
++                               alpha_deg=alpha_deg, beta_deg=beta_deg, barrier_mm=barrier_mm,
++                               max_angle_deg=max_angle_deg, step_deg=step_deg)
+     mesh = trimesh.load_mesh(mesh_path, process=True)
+     if not mesh.is_watertight or not mesh.is_volume:
+         raise ValueError("Grouping requires a closed solid mesh in mm.")
+diff --git a/src/dashas_drop_sim/rolling_basins.py b/src/dashas_drop_sim/rolling_basins.py
+new file mode 100644
+index 0000000..07f5788
+--- /dev/null
++++ b/src/dashas_drop_sim/rolling_basins.py
+@@ -0,0 +1,157 @@
++"""Persistent seated-energy basins, restricted to six verified catalogue solids.
++
++Edges describe sampled local rotation paths, not arbitrary proximity merges.
++Persistence uses the actual escape saddle above each minimum; assignment uses
++the maximum absolute height along a path, never a sum of small uphill steps.
++"""
++from __future__ import annotations
++
++import hashlib
++import heapq
++import math
++from pathlib import Path
++
++import numpy as np
++import trimesh
++from scipy.spatial.transform import Rotation
++
++from .physics import _chute_rotation
++
++MODEL_VERSION = "scoped-persistent-seated-energy-basins-v2"
++SCOPED_MESHES = {
++    "Kk2i": "ec6ebb3923fcab8e0a02546aac25cb13f893584b551a81ced4315e1059195ef7",
++    "Kk4a": "8b9e742443c8153aca1f5afd3e68562d5cecd7ac9af010f2ede3b0162fa200c1",
++    "Kl4i": "3b1586a009406e6108f590bbe6316004d9a6a18944d92b64d5f2e5acdff6e831",
++    "Kl2a": "f874e82aea3486c1887ad267db840f2cd2899527241407e5f142bc8bcf70a5fe",
++    "Kf2a": "cd1bb04dda24ff3aa100827f1042e6abb2459c6bd1301fba1be041b49d1ab30c",
++    "Kf4i": "56720a15e28abcf47d6705716e1033a8146c4970e212b7d3f3cd2f33ab3e64ca",
++}
++
++
++def scoped_model(mesh_path):
++    path = Path(mesh_path)
++    identity = next((key for key in SCOPED_MESHES if key.casefold() == path.stem.casefold()), None)
++    if identity is None:
++        return None
++    return identity if hashlib.sha256(path.read_bytes()).hexdigest() == SCOPED_MESHES[identity] else None
++
++
++def energy_basins(heights, edges, observations, barrier_mm):
++    """Return deterministic groups, ambiguity, minima and minimax evidence.
++
++    ``observations`` maps stable pose IDs to graph nodes. Internal path samples
++    participate in the energy landscape even when no drop landed exactly there.
++    """
++    heights = [float(h) for h in heights]
++    if barrier_mm < 0 or not math.isfinite(barrier_mm) or not all(map(math.isfinite, heights)):
++        raise ValueError("Expected finite heights and a nonnegative finite barrier")
++    size = len(heights)
++    parent = list(range(size))
++    birth = list(range(size))
++    adjacency = [[] for _ in heights]
++    weighted = []
++    for a, b in edges:
++        peak = max(heights[a], heights[b])
++        weighted.append((peak, min(a, b), max(a, b)))
++        adjacency[a].append((b, peak))
++        adjacency[b].append((a, peak))
++
++    def find(node):
++        while parent[node] != node:
++            parent[node] = parent[parent[node]]
++            node = parent[node]
++        return node
++
++    minima = []
++    cores = []
++    for peak, a, b in sorted(weighted):
++        a, b = find(a), find(b)
++        if a == b:
++            continue
++        if (heights[birth[b]], birth[b]) < (heights[birth[a]], birth[a]):
++            a, b = b, a
++        losing = birth[b]
++        prominence = peak - heights[losing]
++        if prominence > barrier_mm + 1e-9:
++            cores.append(losing)
++            minima.append({"node": losing, "height_mm": heights[losing],
++                           "escape_saddle_mm": peak, "escape_barrier_mm": prominence})
++        parent[b] = a
++    for root in sorted({find(node) for node in range(size)}):
++        core = birth[root]
++        cores.append(core)
++        minima.append({"node": core, "height_mm": heights[core],
++                       "escape_saddle_mm": None, "escape_barrier_mm": None})
++    cores.sort()
++    reachable = {key: [] for key in sorted(observations)}
++    for core in cores:
++        costs = [math.inf] * size
++        costs[core] = heights[core]
++        pending = [(costs[core], core)]
++        while pending:
++            cost, node = heapq.heappop(pending)
++            if cost != costs[node]:
++                continue
++            for target, peak in adjacency[node]:
++                candidate = max(cost, peak)
++                if candidate < costs[target]:
++                    costs[target] = candidate
++                    heapq.heappush(pending, (candidate, target))
++        for key, node in sorted(observations.items()):
++            if costs[node] - heights[node] <= barrier_mm + 1e-9:
++                reachable[key].append({"minimum_node": core, "minimax_height_mm": costs[node],
++                                       "required_lift_mm": max(0., costs[node] - heights[node])})
++    buckets, review = {}, []
++    for key, destinations in reachable.items():
++        if len(destinations) == 1:
++            buckets.setdefault(destinations[0]["minimum_node"], []).append(key)
++        else:
++            buckets["review:" + key] = [key]
++            review.append({"members": [key], "reason": "ambiguous_energy_destination" if destinations else "no_energy_destination",
++                           "destinations": destinations})
++    return sorted(buckets.values(), key=tuple), review, sorted(minima, key=lambda m: m["node"]), reachable
++
++
++def analyze_rolling(mesh_path, members, descriptor, *, identity, alpha_deg, beta_deg,
++                    barrier_mm, max_angle_deg, step_deg):
++    from .grouping import relative_path
++    mesh = trimesh.load_mesh(mesh_path, process=True)
++    if not mesh.is_watertight or not mesh.is_volume:
++        raise ValueError("Grouping requires a closed solid mesh in mm.")
++    vertices = np.asarray(mesh.convex_hull.vertices) - np.asarray(mesh.center_mass)
++    gravity = _chute_rotation(alpha_deg, beta_deg).inv().apply([0, 0, -9.81])
++
++    def seated(rotations):
++        points = np.einsum("sij,vj->svi", rotations, vertices)
++        return (gravity[1] * points[:, :, 1].min(axis=1)
++                + gravity[2] * points[:, :, 2].min(axis=1)) / np.linalg.norm(gravity)
++
++    ordered = sorted(members, key=lambda m: m["id"])
++    rotations = [Rotation.from_quat(m["quaternion_xyzw"]).as_matrix() for m in ordered]
++    heights = seated(np.asarray(rotations)).tolist() if ordered else []
++    observations = {m["id"]: i for i, m in enumerate(ordered)}
++    edges, paths = [], []
++    for i, first in enumerate(ordered):
++        for j in range(i + 1, len(ordered)):
++            second = ordered[j]
++            rv = relative_path(first["quaternion_xyzw"], second["quaternion_xyzw"], descriptor)
++            angle = float(np.degrees(np.linalg.norm(rv)))
++            path = {"source": first["id"], "target": second["id"], "angle_deg": angle,
++                    "forward_barrier_mm": None, "reverse_barrier_mm": None}
++            if angle <= max_angle_deg + 1e-9:
++                fractions = np.linspace(0, 1, max(2, math.ceil(angle / step_deg) + 1))
++                sampled = seated(Rotation.from_rotvec(fractions[:, None] * rv).as_matrix() @ rotations[i])
++                nodes = [i, *range(len(heights), len(heights) + len(sampled) - 2), j]
++                heights.extend(sampled[1:-1].tolist())
++                edges.extend(zip(nodes, nodes[1:]))
++                path.update(forward_barrier_mm=max(0., float(sampled.max() - sampled[0])),
++                            reverse_barrier_mm=max(0., float(sampled.max() - sampled[-1])),
++                            sample_nodes=nodes, sampled_heights_mm=sampled.tolist())
++            paths.append(path)
++    groups, review, minima, destinations = energy_basins(heights, edges, observations, barrier_mm)
++    return {"model": MODEL_VERSION, "catalogue_identity": identity, "mesh_sha256": SCOPED_MESHES[identity],
++            "barrier_mm": barrier_mm, "max_angle_deg": max_angle_deg, "angle_limit_scope": "local_path",
++            "sampling_step_deg": step_deg, "paths": paths, "groups": groups, "review": review,
++            "minima": minima, "observed_heights_mm": {k: heights[n] for k, n in observations.items()},
++            "destinations": destinations, "graph_nodes": len(heights), "graph_edges": len(edges),
++            "interpretation": "Sampled seated local paths; persistent minima and minimax heights are geometric estimates, not minimum-action proofs."}
+diff --git a/tests/fixtures/contact_Kk2i.json b/tests/fixtures/contact_Kk2i.json
+new file mode 100644
+index 0000000..6b92abb
+--- /dev/null
++++ b/tests/fixtures/contact_Kk2i.json
+@@ -0,0 +1,401 @@
++{
++  "recognition": {
++    "ambiguity_margin_deg": 1.0,
++    "continuous_axis_part": null,
++    "quaternion_order": "xyzw",
++    "rotation": "part_to_chute",
++    "symmetry_available": true,
++    "symmetry_composition": "q_part_to_chute * q_symmetry_part",
++    "symmetry_quaternions_xyzw": [
++      [
++        0.0,
++        0.0,
++        0.0,
++        1.0
++      ],
++      [
++        0.9999999999999987,
++        5.118826497669846e-08,
++        5.039114906241953e-16,
++        1.6081226496766368e-16
++      ]
++    ],
++    "symmetry_symbol": "C2",
++    "tolerance_deg": 5.0
++  },
++  "members": [
++    {
++      "id": "Kk2i_0018",
++      "quaternion_xyzw": [
++        -0.5000189221365091,
++        -0.49997929249137535,
++        0.4999071470906794,
++        -0.500094619919996
++      ],
++      "display_pose_id": 0
++    },
++    {
++      "id": "Kk2i_0017",
++      "quaternion_xyzw": [
++        -0.4998676166089181,
++        0.5001285715420645,
++        0.49968431531102186,
++        -0.5003192608976486
++      ],
++      "display_pose_id": 1
++    },
++    {
++      "id": "Kk2i_0003",
++      "quaternion_xyzw": [
++        0.7071794690359946,
++        0.0001174660035334063,
++        -0.7070340528898386,
++        -0.00018119016469850258
++      ],
++      "display_pose_id": 2
++    },
++    {
++      "id": "Kk2i_0004",
++      "quaternion_xyzw": [
++        9.028471921493364e-05,
++        -1.0980327950660396e-05,
++        -0.7071504437720062,
++        0.7070631100553589
++      ],
++      "display_pose_id": 3
++    },
++    {
++      "id": "Kk2i_0024",
++      "quaternion_xyzw": [
++        -0.26987552528987346,
++        -0.6534842414464836,
++        0.26989250265106834,
++        0.653669323162233
++      ],
++      "display_pose_id": 4
++    },
++    {
++      "id": "Kk2i_0026",
++      "quaternion_xyzw": [
++        -0.20545185573390956,
++        -0.6766500101396334,
++        0.20565504497736348,
++        0.6764911686259367
++      ],
++      "display_pose_id": 5
++    },
++    {
++      "id": "Kk2i_0015",
++      "quaternion_xyzw": [
++        0.5853035013591186,
++        0.3967865853611617,
++        -0.5852734142581214,
++        -0.39678110783759285
++      ],
++      "display_pose_id": 6
++    },
++    {
++      "id": "Kk2i_0021",
++      "quaternion_xyzw": [
++        -0.3914763299496557,
++        -0.5888103597365815,
++        0.39122085602186774,
++        0.5890627175178742
++      ],
++      "display_pose_id": 7
++    },
++    {
++      "id": "Kk2i_0016",
++      "quaternion_xyzw": [
++        0.5438718102655437,
++        0.4519014198338295,
++        -0.5441287131004963,
++        -0.4515667219030291
++      ],
++      "display_pose_id": 8
++    },
++    {
++      "id": "Kk2i_0029",
++      "quaternion_xyzw": [
++        0.7034840940675284,
++        0.07139465326790684,
++        0.7035090101048583,
++        0.07133025711454008
++      ],
++      "display_pose_id": 9
++    },
++    {
++      "id": "Kk2i_0030",
++      "quaternion_xyzw": [
++        -0.707058579754682,
++        -0.0023065603984988585,
++        -0.7071470266406703,
++        -0.002434602160412303
++      ],
++      "display_pose_id": 10
++    },
++    {
++      "id": "Kk2i_0020",
++      "quaternion_xyzw": [
++        -0.5482866747121857,
++        -0.4464440637074649,
++        -0.5484216377214466,
++        -0.44643378858722743
++      ],
++      "display_pose_id": 11
++    },
++    {
++      "id": "Kk2i_0028",
++      "quaternion_xyzw": [
++        0.13962558944389383,
++        0.6931703161025258,
++        -0.13963912150858573,
++        -0.6931958766402756
++      ],
++      "display_pose_id": 12
++    },
++    {
++      "id": "Kk2i_0022",
++      "quaternion_xyzw": [
++        0.6238284831997735,
++        0.3329653101098941,
++        0.6237965088213114,
++        0.33294149845646415
++      ],
++      "display_pose_id": 13
++    },
++    {
++      "id": "Kk2i_0019",
++      "quaternion_xyzw": [
++        0.49679801386640254,
++        0.50333178060195,
++        -0.4968103828513094,
++        -0.5030191800971446
++      ],
++      "display_pose_id": 14
++    },
++    {
++      "id": "Kk2i_0005",
++      "quaternion_xyzw": [
++        -0.0662967422144872,
++        0.7038692910866855,
++        0.06623793340122949,
++        -0.704120230653549
++      ],
++      "display_pose_id": 15
++    },
++    {
++      "id": "Kk2i_0006",
++      "quaternion_xyzw": [
++        -0.6941569992512286,
++        0.1345018413552275,
++        -0.6942771661092658,
++        0.1342927089676504
++      ],
++      "display_pose_id": 16
++    },
++    {
++      "id": "Kk2i_0008",
++      "quaternion_xyzw": [
++        0.20127536974589286,
++        -0.677816915472466,
++        -0.20117828925617134,
++        0.6779231155263894
++      ],
++      "display_pose_id": 17
++    },
++    {
++      "id": "Kk2i_0010",
++      "quaternion_xyzw": [
++        -0.6548245754834872,
++        0.26691128429289557,
++        -0.654754821750209,
++        0.26694431077443836
++      ],
++      "display_pose_id": 18
++    },
++    {
++      "id": "Kk2i_0027",
++      "quaternion_xyzw": [
++        -0.677936845880187,
++        0.20111840793968364,
++        0.6779582485016304,
++        -0.2008124305774727
++      ],
++      "display_pose_id": 19
++    },
++    {
++      "id": "Kk2i_0012",
++      "quaternion_xyzw": [
++        -0.6257262531481038,
++        0.32927516764216763,
++        -0.6258362016903924,
++        0.32920141061240893
++      ],
++      "display_pose_id": 20
++    },
++    {
++      "id": "Kk2i_0023",
++      "quaternion_xyzw": [
++        0.6254949880741513,
++        -0.3297884606334503,
++        -0.6255427447264976,
++        0.3296844940957591
++      ],
++      "display_pose_id": 21
++    },
++    {
++      "id": "Kk2i_0025",
++      "quaternion_xyzw": [
++        0.2668173306127061,
++        -0.6547567991986204,
++        0.26668922445599685,
++        -0.6549648109226529
++      ],
++      "display_pose_id": 22
++    },
++    {
++      "id": "Kk2i_0013",
++      "quaternion_xyzw": [
++        0.621038742067988,
++        0.33813985235717736,
++        -0.621004609601051,
++        -0.33812068252729494
++      ],
++      "display_pose_id": 23
++    },
++    {
++      "id": "Kk2i_0007",
++      "quaternion_xyzw": [
++        -0.1406009831828728,
++        -0.6929066134537096,
++        -0.14050177078920958,
++        -0.6930880470511791
++      ],
++      "display_pose_id": 24
++    },
++    {
++      "id": "Kk2i_0011",
++      "quaternion_xyzw": [
++        -0.6505057355709414,
++        -0.27717301651743886,
++        0.6504188973004427,
++        0.2774394797760559
++      ],
++      "display_pose_id": 25
++    },
++    {
++      "id": "Kk2i_0009",
++      "quaternion_xyzw": [
++        0.6750746669203711,
++        0.21097466387693803,
++        -0.6747498637286796,
++        -0.21089453924293902
++      ],
++      "display_pose_id": 26
++    },
++    {
++      "id": "Kk2i_0014",
++      "quaternion_xyzw": [
++        0.5891612549063281,
++        -0.3911238265125281,
++        0.5889729059691172,
++        -0.3911803728277943
++      ],
++      "display_pose_id": 27
++    },
++    {
++      "id": "Kk2i_0001",
++      "quaternion_xyzw": [
++        -9.261147611205889e-05,
++        0.00035104460547030064,
++        -0.09778797698896452,
++        -0.9952072044289095
++      ],
++      "display_pose_id": 28
++    },
++    {
++      "id": "Kk2i_0002",
++      "quaternion_xyzw": [
++        -0.0002774387836517733,
++        -7.065212605870952e-05,
++        0.1956754706086277,
++        0.9806686638401834
++      ],
++      "display_pose_id": 29
++    },
++    {
++      "id": "Kk2i_0031",
++      "quaternion_xyzw": [
++        6.235367453627516e-05,
++        2.469589997014976e-05,
++        -0.0029932922913243226,
++        0.9999955178416504
++      ],
++      "display_pose_id": 30
++    }
++  ],
++  "previous_groups": [
++    [
++      "Kk2i_0005",
++      "Kk2i_0006",
++      "Kk2i_0008",
++      "Kk2i_0013",
++      "Kk2i_0015",
++      "Kk2i_0016",
++      "Kk2i_0019",
++      "Kk2i_0020",
++      "Kk2i_0021",
++      "Kk2i_0022",
++      "Kk2i_0024",
++      "Kk2i_0026",
++      "Kk2i_0028",
++      "Kk2i_0029",
++      "Kk2i_0030"
++    ],
++    [
++      "Kk2i_0018"
++    ],
++    [
++      "Kk2i_0017"
++    ],
++    [
++      "Kk2i_0003"
++    ],
++    [
++      "Kk2i_0004"
++    ],
++    [
++      "Kk2i_0010"
++    ],
++    [
++      "Kk2i_0027"
++    ],
++    [
++      "Kk2i_0012"
++    ],
++    [
++      "Kk2i_0023"
++    ],
++    [
++      "Kk2i_0025"
++    ],
++    [
++      "Kk2i_0007"
++    ],
++    [
++      "Kk2i_0011"
++    ],
++    [
++      "Kk2i_0009"
++    ],
++    [
++      "Kk2i_0014"
++    ],
++    [
++      "Kk2i_0001",
++      "Kk2i_0002",
++      "Kk2i_0031"
++    ]
++  ]
++}
+\ No newline at end of file
+diff --git a/tests/fixtures/contact_Kk4a.json b/tests/fixtures/contact_Kk4a.json
+new file mode 100644
+index 0000000..2c32613
+--- /dev/null
++++ b/tests/fixtures/contact_Kk4a.json
+@@ -0,0 +1,1359 @@
++{
++  "recognition": {
++    "ambiguity_margin_deg": 1.0,
++    "continuous_axis_part": null,
++    "quaternion_order": "xyzw",
++    "rotation": "part_to_chute",
++    "symmetry_available": true,
++    "symmetry_composition": "q_part_to_chute * q_symmetry_part",
++    "symmetry_quaternions_xyzw": [
++      [
++        0.0,
++        0.0,
++        0.0,
++        1.0
++      ]
++    ],
++    "symmetry_symbol": "C1",
++    "tolerance_deg": 5.0
++  },
++  "members": [
++    {
++      "id": "Kk4a_0018",
++      "quaternion_xyzw": [
++        0.6459525036002324,
++        -0.2875494464345496,
++        0.6459922560871145,
++        -0.2876711386692378
++      ],
++      "display_pose_id": 0
++    },
++    {
++      "id": "Kk4a_0053",
++      "quaternion_xyzw": [
++        0.14680243756648537,
++        0.6917032331549189,
++        -0.14652153033917265,
++        -0.691756548732744
++      ],
++      "display_pose_id": 1
++    },
++    {
++      "id": "Kk4a_0097",
++      "quaternion_xyzw": [
++        -0.5720369252297298,
++        -0.4155907626926607,
++        -0.5720152144445185,
++        -0.4157603499400113
++      ],
++      "display_pose_id": 2
++    },
++    {
++      "id": "Kk4a_0009",
++      "quaternion_xyzw": [
++        -0.69118336865541,
++        0.14806686178214354,
++        -0.6916031331162481,
++        0.14841449255357972
++      ],
++      "display_pose_id": 3
++    },
++    {
++      "id": "Kk4a_0089",
++      "quaternion_xyzw": [
++        -0.47314051435778337,
++        -0.5253695038969328,
++        -0.4733599703095555,
++        -0.5254096273926465
++      ],
++      "display_pose_id": 4
++    },
++    {
++      "id": "Kk4a_0093",
++      "quaternion_xyzw": [
++        -0.5257959196877078,
++        -0.4726611222582371,
++        -0.5256694529294256,
++        -0.47307688656519653
++      ],
++      "display_pose_id": 5
++    },
++    {
++      "id": "Kk4a_0050",
++      "quaternion_xyzw": [
++        0.21851990171607705,
++        0.6725355502449896,
++        -0.21859747499787707,
++        -0.6724285316189503
++      ],
++      "display_pose_id": 6
++    },
++    {
++      "id": "Kk4a_0070",
++      "quaternion_xyzw": [
++        0.14723807106482706,
++        -0.6917419523218868,
++        -0.147394909615184,
++        0.691439630370248
++      ],
++      "display_pose_id": 7
++    },
++    {
++      "id": "Kk4a_0109",
++      "quaternion_xyzw": [
++        -0.6722809690446185,
++        -0.21926297421465957,
++        -0.6723586827495492,
++        -0.21885120180218598
++      ],
++      "display_pose_id": 8
++    },
++    {
++      "id": "Kk4a_0033",
++      "quaternion_xyzw": [
++        0.4731068236374656,
++        0.5254871811426064,
++        -0.47299349992300843,
++        -0.5256522661542025
++      ],
++      "display_pose_id": 9
++    },
++    {
++      "id": "Kk4a_0038",
++      "quaternion_xyzw": [
++        0.4151528854341181,
++        0.5723727514966858,
++        -0.41518918074670486,
++        -0.572411966376245
++      ],
++      "display_pose_id": 10
++    },
++    {
++      "id": "Kk4a_0014",
++      "quaternion_xyzw": [
++        -0.6718805494544645,
++        0.2200616608846662,
++        -0.672050618663885,
++        0.2202211584451836
++      ],
++      "display_pose_id": 11
++    },
++    {
++      "id": "Kk4a_0066",
++      "quaternion_xyzw": [
++        -0.07514781784668587,
++        0.7030854255689754,
++        0.0755066055169468,
++        -0.70308067982891
++      ],
++      "display_pose_id": 12
++    },
++    {
++      "id": "Kk4a_0103",
++      "quaternion_xyzw": [
++        0.6306125629801133,
++        0.32004793829956374,
++        0.6305417270835169,
++        0.31986597663456995
++      ],
++      "display_pose_id": 13
++    },
++    {
++      "id": "Kk4a_0057",
++      "quaternion_xyzw": [
++        -0.073291920467884,
++        -0.7031618572813173,
++        0.07357072169232946,
++        0.7034053211118662
++      ],
++      "display_pose_id": 14
++    },
++    {
++      "id": "Kk4a_0021",
++      "quaternion_xyzw": [
++        -0.612414180028681,
++        -0.353652411152049,
++        0.6124987198324945,
++        0.3531630818611933
++      ],
++      "display_pose_id": 15
++    },
++    {
++      "id": "Kk4a_0113",
++      "quaternion_xyzw": [
++        0.6920168202899762,
++        0.1457931570911641,
++        0.6918411141143153,
++        0.14564665668049184
++      ],
++      "display_pose_id": 16
++    },
++    {
++      "id": "Kk4a_0046",
++      "quaternion_xyzw": [
++        -0.2870539184468783,
++        -0.6462870807387838,
++        0.28699693131406806,
++        0.646177853683289
++      ],
++      "display_pose_id": 17
++    },
++    {
++      "id": "Kk4a_0105",
++      "quaternion_xyzw": [
++        0.6460895038844356,
++        0.28733969505115053,
++        0.6462225587601024,
++        0.2870551465621575
++      ],
++      "display_pose_id": 18
++    },
++    {
++      "id": "Kk4a_0006",
++      "quaternion_xyzw": [
++        -0.7031245053594866,
++        0.0744446084065348,
++        -0.7032179330813008,
++        0.07455513956152324
++      ],
++      "display_pose_id": 19
++    },
++    {
++      "id": "Kk4a_0061",
++      "quaternion_xyzw": [
++        -0.000549640619515207,
++        0.7070164266942384,
++        0.0009066505898203125,
++        -0.7071963293629346
++      ],
++      "display_pose_id": 20
++    },
++    {
++      "id": "Kk4a_0013",
++      "quaternion_xyzw": [
++        0.672268129931099,
++        0.21915581342296092,
++        -0.6724022947634846,
++        -0.21886398725844217
++      ],
++      "display_pose_id": 21
++    },
++    {
++      "id": "Kk4a_0025",
++      "quaternion_xyzw": [
++        0.5718514051166355,
++        0.4161256918917493,
++        -0.5716393425344658,
++        -0.4159974051367465
++      ],
++      "display_pose_id": 22
++    },
++    {
++      "id": "Kk4a_0102",
++      "quaternion_xyzw": [
++        0.6124388544243693,
++        0.353370974827711,
++        0.6124243329001735,
++        0.35353081932478936
++      ],
++      "display_pose_id": 23
++    },
++    {
++      "id": "Kk4a_0002",
++      "quaternion_xyzw": [
++        0.7070569497715613,
++        -0.0004772959951650224,
++        0.707156406650057,
++        -0.00024187196636271668
++      ],
++      "display_pose_id": 24
++    },
++    {
++      "id": "Kk4a_0008",
++      "quaternion_xyzw": [
++        0.6983276439062349,
++        -0.11069539030097042,
++        0.6983999368458591,
++        -0.1110070292196969
++      ],
++      "display_pose_id": 25
++    },
++    {
++      "id": "Kk4a_0010",
++      "quaternion_xyzw": [
++        0.6917908104744803,
++        0.1468652141733534,
++        -0.691548472742668,
++        -0.14702650528445632
++      ],
++      "display_pose_id": 26
++    },
++    {
++      "id": "Kk4a_0035",
++      "quaternion_xyzw": [
++        0.44507390916006334,
++        0.5495440548439661,
++        -0.44516639598763713,
++        -0.5493063144130148
++      ],
++      "display_pose_id": 27
++    },
++    {
++      "id": "Kk4a_0074",
++      "quaternion_xyzw": [
++        -0.2197365628682713,
++        0.6720743294896011,
++        0.21954713717827015,
++        -0.67218374953339
++      ],
++      "display_pose_id": 28
++    },
++    {
++      "id": "Kk4a_0077",
++      "quaternion_xyzw": [
++        -0.2877272973000671,
++        -0.645920424594315,
++        -0.2875491976189597,
++        -0.645999432220332
++      ],
++      "display_pose_id": 29
++    },
++    {
++      "id": "Kk4a_0078",
++      "quaternion_xyzw": [
++        0.28861036488153374,
++        -0.6455571463784048,
++        -0.2886598472826491,
++        0.6454730982848754
++      ],
++      "display_pose_id": 30
++    },
++    {
++      "id": "Kk4a_0082",
++      "quaternion_xyzw": [
++        0.3537667625712647,
++        -0.6122292261895824,
++        -0.3535985631711646,
++        0.6123663188177804
++      ],
++      "display_pose_id": 31
++    },
++    {
++      "id": "Kk4a_0118",
++      "quaternion_xyzw": [
++        0.7032670407402382,
++        0.0737936037378401,
++        0.7032324846731178,
++        0.0737159816886682
++      ],
++      "display_pose_id": 32
++    },
++    {
++      "id": "Kk4a_0017",
++      "quaternion_xyzw": [
++        0.6461181155667042,
++        0.28733059186484294,
++        -0.6460531426628947,
++        -0.2873810163711721
++      ],
++      "display_pose_id": 33
++    },
++    {
++      "id": "Kk4a_0030",
++      "quaternion_xyzw": [
++        0.5256353260083347,
++        0.4730505834624643,
++        -0.5254063615798127,
++        -0.4731583294727009
++      ],
++      "display_pose_id": 34
++    },
++    {
++      "id": "Kk4a_0022",
++      "quaternion_xyzw": [
++        -0.6118911460911676,
++        0.3544539994807182,
++        -0.6119197314318238,
++        0.3542680198264658
++      ],
++      "display_pose_id": 35
++    },
++    {
++      "id": "Kk4a_0086",
++      "quaternion_xyzw": [
++        -0.4163159231748489,
++        0.5715949146734423,
++        0.4164884954641034,
++        -0.5713997189153853
++      ],
++      "display_pose_id": 36
++    },
++    {
++      "id": "Kk4a_0099",
++      "quaternion_xyzw": [
++        -0.5930332588953113,
++        -0.3850960397966194,
++        -0.5929425697064834,
++        -0.3852683519403577
++      ],
++      "display_pose_id": 37
++    },
++    {
++      "id": "Kk4a_0012",
++      "quaternion_xyzw": [
++        0.6829798138508193,
++        -0.18299474810653565,
++        0.683047597810274,
++        -0.18302315471912306
++      ],
++      "display_pose_id": 38
++    },
++    {
++      "id": "Kk4a_0029",
++      "quaternion_xyzw": [
++        0.5250310435894663,
++        -0.47362821823873785,
++        0.5249550590162788,
++        -0.47375193948792427
++      ],
++      "display_pose_id": 39
++    },
++    {
++      "id": "Kk4a_0031",
++      "quaternion_xyzw": [
++        -0.500263873144056,
++        -0.49986608668282795,
++        0.4998416974115628,
++        0.5000282293431355
++      ],
++      "display_pose_id": 40
++    },
++    {
++      "id": "Kk4a_0095",
++      "quaternion_xyzw": [
++        0.5494942841040206,
++        0.444896496765674,
++        0.5497013516693307,
++        0.4449174787256074
++      ],
++      "display_pose_id": 41
++    },
++    {
++      "id": "Kk4a_0020",
++      "quaternion_xyzw": [
++        0.6297680041022434,
++        -0.32136773648197214,
++        0.6299824057270572,
++        -0.32130547370357726
++      ],
++      "display_pose_id": 42
++    },
++    {
++      "id": "Kk4a_0048",
++      "quaternion_xyzw": [
++        -0.2534782509359841,
++        -0.660084250420992,
++        0.25337251175180564,
++        0.6601817393242354
++      ],
++      "display_pose_id": 43
++    },
++    {
++      "id": "Kk4a_0085",
++      "quaternion_xyzw": [
++        -0.4156545083903942,
++        -0.5721823940122234,
++        -0.4153529498679053,
++        -0.5721193622603679
++      ],
++      "display_pose_id": 44
++    },
++    {
++      "id": "Kk4a_0026",
++      "quaternion_xyzw": [
++        -0.5717303034547809,
++        0.4162096236393328,
++        -0.5716478281175995,
++        0.41606822746989514
++      ],
++      "display_pose_id": 45
++    },
++    {
++      "id": "Kk4a_0041",
++      "quaternion_xyzw": [
++        0.3533074064312435,
++        0.6125844125954747,
++        -0.3530607488344428,
++        -0.6125865829728463
++      ],
++      "display_pose_id": 46
++    },
++    {
++      "id": "Kk4a_0005",
++      "quaternion_xyzw": [
++        0.7032716526674381,
++        0.07420144167107495,
++        -0.7031102521225855,
++        -0.07442514338890258
++      ],
++      "display_pose_id": 47
++    },
++    {
++      "id": "Kk4a_0037",
++      "quaternion_xyzw": [
++        -0.4152241335750819,
++        0.5722709670154726,
++        -0.4153998622509434,
++        0.5723091940986932
++      ],
++      "display_pose_id": 48
++    },
++    {
++      "id": "Kk4a_0060",
++      "quaternion_xyzw": [
++        0.037401730194850075,
++        0.7062579937472045,
++        -0.037476096083987775,
++        -0.705971882633373
++      ],
++      "display_pose_id": 49
++    },
++    {
++      "id": "Kk4a_0117",
++      "quaternion_xyzw": [
++        -0.703039735294527,
++        0.07370005792894654,
++        0.7034969826079887,
++        -0.07345357390710511
++      ],
++      "display_pose_id": 50
++    },
++    {
++      "id": "Kk4a_0015",
++      "quaternion_xyzw": [
++        0.6599999707053603,
++        0.25382162461611457,
++        -0.660071668432933,
++        -0.25353503520879334
++      ],
++      "display_pose_id": 51
++    },
++    {
++      "id": "Kk4a_0019",
++      "quaternion_xyzw": [
++        -0.6304115154964326,
++        -0.3203831399737088,
++        0.6304257251054608,
++        0.3201552277807314
++      ],
++      "display_pose_id": 52
++    },
++    {
++      "id": "Kk4a_0027",
++      "quaternion_xyzw": [
++        -0.5500021935491113,
++        -0.44437578392855015,
++        0.5498856302896172,
++        0.44458243706881073
++      ],
++      "display_pose_id": 53
++    },
++    {
++      "id": "Kk4a_0039",
++      "quaternion_xyzw": [
++        0.38506249566160156,
++        0.5930921235399781,
++        -0.38494196946209636,
++        -0.593117431522916
++      ],
++      "display_pose_id": 54
++    },
++    {
++      "id": "Kk4a_0094",
++      "quaternion_xyzw": [
++        -0.5260185634562169,
++        0.472664389616249,
++        0.5259722612746636,
++        -0.4724891808896513
++      ],
++      "display_pose_id": 55
++    },
++    {
++      "id": "Kk4a_0107",
++      "quaternion_xyzw": [
++        0.6602157829084716,
++        0.2530308509339455,
++        0.6603549380369549,
++        0.25302542220971946
++      ],
++      "display_pose_id": 56
++    },
++    {
++      "id": "Kk4a_0081",
++      "quaternion_xyzw": [
++        0.35336481011645204,
++        0.6124566289280234,
++        0.35365699103624515,
++        0.6123372611107989
++      ],
++      "display_pose_id": 57
++    },
++    {
++      "id": "Kk4a_0090",
++      "quaternion_xyzw": [
++        -0.473343853210139,
++        0.52518080539557,
++        0.4733232880333408,
++        -0.5254481737312882
++      ],
++      "display_pose_id": 58
++    },
++    {
++      "id": "Kk4a_0112",
++      "quaternion_xyzw": [
++        0.6828935535456762,
++        0.18302881666055265,
++        0.683108015390947,
++        0.18308546120934455
++      ],
++      "display_pose_id": 59
++    },
++    {
++      "id": "Kk4a_0054",
++      "quaternion_xyzw": [
++        0.14626462893607467,
++        -0.6917695506803733,
++        0.14645917040029738,
++        -0.69181735919195
++      ],
++      "display_pose_id": 60
++    },
++    {
++      "id": "Kk4a_0073",
++      "quaternion_xyzw": [
++        0.21919452245460205,
++        0.6722503432960248,
++        0.2190642453591266,
++        0.6723422444481025
++      ],
++      "display_pose_id": 61
++    },
++    {
++      "id": "Kk4a_0016",
++      "quaternion_xyzw": [
++        0.6598650697618749,
++        -0.2540957459360908,
++        0.6597015060770735,
++        -0.25457290603082433
++      ],
++      "display_pose_id": 62
++    },
++    {
++      "id": "Kk4a_0098",
++      "quaternion_xyzw": [
++        0.5730462149599947,
++        -0.4143738490437287,
++        -0.5728236068694853,
++        0.414470100443617
++      ],
++      "display_pose_id": 63
++    },
++    {
++      "id": "Kk4a_0114",
++      "quaternion_xyzw": [
++        -0.6918369426407699,
++        0.1465201551883821,
++        0.6916746116035833,
++        -0.14655961443752727
++      ],
++      "display_pose_id": 64
++    },
++    {
++      "id": "Kk4a_0043",
++      "quaternion_xyzw": [
++        0.32052551839169324,
++        -0.6302932381170215,
++        0.32049516262671357,
++        -0.630298878926952
++      ],
++      "display_pose_id": 65
++    },
++    {
++      "id": "Kk4a_0072",
++      "quaternion_xyzw": [
++        -0.18323574084917157,
++        0.682851335857854,
++        0.1834352321792706,
++        -0.683000901893941
++      ],
++      "display_pose_id": 66
++    },
++    {
++      "id": "Kk4a_0007",
++      "quaternion_xyzw": [
++        -0.6984719490959667,
++        -0.11076153602582606,
++        0.6982857202443137,
++        0.11075139442084422
++      ],
++      "display_pose_id": 67
++    },
++    {
++      "id": "Kk4a_0024",
++      "quaternion_xyzw": [
++        -0.5930326584710386,
++        0.38520877250771296,
++        -0.5928616118341744,
++        0.38528116588182504
++      ],
++      "display_pose_id": 68
++    },
++    {
++      "id": "Kk4a_0051",
++      "quaternion_xyzw": [
++        -0.18354789647438224,
++        -0.6828416292097024,
++        0.18347328231748725,
++        0.6829165642988289
++      ],
++      "display_pose_id": 69
++    },
++    {
++      "id": "Kk4a_0119",
++      "quaternion_xyzw": [
++        0.7059498154573715,
++        0.036343538274545756,
++        0.7064001010929488,
++        0.03623399587765119
++      ],
++      "display_pose_id": 70
++    },
++    {
++      "id": "Kk4a_0055",
++      "quaternion_xyzw": [
++        -0.11028348759343634,
++        -0.6984334642151601,
++        0.11012443142664391,
++        0.6984990036010056
++      ],
++      "display_pose_id": 71
++    },
++    {
++      "id": "Kk4a_0106",
++      "quaternion_xyzw": [
++        0.6459845613961902,
++        -0.28749408515673536,
++        -0.6459312294426223,
++        0.2877914944337412
++      ],
++      "display_pose_id": 72
++    },
++    {
++      "id": "Kk4a_0011",
++      "quaternion_xyzw": [
++        0.683062903306165,
++        0.18277990845835196,
++        -0.683132570972045,
++        -0.18261014667326958
++      ],
++      "display_pose_id": 73
++    },
++    {
++      "id": "Kk4a_0049",
++      "quaternion_xyzw": [
++        0.21857283071772796,
++        -0.6725446520132019,
++        0.2184612390414824,
++        -0.672446500293474
++      ],
++      "display_pose_id": 74
++    },
++    {
++      "id": "Kk4a_0087",
++      "quaternion_xyzw": [
++        0.44437272110583687,
++        0.5500267204503119,
++        0.4444967479081041,
++        0.5499328437425682
++      ],
++      "display_pose_id": 75
++    },
++    {
++      "id": "Kk4a_0004",
++      "quaternion_xyzw": [
++        -0.706111804677149,
++        -0.03718029772216133,
++        0.7061467435494103,
++        0.037155367464672434
++      ],
++      "display_pose_id": 76
++    },
++    {
++      "id": "Kk4a_0110",
++      "quaternion_xyzw": [
++        -0.6726070982123021,
++        0.21880755613080538,
++        0.6721003044932629,
++        -0.21909843795553277
++      ],
++      "display_pose_id": 77
++    },
++    {
++      "id": "Kk4a_0003",
++      "quaternion_xyzw": [
++        -0.7062712118929891,
++        0.03729853502911984,
++        -0.7059760012271666,
++        0.03725158019721578
++      ],
++      "display_pose_id": 78
++    },
++    {
++      "id": "Kk4a_0047",
++      "quaternion_xyzw": [
++        0.2538886520652803,
++        -0.6599757948665181,
++        0.25375287522798207,
++        -0.6599863489923975
++      ],
++      "display_pose_id": 79
++    },
++    {
++      "id": "Kk4a_0120",
++      "quaternion_xyzw": [
++        0.7059782905016324,
++        -0.03792884797056384,
++        -0.7061957728505703,
++        0.03799455539948368
++      ],
++      "display_pose_id": 80
++    },
++    {
++      "id": "Kk4a_0042",
++      "quaternion_xyzw": [
++        0.3529430953086224,
++        -0.6125269757328085,
++        0.35321068967957736,
++        -0.6127675612903034
++      ],
++      "display_pose_id": 81
++    },
++    {
++      "id": "Kk4a_0084",
++      "quaternion_xyzw": [
++        0.38586286914205714,
++        -0.5923941997450832,
++        -0.3860386674601151,
++        0.592581729005764
++      ],
++      "display_pose_id": 82
++    },
++    {
++      "id": "Kk4a_0023",
++      "quaternion_xyzw": [
++        -0.5931840159774744,
++        -0.3849451979039521,
++        0.5930083491014206,
++        0.38508572512562733
++      ],
++      "display_pose_id": 83
++    },
++    {
++      "id": "Kk4a_0028",
++      "quaternion_xyzw": [
++        0.5490957275154162,
++        -0.445554278983166,
++        0.549205495103285,
++        -0.44536343659135585
++      ],
++      "display_pose_id": 84
++    },
++    {
++      "id": "Kk4a_0044",
++      "quaternion_xyzw": [
++        -0.32074971189211293,
++        -0.6303012444234983,
++        0.3205489375025933,
++        0.6301494602594486
++      ],
++      "display_pose_id": 85
++    },
++    {
++      "id": "Kk4a_0065",
++      "quaternion_xyzw": [
++        -0.07419139950836723,
++        -0.7032743912099362,
++        -0.07431603443551993,
++        -0.7031201134465307
++      ],
++      "display_pose_id": 86
++    },
++    {
++      "id": "Kk4a_0052",
++      "quaternion_xyzw": [
++        0.18310320135767683,
++        -0.6831880152164572,
++        0.18269199007403,
++        -0.6828989605204847
++      ],
++      "display_pose_id": 87
++    },
++    {
++      "id": "Kk4a_0064",
++      "quaternion_xyzw": [
++        0.037663243204011265,
++        -0.7059923633845313,
++        -0.03768121264582705,
++        0.7062127081606642
++      ],
++      "display_pose_id": 88
++    },
++    {
++      "id": "Kk4a_0091",
++      "quaternion_xyzw": [
++        -0.5001173458549898,
++        -0.49980602399348933,
++        -0.5003213946580143,
++        -0.49975502078742523
++      ],
++      "display_pose_id": 89
++    },
++    {
++      "id": "Kk4a_0101",
++      "quaternion_xyzw": [
++        0.612513485411443,
++        -0.35346945219656334,
++        -0.6124487416846249,
++        0.3532606903717238
++      ],
++      "display_pose_id": 90
++    },
++    {
++      "id": "Kk4a_0045",
++      "quaternion_xyzw": [
++        0.28683224389984574,
++        -0.646346786107638,
++        0.28730423584166465,
++        -0.6460800043455486
++      ],
++      "display_pose_id": 91
++    },
++    {
++      "id": "Kk4a_0076",
++      "quaternion_xyzw": [
++        -0.2540570663388285,
++        0.6599689637181803,
++        0.2539252963021257,
++        -0.6598620445744225
++      ],
++      "display_pose_id": 92
++    },
++    {
++      "id": "Kk4a_0001",
++      "quaternion_xyzw": [
++        -0.7072095847459021,
++        3.783093078826849e-05,
++        0.7070039570139557,
++        8.111077720285298e-05
++      ],
++      "display_pose_id": 93
++    },
++    {
++      "id": "Kk4a_0056",
++      "quaternion_xyzw": [
++        -0.11040989786232075,
++        0.6984242893141203,
++        -0.11055273370061947,
++        0.6984205463912254
++      ],
++      "display_pose_id": 94
++    },
++    {
++      "id": "Kk4a_0058",
++      "quaternion_xyzw": [
++        0.07376003856613966,
++        -0.7031865835731566,
++        0.0738189042012988,
++        -0.7033056624085671
++      ],
++      "display_pose_id": 95
++    },
++    {
++      "id": "Kk4a_0071",
++      "quaternion_xyzw": [
++        -0.1830224629241868,
++        -0.6830252181205232,
++        -0.18313134451846483,
++        -0.6829657679060027
++      ],
++      "display_pose_id": 96
++    },
++    {
++      "id": "Kk4a_0088",
++      "quaternion_xyzw": [
++        -0.4448924945786986,
++        0.549551090642853,
++        0.44477112721312506,
++        -0.5497662334468713
++      ],
++      "display_pose_id": 97
++    },
++    {
++      "id": "Kk4a_0096",
++      "quaternion_xyzw": [
++        -0.5497654023914744,
++        0.44451603292146236,
++        0.5498353126966751,
++        -0.4447972883470124
++      ],
++      "display_pose_id": 98
++    },
++    {
++      "id": "Kk4a_0111",
++      "quaternion_xyzw": [
++        0.6829342684808263,
++        -0.18325376714294395,
++        -0.6829091160243189,
++        0.18345021399104947
++      ],
++      "display_pose_id": 99
++    },
++    {
++      "id": "Kk4a_0069",
++      "quaternion_xyzw": [
++        -0.14707766474640052,
++        -0.691672814162738,
++        -0.14675334951183033,
++        -0.6916793571359513
++      ],
++      "display_pose_id": 100
++    },
++    {
++      "id": "Kk4a_0115",
++      "quaternion_xyzw": [
++        0.6983289561961263,
++        -0.11086234493021362,
++        -0.6983955290304579,
++        0.11085979634146022
++      ],
++      "display_pose_id": 101
++    },
++    {
++      "id": "Kk4a_0080",
++      "quaternion_xyzw": [
++        0.32103545346604967,
++        -0.6298271458990271,
++        -0.32151252134928826,
++        0.6299870653609939
++      ],
++      "display_pose_id": 102
++    },
++    {
++      "id": "Kk4a_0062",
++      "quaternion_xyzw": [
++        0.00031819566985114017,
++        0.7069412540409202,
++        0.0004720102963974016,
++        0.7072720405140068
++      ],
++      "display_pose_id": 103
++    },
++    {
++      "id": "Kk4a_0034",
++      "quaternion_xyzw": [
++        -0.4726161313975791,
++        0.5259057985295011,
++        -0.4728818375593147,
++        0.525775475961327
++      ],
++      "display_pose_id": 104
++    },
++    {
++      "id": "Kk4a_0068",
++      "quaternion_xyzw": [
++        -0.1107374710128256,
++        0.6984741979648217,
++        0.11063362947531846,
++        -0.6983059553807347
++      ],
++      "display_pose_id": 105
++    },
++    {
++      "id": "Kk4a_0079",
++      "quaternion_xyzw": [
++        -0.3204914079526635,
++        -0.6302205189067719,
++        -0.32048412766485523,
++        -0.6303945422450099
++      ],
++      "display_pose_id": 106
++    },
++    {
++      "id": "Kk4a_0100",
++      "quaternion_xyzw": [
++        -0.5933452682662439,
++        0.38466852863135315,
++        0.5933030710994569,
++        -0.384659565759909
++      ],
++      "display_pose_id": 107
++    },
++    {
++      "id": "Kk4a_0059",
++      "quaternion_xyzw": [
++        -0.037357369478916706,
++        0.7061914920101684,
++        -0.03715962195823957,
++        0.7060574807011032
++      ],
++      "display_pose_id": 108
++    },
++    {
++      "id": "Kk4a_0108",
++      "quaternion_xyzw": [
++        -0.6603962818891885,
++        0.25286425723849065,
++        0.6604326606797439,
++        -0.25251756173707246
++      ],
++      "display_pose_id": 109
++    },
++    {
++      "id": "Kk4a_0040",
++      "quaternion_xyzw": [
++        0.38488533663439517,
++        -0.5930943728482502,
++        0.3852062882001981,
++        -0.5930585620919703
++      ],
++      "display_pose_id": 110
++    },
++    {
++      "id": "Kk4a_0104",
++      "quaternion_xyzw": [
++        0.6305696292556848,
++        -0.31995995134348204,
++        -0.6306266842148854,
++        0.31987115742555466
++      ],
++      "display_pose_id": 111
++    },
++    {
++      "id": "Kk4a_0116",
++      "quaternion_xyzw": [
++        0.6983926571721203,
++        0.1104003448284872,
++        0.6985146961914135,
++        0.1101665987240863
++      ],
++      "display_pose_id": 112
++    },
++    {
++      "id": "Kk4a_0067",
++      "quaternion_xyzw": [
++        0.11014757169741919,
++        0.6984957997328638,
++        0.11037308973279951,
++        0.6984188652002067
++      ],
++      "display_pose_id": 113
++    },
++    {
++      "id": "Kk4a_0036",
++      "quaternion_xyzw": [
++        0.44459887292868416,
++        -0.5497909026102064,
++        0.44503009408649075,
++        -0.5495543839830301
++      ],
++      "display_pose_id": 114
++    },
++    {
++      "id": "Kk4a_0083",
++      "quaternion_xyzw": [
++        0.38502084841712336,
++        0.5930872096859918,
++        0.38477183369032053,
++        0.5932597609729076
++      ],
++      "display_pose_id": 115
++    },
++    {
++      "id": "Kk4a_0092",
++      "quaternion_xyzw": [
++        0.5004947177728704,
++        -0.4995554909666009,
++        -0.5001088449659081,
++        0.49984046666255283
++      ],
++      "display_pose_id": 116
++    },
++    {
++      "id": "Kk4a_0075",
++      "quaternion_xyzw": [
++        0.2532427763806217,
++        0.660239160295906,
++        0.25324349185097456,
++        0.6601667071716938
++      ],
++      "display_pose_id": 117
++    },
++    {
++      "id": "Kk4a_0032",
++      "quaternion_xyzw": [
++        0.5000531266146842,
++        -0.49996339357943687,
++        0.49999280132724905,
++        -0.49999067417737103
++      ],
++      "display_pose_id": 118
++    },
++    {
++      "id": "Kk4a_0063",
++      "quaternion_xyzw": [
++        -0.03671411576427109,
++        -0.706256405825989,
++        -0.03621373845554519,
++        -0.7060754407855276
++      ],
++      "display_pose_id": 119
++    },
++    {
++      "id": "Kk4a_0121",
++      "quaternion_xyzw": [
++        -0.7829007007417623,
++        -0.45795841178789226,
++        0.13111695777009041,
++        0.40018611824485517
++      ],
++      "display_pose_id": 120
++    }
++  ],
++  "previous_groups": [
++    [
++      "Kk4a_0001",
++      "Kk4a_0004",
++      "Kk4a_0005",
++      "Kk4a_0007",
++      "Kk4a_0010",
++      "Kk4a_0011",
++      "Kk4a_0013",
++      "Kk4a_0015",
++      "Kk4a_0017",
++      "Kk4a_0019",
++      "Kk4a_0021",
++      "Kk4a_0023",
++      "Kk4a_0025",
++      "Kk4a_0027",
++      "Kk4a_0030",
++      "Kk4a_0031",
++      "Kk4a_0033",
++      "Kk4a_0035",
++      "Kk4a_0038",
++      "Kk4a_0039",
++      "Kk4a_0041",
++      "Kk4a_0044",
++      "Kk4a_0046",
++      "Kk4a_0048",
++      "Kk4a_0050",
++      "Kk4a_0051",
++      "Kk4a_0053",
++      "Kk4a_0055",
++      "Kk4a_0057",
++      "Kk4a_0060",
++      "Kk4a_0061",
++      "Kk4a_0064",
++      "Kk4a_0066",
++      "Kk4a_0068",
++      "Kk4a_0070",
++      "Kk4a_0072",
++      "Kk4a_0074",
++      "Kk4a_0076",
++      "Kk4a_0078",
++      "Kk4a_0080",
++      "Kk4a_0082",
++      "Kk4a_0084",
++      "Kk4a_0086",
++      "Kk4a_0088",
++      "Kk4a_0090",
++      "Kk4a_0092",
++      "Kk4a_0094",
++      "Kk4a_0096",
++      "Kk4a_0098",
++      "Kk4a_0100",
++      "Kk4a_0101",
++      "Kk4a_0104",
++      "Kk4a_0106",
++      "Kk4a_0108",
++      "Kk4a_0110",
++      "Kk4a_0111",
++      "Kk4a_0114",
++      "Kk4a_0115",
++      "Kk4a_0117",
++      "Kk4a_0120",
++      "Kk4a_0121"
++    ],
++    [
++      "Kk4a_0002",
++      "Kk4a_0003",
++      "Kk4a_0006",
++      "Kk4a_0008",
++      "Kk4a_0009",
++      "Kk4a_0012",
++      "Kk4a_0014",
++      "Kk4a_0016",
++      "Kk4a_0018",
++      "Kk4a_0020",
++      "Kk4a_0022",
++      "Kk4a_0024",
++      "Kk4a_0026",
++      "Kk4a_0028",
++      "Kk4a_0029",
++      "Kk4a_0032",
++      "Kk4a_0034",
++      "Kk4a_0036",
++      "Kk4a_0037",
++      "Kk4a_0040",
++      "Kk4a_0042",
++      "Kk4a_0043",
++      "Kk4a_0045",
++      "Kk4a_0047",
++      "Kk4a_0049",
++      "Kk4a_0052",
++      "Kk4a_0054",
++      "Kk4a_0056",
++      "Kk4a_0058",
++      "Kk4a_0059",
++      "Kk4a_0062",
++      "Kk4a_0063",
++      "Kk4a_0065",
++      "Kk4a_0067",
++      "Kk4a_0069",
++      "Kk4a_0071",
++      "Kk4a_0073",
++      "Kk4a_0075",
++      "Kk4a_0077",
++      "Kk4a_0079",
++      "Kk4a_0081",
++      "Kk4a_0083",
++      "Kk4a_0085",
++      "Kk4a_0087",
++      "Kk4a_0089",
++      "Kk4a_0091",
++      "Kk4a_0093",
++      "Kk4a_0095",
++      "Kk4a_0097",
++      "Kk4a_0099",
++      "Kk4a_0102",
++      "Kk4a_0103",
++      "Kk4a_0105",
++      "Kk4a_0107",
++      "Kk4a_0109",
++      "Kk4a_0112",
++      "Kk4a_0113",
++      "Kk4a_0116",
++      "Kk4a_0118",
++      "Kk4a_0119"
++    ]
++  ]
++}
+\ No newline at end of file
+diff --git a/tests/fixtures/contact_Kl2a.json b/tests/fixtures/contact_Kl2a.json
+new file mode 100644
+index 0000000..a5a6a27
+--- /dev/null
++++ b/tests/fixtures/contact_Kl2a.json
+@@ -0,0 +1,371 @@
++{
++  "recognition": {
++    "ambiguity_margin_deg": 1.0,
++    "continuous_axis_part": null,
++    "quaternion_order": "xyzw",
++    "rotation": "part_to_chute",
++    "symmetry_available": true,
++    "symmetry_composition": "q_part_to_chute * q_symmetry_part",
++    "symmetry_quaternions_xyzw": [
++      [
++        0.0,
++        0.0,
++        0.0,
++        1.0
++      ],
++      [
++        0.9999999999999999,
++        -1.91977950759727e-08,
++        -5.382061169454531e-24,
++        -6.123233995736766e-17
++      ]
++    ],
++    "symmetry_symbol": "C2",
++    "tolerance_deg": 5.0
++  },
++  "members": [
++    {
++      "id": "Kl2a_0007",
++      "quaternion_xyzw": [
++        -0.6759286947139437,
++        0.2077142861973776,
++        -0.6758729505555455,
++        0.20777615281634063
++      ],
++      "display_pose_id": 0
++    },
++    {
++      "id": "Kl2a_0008",
++      "quaternion_xyzw": [
++        0.3307819462246547,
++        0.6249735577712805,
++        0.3307912593853996,
++        0.6249547974475906
++      ],
++      "display_pose_id": 1
++    },
++    {
++      "id": "Kl2a_0018",
++      "quaternion_xyzw": [
++        -0.6757046213014368,
++        0.20842375376681788,
++        0.675689101050552,
++        -0.20839156014370552
++      ],
++      "display_pose_id": 2
++    },
++    {
++      "id": "Kl2a_0009",
++      "quaternion_xyzw": [
++        -0.40373397022275426,
++        -0.5805533997498631,
++        -0.4036246188359179,
++        -0.5805547333340826
++      ],
++      "display_pose_id": 3
++    },
++    {
++      "id": "Kl2a_0015",
++      "quaternion_xyzw": [
++        -0.6249647216292915,
++        0.3306628350767995,
++        0.6250986001753912,
++        -0.33065529827383966
++      ],
++      "display_pose_id": 4
++    },
++    {
++      "id": "Kl2a_0006",
++      "quaternion_xyzw": [
++        -0.12526593213208265,
++        0.6959395713483159,
++        0.1252442776347818,
++        -0.69590978596248
++      ],
++      "display_pose_id": 5
++    },
++    {
++      "id": "Kl2a_0011",
++      "quaternion_xyzw": [
++        -0.5197186498374738,
++        -0.4794469290880833,
++        0.5196523305155003,
++        0.4795671200039978
++      ],
++      "display_pose_id": 6
++    },
++    {
++      "id": "Kl2a_0019",
++      "quaternion_xyzw": [
++        0.20850511747578343,
++        0.6757375049520227,
++        -0.6758505588424353,
++        0.20767874831092614
++      ],
++      "display_pose_id": 7
++    },
++    {
++      "id": "Kl2a_0017",
++      "quaternion_xyzw": [
++        -0.25764368607029564,
++        -0.6585097499224416,
++        0.25752062211676036,
++        0.6585345620920675
++      ],
++      "display_pose_id": 8
++    },
++    {
++      "id": "Kl2a_0003",
++      "quaternion_xyzw": [
++        -0.028838119198369042,
++        0.706525060690147,
++        0.028673833291263055,
++        -0.7065185862964044
++      ],
++      "display_pose_id": 9
++    },
++    {
++      "id": "Kl2a_0014",
++      "quaternion_xyzw": [
++        0.6028372704855941,
++        0.36964521879580964,
++        0.6027484537438179,
++        0.3696538097251444
++      ],
++      "display_pose_id": 10
++    },
++    {
++      "id": "Kl2a_0013",
++      "quaternion_xyzw": [
++        -0.4491481753840871,
++        -0.5460823422563889,
++        0.4492346327467065,
++        0.5461210825136249
++      ],
++      "display_pose_id": 11
++    },
++    {
++      "id": "Kl2a_0020",
++      "quaternion_xyzw": [
++        -0.16441074783573703,
++        -0.687576372387014,
++        0.16429659166058153,
++        0.6879058570036486
++      ],
++      "display_pose_id": 12
++    },
++    {
++      "id": "Kl2a_0022",
++      "quaternion_xyzw": [
++        -0.7037680828499931,
++        -0.06862523951971986,
++        -0.7037695207434685,
++        -0.06862596982932229
++      ],
++      "display_pose_id": 13
++    },
++    {
++      "id": "Kl2a_0002",
++      "quaternion_xyzw": [
++        0.7065499391416512,
++        -0.028102958650164184,
++        -0.7065485001096187,
++        0.02804682168953243
++      ],
++      "display_pose_id": 14
++    },
++    {
++      "id": "Kl2a_0012",
++      "quaternion_xyzw": [
++        -0.4994447887714429,
++        0.5005422998032022,
++        -0.49943381584571317,
++        0.5005778387689177
++      ],
++      "display_pose_id": 15
++    },
++    {
++      "id": "Kl2a_0001",
++      "quaternion_xyzw": [
++        -6.893721815254272e-05,
++        0.00024714447634084646,
++        -0.29422795000397306,
++        0.9557352392811135
++      ],
++      "display_pose_id": 16
++    },
++    {
++      "id": "Kl2a_0004",
++      "quaternion_xyzw": [
++        -0.7037562468448566,
++        -0.06882131756972368,
++        0.7037419989364099,
++        0.06883291514816578
++      ],
++      "display_pose_id": 17
++    },
++    {
++      "id": "Kl2a_0021",
++      "quaternion_xyzw": [
++        0.17563998060250693,
++        -0.9844544628104434,
++        8.853642215306269e-05,
++        -5.277726902015723e-06
++      ],
++      "display_pose_id": 18
++    },
++    {
++      "id": "Kl2a_0010",
++      "quaternion_xyzw": [
++        0.5456342133704768,
++        -0.44978828723101627,
++        0.5457280768296162,
++        -0.4496161340846416
++      ],
++      "display_pose_id": 19
++    },
++    {
++      "id": "Kl2a_0005",
++      "quaternion_xyzw": [
++        -0.6960940401740054,
++        0.12444398411220996,
++        0.1243245133585438,
++        0.6960676672785997
++      ],
++      "display_pose_id": 20
++    },
++    {
++      "id": "Kl2a_0016",
++      "quaternion_xyzw": [
++        -0.0002731754896289629,
++        0.00014952184580330208,
++        0.9572027391868706,
++        -0.289418069773678
++      ],
++      "display_pose_id": 21
++    },
++    {
++      "id": "Kl2a_0024",
++      "quaternion_xyzw": [
++        -0.6759072970518311,
++        -0.207759756225956,
++        0.20796932835730897,
++        -0.67582095849983
++      ],
++      "display_pose_id": 22
++    },
++    {
++      "id": "Kl2a_0025",
++      "quaternion_xyzw": [
++        0.3682287221031013,
++        -0.6036741716615827,
++        -0.7061886585824131,
++        -0.03581453862038653
++      ],
++      "display_pose_id": 23
++    },
++    {
++      "id": "Kl2a_0026",
++      "quaternion_xyzw": [
++        0.16807116833843297,
++        -0.6868876414822004,
++        -0.6622188541285405,
++        -0.24779757785147344
++      ],
++      "display_pose_id": 24
++    },
++    {
++      "id": "Kl2a_0027",
++      "quaternion_xyzw": [
++        -0.00046466116382827896,
++        -3.010098766526026e-05,
++        0.9994258192284707,
++        -0.03387941917202159
++      ],
++      "display_pose_id": 25
++    },
++    {
++      "id": "Kl2a_0023",
++      "quaternion_xyzw": [
++        0.7065648651588623,
++        0.027547718230271353,
++        -0.02784007159097456,
++        0.7065636170630029
++      ],
++      "display_pose_id": 26
++    }
++  ],
++  "previous_groups": [
++    [
++      "Kl2a_0007"
++    ],
++    [
++      "Kl2a_0015",
++      "Kl2a_0018"
++    ],
++    [
++      "Kl2a_0008"
++    ],
++    [
++      "Kl2a_0009"
++    ],
++    [
++      "Kl2a_0006"
++    ],
++    [
++      "Kl2a_0011"
++    ],
++    [
++      "Kl2a_0019"
++    ],
++    [
++      "Kl2a_0017"
++    ],
++    [
++      "Kl2a_0003"
++    ],
++    [
++      "Kl2a_0014"
++    ],
++    [
++      "Kl2a_0013"
++    ],
++    [
++      "Kl2a_0020"
++    ],
++    [
++      "Kl2a_0022"
++    ],
++    [
++      "Kl2a_0002"
++    ],
++    [
++      "Kl2a_0012"
++    ],
++    [
++      "Kl2a_0001"
++    ],
++    [
++      "Kl2a_0016",
++      "Kl2a_0021",
++      "Kl2a_0027"
++    ],
++    [
++      "Kl2a_0004"
++    ],
++    [
++      "Kl2a_0005",
++      "Kl2a_0023",
++      "Kl2a_0024"
++    ],
++    [
++      "Kl2a_0010"
++    ],
++    [
++      "Kl2a_0025"
++    ],
++    [
++      "Kl2a_0026"
++    ]
++  ]
++}
+\ No newline at end of file
+diff --git a/tests/fixtures/rolling_Kl4i.json b/tests/fixtures/rolling_Kl4i.json
+new file mode 100644
+index 0000000..75c1f4d
+--- /dev/null
++++ b/tests/fixtures/rolling_Kl4i.json
+@@ -0,0 +1,391 @@
++{
++  "members": [
++    {
++      "id": "Kl4i_0008",
++      "quaternion_xyzw": [
++        -0.4643624443946123,
++        -0.533260383554718,
++        0.464373183836597,
++        0.5332526884136617
++      ]
++    },
++    {
++      "id": "Kl4i_0028",
++      "quaternion_xyzw": [
++        -0.5370688135300571,
++        -0.4599213646891859,
++        -0.5371620774501132,
++        -0.45987642947354035
++      ]
++    },
++    {
++      "id": "Kl4i_0030",
++      "quaternion_xyzw": [
++        -0.5916600382342045,
++        -0.3873044327696199,
++        -0.591675662702245,
++        -0.38710926839790594
++      ]
++    },
++    {
++      "id": "Kl4i_0010",
++      "quaternion_xyzw": [
++        -0.3867037069270263,
++        -0.5920492914750852,
++        0.3866204659641288,
++        0.5919987287236569
++      ]
++    },
++    {
++      "id": "Kl4i_0023",
++      "quaternion_xyzw": [
++        -0.04733591111235783,
++        0.705462639056406,
++        0.0473119691548693,
++        -0.7055801541918698
++      ]
++    },
++    {
++      "id": "Kl4i_0024",
++      "quaternion_xyzw": [
++        0.14262273623483024,
++        -0.6925494268312608,
++        -0.14254535222406411,
++        0.6926145169312437
++      ]
++    },
++    {
++      "id": "Kl4i_0012",
++      "quaternion_xyzw": [
++        0.30362843543285023,
++        0.6385874369299458,
++        -0.30359784500670367,
++        -0.6386268136393333
++      ]
++    },
++    {
++      "id": "Kl4i_0020",
++      "quaternion_xyzw": [
++        -0.04916598028884381,
++        -0.7054460406514046,
++        0.049126588656196984,
++        0.7053475514939417
++      ]
++    },
++    {
++      "id": "Kl4i_0036",
++      "quaternion_xyzw": [
++        -0.6922439700868182,
++        -0.1438563209494539,
++        -0.6924173875237591,
++        -0.14374215198090184
++      ]
++    },
++    {
++      "id": "Kl4i_0034",
++      "quaternion_xyzw": [
++        0.6666252755474958,
++        0.2357580479181761,
++        0.666618583873186,
++        0.23589944569232166
++      ]
++    },
++    {
++      "id": "Kl4i_0032",
++      "quaternion_xyzw": [
++        -0.6385958116779082,
++        -0.3035864341281707,
++        -0.6385718271557532,
++        -0.30373786047139145
++      ]
++    },
++    {
++      "id": "Kl4i_0038",
++      "quaternion_xyzw": [
++        -0.7053415977033313,
++        -0.04830784124863785,
++        -0.7055694942558095,
++        -0.04828324552895649
++      ]
++    },
++    {
++      "id": "Kl4i_0014",
++      "quaternion_xyzw": [
++        0.2142959658599909,
++        0.6737840555714746,
++        -0.21422261106903467,
++        -0.6739443288436775
++      ]
++    },
++    {
++      "id": "Kl4i_0027",
++      "quaternion_xyzw": [
++        -0.40747013114250863,
++        0.5779540347724431,
++        0.4072633489400602,
++        -0.5779911682085527
++      ]
++    },
++    {
++      "id": "Kl4i_0017",
++      "quaternion_xyzw": [
++        0.14348032485207496,
++        0.6923522876953451,
++        -0.14367773289068025,
++        -0.6924004731185266
++      ]
++    },
++    {
++      "id": "Kl4i_0001",
++      "quaternion_xyzw": [
++        -0.705526022196554,
++        0.04804406543705844,
++        -0.7054234729480751,
++        0.047984618302780724
++      ]
++    },
++    {
++      "id": "Kl4i_0002",
++      "quaternion_xyzw": [
++        0.6924055435003096,
++        -0.14341581495498137,
++        0.6924566334064157,
++        -0.14321409917425135
++      ]
++    },
++    {
++      "id": "Kl4i_0018",
++      "quaternion_xyzw": [
++        0.12018542092702472,
++        0.6968433415167914,
++        0.6968506104395165,
++        -0.11985010934654877
++      ]
++    },
++    {
++      "id": "Kl4i_0003",
++      "quaternion_xyzw": [
++        0.6665281703596491,
++        -0.2361310330564471,
++        0.6664568855848885,
++        -0.2362573871886437
++      ]
++    },
++    {
++      "id": "Kl4i_0007",
++      "quaternion_xyzw": [
++        0.5274568990672885,
++        -0.47090484374641034,
++        0.5278031801055821,
++        -0.4705971215731388
++      ]
++    },
++    {
++      "id": "Kl4i_0005",
++      "quaternion_xyzw": [
++        -0.577893117166715,
++        0.40757131430751575,
++        -0.5777871519592322,
++        0.4075379441424082
++      ]
++    },
++    {
++      "id": "Kl4i_0022",
++      "quaternion_xyzw": [
++        -0.00023646362142309973,
++        -0.0005174021360090791,
++        0.30104966401355104,
++        0.9536082928421467
++      ]
++    },
++    {
++      "id": "Kl4i_0004",
++      "quaternion_xyzw": [
++        -0.6280604846708804,
++        0.3248531448741514,
++        -0.6281004507736166,
++        0.3248080750202065
++      ]
++    },
++    {
++      "id": "Kl4i_0029",
++      "quaternion_xyzw": [
++        -0.5486175471981435,
++        0.4461228637756345,
++        0.5484362404745998,
++        -0.4463304464822071
++      ]
++    },
++    {
++      "id": "Kl4i_0009",
++      "quaternion_xyzw": [
++        0.44587980225645807,
++        -0.5489089663593564,
++        0.44570030475671224,
++        -0.5488546136544894
++      ]
++    },
++    {
++      "id": "Kl4i_0006",
++      "quaternion_xyzw": [
++        0.5313232229397675,
++        0.46662503618772444,
++        -0.5312929164507983,
++        -0.4665667640294454
++      ]
++    },
++    {
++      "id": "Kl4i_0011",
++      "quaternion_xyzw": [
++        -0.34655079445246145,
++        0.6164584467294543,
++        -0.34722850808362143,
++        0.6158846430089802
++      ]
++    },
++    {
++      "id": "Kl4i_0031",
++      "quaternion_xyzw": [
++        0.616090189918384,
++        -0.34712233891227806,
++        -0.6158441910875739,
++        0.3473829184316505
++      ]
++    },
++    {
++      "id": "Kl4i_0019",
++      "quaternion_xyzw": [
++        -0.07230634128358522,
++        0.7034898629765848,
++        0.7032804028032354,
++        0.07259807664316423
++      ]
++    },
++    {
++      "id": "Kl4i_0026",
++      "quaternion_xyzw": [
++        -0.32387293252156213,
++        0.6286270924490724,
++        0.3239049101531103,
++        -0.628506094956616
++      ]
++    },
++    {
++      "id": "Kl4i_0013",
++      "quaternion_xyzw": [
++        0.25898868006336284,
++        -0.6579662935415816,
++        0.2596924164779243,
++        -0.6576967910717268
++      ]
++    },
++    {
++      "id": "Kl4i_0033",
++      "quaternion_xyzw": [
++        -0.6579214723070997,
++        0.2591903535952117,
++        0.6578313499024223,
++        -0.2592635955278032
++      ]
++    },
++    {
++      "id": "Kl4i_0016",
++      "quaternion_xyzw": [
++        0.1671253724036073,
++        -0.6871000503300815,
++        0.16739082207565179,
++        -0.6869810357063668
++      ]
++    },
++    {
++      "id": "Kl4i_0035",
++      "quaternion_xyzw": [
++        0.6871743764187459,
++        -0.16656095500090512,
++        -0.6871922747920933,
++        0.16678010111749672
++      ]
++    },
++    {
++      "id": "Kl4i_0025",
++      "quaternion_xyzw": [
++        0.23549808773113204,
++        -0.6668210858264788,
++        -0.23493464580758758,
++        0.6668553084226287
++      ]
++    },
++    {
++      "id": "Kl4i_0015",
++      "quaternion_xyzw": [
++        -0.21349429321498667,
++        -0.6740260032005075,
++        -0.6742039622115423,
++        0.21344355486273198
++      ]
++    },
++    {
++      "id": "Kl4i_0037",
++      "quaternion_xyzw": [
++        -0.7035761104137559,
++        0.07038007254453352,
++        0.7035981837261372,
++        -0.07054713389612355
++      ]
++    },
++    {
++      "id": "Kl4i_0021",
++      "quaternion_xyzw": [
++        -4.840396487287846e-05,
++        -1.3994600061406626e-05,
++        -0.4204957700511418,
++        -0.9072944972996941
++      ]
++    },
++    {
++      "id": "Kl4i_0041",
++      "quaternion_xyzw": [
++        0.16744474931704256,
++        -0.6869574482608054,
++        -0.68694795611671,
++        -0.16779221016552093
++      ]
++    },
++    {
++      "id": "Kl4i_0040",
++      "quaternion_xyzw": [
++        -0.25956374331904497,
++        0.657773232610251,
++        0.6577241569954735,
++        0.25953799513801323
++      ]
++    },
++    {
++      "id": "Kl4i_0039",
++      "quaternion_xyzw": [
++        0.3463832218282651,
++        -0.6164741166103523,
++        -0.6161458676500919,
++        -0.3469043051953555
++      ]
++    }
++  ],
++  "recognition": {
++    "ambiguity_margin_deg": 1.0,
++    "continuous_axis_part": null,
++    "quaternion_order": "xyzw",
++    "rotation": "part_to_chute",
++    "symmetry_available": true,
++    "symmetry_composition": "q_part_to_chute * q_symmetry_part",
++    "symmetry_quaternions_xyzw": [
++      [
++        0.0,
++        0.0,
++        0.0,
++        1.0
++      ]
++    ],
++    "symmetry_symbol": "C1",
++    "tolerance_deg": 5.0
++  }
++}
+\ No newline at end of file
+diff --git a/tests/test_contact_families.py b/tests/test_contact_families.py
+new file mode 100644
+index 0000000..f8be686
+--- /dev/null
++++ b/tests/test_contact_families.py
+@@ -0,0 +1,81 @@
++import json
++from pathlib import Path
++
++import pytest
++from scipy.spatial.transform import Rotation
++
++from dashas_drop_sim.catalog import catalog_models
++from dashas_drop_sim.grouping import analyze_groups
++from dashas_drop_sim.rolling_basins import scoped_model
++
++
++def fixture(part):
++    return json.loads((Path(__file__).parent / "fixtures" / ("contact_" + part + ".json")).read_text())
++
++
++def result(part, members=None):
++    data = fixture(part)
++    return analyze_groups(catalog_models()[part], data["members"] if members is None else members, data["recognition"])
++
++
++def display_groups(part):
++    data = fixture(part)
++    display = {m["id"]: m["display_pose_id"] for m in data["members"]}
++    return {frozenset(display[key] for key in group) for group in result(part)["groups"]}
++
++
++def test_kk2i_rounded_side_and_end_families():
++    groups = display_groups("Kk2i")
++    assert frozenset(range(4, 28)) in groups
++    assert frozenset((28, 29, 30)) in groups
++    assert len(groups) == 6
++
++
++def test_kl2a_requested_rolling_families():
++    groups = display_groups("Kl2a")
++    assert frozenset((3, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 17, 19)) in groups
++    assert frozenset((16, 18, 21, 25)) in groups
++
++
++def test_kk4a_only_tilted_pose_splits_from_previous_groups():
++    data = fixture("Kk4a")
++    tilted = next(m["id"] for m in data["members"] if m["display_pose_id"] == 120)
++    expected = {frozenset(group) - {tilted} for group in data["previous_groups"]}
++    expected.add(frozenset((tilted,)))
++    assert {frozenset(g) for g in result("Kk4a")["groups"]} == expected
++
++
++@pytest.mark.parametrize("part", ["Kk2i", "Kl2a", "Kk4a"])
++def test_order_invariance_and_recognition_unchanged(part):
++    data = fixture(part)
++    before = json.dumps(data, sort_keys=True)
++    a = result(part)
++    b = result(part, list(reversed(data["members"])))
++    assert a == b
++    assert json.dumps(data, sort_keys=True) == before
++    assert not a["energy_barrier_applied"]
++
++
++def test_family_rule_is_geometry_based_not_pose_id_based():
++    data = fixture("Kk2i")
++    renamed = [{**m, "id": "observation_" + str(m["display_pose_id"])} for m in data["members"]]
++    a = result("Kk2i", renamed)
++    assert {"observation_" + str(i) for i in range(4, 28)} in [set(group) for group in a["groups"]]
++
++
++def test_axis_tolerance_excludes_tilt_and_flat_support_stays_distinct():
++    data = fixture("Kk2i")
++    base = next(m for m in data["members"] if m["display_pose_id"] == 4)
++    tilt = (Rotation.from_euler("y", 11, degrees=True) * Rotation.from_quat(base["quaternion_xyzw"])).as_quat().tolist()
++    a = result("Kk2i", [base, {"id": "tilted_probe", "quaternion_xyzw": tilt}])
++    assert ["tilted_probe"] in a["groups"]
++    assert any(r["members"] == ["tilted_probe"] for r in a["review"])
++
++
++def test_changed_mesh_falls_back_to_previous_engine(tmp_path):
++    import trimesh
++    mesh = tmp_path / "Kk2i.stl"
++    trimesh.creation.box(extents=(10, 10, 10)).export(mesh)
++    assert scoped_model(mesh) is None
++    a = analyze_groups(mesh, [{"id": "a", "quaternion_xyzw": [0, 0, 0, 1]}], {})
++    assert a["model"] == "observed-seated-geodesic-basins-v1"
+diff --git a/tests/test_rolling_basins.py b/tests/test_rolling_basins.py
+new file mode 100644
+index 0000000..9607f50
+--- /dev/null
++++ b/tests/test_rolling_basins.py
+@@ -0,0 +1,77 @@
++import json
++from pathlib import Path
++
++import pytest
++
++from dashas_drop_sim.catalog import catalog_models
++from dashas_drop_sim.grouping import analyze_groups
++from dashas_drop_sim.rolling_basins import energy_basins, scoped_model
++
++
++def solve(heights, barrier=.5, observations=None):
++    return energy_basins(heights, list(zip(range(len(heights) - 1), range(1, len(heights)))),
++                         observations or {str(i): i for i in range(len(heights))}, barrier)
++
++
++def test_flat_chain_has_no_whole_group_diameter_guard():
++    assert solve([0] * 8)[0] == [[str(i) for i in range(8)]]
++
++
++def test_separating_saddle_and_ambiguous_high_observation():
++    groups, review, minima, _ = solve([0, 2, 0])
++    assert groups == [["0"], ["1"], ["2"]]
++    assert review[0]["members"] == ["1"]
++    assert len(review[0]["destinations"]) == 2
++    assert len(minima) == 2
++
++
++def test_gradual_steps_do_not_bridge_a_true_barrier():
++    heights = [0, .2, .4, .6, .8, 1, .8, .6, .4, .2, 0]
++    groups, _, minima, _ = solve(heights)
++    assert len(minima) == 2
++    assert not any("0" in group and "10" in group for group in groups)
++
++
++def test_downhill_asymmetric_rolling_family_stays_together():
++    assert solve([0, .4, .8, 1.2, 1.6, 2])[0] == [[str(i) for i in range(6)]]
++
++
++@pytest.mark.parametrize("saddle,expected", [(.5, 1), (.5 + 2e-9, 2), (0, 1)])
++def test_escape_barrier_boundary(saddle, expected):
++    _, _, minima, _ = solve([0, saddle, 0])
++    assert len(minima) == expected
++
++
++def test_input_order_invariant():
++    heights = [0, .1, .2, 2, .1, 0]
++    edges = list(zip(range(5), range(1, 6)))
++    obs = {str(i): i for i in range(6)}
++    a = energy_basins(heights, edges, obs, .5)
++    b = energy_basins(heights, list(reversed(edges)), dict(reversed(list(obs.items()))), .5)
++    assert a == b
++
++
++def test_scope_requires_both_identity_and_hash(tmp_path):
++    model = catalog_models()["Kl4i"]
++    assert scoped_model(model) == "Kl4i"
++    renamed = tmp_path / "other.stl"
++    renamed.write_bytes(model.read_bytes())
++    assert scoped_model(renamed) is None
++    changed = tmp_path / "Kl4i.stl"
++    changed.write_bytes(b"changed")
++    assert scoped_model(changed) is None
++
++
++def test_full_saved_kl4i_has_four_basins_and_preserves_order():
++    fixture = json.loads((Path(__file__).parent / "fixtures/rolling_Kl4i.json").read_text())
++    a = analyze_groups(catalog_models()["Kl4i"], fixture["members"], fixture["recognition"])
++    b = analyze_groups(catalog_models()["Kl4i"], list(reversed(fixture["members"])), fixture["recognition"])
++    assert a == b
++    assert len(a["groups"]) == 4
++    assert sorted(map(len, a["groups"])) == [2, 6, 16, 17]
++    assert not a["review"]
++    owner = {key: i for i, group in enumerate(a["groups"]) for key in group}
++    assert any(path["angle_deg"] > 60 and owner[path["source"]] == owner[path["target"]]
++               for path in a["paths"])
++    assert all(path["angle_deg"] <= 60 + 1e-9 for path in a["paths"] if "sample_nodes" in path)
++    assert sorted(m for group in a["groups"] for m in group) == sorted(m["id"] for m in fixture["members"])

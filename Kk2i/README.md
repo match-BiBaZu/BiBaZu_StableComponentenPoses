@@ -4,7 +4,7 @@
 
 ## Historical pose catalogue
 
-Group numbers rank the updated seated-energy basins by their combined incidence within each observation phase. Pose 0 is the most frequent individual pose in its observation phase. The membership CSV links the displayed numbers to the saved pose IDs. Groups below 1% remain visible.
+Group numbers rank the current support families by their combined incidence within each observation phase. Pose 0 is the most frequent individual pose in its observation phase. The membership CSV links the displayed numbers to the saved pose IDs. Groups below 1% remain visible.
 
 [Group membership CSV](group_memberships.csv) · [Grouping method](../README.md#catalogue-grouping)
 
@@ -34,19 +34,19 @@ Outcome counts: settled: 8,448, unsettled: 1,552.
 | Pose 15 | Group 0 | ![Kk2i_0005](images/Kk2i_0005.png) | 210 | 2.10 % | 1.84–2.40 % | 2.49 % |
 | Pose 16 | Group 0 | ![Kk2i_0006](images/Kk2i_0006.png) | 209 | 2.09 % | 1.83–2.39 % | 2.47 % |
 | Pose 17 | Group 0 | ![Kk2i_0008](images/Kk2i_0008.png) | 184 | 1.84 % | 1.59–2.12 % | 2.18 % |
-| Pose 18 | Review 5 | ![Kk2i_0010](images/Kk2i_0010.png) | 165 | 1.65 % | 1.42–1.92 % | 1.95 % |
-| Pose 19 | Review 6 | ![Kk2i_0027](images/Kk2i_0027.png) | 123 | 1.23 % | 1.03–1.47 % | 1.46 % |
-| Pose 20 | Review 7 | ![Kk2i_0012](images/Kk2i_0012.png) | 91 | 0.91 % | 0.74–1.12 % | 1.08 % |
-| Pose 21 | Review 8 | ![Kk2i_0023](images/Kk2i_0023.png) | 83 | 0.83 % | 0.67–1.03 % | 0.98 % |
-| Pose 22 | Review 9 | ![Kk2i_0025](images/Kk2i_0025.png) | 79 | 0.79 % | 0.63–0.98 % | 0.94 % |
+| Pose 18 | Group 0 | ![Kk2i_0010](images/Kk2i_0010.png) | 165 | 1.65 % | 1.42–1.92 % | 1.95 % |
+| Pose 19 | Group 0 | ![Kk2i_0027](images/Kk2i_0027.png) | 123 | 1.23 % | 1.03–1.47 % | 1.46 % |
+| Pose 20 | Group 0 | ![Kk2i_0012](images/Kk2i_0012.png) | 91 | 0.91 % | 0.74–1.12 % | 1.08 % |
+| Pose 21 | Group 0 | ![Kk2i_0023](images/Kk2i_0023.png) | 83 | 0.83 % | 0.67–1.03 % | 0.98 % |
+| Pose 22 | Group 0 | ![Kk2i_0025](images/Kk2i_0025.png) | 79 | 0.79 % | 0.63–0.98 % | 0.94 % |
 | Pose 23 | Group 0 | ![Kk2i_0013](images/Kk2i_0013.png) | 77 | 0.77 % | 0.62–0.96 % | 0.91 % |
-| Pose 24 | Review 10 | ![Kk2i_0007](images/Kk2i_0007.png) | 44 | 0.44 % | 0.33–0.59 % | 0.52 % |
-| Pose 25 | Review 11 | ![Kk2i_0011](images/Kk2i_0011.png) | 34 | 0.34 % | 0.24–0.47 % | 0.40 % |
-| Pose 26 | Review 12 | ![Kk2i_0009](images/Kk2i_0009.png) | 28 | 0.28 % | 0.19–0.40 % | 0.33 % |
-| Pose 27 | Review 13 | ![Kk2i_0014](images/Kk2i_0014.png) | 21 | 0.21 % | 0.14–0.32 % | 0.25 % |
-| Pose 28 | Group 14 | ![Kk2i_0001](images/Kk2i_0001.png) | 5 | 0.05 % | 0.02–0.12 % | 0.06 % |
-| Pose 29 | Group 14 | ![Kk2i_0002](images/Kk2i_0002.png) | 4 | 0.04 % | 0.02–0.10 % | 0.05 % |
-| Pose 30 | Group 14 | ![Kk2i_0031](images/Kk2i_0031.png) | 1 | 0.01 % | 0.00–0.06 % | 0.01 % |
+| Pose 24 | Group 0 | ![Kk2i_0007](images/Kk2i_0007.png) | 44 | 0.44 % | 0.33–0.59 % | 0.52 % |
+| Pose 25 | Group 0 | ![Kk2i_0011](images/Kk2i_0011.png) | 34 | 0.34 % | 0.24–0.47 % | 0.40 % |
+| Pose 26 | Group 0 | ![Kk2i_0009](images/Kk2i_0009.png) | 28 | 0.28 % | 0.19–0.40 % | 0.33 % |
+| Pose 27 | Group 0 | ![Kk2i_0014](images/Kk2i_0014.png) | 21 | 0.21 % | 0.14–0.32 % | 0.25 % |
+| Pose 28 | Group 5 | ![Kk2i_0001](images/Kk2i_0001.png) | 5 | 0.05 % | 0.02–0.12 % | 0.06 % |
+| Pose 29 | Group 5 | ![Kk2i_0002](images/Kk2i_0002.png) | 4 | 0.04 % | 0.02–0.10 % | 0.05 % |
+| Pose 30 | Group 5 | ![Kk2i_0031](images/Kk2i_0031.png) | 1 | 0.01 % | 0.00–0.06 % | 0.01 % |
 
 [Pose catalogue JSON](poses.json) · [Pose catalogue YAML](poses.yaml) · [Frequencies](frequencies.csv) · [Trial records](trials.csv)
 
@@ -65,10 +65,12 @@ Pose orientations use `xyzw` quaternions from the workpiece frame to the chute f
 [Results and validation](simulations/20261110_10000/README.md).
 <!-- remaining-workpieces-20261110_10000:end -->
 
-## Scoped rolling-surface update (13 November 2026)
+## Rounded support-family refinement (13 November 2026)
 
-The saved individual poses, IDs, counts, symmetry and recognition tolerances are unchanged. The new local-path energy rule produces 6 assigned groups and 9 separate review poses. Review poses can reach multiple persistent minima and do not connect those minima. Rows labelled Review are unassigned review cases, not confirmed physical basins. No disturbance assessments or stability representatives were inferred.
+A rounded support family ignores circumferential roll while retaining the extrusion-axis direction and broad cut-feature supports. The pinned meshes use source Z as their extrusion axis. Axis alignment uses 10°, and broad-support normals use 5°. A side hull facet is broad when its area is at least twice the median side-strip area. Kk2i retains broad wall/belt support distinctions. Kl2a also merges end-on-belt azimuths. Kk4a retains the signed axis direction; tilted observations stay separate for review. This simple geometric classification does not claim a 0.5 mm energy barrier or add rotational recognition symmetry.
 
-[Energy evidence and group report](grouping/20261113/README.md) · [New paired 100-drop validation](simulations/20261113_rolling_100/README.md)
+6 assigned groups and 0 separate review poses. Individual poses, displayed pose numbers, IDs, counts, feature directions and recognition tolerances are unchanged. No disturbance sweeps or stability representatives were inferred.
 
-The root checksum manifest covers exact committed Git bytes. Git may convert historical text line endings in Windows checkouts.
+[Current grouping evidence](grouping/20261113_contact/README.md) · [Paired validation](simulations/20261113_contact_100/README.md) · [Previous energy grouping](grouping/20261113/README.md)
+
+The root checksum manifest covers exact committed Git bytes; Windows checkout line endings may differ.

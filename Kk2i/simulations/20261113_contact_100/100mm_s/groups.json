@@ -1,0 +1,114 @@
+{
+  "groups": [
+    {
+      "basin_id": "group_005",
+      "count": 47,
+      "group_id": 0,
+      "incidence_percent": 47.0,
+      "members": [
+        "Kk2i_0011",
+        "Kk2i_0013",
+        "Kk2i_0015",
+        "Kk2i_0017",
+        "Kk2i_0019",
+        "Kk2i_0020",
+        "Kk2i_0023"
+      ],
+      "representative_assessment": "not performed; individual source poses retained",
+      "representative_source_pose_id": null,
+      "requires_review": false
+    },
+    {
+      "basin_id": "group_000",
+      "count": 22,
+      "group_id": 1,
+      "incidence_percent": 22.0,
+      "members": [
+        "Kk2i_0001",
+        "Kk2i_0002",
+        "Kk2i_0004",
+        "Kk2i_0006",
+        "Kk2i_0024",
+        "Kk2i_0025",
+        "Kk2i_0027",
+        "Kk2i_0028",
+        "Kk2i_0029",
+        "Kk2i_0030",
+        "Kk2i_0031"
+      ],
+      "representative_assessment": "not performed; individual source poses retained",
+      "representative_source_pose_id": null,
+      "requires_review": false
+    },
+    {
+      "basin_id": "group_002",
+      "count": 15,
+      "group_id": 2,
+      "incidence_percent": 15.0,
+      "members": [
+        "Kk2i_0005",
+        "Kk2i_0009",
+        "Kk2i_0010",
+        "Kk2i_0012",
+        "Kk2i_0014",
+        "Kk2i_0016",
+        "Kk2i_0018",
+        "Kk2i_0021",
+        "Kk2i_0022"
+      ],
+      "representative_assessment": "not performed; individual source poses retained",
+      "representative_source_pose_id": null,
+      "requires_review": false
+    },
+    {
+      "basin_id": "group_003",
+      "count": 3,
+      "group_id": 3,
+      "incidence_percent": 3.0,
+      "members": [
+        "Kk2i_0007"
+      ],
+      "representative_assessment": "not performed; individual source poses retained",
+      "representative_source_pose_id": null,
+      "requires_review": false
+    },
+    {
+      "basin_id": "group_004",
+      "count": 3,
+      "group_id": 4,
+      "incidence_percent": 3.0,
+      "members": [
+        "Kk2i_0008"
+      ],
+      "representative_assessment": "not performed; individual source poses retained",
+      "representative_source_pose_id": null,
+      "requires_review": false
+    },
+    {
+      "basin_id": "group_001",
+      "count": 1,
+      "group_id": 5,
+      "incidence_percent": 1.0,
+      "members": [
+        "Kk2i_0003"
+      ],
+      "representative_assessment": "not performed; individual source poses retained",
+      "representative_source_pose_id": null,
+      "requires_review": false
+    },
+    {
+      "basin_id": "group_006",
+      "count": 1,
+      "group_id": 6,
+      "incidence_percent": 1.0,
+      "members": [
+        "Kk2i_0026"
+      ],
+      "representative_assessment": "not performed; individual source poses retained",
+      "representative_source_pose_id": null,
+      "requires_review": false
+    }
+  ],
+  "model": "scoped-rounded-support-families-v3",
+  "review": []
+}

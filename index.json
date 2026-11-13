@@ -714,9 +714,10 @@
       "length_mm": 500,
       "poses": 31,
       "rolling_surface_grouping": {
-        "model": "scoped-persistent-seated-energy-basins-v2",
-        "path": "Kk2i/grouping/20261113/README.md",
-        "validation_path": "Kk2i/simulations/20261113_rolling_100/README.md",
+        "model": "scoped-rounded-support-families-v3",
+        "path": "Kk2i/grouping/20261113_contact/README.md",
+        "previous_path": "Kk2i/grouping/20261113/README.md",
+        "validation_path": "Kk2i/simulations/20261113_contact_100/README.md",
         "validation_trials": 200
       },
       "run_id": "8fe6265e5472853aa5ecee69152e6eafb2fda5bad5a93e9581d612a74692b499",
@@ -761,9 +762,10 @@
       "length_mm": 500,
       "poses": 121,
       "rolling_surface_grouping": {
-        "model": "scoped-persistent-seated-energy-basins-v2",
-        "path": "Kk4a/grouping/20261113/README.md",
-        "validation_path": "Kk4a/simulations/20261113_rolling_100/README.md",
+        "model": "scoped-rounded-support-families-v3",
+        "path": "Kk4a/grouping/20261113_contact/README.md",
+        "previous_path": "Kk4a/grouping/20261113/README.md",
+        "validation_path": "Kk4a/simulations/20261113_contact_100/README.md",
         "validation_trials": 200
       },
       "run_id": "cebb71ad47141840487afaae49bc38897becaf732109a391c4ad2fa5d45f4053",
@@ -880,9 +882,10 @@
       "length_mm": 500,
       "poses": 27,
       "rolling_surface_grouping": {
-        "model": "scoped-persistent-seated-energy-basins-v2",
-        "path": "Kl2a/grouping/20261113/README.md",
-        "validation_path": "Kl2a/simulations/20261113_rolling_100/README.md",
+        "model": "scoped-rounded-support-families-v3",
+        "path": "Kl2a/grouping/20261113_contact/README.md",
+        "previous_path": "Kl2a/grouping/20261113/README.md",
+        "validation_path": "Kl2a/simulations/20261113_contact_100/README.md",
         "validation_trials": 200
       },
       "run_id": "88f4aa8a1b88d57f85eb76b7486843736e1d9e2a5bb78d2d0924138a2ad272ac",

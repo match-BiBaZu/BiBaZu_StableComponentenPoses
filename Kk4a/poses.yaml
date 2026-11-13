@@ -43871,7 +43871,7 @@ poses:
   - unmatched
   image: images/Kk4a_0121.png
 grouping:
-  model: scoped-persistent-seated-energy-basins-v2
+  model: scoped-rounded-support-families-v3
   groups:
   - basin_id: group_000
     members:
@@ -43935,13 +43935,12 @@ grouping:
     - Kk4a_0115
     - Kk4a_0117
     - Kk4a_0120
-    - Kk4a_0121
-    count: 3898
+    count: 3897
     requires_review: false
     representative_source_pose_id: null
     representative_assessment: not performed; individual source poses retained
     group_id: 0
-    incidence_percent: 38.98
+    incidence_percent: 38.97
   - basin_id: group_001
     members:
     - Kk4a_0002
@@ -44010,8 +44009,25 @@ grouping:
     representative_assessment: not performed; individual source poses retained
     group_id: 1
     incidence_percent: 38.28
-  review: []
-  barrier_mm: 0.5
-  local_path_limit_deg: 60
-  sampling_step_deg: 0.1
-  evidence: grouping/20261113/energy_paths.json.gz
+  - basin_id: group_002
+    members:
+    - Kk4a_0121
+    count: 1
+    requires_review: true
+    representative_source_pose_id: null
+    representative_assessment: not performed; individual source poses retained
+    group_id: 2
+    incidence_percent: 0.01
+  review:
+  - axis_alignment_deg: 49.810415670812
+    members:
+    - Kk4a_0121
+    reason: axis_outside_contact_family
+  profile:
+    broad_cut_support: false
+    directed_axis: true
+    merge_belt_end_azimuth: true
+  axis_tolerance_deg: 10
+  support_normal_tolerance_deg: 5
+  energy_barrier_applied: false
+  evidence: grouping/20261113_contact/grouping_evidence.json.gz
