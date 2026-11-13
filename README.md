@@ -119,6 +119,21 @@ python -m tarfile -e simulation_results.tar.xz extracted
 
 ## Catalogue grouping
 
-Each historical catalogue displays its saved individual poses and the basin assigned by the local plotter’s simulator grouping method. The algorithm uses the recorded orientations, workpiece symmetry, and chute angles. It applies directed absorption with a 0.5 mm equivalent lift barrier, a 60° whole-group diameter limit, and 0.1° angular path sampling. Group 0 has the highest combined incidence in its catalogue. Ties follow the sorted member pose IDs, and groups below 1% stay visible.
+Except for the six scoped rolling-surface catalogues described below, each historical catalogue displays its saved individual poses and the basin assigned by the local plotter’s simulator grouping method. The algorithm uses the recorded orientations, workpiece symmetry, and chute angles. It applies directed absorption with a 0.5 mm equivalent lift barrier, a 60° whole-group diameter limit, and 0.1° angular path sampling. Group 0 has the highest combined incidence in its catalogue. Ties follow the sorted member pose IDs, and groups below 1% stay visible.
 
 Transport and post-braking catalogues have separate group and pose numbering. Pose 0 is the most frequent individual pose in its catalogue. Ties follow the saved pose IDs. The membership CSV links each displayed pose number and group to the original pose ID, basin ID, and counts. The table grouping was computed from saved catalogue poses. All 10,000-drop archives retain their original ungrouped trial records; the historical catalogue grouping does not change those results. [Grouping engine](https://github.com/match-BiBaZu/BiBaZu_PoseFindingDropSim/blob/b872011538ae74d2c2a4570a32457cb79054a598/src/dashas_drop_sim/grouping.py) · [Historical grouped snapshot](https://github.com/match-BiBaZu/BiBaZu_Stable_ComponentPoses/tree/632b830bd890498e1b07b14d44d97b25f5bba7bb)
+
+## Scoped rolling-surface validation (13 November 2026)
+
+Kk2i, Kk4a, Kl4i, Kl2a, Kf2a and Kf4i use persistent seated-energy minima and minimax-height assignments. The 60° limit is local to each path; sampling remains 0.1° and the escape-barrier threshold remains 0.5 mm. A pose reaching multiple minima stays separate for review. Individual poses, counts, feature directions and recognition tolerances are preserved. The saved Kl4i catalogue yields four groups. Original simulation archives remain unchanged.
+
+Each of these six workpieces adds 100 stationary and 100 moving-belt drops (1,200 published drops), using the archived physical settings. No disturbance sweeps were added. The other 33 workpieces also passed paired 100-drop checks and exact legacy-grouping comparisons; their validation data remains local and their catalogue directories are byte-for-byte unchanged.
+
+| Workpiece | Grouping evidence | Paired validation |
+| --- | --- | --- |
+| Kk2i | [Groups](Kk2i/grouping/20261113/README.md) | [200 drops](Kk2i/simulations/20261113_rolling_100/README.md) |
+| Kk4a | [Groups](Kk4a/grouping/20261113/README.md) | [200 drops](Kk4a/simulations/20261113_rolling_100/README.md) |
+| Kl4i | [Groups](Kl4i/grouping/20261113/README.md) | [200 drops](Kl4i/simulations/20261113_rolling_100/README.md) |
+| Kl2a | [Groups](Kl2a/grouping/20261113/README.md) | [200 drops](Kl2a/simulations/20261113_rolling_100/README.md) |
+| Kf2a | [Groups](Kf2a/grouping/20261113/README.md) | [200 drops](Kf2a/simulations/20261113_rolling_100/README.md) |
+| Kf4i | [Groups](Kf4i/grouping/20261113/README.md) | [200 drops](Kf4i/simulations/20261113_rolling_100/README.md) |

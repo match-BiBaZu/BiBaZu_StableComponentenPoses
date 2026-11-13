@@ -1,0 +1,8 @@
+{
+  "raw_run": "run_20261113T061339_434749Z_42",
+  "seed": 42,
+  "simulator_base_commit": "d426e783832fd89e70f97419a19d7288e1aa5bda",
+  "study": "20261113_rolling_100",
+  "trials": 100,
+  "wall_time_s": 61.100799400010146
+}

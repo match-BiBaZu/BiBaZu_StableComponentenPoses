@@ -1,0 +1,7 @@
+{
+  "README.md": "23aa5c088de1da99a3a2dfb43b9fa10fd473788b5feb840aad9e3bf4accc997f",
+  "energy_basins.png": "b427213ae73d5fa4ed6e57c98b43a41e0ad56e479d192441bef374974e801251",
+  "energy_paths.json.gz": "3c2c7367f6cc641cfefb9a53c573e97af07ded91d85d2e84d7c641014fab9764",
+  "provenance.json": "0a84ead865c31f35e1ad979842e478655ef5cbcb35d97ea8d85f2b70e39af9ec",
+  "simulator.patch": "956e2873ee8f25ae1a6ec251ccac935c0fbdb1f1adffad39f353689742fe9650"
+}

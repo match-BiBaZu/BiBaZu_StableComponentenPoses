@@ -1,0 +1,13 @@
+{
+  "catalogue_recognition_preserved": true,
+  "condition": "static",
+  "disturbance_trials": 0,
+  "legacy_identical": false,
+  "part": "Kk4a",
+  "passed": true,
+  "physical_settings_match": true,
+  "publish": true,
+  "raw_records_sha256": "4d78db1ba6aa13d333fd61cf584635d7e9f2c42fc8435f76925e1cbe93f5eb8e",
+  "raw_trials": 100,
+  "settled": 100
+}

@@ -1,0 +1,13 @@
+{
+  "catalogue_recognition_preserved": true,
+  "condition": "100mm_s",
+  "disturbance_trials": 0,
+  "legacy_identical": false,
+  "part": "Kl4i",
+  "passed": true,
+  "physical_settings_match": true,
+  "publish": true,
+  "raw_records_sha256": "5fb661353896b7bbea30c2172feba911523d604610d4619e9ad36b0540688739",
+  "raw_trials": 100,
+  "settled": 99
+}

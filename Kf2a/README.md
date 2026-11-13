@@ -4,7 +4,7 @@
 
 ## Historical pose catalogue
 
-Group numbers rank the saved pose basins by their combined incidence within each observation phase. Pose 0 is the most frequent individual pose in its observation phase. The membership CSV links the displayed numbers to the saved pose IDs. Groups below 1% remain visible.
+Group numbers rank the updated seated-energy basins by their combined incidence within each observation phase. Pose 0 is the most frequent individual pose in its observation phase. The membership CSV links the displayed numbers to the saved pose IDs. Groups below 1% remain visible.
 
 [Group membership CSV](group_memberships.csv) · [Grouping method](../README.md#catalogue-grouping)
 
@@ -36,3 +36,11 @@ Pose orientations use `xyzw` quaternions from the workpiece frame to the chute f
 
 [Results and validation](simulations/20261110_10000/README.md).
 <!-- remaining-workpieces-20261110_10000:end -->
+
+## Scoped rolling-surface update (13 November 2026)
+
+The saved individual poses, IDs, counts, symmetry and recognition tolerances are unchanged. The new local-path energy rule produces 3 assigned groups and 0 separate review poses. Review poses can reach multiple persistent minima and do not connect those minima. Rows labelled Review are unassigned review cases, not confirmed physical basins. No disturbance assessments or stability representatives were inferred.
+
+[Energy evidence and group report](grouping/20261113/README.md) · [New paired 100-drop validation](simulations/20261113_rolling_100/README.md)
+
+The root checksum manifest covers exact committed Git bytes. Git may convert historical text line endings in Windows checkouts.

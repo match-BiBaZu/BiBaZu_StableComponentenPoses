@@ -1,0 +1,163 @@
+{
+  "groups": [
+    {
+      "basin_id": "group_003",
+      "count": 28,
+      "group_id": 0,
+      "incidence_percent": 28.0,
+      "members": [
+        "Kf4i_0027",
+        "Kf4i_0028",
+        "Kf4i_0029",
+        "Kf4i_0030",
+        "Kf4i_0031",
+        "Kf4i_0032",
+        "Kf4i_0033",
+        "Kf4i_0036",
+        "Kf4i_0037",
+        "Kf4i_0038",
+        "Kf4i_0039",
+        "Kf4i_0040",
+        "Kf4i_0041"
+      ],
+      "representative_assessment": "not performed; individual source poses retained",
+      "representative_source_pose_id": null,
+      "requires_review": false
+    },
+    {
+      "basin_id": "group_001",
+      "count": 26,
+      "group_id": 1,
+      "incidence_percent": 26.0,
+      "members": [
+        "Kf4i_0006",
+        "Kf4i_0007",
+        "Kf4i_0009",
+        "Kf4i_0010",
+        "Kf4i_0011",
+        "Kf4i_0013",
+        "Kf4i_0015",
+        "Kf4i_0016",
+        "Kf4i_0017",
+        "Kf4i_0018",
+        "Kf4i_0019",
+        "Kf4i_0021",
+        "Kf4i_0022",
+        "Kf4i_0023",
+        "Kf4i_0024",
+        "Kf4i_0025",
+        "Kf4i_0026"
+      ],
+      "representative_assessment": "not performed; individual source poses retained",
+      "representative_source_pose_id": null,
+      "requires_review": false
+    },
+    {
+      "basin_id": "group_000",
+      "count": 13,
+      "group_id": 2,
+      "incidence_percent": 13.0,
+      "members": [
+        "Kf4i_0001",
+        "Kf4i_0002",
+        "Kf4i_0003",
+        "Kf4i_0004",
+        "Kf4i_0005",
+        "Kf4i_0012",
+        "Kf4i_0020"
+      ],
+      "representative_assessment": "not performed; individual source poses retained",
+      "representative_source_pose_id": null,
+      "requires_review": false
+    },
+    {
+      "basin_id": "group_006",
+      "count": 13,
+      "group_id": 3,
+      "incidence_percent": 13.0,
+      "members": [
+        "Kf4i_0042",
+        "Kf4i_0043",
+        "Kf4i_0044",
+        "Kf4i_0045",
+        "Kf4i_0046",
+        "Kf4i_0047",
+        "Kf4i_0048"
+      ],
+      "representative_assessment": "not performed; individual source poses retained",
+      "representative_source_pose_id": null,
+      "requires_review": false
+    },
+    {
+      "basin_id": "group_002",
+      "count": 3,
+      "group_id": 4,
+      "incidence_percent": 3.0,
+      "members": [
+        "Kf4i_0008",
+        "Kf4i_0014",
+        "Kf4i_0050"
+      ],
+      "representative_assessment": "not performed; individual source poses retained",
+      "representative_source_pose_id": null,
+      "requires_review": false
+    },
+    {
+      "basin_id": "group_005",
+      "count": 2,
+      "group_id": 5,
+      "incidence_percent": 2.0,
+      "members": [
+        "Kf4i_0035"
+      ],
+      "representative_assessment": "not performed; individual source poses retained",
+      "representative_source_pose_id": null,
+      "requires_review": true
+    },
+    {
+      "basin_id": "group_004",
+      "count": 1,
+      "group_id": 6,
+      "incidence_percent": 1.0,
+      "members": [
+        "Kf4i_0034"
+      ],
+      "representative_assessment": "not performed; individual source poses retained",
+      "representative_source_pose_id": null,
+      "requires_review": false
+    },
+    {
+      "basin_id": "group_007",
+      "count": 1,
+      "group_id": 7,
+      "incidence_percent": 1.0,
+      "members": [
+        "Kf4i_0049"
+      ],
+      "representative_assessment": "not performed; individual source poses retained",
+      "representative_source_pose_id": null,
+      "requires_review": false
+    }
+  ],
+  "model": "scoped-persistent-seated-energy-basins-v2",
+  "review": [
+    {
+      "destinations": [
+        {
+          "minimax_height_mm": 34.519674476868566,
+          "minimum_node": 33,
+          "required_lift_mm": 0.3754735454081981
+        },
+        {
+          "minimax_height_mm": 34.15637236614175,
+          "minimum_node": 35,
+          "required_lift_mm": 0.012171434681384596
+        }
+      ],
+      "members": [
+        "Kf4i_0035"
+      ],
+      "reason": "ambiguous_energy_destination"
+    }
+  ]
+}

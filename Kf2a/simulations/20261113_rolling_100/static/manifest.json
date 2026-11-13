@@ -1,0 +1,161 @@
+{
+  "belt_mode": "stopped",
+  "belt_speed_variation": {
+    "control_point_clock": "elapsed time from start of observation (after reseating for stability trials)",
+    "control_point_interval_s": 0.2,
+    "enabled": false,
+    "interpretation": "Uniform random speed targets joined by smooth cosine transitions; forces arise from MuJoCo contact friction, not direct body kicks.",
+    "model": "cosine_interpolated_uniform_speed_v1",
+    "speed_range_mm_s": [
+      0.0,
+      0.0
+    ]
+  },
+  "belt_stop_observation": {
+    "braking": "half-cosine belt surface speed to zero; no body velocity reset; speed variation and roughness disabled",
+    "enabled": false,
+    "interpretation": "Separate stationary observation; transport pose frequencies and stability rankings are unchanged. Contact planes extend beyond the virtual exit.",
+    "observation_s_after_stop": 2.0,
+    "ramp_s": 0.2,
+    "rest_criterion": "existing 0.5 s contact/orientation window with full XYZ position range <= 1 mm and filtered speed <= 1 mm/s",
+    "trigger": "after transport measurement at the virtual exit; drop trials only"
+  },
+  "catalog_mesh_path": "C:\\Users\\Administrator\\Documents\\Dashas_ws\\BiBaZu_StableComponentenPoses\\Kf2a\\Kf2a.stl",
+  "catalog_symmetry": "C2",
+  "catalogue_cache_hit": false,
+  "center_mass_source_mm": [
+    41.803959616452595,
+    39.99999859398385,
+    5.000000000000001
+  ],
+  "classification_ambiguity_margin_deg": 1.0,
+  "classification_tolerance_deg": 5.0,
+  "collision_quality": {
+    "coacd_threshold_mm": 0.5,
+    "collision_bounds_max_abs_error_mm": 0.0011828208469136237,
+    "collision_part_count": 128,
+    "collision_summed_part_volume_mm3": 52133.39855260921,
+    "collision_summed_volume_relative_error": -0.0001258333649421411,
+    "method": "coacd",
+    "note": "Part volumes are summed; overlapping convex parts are not unioned.",
+    "source_convexity_volume_gap_fraction": 0.032242236747289085,
+    "source_hull_volume_mm3": 53877.07697008224,
+    "source_volume_mm3": 52139.959499160934
+  },
+  "contact_response": {
+    "damping_ratio": 0.19,
+    "friction_cone": "elliptic",
+    "interpretation": "Solver contact parameters, not a directly specified restitution coefficient. Uncalibrated material response.",
+    "model": "mujoco_positive_solref_time_constant_damping_ratio",
+    "rolling_friction_mm": 0.1,
+    "time_constant_s": 0.005,
+    "torsional_friction_mm": 5.0
+  },
+  "created_utc": "2026-11-13T06:14:42.854759+00:00",
+  "effective_belt_speed_mm_s": 0.0,
+  "friction_cone": "elliptic",
+  "group_ordering": null,
+  "group_poses": false,
+  "grouping_barrier_mm": 0.5,
+  "grouping_max_angle_deg": 60.0,
+  "grouping_minimum_frequency_percent": 1.0,
+  "grouping_model": null,
+  "inertia_com_kg_m2": [
+    [
+      2.3495773664072847e-05,
+      -2.3021468743681905e-13,
+      -0.0
+    ],
+    [
+      -2.3021468743681905e-13,
+      2.807900745599445e-05,
+      -0.0
+    ],
+    [
+      -0.0,
+      -0.0,
+      5.057543189633339e-05
+    ]
+  ],
+  "mass_kg": 0.05996095342403507,
+  "mesh_source_sha256": "cd1bb04dda24ff3aa100827f1042e6abb2459c6bd1301fba1be041b49d1ab30c",
+  "mesh_triangles_sha256": "bd4c8e70b2ca8449c10c87c30e6c4df02a03308f62148dc483c0c655f09f3603",
+  "observed_catalog_sha256": null,
+  "recognition": {
+    "ambiguity_margin_deg": 1.0,
+    "continuous_axis_part": null,
+    "quaternion_order": "xyzw",
+    "rotation": "part_to_chute",
+    "symmetry_available": true,
+    "symmetry_composition": "q_part_to_chute * q_symmetry_part",
+    "symmetry_quaternions_xyzw": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.9999999999999988,
+        5.0229749973172673e-08,
+        0.0,
+        1.6081226496766366e-16
+      ]
+    ],
+    "symmetry_symbol": "C2",
+    "tolerance_deg": 5.0
+  },
+  "release_distribution": {
+    "drop_height_range_mm": [
+      100.0,
+      100.0
+    ],
+    "lateral_range_mm": [
+      0.0,
+      0.0
+    ],
+    "type": "independent_uniform_center_plus_minus_spread"
+  },
+  "software": {
+    "bibazu-chute-pose": "0.1.0",
+    "cadquery-ocp": "7.9.3.1.1",
+    "coacd": "1.0.14",
+    "dashas-drop-sim": "0.5.0",
+    "mujoco": "3.14.0",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "trimesh": "5.1.0"
+  },
+  "software_commit": "d426e783832fd89e70f97419a19d7288e1aa5bda",
+  "surface_roughness": {
+    "active_window": {
+      "clock": "elapsed observation time; includes release for drops, starts after reseating for stability trials",
+      "cutoff": "only full physics steps within the window; no restart on recontact; active force pulses end with window_end",
+      "duration_s": 1.0,
+      "zero_means": "entire observation"
+    },
+    "additional_friction": null,
+    "contact_sampling": "uniform random geometrically touching loaded contact on belt or wall at impulse time",
+    "enabled": true,
+    "instantaneous_impulse": {
+      "delta_v_free_mm_s": 49.05,
+      "direction_chute": [
+        1,
+        0,
+        0
+      ],
+      "energy_policy": "External impulse changes generalized velocity through point Jacobian and mass matrix; normal contact dynamics follow",
+      "impulse_ns": 0.00294108476544892,
+      "mean_interval_s": 0.2,
+      "timing": "exponential waits; at most one complete impulse per integration step; contactless events skipped; times rounded up to a step boundary"
+    },
+    "interpretation": "Uncalibrated complete point impulse J = mass * free velocity change. No finite force duration or shortening at later contact loss. Geometry and inertia determine rotation; no pose forced.",
+    "minimum_sliding_speed_mm_s": null,
+    "model": "mass_scaled_contact_impulse_v1",
+    "restitution": null,
+    "sampling_interval_s": 0.001,
+    "weight_force": null
+  },
+  "symmetry_available": true,
+  "unknown_cluster_tolerance_deg": 5.0
+}

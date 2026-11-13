@@ -1,0 +1,13 @@
+{
+  "catalogue_recognition_preserved": true,
+  "condition": "100mm_s",
+  "disturbance_trials": 0,
+  "legacy_identical": false,
+  "part": "Kk2i",
+  "passed": true,
+  "physical_settings_match": true,
+  "publish": true,
+  "raw_records_sha256": "9750a649b0967523c7803a03e0df38a4ce5d41310ac89154cd120ffc660ee5b7",
+  "raw_trials": 100,
+  "settled": 92
+}

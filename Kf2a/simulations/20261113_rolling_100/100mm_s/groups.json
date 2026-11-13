@@ -1,0 +1,103 @@
+{
+  "groups": [
+    {
+      "basin_id": "group_002",
+      "count": 33,
+      "group_id": 0,
+      "incidence_percent": 33.0,
+      "members": [
+        "Kf2a_0004",
+        "Kf2a_0005",
+        "Kf2a_0006",
+        "Kf2a_0007",
+        "Kf2a_0008",
+        "Kf2a_0009",
+        "Kf2a_0010",
+        "Kf2a_0011",
+        "Kf2a_0012",
+        "Kf2a_0013",
+        "Kf2a_0014",
+        "Kf2a_0015",
+        "Kf2a_0017",
+        "Kf2a_0018",
+        "Kf2a_0020"
+      ],
+      "representative_assessment": "not performed; individual source poses retained",
+      "representative_source_pose_id": null,
+      "requires_review": false
+    },
+    {
+      "basin_id": "group_004",
+      "count": 25,
+      "group_id": 1,
+      "incidence_percent": 25.0,
+      "members": [
+        "Kf2a_0022"
+      ],
+      "representative_assessment": "not performed; individual source poses retained",
+      "representative_source_pose_id": null,
+      "requires_review": false
+    },
+    {
+      "basin_id": "group_001",
+      "count": 24,
+      "group_id": 2,
+      "incidence_percent": 24.0,
+      "members": [
+        "Kf2a_0002",
+        "Kf2a_0003",
+        "Kf2a_0016",
+        "Kf2a_0021",
+        "Kf2a_0023",
+        "Kf2a_0024",
+        "Kf2a_0025",
+        "Kf2a_0026",
+        "Kf2a_0027",
+        "Kf2a_0028",
+        "Kf2a_0030",
+        "Kf2a_0031"
+      ],
+      "representative_assessment": "not performed; individual source poses retained",
+      "representative_source_pose_id": null,
+      "requires_review": false
+    },
+    {
+      "basin_id": "group_000",
+      "count": 10,
+      "group_id": 3,
+      "incidence_percent": 10.0,
+      "members": [
+        "Kf2a_0001"
+      ],
+      "representative_assessment": "not performed; individual source poses retained",
+      "representative_source_pose_id": null,
+      "requires_review": false
+    },
+    {
+      "basin_id": "group_003",
+      "count": 1,
+      "group_id": 4,
+      "incidence_percent": 1.0,
+      "members": [
+        "Kf2a_0019"
+      ],
+      "representative_assessment": "not performed; individual source poses retained",
+      "representative_source_pose_id": null,
+      "requires_review": false
+    },
+    {
+      "basin_id": "group_005",
+      "count": 1,
+      "group_id": 5,
+      "incidence_percent": 1.0,
+      "members": [
+        "Kf2a_0029"
+      ],
+      "representative_assessment": "not performed; individual source poses retained",
+      "representative_source_pose_id": null,
+      "requires_review": false
+    }
+  ],
+  "model": "scoped-persistent-seated-energy-basins-v2",
+  "review": []
+}

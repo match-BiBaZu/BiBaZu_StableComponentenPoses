@@ -1,0 +1,674 @@
+diff --git a/README.md b/README.md
+index a45a290..19ac13f 100644
+--- a/README.md
++++ b/README.md
+@@ -4,6 +4,8 @@
+ 
+ The simulator uses MuJoCo to simulate individual workpieces landing against a conveyor belt and side wall. It estimates pose incidence, distinguishes settled and unsettled outcomes, and assesses how observed poses respond to disturbances. A PyQt6 GUI supports parameter studies and visible trials; the command line supports repeatable batches and assessment of saved results.
+ 
++For the verified catalogue meshes Kk2i, Kk4a, Kl4i, Kl2a, Kf2a and Kf4i, pose grouping uses persistent seated-energy minima and minimax-height paths. The 60° limit applies to each local sampled path; a rolling basin may span a larger angle. Sampling remains 0.1° and the escape-barrier threshold remains 0.5 mm equivalent COM lift. An observation reaching multiple persistent minima stays separate and is marked for review. Dispatch requires both the catalogue filename identity and its pinned STL SHA-256; all other meshes use the unchanged legacy grouping model, including its whole-group diameter guard. Individual observed orientations and recognition tolerances are preserved. This geometric grouping does not establish disturbance stability or choose representatives without complete assessments.
++
+ The Beckhoff benchmark ran on 7–8 November 2026 and covered **240,000 drops** across 12 workpieces, with 10,000 trials per workpiece in each belt mode.
+ 
+ [User guide](USER_GUIDE.md) · [Windows launchers](WindowsLaunchers/README.md) · [Current GUI profile](configs/gui-current.json) · [Benchmark timing records](https://github.com/match-BiBaZu/BiBaZu_StableComponentenPoses/tree/4df4f1b27f928adca5e5d74377f8212c8f1ae0c9/timing/20261107_10000)
+diff --git a/src/dashas_drop_sim/grouping.py b/src/dashas_drop_sim/grouping.py
+index bdf3b86..969aaca 100644
+--- a/src/dashas_drop_sim/grouping.py
++++ b/src/dashas_drop_sim/grouping.py
+@@ -88,6 +88,12 @@ def analyze_groups(mesh_path, members: list[dict], descriptor: dict, *, alpha_de
+                    beta_deg=0, barrier_mm=.5, max_angle_deg=60, step_deg=.1):
+     if not all(math.isfinite(x) for x in (barrier_mm, max_angle_deg, step_deg)) or barrier_mm < 0 or not 0 < max_angle_deg <= 180 or step_deg <= 0:
+         raise ValueError("Invalid grouping thresholds or angular sampling step.")
++    from .rolling_basins import scoped_model, analyze_rolling
++    identity = scoped_model(mesh_path)
++    if identity is not None:
++        return analyze_rolling(mesh_path, members, descriptor, identity=identity,
++                               alpha_deg=alpha_deg, beta_deg=beta_deg, barrier_mm=barrier_mm,
++                               max_angle_deg=max_angle_deg, step_deg=step_deg)
+     mesh = trimesh.load_mesh(mesh_path, process=True)
+     if not mesh.is_watertight or not mesh.is_volume:
+         raise ValueError("Grouping requires a closed solid mesh in mm.")
+diff --git a/src/dashas_drop_sim/rolling_basins.py b/src/dashas_drop_sim/rolling_basins.py
+new file mode 100644
+index 0000000..07f5788
+--- /dev/null
++++ b/src/dashas_drop_sim/rolling_basins.py
+@@ -0,0 +1,157 @@
++"""Persistent seated-energy basins, restricted to six verified catalogue solids.
++
++Edges describe sampled local rotation paths, not arbitrary proximity merges.
++Persistence uses the actual escape saddle above each minimum; assignment uses
++the maximum absolute height along a path, never a sum of small uphill steps.
++"""
++from __future__ import annotations
++
++import hashlib
++import heapq
++import math
++from pathlib import Path
++
++import numpy as np
++import trimesh
++from scipy.spatial.transform import Rotation
++
++from .physics import _chute_rotation
++
++MODEL_VERSION = "scoped-persistent-seated-energy-basins-v2"
++SCOPED_MESHES = {
++    "Kk2i": "ec6ebb3923fcab8e0a02546aac25cb13f893584b551a81ced4315e1059195ef7",
++    "Kk4a": "8b9e742443c8153aca1f5afd3e68562d5cecd7ac9af010f2ede3b0162fa200c1",
++    "Kl4i": "3b1586a009406e6108f590bbe6316004d9a6a18944d92b64d5f2e5acdff6e831",
++    "Kl2a": "f874e82aea3486c1887ad267db840f2cd2899527241407e5f142bc8bcf70a5fe",
++    "Kf2a": "cd1bb04dda24ff3aa100827f1042e6abb2459c6bd1301fba1be041b49d1ab30c",
++    "Kf4i": "56720a15e28abcf47d6705716e1033a8146c4970e212b7d3f3cd2f33ab3e64ca",
++}
++
++
++def scoped_model(mesh_path):
++    path = Path(mesh_path)
++    identity = next((key for key in SCOPED_MESHES if key.casefold() == path.stem.casefold()), None)
++    if identity is None:
++        return None
++    return identity if hashlib.sha256(path.read_bytes()).hexdigest() == SCOPED_MESHES[identity] else None
++
++
++def energy_basins(heights, edges, observations, barrier_mm):
++    """Return deterministic groups, ambiguity, minima and minimax evidence.
++
++    ``observations`` maps stable pose IDs to graph nodes. Internal path samples
++    participate in the energy landscape even when no drop landed exactly there.
++    """
++    heights = [float(h) for h in heights]
++    if barrier_mm < 0 or not math.isfinite(barrier_mm) or not all(map(math.isfinite, heights)):
++        raise ValueError("Expected finite heights and a nonnegative finite barrier")
++    size = len(heights)
++    parent = list(range(size))
++    birth = list(range(size))
++    adjacency = [[] for _ in heights]
++    weighted = []
++    for a, b in edges:
++        peak = max(heights[a], heights[b])
++        weighted.append((peak, min(a, b), max(a, b)))
++        adjacency[a].append((b, peak))
++        adjacency[b].append((a, peak))
++
++    def find(node):
++        while parent[node] != node:
++            parent[node] = parent[parent[node]]
++            node = parent[node]
++        return node
++
++    minima = []
++    cores = []
++    for peak, a, b in sorted(weighted):
++        a, b = find(a), find(b)
++        if a == b:
++            continue
++        if (heights[birth[b]], birth[b]) < (heights[birth[a]], birth[a]):
++            a, b = b, a
++        losing = birth[b]
++        prominence = peak - heights[losing]
++        if prominence > barrier_mm + 1e-9:
++            cores.append(losing)
++            minima.append({"node": losing, "height_mm": heights[losing],
++                           "escape_saddle_mm": peak, "escape_barrier_mm": prominence})
++        parent[b] = a
++    for root in sorted({find(node) for node in range(size)}):
++        core = birth[root]
++        cores.append(core)
++        minima.append({"node": core, "height_mm": heights[core],
++                       "escape_saddle_mm": None, "escape_barrier_mm": None})
++    cores.sort()
++    reachable = {key: [] for key in sorted(observations)}
++    for core in cores:
++        costs = [math.inf] * size
++        costs[core] = heights[core]
++        pending = [(costs[core], core)]
++        while pending:
++            cost, node = heapq.heappop(pending)
++            if cost != costs[node]:
++                continue
++            for target, peak in adjacency[node]:
++                candidate = max(cost, peak)
++                if candidate < costs[target]:
++                    costs[target] = candidate
++                    heapq.heappush(pending, (candidate, target))
++        for key, node in sorted(observations.items()):
++            if costs[node] - heights[node] <= barrier_mm + 1e-9:
++                reachable[key].append({"minimum_node": core, "minimax_height_mm": costs[node],
++                                       "required_lift_mm": max(0., costs[node] - heights[node])})
++    buckets, review = {}, []
++    for key, destinations in reachable.items():
++        if len(destinations) == 1:
++            buckets.setdefault(destinations[0]["minimum_node"], []).append(key)
++        else:
++            buckets["review:" + key] = [key]
++            review.append({"members": [key], "reason": "ambiguous_energy_destination" if destinations else "no_energy_destination",
++                           "destinations": destinations})
++    return sorted(buckets.values(), key=tuple), review, sorted(minima, key=lambda m: m["node"]), reachable
++
++
++def analyze_rolling(mesh_path, members, descriptor, *, identity, alpha_deg, beta_deg,
++                    barrier_mm, max_angle_deg, step_deg):
++    from .grouping import relative_path
++    mesh = trimesh.load_mesh(mesh_path, process=True)
++    if not mesh.is_watertight or not mesh.is_volume:
++        raise ValueError("Grouping requires a closed solid mesh in mm.")
++    vertices = np.asarray(mesh.convex_hull.vertices) - np.asarray(mesh.center_mass)
++    gravity = _chute_rotation(alpha_deg, beta_deg).inv().apply([0, 0, -9.81])
++
++    def seated(rotations):
++        points = np.einsum("sij,vj->svi", rotations, vertices)
++        return (gravity[1] * points[:, :, 1].min(axis=1)
++                + gravity[2] * points[:, :, 2].min(axis=1)) / np.linalg.norm(gravity)
++
++    ordered = sorted(members, key=lambda m: m["id"])
++    rotations = [Rotation.from_quat(m["quaternion_xyzw"]).as_matrix() for m in ordered]
++    heights = seated(np.asarray(rotations)).tolist() if ordered else []
++    observations = {m["id"]: i for i, m in enumerate(ordered)}
++    edges, paths = [], []
++    for i, first in enumerate(ordered):
++        for j in range(i + 1, len(ordered)):
++            second = ordered[j]
++            rv = relative_path(first["quaternion_xyzw"], second["quaternion_xyzw"], descriptor)
++            angle = float(np.degrees(np.linalg.norm(rv)))
++            path = {"source": first["id"], "target": second["id"], "angle_deg": angle,
++                    "forward_barrier_mm": None, "reverse_barrier_mm": None}
++            if angle <= max_angle_deg + 1e-9:
++                fractions = np.linspace(0, 1, max(2, math.ceil(angle / step_deg) + 1))
++                sampled = seated(Rotation.from_rotvec(fractions[:, None] * rv).as_matrix() @ rotations[i])
++                nodes = [i, *range(len(heights), len(heights) + len(sampled) - 2), j]
++                heights.extend(sampled[1:-1].tolist())
++                edges.extend(zip(nodes, nodes[1:]))
++                path.update(forward_barrier_mm=max(0., float(sampled.max() - sampled[0])),
++                            reverse_barrier_mm=max(0., float(sampled.max() - sampled[-1])),
++                            sample_nodes=nodes, sampled_heights_mm=sampled.tolist())
++            paths.append(path)
++    groups, review, minima, destinations = energy_basins(heights, edges, observations, barrier_mm)
++    return {"model": MODEL_VERSION, "catalogue_identity": identity, "mesh_sha256": SCOPED_MESHES[identity],
++            "barrier_mm": barrier_mm, "max_angle_deg": max_angle_deg, "angle_limit_scope": "local_path",
++            "sampling_step_deg": step_deg, "paths": paths, "groups": groups, "review": review,
++            "minima": minima, "observed_heights_mm": {k: heights[n] for k, n in observations.items()},
++            "destinations": destinations, "graph_nodes": len(heights), "graph_edges": len(edges),
++            "interpretation": "Sampled seated local paths; persistent minima and minimax heights are geometric estimates, not minimum-action proofs."}
+diff --git a/tests/fixtures/rolling_Kl4i.json b/tests/fixtures/rolling_Kl4i.json
+new file mode 100644
+index 0000000..75c1f4d
+--- /dev/null
++++ b/tests/fixtures/rolling_Kl4i.json
+@@ -0,0 +1,391 @@
++{
++  "members": [
++    {
++      "id": "Kl4i_0008",
++      "quaternion_xyzw": [
++        -0.4643624443946123,
++        -0.533260383554718,
++        0.464373183836597,
++        0.5332526884136617
++      ]
++    },
++    {
++      "id": "Kl4i_0028",
++      "quaternion_xyzw": [
++        -0.5370688135300571,
++        -0.4599213646891859,
++        -0.5371620774501132,
++        -0.45987642947354035
++      ]
++    },
++    {
++      "id": "Kl4i_0030",
++      "quaternion_xyzw": [
++        -0.5916600382342045,
++        -0.3873044327696199,
++        -0.591675662702245,
++        -0.38710926839790594
++      ]
++    },
++    {
++      "id": "Kl4i_0010",
++      "quaternion_xyzw": [
++        -0.3867037069270263,
++        -0.5920492914750852,
++        0.3866204659641288,
++        0.5919987287236569
++      ]
++    },
++    {
++      "id": "Kl4i_0023",
++      "quaternion_xyzw": [
++        -0.04733591111235783,
++        0.705462639056406,
++        0.0473119691548693,
++        -0.7055801541918698
++      ]
++    },
++    {
++      "id": "Kl4i_0024",
++      "quaternion_xyzw": [
++        0.14262273623483024,
++        -0.6925494268312608,
++        -0.14254535222406411,
++        0.6926145169312437
++      ]
++    },
++    {
++      "id": "Kl4i_0012",
++      "quaternion_xyzw": [
++        0.30362843543285023,
++        0.6385874369299458,
++        -0.30359784500670367,
++        -0.6386268136393333
++      ]
++    },
++    {
++      "id": "Kl4i_0020",
++      "quaternion_xyzw": [
++        -0.04916598028884381,
++        -0.7054460406514046,
++        0.049126588656196984,
++        0.7053475514939417
++      ]
++    },
++    {
++      "id": "Kl4i_0036",
++      "quaternion_xyzw": [
++        -0.6922439700868182,
++        -0.1438563209494539,
++        -0.6924173875237591,
++        -0.14374215198090184
++      ]
++    },
++    {
++      "id": "Kl4i_0034",
++      "quaternion_xyzw": [
++        0.6666252755474958,
++        0.2357580479181761,
++        0.666618583873186,
++        0.23589944569232166
++      ]
++    },
++    {
++      "id": "Kl4i_0032",
++      "quaternion_xyzw": [
++        -0.6385958116779082,
++        -0.3035864341281707,
++        -0.6385718271557532,
++        -0.30373786047139145
++      ]
++    },
++    {
++      "id": "Kl4i_0038",
++      "quaternion_xyzw": [
++        -0.7053415977033313,
++        -0.04830784124863785,
++        -0.7055694942558095,
++        -0.04828324552895649
++      ]
++    },
++    {
++      "id": "Kl4i_0014",
++      "quaternion_xyzw": [
++        0.2142959658599909,
++        0.6737840555714746,
++        -0.21422261106903467,
++        -0.6739443288436775
++      ]
++    },
++    {
++      "id": "Kl4i_0027",
++      "quaternion_xyzw": [
++        -0.40747013114250863,
++        0.5779540347724431,
++        0.4072633489400602,
++        -0.5779911682085527
++      ]
++    },
++    {
++      "id": "Kl4i_0017",
++      "quaternion_xyzw": [
++        0.14348032485207496,
++        0.6923522876953451,
++        -0.14367773289068025,
++        -0.6924004731185266
++      ]
++    },
++    {
++      "id": "Kl4i_0001",
++      "quaternion_xyzw": [
++        -0.705526022196554,
++        0.04804406543705844,
++        -0.7054234729480751,
++        0.047984618302780724
++      ]
++    },
++    {
++      "id": "Kl4i_0002",
++      "quaternion_xyzw": [
++        0.6924055435003096,
++        -0.14341581495498137,
++        0.6924566334064157,
++        -0.14321409917425135
++      ]
++    },
++    {
++      "id": "Kl4i_0018",
++      "quaternion_xyzw": [
++        0.12018542092702472,
++        0.6968433415167914,
++        0.6968506104395165,
++        -0.11985010934654877
++      ]
++    },
++    {
++      "id": "Kl4i_0003",
++      "quaternion_xyzw": [
++        0.6665281703596491,
++        -0.2361310330564471,
++        0.6664568855848885,
++        -0.2362573871886437
++      ]
++    },
++    {
++      "id": "Kl4i_0007",
++      "quaternion_xyzw": [
++        0.5274568990672885,
++        -0.47090484374641034,
++        0.5278031801055821,
++        -0.4705971215731388
++      ]
++    },
++    {
++      "id": "Kl4i_0005",
++      "quaternion_xyzw": [
++        -0.577893117166715,
++        0.40757131430751575,
++        -0.5777871519592322,
++        0.4075379441424082
++      ]
++    },
++    {
++      "id": "Kl4i_0022",
++      "quaternion_xyzw": [
++        -0.00023646362142309973,
++        -0.0005174021360090791,
++        0.30104966401355104,
++        0.9536082928421467
++      ]
++    },
++    {
++      "id": "Kl4i_0004",
++      "quaternion_xyzw": [
++        -0.6280604846708804,
++        0.3248531448741514,
++        -0.6281004507736166,
++        0.3248080750202065
++      ]
++    },
++    {
++      "id": "Kl4i_0029",
++      "quaternion_xyzw": [
++        -0.5486175471981435,
++        0.4461228637756345,
++        0.5484362404745998,
++        -0.4463304464822071
++      ]
++    },
++    {
++      "id": "Kl4i_0009",
++      "quaternion_xyzw": [
++        0.44587980225645807,
++        -0.5489089663593564,
++        0.44570030475671224,
++        -0.5488546136544894
++      ]
++    },
++    {
++      "id": "Kl4i_0006",
++      "quaternion_xyzw": [
++        0.5313232229397675,
++        0.46662503618772444,
++        -0.5312929164507983,
++        -0.4665667640294454
++      ]
++    },
++    {
++      "id": "Kl4i_0011",
++      "quaternion_xyzw": [
++        -0.34655079445246145,
++        0.6164584467294543,
++        -0.34722850808362143,
++        0.6158846430089802
++      ]
++    },
++    {
++      "id": "Kl4i_0031",
++      "quaternion_xyzw": [
++        0.616090189918384,
++        -0.34712233891227806,
++        -0.6158441910875739,
++        0.3473829184316505
++      ]
++    },
++    {
++      "id": "Kl4i_0019",
++      "quaternion_xyzw": [
++        -0.07230634128358522,
++        0.7034898629765848,
++        0.7032804028032354,
++        0.07259807664316423
++      ]
++    },
++    {
++      "id": "Kl4i_0026",
++      "quaternion_xyzw": [
++        -0.32387293252156213,
++        0.6286270924490724,
++        0.3239049101531103,
++        -0.628506094956616
++      ]
++    },
++    {
++      "id": "Kl4i_0013",
++      "quaternion_xyzw": [
++        0.25898868006336284,
++        -0.6579662935415816,
++        0.2596924164779243,
++        -0.6576967910717268
++      ]
++    },
++    {
++      "id": "Kl4i_0033",
++      "quaternion_xyzw": [
++        -0.6579214723070997,
++        0.2591903535952117,
++        0.6578313499024223,
++        -0.2592635955278032
++      ]
++    },
++    {
++      "id": "Kl4i_0016",
++      "quaternion_xyzw": [
++        0.1671253724036073,
++        -0.6871000503300815,
++        0.16739082207565179,
++        -0.6869810357063668
++      ]
++    },
++    {
++      "id": "Kl4i_0035",
++      "quaternion_xyzw": [
++        0.6871743764187459,
++        -0.16656095500090512,
++        -0.6871922747920933,
++        0.16678010111749672
++      ]
++    },
++    {
++      "id": "Kl4i_0025",
++      "quaternion_xyzw": [
++        0.23549808773113204,
++        -0.6668210858264788,
++        -0.23493464580758758,
++        0.6668553084226287
++      ]
++    },
++    {
++      "id": "Kl4i_0015",
++      "quaternion_xyzw": [
++        -0.21349429321498667,
++        -0.6740260032005075,
++        -0.6742039622115423,
++        0.21344355486273198
++      ]
++    },
++    {
++      "id": "Kl4i_0037",
++      "quaternion_xyzw": [
++        -0.7035761104137559,
++        0.07038007254453352,
++        0.7035981837261372,
++        -0.07054713389612355
++      ]
++    },
++    {
++      "id": "Kl4i_0021",
++      "quaternion_xyzw": [
++        -4.840396487287846e-05,
++        -1.3994600061406626e-05,
++        -0.4204957700511418,
++        -0.9072944972996941
++      ]
++    },
++    {
++      "id": "Kl4i_0041",
++      "quaternion_xyzw": [
++        0.16744474931704256,
++        -0.6869574482608054,
++        -0.68694795611671,
++        -0.16779221016552093
++      ]
++    },
++    {
++      "id": "Kl4i_0040",
++      "quaternion_xyzw": [
++        -0.25956374331904497,
++        0.657773232610251,
++        0.6577241569954735,
++        0.25953799513801323
++      ]
++    },
++    {
++      "id": "Kl4i_0039",
++      "quaternion_xyzw": [
++        0.3463832218282651,
++        -0.6164741166103523,
++        -0.6161458676500919,
++        -0.3469043051953555
++      ]
++    }
++  ],
++  "recognition": {
++    "ambiguity_margin_deg": 1.0,
++    "continuous_axis_part": null,
++    "quaternion_order": "xyzw",
++    "rotation": "part_to_chute",
++    "symmetry_available": true,
++    "symmetry_composition": "q_part_to_chute * q_symmetry_part",
++    "symmetry_quaternions_xyzw": [
++      [
++        0.0,
++        0.0,
++        0.0,
++        1.0
++      ]
++    ],
++    "symmetry_symbol": "C1",
++    "tolerance_deg": 5.0
++  }
++}
+\ No newline at end of file
+diff --git a/tests/test_rolling_basins.py b/tests/test_rolling_basins.py
+new file mode 100644
+index 0000000..9607f50
+--- /dev/null
++++ b/tests/test_rolling_basins.py
+@@ -0,0 +1,77 @@
++import json
++from pathlib import Path
++
++import pytest
++
++from dashas_drop_sim.catalog import catalog_models
++from dashas_drop_sim.grouping import analyze_groups
++from dashas_drop_sim.rolling_basins import energy_basins, scoped_model
++
++
++def solve(heights, barrier=.5, observations=None):
++    return energy_basins(heights, list(zip(range(len(heights) - 1), range(1, len(heights)))),
++                         observations or {str(i): i for i in range(len(heights))}, barrier)
++
++
++def test_flat_chain_has_no_whole_group_diameter_guard():
++    assert solve([0] * 8)[0] == [[str(i) for i in range(8)]]
++
++
++def test_separating_saddle_and_ambiguous_high_observation():
++    groups, review, minima, _ = solve([0, 2, 0])
++    assert groups == [["0"], ["1"], ["2"]]
++    assert review[0]["members"] == ["1"]
++    assert len(review[0]["destinations"]) == 2
++    assert len(minima) == 2
++
++
++def test_gradual_steps_do_not_bridge_a_true_barrier():
++    heights = [0, .2, .4, .6, .8, 1, .8, .6, .4, .2, 0]
++    groups, _, minima, _ = solve(heights)
++    assert len(minima) == 2
++    assert not any("0" in group and "10" in group for group in groups)
++
++
++def test_downhill_asymmetric_rolling_family_stays_together():
++    assert solve([0, .4, .8, 1.2, 1.6, 2])[0] == [[str(i) for i in range(6)]]
++
++
++@pytest.mark.parametrize("saddle,expected", [(.5, 1), (.5 + 2e-9, 2), (0, 1)])
++def test_escape_barrier_boundary(saddle, expected):
++    _, _, minima, _ = solve([0, saddle, 0])
++    assert len(minima) == expected
++
++
++def test_input_order_invariant():
++    heights = [0, .1, .2, 2, .1, 0]
++    edges = list(zip(range(5), range(1, 6)))
++    obs = {str(i): i for i in range(6)}
++    a = energy_basins(heights, edges, obs, .5)
++    b = energy_basins(heights, list(reversed(edges)), dict(reversed(list(obs.items()))), .5)
++    assert a == b
++
++
++def test_scope_requires_both_identity_and_hash(tmp_path):
++    model = catalog_models()["Kl4i"]
++    assert scoped_model(model) == "Kl4i"
++    renamed = tmp_path / "other.stl"
++    renamed.write_bytes(model.read_bytes())
++    assert scoped_model(renamed) is None
++    changed = tmp_path / "Kl4i.stl"
++    changed.write_bytes(b"changed")
++    assert scoped_model(changed) is None
++
++
++def test_full_saved_kl4i_has_four_basins_and_preserves_order():
++    fixture = json.loads((Path(__file__).parent / "fixtures/rolling_Kl4i.json").read_text())
++    a = analyze_groups(catalog_models()["Kl4i"], fixture["members"], fixture["recognition"])
++    b = analyze_groups(catalog_models()["Kl4i"], list(reversed(fixture["members"])), fixture["recognition"])
++    assert a == b
++    assert len(a["groups"]) == 4
++    assert sorted(map(len, a["groups"])) == [2, 6, 16, 17]
++    assert not a["review"]
++    owner = {key: i for i, group in enumerate(a["groups"]) for key in group}
++    assert any(path["angle_deg"] > 60 and owner[path["source"]] == owner[path["target"]]
++               for path in a["paths"])
++    assert all(path["angle_deg"] <= 60 + 1e-9 for path in a["paths"] if "sample_nodes" in path)
++    assert sorted(m for group in a["groups"] for m in group) == sorted(m["id"] for m in fixture["members"])

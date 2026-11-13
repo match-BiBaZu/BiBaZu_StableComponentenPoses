@@ -19,6 +19,510 @@
     "stl": "Kk2i.stl",
     "stl_sha256": "ec6ebb3923fcab8e0a02546aac25cb13f893584b551a81ced4315e1059195ef7"
   },
+  "grouping": {
+    "barrier_mm": 0.5,
+    "evidence": "grouping/20261113/energy_paths.json.gz",
+    "groups": [
+      {
+        "basin_id": "group_003",
+        "count": 3480,
+        "group_id": 0,
+        "incidence_percent": 34.8,
+        "members": [
+          "Kk2i_0005",
+          "Kk2i_0006",
+          "Kk2i_0008",
+          "Kk2i_0013",
+          "Kk2i_0015",
+          "Kk2i_0016",
+          "Kk2i_0019",
+          "Kk2i_0020",
+          "Kk2i_0021",
+          "Kk2i_0022",
+          "Kk2i_0024",
+          "Kk2i_0026",
+          "Kk2i_0028",
+          "Kk2i_0029",
+          "Kk2i_0030"
+        ],
+        "representative_assessment": "not performed; individual source poses retained",
+        "representative_source_pose_id": null,
+        "requires_review": false
+      },
+      {
+        "basin_id": "group_011",
+        "count": 2023,
+        "group_id": 1,
+        "incidence_percent": 20.23,
+        "members": [
+          "Kk2i_0018"
+        ],
+        "representative_assessment": "not performed; individual source poses retained",
+        "representative_source_pose_id": null,
+        "requires_review": false
+      },
+      {
+        "basin_id": "group_010",
+        "count": 833,
+        "group_id": 2,
+        "incidence_percent": 8.33,
+        "members": [
+          "Kk2i_0017"
+        ],
+        "representative_assessment": "not performed; individual source poses retained",
+        "representative_source_pose_id": null,
+        "requires_review": false
+      },
+      {
+        "basin_id": "group_001",
+        "count": 773,
+        "group_id": 3,
+        "incidence_percent": 7.73,
+        "members": [
+          "Kk2i_0003"
+        ],
+        "representative_assessment": "not performed; individual source poses retained",
+        "representative_source_pose_id": null,
+        "requires_review": false
+      },
+      {
+        "basin_id": "group_002",
+        "count": 661,
+        "group_id": 4,
+        "incidence_percent": 6.61,
+        "members": [
+          "Kk2i_0004"
+        ],
+        "representative_assessment": "not performed; individual source poses retained",
+        "representative_source_pose_id": null,
+        "requires_review": false
+      },
+      {
+        "basin_id": "group_006",
+        "count": 165,
+        "group_id": 5,
+        "incidence_percent": 1.65,
+        "members": [
+          "Kk2i_0010"
+        ],
+        "representative_assessment": "not performed; individual source poses retained",
+        "representative_source_pose_id": null,
+        "requires_review": true
+      },
+      {
+        "basin_id": "group_014",
+        "count": 123,
+        "group_id": 6,
+        "incidence_percent": 1.23,
+        "members": [
+          "Kk2i_0027"
+        ],
+        "representative_assessment": "not performed; individual source poses retained",
+        "representative_source_pose_id": null,
+        "requires_review": true
+      },
+      {
+        "basin_id": "group_008",
+        "count": 91,
+        "group_id": 7,
+        "incidence_percent": 0.91,
+        "members": [
+          "Kk2i_0012"
+        ],
+        "representative_assessment": "not performed; individual source poses retained",
+        "representative_source_pose_id": null,
+        "requires_review": true
+      },
+      {
+        "basin_id": "group_012",
+        "count": 83,
+        "group_id": 8,
+        "incidence_percent": 0.83,
+        "members": [
+          "Kk2i_0023"
+        ],
+        "representative_assessment": "not performed; individual source poses retained",
+        "representative_source_pose_id": null,
+        "requires_review": true
+      },
+      {
+        "basin_id": "group_013",
+        "count": 79,
+        "group_id": 9,
+        "incidence_percent": 0.79,
+        "members": [
+          "Kk2i_0025"
+        ],
+        "representative_assessment": "not performed; individual source poses retained",
+        "representative_source_pose_id": null,
+        "requires_review": true
+      },
+      {
+        "basin_id": "group_004",
+        "count": 44,
+        "group_id": 10,
+        "incidence_percent": 0.44,
+        "members": [
+          "Kk2i_0007"
+        ],
+        "representative_assessment": "not performed; individual source poses retained",
+        "representative_source_pose_id": null,
+        "requires_review": true
+      },
+      {
+        "basin_id": "group_007",
+        "count": 34,
+        "group_id": 11,
+        "incidence_percent": 0.34,
+        "members": [
+          "Kk2i_0011"
+        ],
+        "representative_assessment": "not performed; individual source poses retained",
+        "representative_source_pose_id": null,
+        "requires_review": true
+      },
+      {
+        "basin_id": "group_005",
+        "count": 28,
+        "group_id": 12,
+        "incidence_percent": 0.28,
+        "members": [
+          "Kk2i_0009"
+        ],
+        "representative_assessment": "not performed; individual source poses retained",
+        "representative_source_pose_id": null,
+        "requires_review": true
+      },
+      {
+        "basin_id": "group_009",
+        "count": 21,
+        "group_id": 13,
+        "incidence_percent": 0.21,
+        "members": [
+          "Kk2i_0014"
+        ],
+        "representative_assessment": "not performed; individual source poses retained",
+        "representative_source_pose_id": null,
+        "requires_review": true
+      },
+      {
+        "basin_id": "group_000",
+        "count": 10,
+        "group_id": 14,
+        "incidence_percent": 0.1,
+        "members": [
+          "Kk2i_0001",
+          "Kk2i_0002",
+          "Kk2i_0031"
+        ],
+        "representative_assessment": "not performed; individual source poses retained",
+        "representative_source_pose_id": null,
+        "requires_review": false
+      }
+    ],
+    "local_path_limit_deg": 60,
+    "model": "scoped-persistent-seated-energy-basins-v2",
+    "review": [
+      {
+        "destinations": [
+          {
+            "minimax_height_mm": 14.451541875640167,
+            "minimum_node": 2,
+            "required_lift_mm": 0.020582988795489143
+          },
+          {
+            "minimax_height_mm": 14.449912460599363,
+            "minimum_node": 16,
+            "required_lift_mm": 0.018953573754684427
+          },
+          {
+            "minimax_height_mm": 14.453521314483506,
+            "minimum_node": 11392,
+            "required_lift_mm": 0.022562427638828098
+          },
+          {
+            "minimax_height_mm": 14.452986472497866,
+            "minimum_node": 22588,
+            "required_lift_mm": 0.022027585653187742
+          },
+          {
+            "minimax_height_mm": 14.440764460652192,
+            "minimum_node": 33858,
+            "required_lift_mm": 0.009805573807513568
+          }
+        ],
+        "members": [
+          "Kk2i_0007"
+        ],
+        "reason": "ambiguous_energy_destination"
+      },
+      {
+        "destinations": [
+          {
+            "minimax_height_mm": 14.451541875640167,
+            "minimum_node": 2,
+            "required_lift_mm": 0.19267228465332842
+          },
+          {
+            "minimax_height_mm": 14.449912460599363,
+            "minimum_node": 16,
+            "required_lift_mm": 0.1910428696125237
+          },
+          {
+            "minimax_height_mm": 14.453521314483506,
+            "minimum_node": 11392,
+            "required_lift_mm": 0.19465172349666737
+          },
+          {
+            "minimax_height_mm": 14.452986472497866,
+            "minimum_node": 22588,
+            "required_lift_mm": 0.19411688151102702
+          },
+          {
+            "minimax_height_mm": 14.262686563491783,
+            "minimum_node": 33858,
+            "required_lift_mm": 0.0038169725049446157
+          }
+        ],
+        "members": [
+          "Kk2i_0009"
+        ],
+        "reason": "ambiguous_energy_destination"
+      },
+      {
+        "destinations": [
+          {
+            "minimax_height_mm": 14.451541875640167,
+            "minimum_node": 2,
+            "required_lift_mm": 0.38003541099551974
+          },
+          {
+            "minimax_height_mm": 14.449912460599363,
+            "minimum_node": 16,
+            "required_lift_mm": 0.378405995954715
+          },
+          {
+            "minimax_height_mm": 14.453521314483506,
+            "minimum_node": 11392,
+            "required_lift_mm": 0.3820148498388587
+          },
+          {
+            "minimax_height_mm": 14.452986472497866,
+            "minimum_node": 22588,
+            "required_lift_mm": 0.38148000785321834
+          },
+          {
+            "minimax_height_mm": 14.074304282365063,
+            "minimum_node": 33858,
+            "required_lift_mm": 0.0027978177204150967
+          }
+        ],
+        "members": [
+          "Kk2i_0010"
+        ],
+        "reason": "ambiguous_energy_destination"
+      },
+      {
+        "destinations": [
+          {
+            "minimax_height_mm": 14.451541875640167,
+            "minimum_node": 2,
+            "required_lift_mm": 0.37633492367965893
+          },
+          {
+            "minimax_height_mm": 14.449912460599363,
+            "minimum_node": 16,
+            "required_lift_mm": 0.3747055086388542
+          },
+          {
+            "minimax_height_mm": 14.453521314483506,
+            "minimum_node": 11392,
+            "required_lift_mm": 0.3783143625229979
+          },
+          {
+            "minimax_height_mm": 14.452986472497866,
+            "minimum_node": 22588,
+            "required_lift_mm": 0.3777795205373575
+          },
+          {
+            "minimax_height_mm": 14.077179384794906,
+            "minimum_node": 33858,
+            "required_lift_mm": 0.0019724328343979636
+          }
+        ],
+        "members": [
+          "Kk2i_0011"
+        ],
+        "reason": "ambiguous_energy_destination"
+      },
+      {
+        "destinations": [
+          {
+            "minimax_height_mm": 14.451541875640167,
+            "minimum_node": 2,
+            "required_lift_mm": 0.19548390097888912
+          },
+          {
+            "minimax_height_mm": 14.449912460599363,
+            "minimum_node": 16,
+            "required_lift_mm": 0.1938544859380844
+          },
+          {
+            "minimax_height_mm": 14.453521314483506,
+            "minimum_node": 11392,
+            "required_lift_mm": 0.19746333982222808
+          },
+          {
+            "minimax_height_mm": 14.452986472497866,
+            "minimum_node": 22588,
+            "required_lift_mm": 0.19692849783658772
+          },
+          {
+            "minimax_height_mm": 14.259824040251804,
+            "minimum_node": 33858,
+            "required_lift_mm": 0.0037660655905256135
+          }
+        ],
+        "members": [
+          "Kk2i_0012"
+        ],
+        "reason": "ambiguous_energy_destination"
+      },
+      {
+        "destinations": [
+          {
+            "minimax_height_mm": 14.451541875640167,
+            "minimum_node": 2,
+            "required_lift_mm": 0.020838162029091833
+          },
+          {
+            "minimax_height_mm": 14.449912460599363,
+            "minimum_node": 16,
+            "required_lift_mm": 0.019208746988287118
+          },
+          {
+            "minimax_height_mm": 14.453521314483506,
+            "minimum_node": 11392,
+            "required_lift_mm": 0.022817600872430788
+          },
+          {
+            "minimax_height_mm": 14.452986472497866,
+            "minimum_node": 22588,
+            "required_lift_mm": 0.022282758886790432
+          },
+          {
+            "minimax_height_mm": 14.439755448459618,
+            "minimum_node": 33858,
+            "required_lift_mm": 0.009051734848542381
+          }
+        ],
+        "members": [
+          "Kk2i_0014"
+        ],
+        "reason": "ambiguous_energy_destination"
+      },
+      {
+        "destinations": [
+          {
+            "minimax_height_mm": 15.052896334237317,
+            "minimum_node": 2,
+            "required_lift_mm": 0.02796492597132172
+          },
+          {
+            "minimax_height_mm": 15.052896334237317,
+            "minimum_node": 16,
+            "required_lift_mm": 0.02796492597132172
+          },
+          {
+            "minimax_height_mm": 15.052896334237317,
+            "minimum_node": 11392,
+            "required_lift_mm": 0.02796492597132172
+          },
+          {
+            "minimax_height_mm": 15.052896334237317,
+            "minimum_node": 22588,
+            "required_lift_mm": 0.02796492597132172
+          },
+          {
+            "minimax_height_mm": 15.052896334237317,
+            "minimum_node": 33858,
+            "required_lift_mm": 0.02796492597132172
+          }
+        ],
+        "members": [
+          "Kk2i_0023"
+        ],
+        "reason": "ambiguous_energy_destination"
+      },
+      {
+        "destinations": [
+          {
+            "minimax_height_mm": 15.086971285780436,
+            "minimum_node": 2,
+            "required_lift_mm": 0.04283783715816547
+          },
+          {
+            "minimax_height_mm": 15.086971285780436,
+            "minimum_node": 16,
+            "required_lift_mm": 0.04283783715816547
+          },
+          {
+            "minimax_height_mm": 15.086971285780436,
+            "minimum_node": 11392,
+            "required_lift_mm": 0.04283783715816547
+          },
+          {
+            "minimax_height_mm": 15.086971285780436,
+            "minimum_node": 22588,
+            "required_lift_mm": 0.04283783715816547
+          },
+          {
+            "minimax_height_mm": 15.086971285780436,
+            "minimum_node": 33858,
+            "required_lift_mm": 0.04283783715816547
+          }
+        ],
+        "members": [
+          "Kk2i_0025"
+        ],
+        "reason": "ambiguous_energy_destination"
+      },
+      {
+        "destinations": [
+          {
+            "minimax_height_mm": 15.056819389530714,
+            "minimum_node": 2,
+            "required_lift_mm": 0.032046894247717006
+          },
+          {
+            "minimax_height_mm": 15.056819389530714,
+            "minimum_node": 16,
+            "required_lift_mm": 0.032046894247717006
+          },
+          {
+            "minimax_height_mm": 15.056819389530714,
+            "minimum_node": 11392,
+            "required_lift_mm": 0.032046894247717006
+          },
+          {
+            "minimax_height_mm": 15.056819389530714,
+            "minimum_node": 22588,
+            "required_lift_mm": 0.032046894247717006
+          },
+          {
+            "minimax_height_mm": 15.056819389530714,
+            "minimum_node": 33858,
+            "required_lift_mm": 0.032046894247717006
+          }
+        ],
+        "members": [
+          "Kk2i_0027"
+        ],
+        "reason": "ambiguous_energy_destination"
+      }
+    ],
+    "sampling_step_deg": 0.1
+  },
   "observation_length_mm": 500,
   "poses": [
     {

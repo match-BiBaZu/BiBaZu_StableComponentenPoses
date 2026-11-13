@@ -3978,3 +3978,38 @@ poses:
   roadmap_match_statuses:
   - unmatched
   image: images/Kf2a_0002.png
+grouping:
+  model: scoped-persistent-seated-energy-basins-v2
+  groups:
+  - basin_id: group_002
+    members:
+    - Kf2a_0003
+    count: 541
+    requires_review: false
+    representative_source_pose_id: null
+    representative_assessment: not performed; individual source poses retained
+    group_id: 0
+    incidence_percent: 54.1
+  - basin_id: group_000
+    members:
+    - Kf2a_0001
+    count: 216
+    requires_review: false
+    representative_source_pose_id: null
+    representative_assessment: not performed; individual source poses retained
+    group_id: 1
+    incidence_percent: 21.6
+  - basin_id: group_001
+    members:
+    - Kf2a_0002
+    count: 5
+    requires_review: false
+    representative_source_pose_id: null
+    representative_assessment: not performed; individual source poses retained
+    group_id: 2
+    incidence_percent: 0.5
+  review: []
+  barrier_mm: 0.5
+  local_path_limit_deg: 60
+  sampling_step_deg: 0.1
+  evidence: grouping/20261113/energy_paths.json.gz

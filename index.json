@@ -545,6 +545,12 @@
     {
       "length_mm": 500,
       "poses": 3,
+      "rolling_surface_grouping": {
+        "model": "scoped-persistent-seated-energy-basins-v2",
+        "path": "Kf2a/grouping/20261113/README.md",
+        "validation_path": "Kf2a/simulations/20261113_rolling_100/README.md",
+        "validation_trials": 200
+      },
       "run_id": "e9aeef0f4b454ccd4db3a3b87525affbf342ac5f7209657cb0a266b8031c32e2",
       "settled": 762,
       "status": "complete",
@@ -586,6 +592,12 @@
     {
       "length_mm": 500,
       "poses": 26,
+      "rolling_surface_grouping": {
+        "model": "scoped-persistent-seated-energy-basins-v2",
+        "path": "Kf4i/grouping/20261113/README.md",
+        "validation_path": "Kf4i/simulations/20261113_rolling_100/README.md",
+        "validation_trials": 200
+      },
       "run_id": "57c484fdd84eedc7ee55cc3c7cfb8f7890d7333a831a94231dc722dd39169517",
       "settled": 132,
       "status": "complete",
@@ -701,6 +713,12 @@
     {
       "length_mm": 500,
       "poses": 31,
+      "rolling_surface_grouping": {
+        "model": "scoped-persistent-seated-energy-basins-v2",
+        "path": "Kk2i/grouping/20261113/README.md",
+        "validation_path": "Kk2i/simulations/20261113_rolling_100/README.md",
+        "validation_trials": 200
+      },
       "run_id": "8fe6265e5472853aa5ecee69152e6eafb2fda5bad5a93e9581d612a74692b499",
       "settled": 8448,
       "status": "complete",
@@ -742,6 +760,12 @@
     {
       "length_mm": 500,
       "poses": 121,
+      "rolling_surface_grouping": {
+        "model": "scoped-persistent-seated-energy-basins-v2",
+        "path": "Kk4a/grouping/20261113/README.md",
+        "validation_path": "Kk4a/simulations/20261113_rolling_100/README.md",
+        "validation_trials": 200
+      },
       "run_id": "cebb71ad47141840487afaae49bc38897becaf732109a391c4ad2fa5d45f4053",
       "settled": 7726,
       "status": "complete",
@@ -855,6 +879,12 @@
     {
       "length_mm": 500,
       "poses": 27,
+      "rolling_surface_grouping": {
+        "model": "scoped-persistent-seated-energy-basins-v2",
+        "path": "Kl2a/grouping/20261113/README.md",
+        "validation_path": "Kl2a/simulations/20261113_rolling_100/README.md",
+        "validation_trials": 200
+      },
       "run_id": "88f4aa8a1b88d57f85eb76b7486843736e1d9e2a5bb78d2d0924138a2ad272ac",
       "settled": 9912,
       "status": "complete",
@@ -896,6 +926,12 @@
     {
       "length_mm": 500,
       "poses": 41,
+      "rolling_surface_grouping": {
+        "model": "scoped-persistent-seated-energy-basins-v2",
+        "path": "Kl4i/grouping/20261113/README.md",
+        "validation_path": "Kl4i/simulations/20261113_rolling_100/README.md",
+        "validation_trials": 200
+      },
       "run_id": "26200fe6e38c5de275da1f0cf6a572b6e7082ab0a6403db5b89e81cf6c5853b5",
       "settled": 9620,
       "status": "complete",

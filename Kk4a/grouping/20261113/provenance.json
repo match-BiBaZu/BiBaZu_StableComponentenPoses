@@ -1,0 +1,27 @@
+{
+  "disturbance_sweeps": 0,
+  "model": "scoped-persistent-seated-energy-basins-v2",
+  "physical_reference_studies": [
+    "20261107_10000",
+    "20261110_10000"
+  ],
+  "published_validation_drops": 1200,
+  "recognition_and_individual_poses": "preserved",
+  "scope_meshes": {
+    "Kf2a": "cd1bb04dda24ff3aa100827f1042e6abb2459c6bd1301fba1be041b49d1ab30c",
+    "Kf4i": "56720a15e28abcf47d6705716e1033a8146c4970e212b7d3f3cd2f33ab3e64ca",
+    "Kk2i": "ec6ebb3923fcab8e0a02546aac25cb13f893584b551a81ced4315e1059195ef7",
+    "Kk4a": "8b9e742443c8153aca1f5afd3e68562d5cecd7ac9af010f2ede3b0162fa200c1",
+    "Kl2a": "f874e82aea3486c1887ad267db840f2cd2899527241407e5f142bc8bcf70a5fe",
+    "Kl4i": "3b1586a009406e6108f590bbe6316004d9a6a18944d92b64d5f2e5acdff6e831"
+  },
+  "simulator_base_commit": "d426e783832fd89e70f97419a19d7288e1aa5bda",
+  "simulator_local_commit": "f9a4f6ee53025b9542e8b47e4278924526e76455",
+  "source_patch_sha256": "956e2873ee8f25ae1a6ec251ccac935c0fbdb1f1adffad39f353689742fe9650",
+  "study": "20261113_rolling_100",
+  "tests": "199 passed in 289.93s (0:04:49)",
+  "unaffected_new_run_legacy_identical": true,
+  "unaffected_saved_catalogues_legacy_identical": true,
+  "unaffected_workpieces": 33,
+  "validation_drops_all_workpieces": 7800
+}
